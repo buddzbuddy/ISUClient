@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ISUClient.ContingentForms;using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,7 @@ namespace ISUClient
 {
     public partial class FormMain : Form
     {
-        ContingentForm _contingent = null;
+        ContingentForm _contingentForm = null;
         public FormMain()
         {
             InitializeComponent();
@@ -25,8 +25,8 @@ namespace ISUClient
 
         private void opentContingent_Click(object sender, EventArgs e)
         {
-            _contingent = new ContingentForm();
-            DialogResult dialog = _contingent.ShowDialog();
+            _contingentForm = new ContingentForm();
+            DialogResult dialog = _contingentForm.ShowDialog();
         }
     }
 }

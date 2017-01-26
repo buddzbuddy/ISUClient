@@ -1,4 +1,5 @@
-﻿using ISUClient.Models.Contingent;
+﻿using ISUClient.ContingentForms;
+using ISUClient.Models.Contingent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace ISUClient
 {
     public partial class ContingentForm : Form
     {
+
+        AddStudentForm _addStudentForm = null;
+        AddGroupForm _addGroupForm = null;
         public ContingentForm()
         {
 
@@ -81,6 +85,18 @@ namespace ISUClient
                 return false;
             }
             return true;
+        }
+
+        private void addStudentButton_Click(object sender, EventArgs e)
+        {
+            _addStudentForm = new AddStudentForm();
+            DialogResult dialog = _addStudentForm.ShowDialog();
+        }
+
+        private void AddGroupButton_Click(object sender, EventArgs e)
+        {
+            _addGroupForm = new AddGroupForm(this);
+            DialogResult dialog = _addGroupForm.ShowDialog();
         }
     }
 }
