@@ -82,10 +82,5 @@ namespace ISUClient
             }
             return true;
         }
-
-        private void DataGridViewGroups_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            UpdateGroupsComboBox();
-        }
     }
 }
