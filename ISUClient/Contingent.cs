@@ -25,68 +25,6 @@ namespace ISUClient
             //FillGroups();
         }
 
-        private void UpdateGroupsComboBox()
-        {
-            try
-            {
-                Group.Items.Clear();
-            }
-            catch
-            {
-
-            }
-            foreach (DataGridViewRow row in DataGridViewGroups.Rows)
-            {
-                try
-                {
-                    Group.Items.Add(row.Cells[1].Value.ToString());
-                }
-                catch
-                {
-
-                }
-            }
-        }
-
-        private void FillGroups()
-        {
-            var n = DataGridViewGroups.Rows.Add();
-            DataGridViewGroups.Rows[n].Cells["GroupId"].Value = "1";
-            DataGridViewGroups.Rows[n].Cells["GroupName"].Value = "Group 1";
-        }
-
-        private bool SaveToLocalDb(Student obj, out string errorMessage)
-        {
-            errorMessage = "";
-            var xDoc = new XDocument();
-            var xPersonsElement = new XElement("Students");
-            xDoc.Add(xPersonsElement);
-            //TODO: Write to progress bar
-
-            //Create xml element
-            try
-            {
-                xPersonsElement.Add(new XElement("Student",
-                    new[]
-                        {
-                            new XElement("LastName", obj.LastName),
-                            new XElement("FirstName", obj.FirstName),
-                            new XElement("MiddleName", obj.MiddleName),
-                            new XElement("BirthDate", obj.BirthDate),
-                            new XElement("GroupName", obj.GroupName)
-                        }));
-                //TODO: WriteLog("Saving xml doc to file");
-                xDoc.Save("ISULocalDb.xml");
-            }
-            catch (Exception e)
-            {
-                //TODO: WriteLog("Breaking the initializing by exception, " + e.Message + ", count persons - " + i);
-                errorMessage = e.Message;
-                return false;
-            }
-            return true;
-        }
-
         private void addStudentButton_Click(object sender, EventArgs e)
         {
             _addStudentForm = new AddStudentForm();
@@ -97,6 +35,29 @@ namespace ISUClient
         {
             _addGroupForm = new AddGroupForm(this);
             DialogResult dialog = _addGroupForm.ShowDialog();
+        }
+        private void copyAlltoClipboard()
+        {
+            DataGridViewGroups.SelectAll();
+            DataObject dataObj = DataGridViewGroups.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+        private void ToExcelGroupsButton_Click(object sender, EventArgs e)
+        {
+            copyAlltoClipboard();
+            Microsoft.Office.Interop.Excel.Application xlexcel;
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Microsoft.Office.Interop.Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }
     }
 }

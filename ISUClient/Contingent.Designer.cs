@@ -36,13 +36,14 @@
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DataGridViewGroups = new System.Windows.Forms.DataGridView();
-            this.AddStudentButton = new System.Windows.Forms.Button();
-            this.AddGroupButton = new System.Windows.Forms.Button();
             this.GroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Language = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Profession = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.StudyPeriod = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AddStudentButton = new System.Windows.Forms.Button();
+            this.AddGroupButton = new System.Windows.Forms.Button();
+            this.ToExcelGroupsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewGroups)).BeginInit();
             this.SuspendLayout();
@@ -117,28 +118,6 @@
             this.DataGridViewGroups.Size = new System.Drawing.Size(446, 150);
             this.DataGridViewGroups.TabIndex = 1;
             // 
-            // AddStudentButton
-            // 
-            this.AddStudentButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.AddStudentButton.Location = new System.Drawing.Point(741, 13);
-            this.AddStudentButton.Name = "AddStudentButton";
-            this.AddStudentButton.Size = new System.Drawing.Size(75, 47);
-            this.AddStudentButton.TabIndex = 2;
-            this.AddStudentButton.Text = "Добавить учащегося";
-            this.AddStudentButton.UseVisualStyleBackColor = false;
-            this.AddStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
-            // 
-            // AddGroupButton
-            // 
-            this.AddGroupButton.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.AddGroupButton.Location = new System.Drawing.Point(741, 170);
-            this.AddGroupButton.Name = "AddGroupButton";
-            this.AddGroupButton.Size = new System.Drawing.Size(75, 42);
-            this.AddGroupButton.TabIndex = 3;
-            this.AddGroupButton.Text = "Добавить группу";
-            this.AddGroupButton.UseVisualStyleBackColor = false;
-            this.AddGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
-            // 
             // GroupId
             // 
             this.GroupId.HeaderText = "Id";
@@ -185,11 +164,44 @@
             this.StudyPeriod.ReadOnly = true;
             this.StudyPeriod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // AddStudentButton
+            // 
+            this.AddStudentButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.AddStudentButton.Location = new System.Drawing.Point(741, 13);
+            this.AddStudentButton.Name = "AddStudentButton";
+            this.AddStudentButton.Size = new System.Drawing.Size(75, 47);
+            this.AddStudentButton.TabIndex = 2;
+            this.AddStudentButton.Text = "Добавить учащегося";
+            this.AddStudentButton.UseVisualStyleBackColor = false;
+            this.AddStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
+            // 
+            // AddGroupButton
+            // 
+            this.AddGroupButton.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.AddGroupButton.Location = new System.Drawing.Point(741, 170);
+            this.AddGroupButton.Name = "AddGroupButton";
+            this.AddGroupButton.Size = new System.Drawing.Size(75, 42);
+            this.AddGroupButton.TabIndex = 3;
+            this.AddGroupButton.Text = "Добавить группу";
+            this.AddGroupButton.UseVisualStyleBackColor = false;
+            this.AddGroupButton.Click += new System.EventHandler(this.AddGroupButton_Click);
+            // 
+            // ToExcelGroupsButton
+            // 
+            this.ToExcelGroupsButton.Location = new System.Drawing.Point(741, 219);
+            this.ToExcelGroupsButton.Name = "ToExcelGroupsButton";
+            this.ToExcelGroupsButton.Size = new System.Drawing.Size(75, 37);
+            this.ToExcelGroupsButton.TabIndex = 4;
+            this.ToExcelGroupsButton.Text = "экспорт в Excel";
+            this.ToExcelGroupsButton.UseVisualStyleBackColor = true;
+            this.ToExcelGroupsButton.Click += new System.EventHandler(this.ToExcelGroupsButton_Click);
+            // 
             // ContingentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 483);
+            this.Controls.Add(this.ToExcelGroupsButton);
             this.Controls.Add(this.AddGroupButton);
             this.Controls.Add(this.AddStudentButton);
             this.Controls.Add(this.DataGridViewGroups);
@@ -219,5 +231,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Language;
         private System.Windows.Forms.DataGridViewComboBoxColumn Profession;
         private System.Windows.Forms.DataGridViewComboBoxColumn StudyPeriod;
+        private System.Windows.Forms.Button ToExcelGroupsButton;
     }
 }
