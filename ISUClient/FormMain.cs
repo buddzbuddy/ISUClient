@@ -28,5 +28,18 @@ namespace ISUClient
             _contingentForm = new ContingentForm();
             DialogResult dialog = _contingentForm.ShowDialog();
         }
+
+        private static void TestResource()
+        {
+
+            //var res = ISUClient.Resource_meta.ResourceManager.GetObject("isu_meta");
+            
+            //return;
+        }
+
+        private void TestResourceButton_Click(object sender, EventArgs e)
+        {
+            TestResource();
+        }
     }
 }

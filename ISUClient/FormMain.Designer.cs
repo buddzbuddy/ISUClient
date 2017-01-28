@@ -32,6 +32,7 @@
             this.Description = new System.Windows.Forms.Label();
             this.button = new System.Windows.Forms.Button();
             this.opentContingent = new System.Windows.Forms.Button();
+            this.TestResourceButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Description
@@ -63,11 +64,22 @@
             this.opentContingent.UseVisualStyleBackColor = true;
             this.opentContingent.Click += new System.EventHandler(this.opentContingent_Click);
             // 
+            // TestResourceButton
+            // 
+            this.TestResourceButton.Location = new System.Drawing.Point(16, 127);
+            this.TestResourceButton.Name = "TestResourceButton";
+            this.TestResourceButton.Size = new System.Drawing.Size(75, 23);
+            this.TestResourceButton.TabIndex = 3;
+            this.TestResourceButton.Text = "Тест";
+            this.TestResourceButton.UseVisualStyleBackColor = true;
+            this.TestResourceButton.Click += new System.EventHandler(this.TestResourceButton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 453);
+            this.Controls.Add(this.TestResourceButton);
             this.Controls.Add(this.opentContingent);
             this.Controls.Add(this.button);
             this.Controls.Add(this.Description);
@@ -84,6 +96,7 @@
         private System.Windows.Forms.Label Description;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.Button opentContingent;
+        private System.Windows.Forms.Button TestResourceButton;
     }
 }
 
