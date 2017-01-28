@@ -31,10 +31,28 @@ namespace ISUClient
 
         private static void TestResource()
         {
+            string filePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\isu-meta-local.xls";
 
-            //var res = ISUClient.Resource_meta.ResourceManager.GetObject("isu_meta");
+            var hasFile = System.IO.File.Exists(filePath);
+            if (hasFile)
+            {
+                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(filePath, Type.Missing, false, Type.Missing, System.Configuration.ConfigurationManager.AppSettings["workbookPass"], System.Configuration.ConfigurationManager.AppSettings["workbookPass"]);
+                Microsoft.Office.Interop.Excel.Worksheet excelWorksheet = excelWorkbook.Sheets[1];
+                var cells = excelWorksheet.Cells;
+                var val = cells[5, 3].Value;
+                excelWorkbook.Close();
+                excelApp.Quit();
+
+                MessageBox.Show(val);
+            }
+            else
+            {
+                MessageBox.Show("File not found!");
+                return;
+            }
             
-            //return;
+            //MessageBox.Show(System.Configuration.ConfigurationManager.AppSettings["workbookPass"]);
         }
 
         private void TestResourceButton_Click(object sender, EventArgs e)
