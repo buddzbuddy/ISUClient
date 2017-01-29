@@ -38,11 +38,16 @@ namespace ISUClient
             {
                 Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(filePath, Type.Missing, false, Type.Missing, System.Configuration.ConfigurationManager.AppSettings["workbookPass"], System.Configuration.ConfigurationManager.AppSettings["workbookPass"]);
-                Microsoft.Office.Interop.Excel.Worksheet excelWorksheet = excelWorkbook.Sheets[1];
+                Microsoft.Office.Interop.Excel.Worksheet excelWorksheet = excelWorkbook.Worksheets[1];
+
                 var cells = excelWorksheet.Cells;
+
                 var val = cells[5, 3].Value;
                 excelWorkbook.Close();
                 excelApp.Quit();
+
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
 
                 MessageBox.Show(val);
             }
