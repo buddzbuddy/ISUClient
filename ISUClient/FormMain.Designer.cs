@@ -72,7 +72,6 @@
             this.TestResourceButton.TabIndex = 3;
             this.TestResourceButton.Text = "Тест";
             this.TestResourceButton.UseVisualStyleBackColor = true;
-            this.TestResourceButton.Click += new System.EventHandler(this.TestResourceButton_Click);
             // 
             // FormMain
             // 

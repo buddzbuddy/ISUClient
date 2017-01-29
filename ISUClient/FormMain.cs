@@ -1,4 +1,6 @@
-﻿using ISUClient.ContingentForms;using System;
+﻿using ISUClient.AccountForms;
+using ISUClient.ContingentForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace ISUClient
     public partial class FormMain : Form
     {
         ContingentForm _contingentForm = null;
+        LoginForm _loginForm = null;
         public FormMain()
         {
             InitializeComponent();
@@ -27,42 +30,6 @@ namespace ISUClient
         {
             _contingentForm = new ContingentForm();
             DialogResult dialog = _contingentForm.ShowDialog();
-        }
-
-        private static void TestResource()
-        {
-            string filePath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\isu-meta-local.xls";
-
-            var hasFile = System.IO.File.Exists(filePath);
-            if (hasFile)
-            {
-                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(filePath, Type.Missing, false, Type.Missing, System.Configuration.ConfigurationManager.AppSettings["workbookPass"], System.Configuration.ConfigurationManager.AppSettings["workbookPass"]);
-                Microsoft.Office.Interop.Excel.Worksheet excelWorksheet = excelWorkbook.Worksheets[1];
-
-                var cells = excelWorksheet.Cells;
-
-                var val = cells[5, 3].Value;
-                excelWorkbook.Close();
-                excelApp.Quit();
-
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-
-                MessageBox.Show(val);
-            }
-            else
-            {
-                MessageBox.Show("File not found!");
-                return;
-            }
-            
-            //MessageBox.Show(System.Configuration.ConfigurationManager.AppSettings["workbookPass"]);
-        }
-
-        private void TestResourceButton_Click(object sender, EventArgs e)
-        {
-            TestResource();
         }
     }
 }
