@@ -19,10 +19,21 @@ namespace ISUClient.AccountForms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            LoginButton.Enabled = false;
             var userName = UserNameTextBox.Text;
             var password = PasswordTextBox.Text;
             string errorMessage;
+
+            if(string.IsNullOrEmpty(userName))
+            {
+                UserNameTextBox.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(password))
+            {
+                PasswordTextBox.Focus();
+                return;
+            }
+            LoginButton.Enabled = false;
 
             if (AuthenticateUser(userName, password, out errorMessage))
             {

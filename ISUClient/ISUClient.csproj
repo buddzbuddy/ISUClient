@@ -112,23 +112,23 @@
     <Compile Include="AccountForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contingent.cs">
+    <Compile Include="ContingentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contingent.Designer.cs">
-      <DependentUpon>Contingent.cs</DependentUpon>
+    <Compile Include="ContingentForm.Designer.cs">
+      <DependentUpon>ContingentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContingentForms\AddGroup.cs">
+    <Compile Include="ContingentForms\AddGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContingentForms\AddGroup.Designer.cs">
-      <DependentUpon>AddGroup.cs</DependentUpon>
+    <Compile Include="ContingentForms\AddGroupForm.Designer.cs">
+      <DependentUpon>AddGroupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContingentForms\AddStudent.cs">
+    <Compile Include="ContingentForms\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContingentForms\AddStudent.Designer.cs">
-      <DependentUpon>AddStudent.cs</DependentUpon>
+    <Compile Include="ContingentForms\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -143,14 +143,14 @@
     <EmbeddedResource Include="AccountForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contingent.resx">
-      <DependentUpon>Contingent.cs</DependentUpon>
+    <EmbeddedResource Include="ContingentForm.resx">
+      <DependentUpon>ContingentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContingentForms\AddGroup.resx">
-      <DependentUpon>AddGroup.cs</DependentUpon>
+    <EmbeddedResource Include="ContingentForms\AddGroupForm.resx">
+      <DependentUpon>AddGroupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContingentForms\AddStudent.resx">
-      <DependentUpon>AddStudent.cs</DependentUpon>
+    <EmbeddedResource Include="ContingentForms\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
