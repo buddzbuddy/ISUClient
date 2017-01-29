@@ -19,6 +19,7 @@ namespace ISUClient.AccountForms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            LoginButton.Enabled = false;
             var userName = UserNameTextBox.Text;
             var password = PasswordTextBox.Text;
             string errorMessage;
@@ -42,6 +43,7 @@ namespace ISUClient.AccountForms
                     MessageBox.Show("Вход в систему не произведен. Неправильные имя пользователя или пароль.");
                 // do not close the window
             }
+            LoginButton.Enabled = true;
         }
 
         private bool AuthenticateUser(string userName, string password, out string errorMessage)
