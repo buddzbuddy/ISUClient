@@ -17,11 +17,11 @@ namespace ISUClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            LoginForm loginForm = new LoginForm();
+            var formMain = new FormMain();
+            LoginForm loginForm = new LoginForm(formMain);
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FormMain());
+                Application.Run(formMain);
             }
         }
     }

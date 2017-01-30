@@ -30,5 +30,32 @@ namespace ISUClient
             _contingentForm = new ContingentForm();
             DialogResult dialog = _contingentForm.ShowDialog();
         }
+
+        public void FillUserInfo(string userName, string positionName, string OrgName, string userIdStr)
+        {
+            UserNameTextBox.Text = userName;
+            PositionNameTextBox.Text = positionName;
+            OrganizationNameTextBox.Text = OrgName;
+            UserIdTextBox.Text = userIdStr;
+        }
+
+        public void EnableContingent()
+        {
+            ContingentOpenButton.Enabled = true;
+        }
+        public void EnableLedger()
+        {
+            LedgerOpenButton.Enabled = true;
+        }
+        public void EnableEmployee()
+        {
+            EmployeeOpenButton.Enabled = true;
+        }
+        public void EnableAll()
+        {
+            EnableContingent();
+            EnableLedger();
+            EnableEmployee();
+        }
     }
 }

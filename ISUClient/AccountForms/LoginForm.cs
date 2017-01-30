@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ISUClient.StaticReferences;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace ISUClient.AccountForms
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        FormMain _formMain = null;
+        public LoginForm(FormMain formMain)
         {
+            _formMain = formMain;
             InitializeComponent();
         }
 
@@ -22,6 +25,9 @@ namespace ISUClient.AccountForms
             var userName = UserNameTextBox.Text;
             var password = PasswordTextBox.Text;
             string errorMessage;
+            string positionIdStr;
+            string orgName;
+            string userIdStr;
 
             if(string.IsNullOrEmpty(userName))
             {
@@ -35,11 +41,39 @@ namespace ISUClient.AccountForms
             }
             LoginButton.Enabled = false;
 
-            if (AuthenticateUser(userName, password, out errorMessage))
+            if (AuthenticateUser(userName, password, out positionIdStr, out orgName, out userIdStr, out errorMessage))
             {
                 // save the user has logged in somewhere
                 // set the dialog result to ok
                 this.DialogResult = DialogResult.OK;
+
+                string positionName = "Должность не распознана";
+                Guid positionId = Guid.Empty;
+                if (Guid.TryParse(positionIdStr, out positionId))
+                {
+                    positionName = OrgStructures.GetPositionName(positionId);
+
+                    if (positionId == OrgStructures.StudentEntryPositionId)
+                    {
+                        _formMain.EnableContingent();
+                    }
+                    else if (positionId == OrgStructures.LedgerEntryPositionId)
+                    {
+                        _formMain.EnableLedger();
+                    }
+                    else if (positionId == OrgStructures.EmployeeEntryPositionId)
+                    {
+                        _formMain.EnableEmployee();
+                    }
+                    else if (positionId == OrgStructures.AllEntryPositionId)
+                    {
+                        _formMain.EnableAll();
+                    }
+                }
+
+
+                _formMain.FillUserInfo(userName, positionName, orgName, userIdStr);
+
                 // close the dialog
                 this.Close();
             }
@@ -57,8 +91,11 @@ namespace ISUClient.AccountForms
             LoginButton.Enabled = true;
         }
 
-        private bool AuthenticateUser(string userName, string password, out string errorMessage)
+        private bool AuthenticateUser(string userName, string password, out string positionIdStr, out string orgName, out string userIdStr, out string errorMessage)
         {
+            positionIdStr = "";
+            orgName = "";
+            userIdStr = "";
             errorMessage = "";
             string fileName = "isu-meta-local.xls";
             string dbpassword = "QQQwww123";
@@ -68,10 +105,11 @@ namespace ISUClient.AccountForms
             int userNameColIndex = 36;
             int passwordColIndex = 37;
             int fnColIndex = 38;
-            int userIdColIndex = 39;
-            int orgIdColIndex = 43;
             int lnColIndex = 46;
+            int userIdColIndex = 39;
             int positionIdColIndex = 35;
+            int orgIdColIndex = 43;
+            int orgNameColIndex = 31;
 
             int rowMax = 1000;
 
@@ -101,6 +139,9 @@ namespace ISUClient.AccountForms
                         {
                             if (userName.ToUpper().Equals(userNameDb.ToUpper()) && password.ToUpper().Equals(passwordDb.ToUpper()))
                             {
+                                positionIdStr = cells[row, positionIdColIndex].Value;
+                                orgName = cells[row, orgNameColIndex].Value;
+                                userIdStr = cells[row, userIdColIndex].Value;
                                 isLogged = true;
                                 break;
                             }

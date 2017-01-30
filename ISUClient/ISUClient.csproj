@@ -140,6 +140,7 @@
     <Compile Include="Models\Contingent\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticReferences\OrgStructures.cs" />
     <EmbeddedResource Include="AccountForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
