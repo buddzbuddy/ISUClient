@@ -136,9 +136,6 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contingent\Enum.cs" />
-    <Compile Include="Models\Contingent\Group.cs" />
-    <Compile Include="Models\Contingent\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticReferences\OrgStructures.cs" />
@@ -206,6 +203,12 @@
     <None Include="Resources\student_icon.png" />
     <None Include="Resources\ledger_icon.png" />
     <None Include="Resources\employee_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{54be25af-9481-4797-af45-6251d997db28}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

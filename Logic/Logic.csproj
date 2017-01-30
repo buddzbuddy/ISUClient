@@ -39,8 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Implementations\ChildEntityXmlRepository.cs" />
+    <Compile Include="Implementations\EntityXmlRepository.cs" />
+    <Compile Include="Implementations\GroupRepository.cs" />
+    <Compile Include="Interfaces\IGroupRepository.cs" />
+    <Compile Include="XDocumentProvider.cs" />
+    <Compile Include="Implementations\XmlRepositoryBase.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{54be25af-9481-4797-af45-6251d997db28}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

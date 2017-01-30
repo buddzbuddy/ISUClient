@@ -1,4 +1,4 @@
-﻿using UI.Models.Contingent;
+﻿using Domain.Models.Contingent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +74,45 @@ namespace UI.ContingentForms
             var xRootElement = isNew ? new XElement("root") : xDoc.Root;
             if (isNew) xDoc.Add(xRootElement);
             
+            var xGroupsElement = isNew ? new XElement("Groups") : xRootElement.Element("Groups");
+            if (isNew) xRootElement.Add(xGroupsElement);
+            //TODO: Write to progress bar
+
+            //Create xml element
+            try
+            {
+                xGroupsElement.Add(new XElement("Group",
+                    new[]
+                        {
+                            new XElement("Name", obj.Name),
+                            new XElement("Language", obj.Language),
+                            new XElement("Profession", obj.Profession),
+                            new XElement("StudyPeriod", obj.StudyPeriod)
+                        }));
+                //TODO: WriteLog("Saving xml doc to file");
+                xDoc.Save(filePath);
+            }
+            catch (Exception e)
+            {
+                //TODO: WriteLog("Breaking the initializing by exception, " + e.Message + ", count persons - " + i);
+                errorMessage = e.Message;
+                return false;
+            }
+            return true;
+        }
+
+        private bool SaveToLocalDb2(Group obj, out string errorMessage)
+        {
+            errorMessage = "";
+
+            string filePath = "ISUClient.xml";
+            var isNew = !System.IO.File.Exists(filePath);
+
+            var xDoc = isNew ? new XDocument() : XDocument.Load(filePath);
+
+            var xRootElement = isNew ? new XElement("root") : xDoc.Root;
+            if (isNew) xDoc.Add(xRootElement);
+
             var xGroupsElement = isNew ? new XElement("Groups") : xRootElement.Element("Groups");
             if (isNew) xRootElement.Add(xGroupsElement);
             //TODO: Write to progress bar

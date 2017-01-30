@@ -8,6 +8,7 @@ namespace Domain.Models.Contingent
 {
     public class Group
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Language { get; set; }
         public string Profession { get; set; }

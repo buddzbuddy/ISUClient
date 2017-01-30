@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Contingent\Enum.cs" />
-    <Compile Include="Models\Contingent\Group.cs" />
-    <Compile Include="Models\Contingent\Student.cs" />
+    <Compile Include="Entities\Contingent\Enum.cs" />
+    <Compile Include="Entities\Contingent\Group.cs" />
+    <Compile Include="Entities\Contingent\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
