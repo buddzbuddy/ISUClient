@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.Description = new System.Windows.Forms.Label();
-            this.button = new System.Windows.Forms.Button();
+            this.AboutButton = new System.Windows.Forms.Button();
             this.ContingentOpenButton = new System.Windows.Forms.Button();
             this.MTBOpenButton = new System.Windows.Forms.Button();
             this.EmployeeOpenButton = new System.Windows.Forms.Button();
@@ -51,15 +51,15 @@
             this.Description.TabIndex = 0;
             this.Description.Text = "Описание";
             // 
-            // button
+            // AboutButton
             // 
-            this.button.Location = new System.Drawing.Point(12, 418);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(91, 23);
-            this.button.TabIndex = 1;
-            this.button.Text = "О программе";
-            this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.button_Click);
+            this.AboutButton.Location = new System.Drawing.Point(12, 418);
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.Size = new System.Drawing.Size(91, 23);
+            this.AboutButton.TabIndex = 1;
+            this.AboutButton.Text = "О программе";
+            this.AboutButton.UseVisualStyleBackColor = true;
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
             // ContingentOpenButton
             // 
@@ -69,7 +69,7 @@
             this.ContingentOpenButton.TabIndex = 2;
             this.ContingentOpenButton.Text = "Контингент";
             this.ContingentOpenButton.UseVisualStyleBackColor = true;
-            this.ContingentOpenButton.Click += new System.EventHandler(this.opentContingent_Click);
+            this.ContingentOpenButton.Click += new System.EventHandler(this.ContingentOpenButton_Click);
             // 
             // MTBOpenButton
             // 
@@ -82,7 +82,7 @@
             // 
             // EmployeeOpenButton
             // 
-            this.EmployeeOpenButton.Location = new System.Drawing.Point(469, 166);
+            this.EmployeeOpenButton.Location = new System.Drawing.Point(457, 167);
             this.EmployeeOpenButton.Name = "EmployeeOpenButton";
             this.EmployeeOpenButton.Size = new System.Drawing.Size(75, 23);
             this.EmployeeOpenButton.TabIndex = 4;
@@ -92,7 +92,7 @@
             // ContingentPictureBox
             // 
             this.ContingentPictureBox.Image = global::ISUClient.Properties.Resources.student_icon;
-            this.ContingentPictureBox.Location = new System.Drawing.Point(103, 60);
+            this.ContingentPictureBox.Location = new System.Drawing.Point(99, 60);
             this.ContingentPictureBox.Name = "ContingentPictureBox";
             this.ContingentPictureBox.Size = new System.Drawing.Size(108, 101);
             this.ContingentPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +112,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ISUClient.Properties.Resources.employee_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(456, 69);
+            this.pictureBox1.Location = new System.Drawing.Point(444, 70);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -130,7 +130,7 @@
             this.Controls.Add(this.EmployeeOpenButton);
             this.Controls.Add(this.MTBOpenButton);
             this.Controls.Add(this.ContingentOpenButton);
-            this.Controls.Add(this.button);
+            this.Controls.Add(this.AboutButton);
             this.Controls.Add(this.Description);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
@@ -147,7 +147,7 @@
         #endregion
 
         private System.Windows.Forms.Label Description;
-        private System.Windows.Forms.Button button;
+        private System.Windows.Forms.Button AboutButton;
         private System.Windows.Forms.Button ContingentOpenButton;
         private System.Windows.Forms.Button MTBOpenButton;
         private System.Windows.Forms.Button EmployeeOpenButton;

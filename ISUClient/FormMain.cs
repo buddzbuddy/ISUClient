@@ -15,18 +15,17 @@ namespace ISUClient
     public partial class FormMain : Form
     {
         ContingentForm _contingentForm = null;
-        LoginForm _loginForm = null;
         public FormMain()
         {
             InitializeComponent();
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void AboutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Автономная программа");
         }
 
-        private void opentContingent_Click(object sender, EventArgs e)
+        private void ContingentOpenButton_Click(object sender, EventArgs e)
         {
             _contingentForm = new ContingentForm();
             DialogResult dialog = _contingentForm.ShowDialog();
