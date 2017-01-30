@@ -1,5 +1,5 @@
-﻿using ISUClient.ContingentForms;
-using ISUClient.Models.Contingent;
+﻿using UI.ContingentForms;
+using UI.Models.Contingent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace ISUClient
+namespace UI
 {
     public partial class ContingentForm : Form
     {

@@ -1,5 +1,5 @@
-﻿using ISUClient.AccountForms;
-using ISUClient.ContingentForms;
+﻿using UI.AccountForms;
+using UI.ContingentForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ISUClient
+namespace UI
 {
     public partial class FormMain : Form
     {

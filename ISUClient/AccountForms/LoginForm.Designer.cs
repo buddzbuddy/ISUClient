@@ -1,4 +1,4 @@
-﻿namespace ISUClient.AccountForms
+﻿namespace UI.AccountForms
 {
     partial class LoginForm
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISUClient.Models.Contingent
+namespace UI.Models.Contingent
 {
     public class Student
     {

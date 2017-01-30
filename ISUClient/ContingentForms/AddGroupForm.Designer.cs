@@ -1,4 +1,4 @@
-﻿namespace ISUClient.ContingentForms
+﻿namespace UI.ContingentForms
 {
     partial class AddGroupForm
     {

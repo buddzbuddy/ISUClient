@@ -1,4 +1,4 @@
-﻿using ISUClient.Models.Contingent;
+﻿using UI.Models.Contingent;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace ISUClient.ContingentForms
+namespace UI.ContingentForms
 {
     public partial class AddGroupForm : Form
     {
@@ -66,7 +66,7 @@ namespace ISUClient.ContingentForms
         {
             errorMessage = "";
 
-            string filePath = "ISUClient.xml";
+            string filePath = "UI.xml";
             var isNew = !System.IO.File.Exists(filePath);
             
             var xDoc = isNew ? new XDocument() : XDocument.Load(filePath);

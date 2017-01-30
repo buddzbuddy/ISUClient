@@ -1,4 +1,4 @@
-﻿namespace ISUClient
+﻿namespace UI
 {
     partial class FormMain
     {

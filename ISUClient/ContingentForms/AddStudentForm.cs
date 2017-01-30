@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ISUClient.ContingentForms
+namespace UI.ContingentForms
 {
     public partial class AddStudentForm : Form
     {
