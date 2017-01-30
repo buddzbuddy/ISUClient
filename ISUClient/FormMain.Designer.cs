@@ -107,7 +107,7 @@
             // 
             // ContingentPictureBox
             // 
-            this.ContingentPictureBox.Image = global::ISUClient.Properties.Resources.student_icon;
+            this.ContingentPictureBox.Image = global::UI.Properties.Resources.student_icon;
             this.ContingentPictureBox.Location = new System.Drawing.Point(104, 143);
             this.ContingentPictureBox.Name = "ContingentPictureBox";
             this.ContingentPictureBox.Size = new System.Drawing.Size(108, 101);
@@ -117,7 +117,7 @@
             // 
             // MTBPictureBox
             // 
-            this.MTBPictureBox.Image = global::ISUClient.Properties.Resources.ledger_icon;
+            this.MTBPictureBox.Image = global::UI.Properties.Resources.ledger_icon;
             this.MTBPictureBox.Location = new System.Drawing.Point(270, 163);
             this.MTBPictureBox.Name = "MTBPictureBox";
             this.MTBPictureBox.Size = new System.Drawing.Size(123, 81);
@@ -127,7 +127,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ISUClient.Properties.Resources.employee_icon;
+            this.pictureBox1.Image = global::UI.Properties.Resources.employee_icon;
             this.pictureBox1.Location = new System.Drawing.Point(449, 153);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 91);

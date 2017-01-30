@@ -7,8 +7,8 @@
     <ProjectGuid>{943313D4-7C18-492F-830F-25CAFCF075C3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ISUClient</RootNamespace>
-    <AssemblyName>ISUClient</AssemblyName>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -136,6 +136,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Contingent\Enum.cs" />
     <Compile Include="Models\Contingent\Group.cs" />
     <Compile Include="Models\Contingent\Student.cs" />
     <Compile Include="Program.cs" />

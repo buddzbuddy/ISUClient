@@ -22,7 +22,7 @@ namespace ISUClient
 
         private void AboutButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Автономная программа");
+            MessageBox.Show("Автономная программа заполнения ИСУ без подключения к сети интернет.");
         }
 
         private void ContingentOpenButton_Click(object sender, EventArgs e)
