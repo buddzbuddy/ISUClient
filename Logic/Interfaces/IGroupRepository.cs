@@ -10,8 +10,5 @@ namespace Logic.Interfaces
     public interface IGroupRepository
     {
         IEnumerable<Group> GetAll();
-        Group Get(Guid Id);
-        void Save(Group obj);
-        void Delete(Group obj);
     }
 }
