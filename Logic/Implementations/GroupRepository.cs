@@ -1,4 +1,4 @@
-﻿using Domain.Models.Contingent;
+﻿using Domain.Entities.Contingent;
 using Logic.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -9,24 +9,19 @@ using System.Xml.Linq;
 
 namespace Logic.Implementations
 {
-    public class GroupRepository : EntityXmlRepository<Group>, IGroupRepository
+    public class GroupRepository : EntityXmlRepository<Group>
     {
         public GroupRepository()
             : base(typeof(Group).Name)
         {
-
-        }
-
-        protected override XElement GetParentElement()
-        {
-            throw new NotImplementedException();
+            XDocumentProvider.Default = XDocumentProvider.Default == null ? new XDocumentProvider() : XDocumentProvider.Default;
         }
 
         protected override Func<XElement, Group> Selector
         {
             get
             {
-                return x => new Group()
+                return x => new Group
                 {
                     Id = Guid.Parse(x.Attribute("Id").Value),
                     Name = x.Attribute("Name").Value,
@@ -35,6 +30,13 @@ namespace Logic.Implementations
                     StudyPeriod = x.Attribute("StudyPeriod").Value
                 };
             }
+        }
+
+        
+
+        protected override XElement GetParentElement()
+        {
+            return XDocumentProvider.Default.GetDocument().Root.Elements(typeof(Group).Name + "s").First();
         }
 
         protected override void SetXElementValue(Group obj, XElement element)

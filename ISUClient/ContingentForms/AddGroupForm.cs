@@ -1,4 +1,5 @@
-﻿using Domain.Models.Contingent;
+﻿using Domain.Entities.Contingent;
+using Logic.Implementations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,7 @@ namespace UI.ContingentForms
                 StudyPeriod = StudyPeriodComboBox.SelectedItem != null ? StudyPeriodComboBox.SelectedItem.ToString() : ""
             };
             string errorMessage;
-            if (SaveToLocalDb(group, out errorMessage))
+            if (SaveToLocalDb2(group, out errorMessage))
             {
                 try
                 {
@@ -105,31 +106,16 @@ namespace UI.ContingentForms
         {
             errorMessage = "";
 
-            string filePath = "ISUClient.xml";
-            var isNew = !System.IO.File.Exists(filePath);
-
-            var xDoc = isNew ? new XDocument() : XDocument.Load(filePath);
-
-            var xRootElement = isNew ? new XElement("root") : xDoc.Root;
-            if (isNew) xDoc.Add(xRootElement);
-
-            var xGroupsElement = isNew ? new XElement("Groups") : xRootElement.Element("Groups");
-            if (isNew) xRootElement.Add(xGroupsElement);
+            string filePath = "ISUClient2.xml";
+            
             //TODO: Write to progress bar
 
             //Create xml element
             try
             {
-                xGroupsElement.Add(new XElement("Group",
-                    new[]
-                        {
-                            new XElement("Name", obj.Name),
-                            new XElement("Language", obj.Language),
-                            new XElement("Profession", obj.Profession),
-                            new XElement("StudyPeriod", obj.StudyPeriod)
-                        }));
-                //TODO: WriteLog("Saving xml doc to file");
-                xDoc.Save(filePath);
+                GroupRepository _groupRepository = new GroupRepository();
+                _groupRepository.Insert(obj);
+                _groupRepository.Save();
             }
             catch (Exception e)
             {

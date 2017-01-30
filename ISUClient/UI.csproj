@@ -209,6 +209,10 @@
       <Project>{54be25af-9481-4797-af45-6251d997db28}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{23986e02-84d1-4034-a4bc-a8fe6d1d225c}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

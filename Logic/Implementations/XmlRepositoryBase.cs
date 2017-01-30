@@ -19,8 +19,8 @@ namespace Logic.Implementations
 
     protected XmlRepositoryBase(XName elementName)
     {
+        
         ElementName = elementName;
-
         // clears the "cached" ParentElement to allow hot file changes
         XDocumentProvider.Default.CurrentDocumentChanged += (sender, eventArgs) => ParentElement = null;
     }

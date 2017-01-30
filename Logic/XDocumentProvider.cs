@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Logic
 {
-    public abstract class XDocumentProvider
+    public class XDocumentProvider
     {
         // not thread safe yet
         private static bool pendingChanges;
@@ -17,7 +17,7 @@ namespace Logic
 
         FileSystemWatcher fileWatcher;
 
-        public static XDocumentProvider Default;
+        public static XDocumentProvider Default = new XDocumentProvider();
 
         public event EventHandler CurrentDocumentChanged;
 
@@ -26,11 +26,13 @@ namespace Logic
         public string FileName { get; set; }
 
 
-        protected XDocumentProvider()
+        public XDocumentProvider()
         {
             fileWatcher = new FileSystemWatcher();
             fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
             fileWatcher.Changed += fileWatcher_Changed;
+
+            FileName = "ISUClient2.xml";
         }
 
         void fileWatcher_Changed(object sender, FileSystemEventArgs e)
@@ -79,7 +81,15 @@ namespace Logic
         /// <summary>
         /// Creates a new XDocument with a determined schemma.
         /// </summary>
-        public abstract XDocument CreateNewDocument();
+        public XDocument CreateNewDocument()
+        {
+            var document = new XDocument();
+            var root = new XElement("CissaMeta");
+            var groups = new XElement("Groups");
+            root.Add(groups);
+            document.Add(root);
+            return document;
+        }
 
         public void Save()
         {

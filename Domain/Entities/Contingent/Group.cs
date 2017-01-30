@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Models.Contingent
+namespace Domain.Entities.Contingent
 {
     public class Group
     {

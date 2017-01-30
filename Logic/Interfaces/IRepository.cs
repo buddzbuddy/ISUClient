@@ -12,9 +12,9 @@ namespace Logic.Interfaces
         IEnumerable<T> GetAll(object parentId);
         T GetByKey(object keyValue);
 
-        void Insert(T entidade, bool autoPersist = true);
-        void Update(T entidade, bool autoPersist = true);
-        void Delete(T entidade, bool autoPersist = true);
+        void Insert(T entity, bool autoPersist = true);
+        void Update(T entity, bool autoPersist = true);
+        void Delete(T entity, bool autoPersist = true);
 
         void Save();
     }

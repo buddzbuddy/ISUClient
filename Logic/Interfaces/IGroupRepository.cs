@@ -1,4 +1,4 @@
-﻿using Domain.Models.Contingent;
+﻿using Domain.Entities.Contingent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
