@@ -1,4 +1,4 @@
-﻿using UI.StaticReferences;
+﻿using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

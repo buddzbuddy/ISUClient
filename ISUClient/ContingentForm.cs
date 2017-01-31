@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Logic.Implementations;
 
 namespace UI
 {
@@ -17,11 +18,14 @@ namespace UI
 
         AddStudentForm _addStudentForm = null;
         AddGroupForm _addGroupForm = null;
+
+        GroupRepository _groupRepo;
+
         public ContingentForm()
         {
-
             InitializeComponent();
-            //FillGroups();
+            _groupRepo = new GroupRepository();
+            LoadGroupsFromDb();
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
@@ -57,6 +61,28 @@ namespace UI
             Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+        }
+
+        private void LoadGroupsFromDb()
+        {
+            try
+            {
+                var groups = _groupRepo.GetAll();
+                if (groups == null) return;
+                foreach (var group in groups)
+                {
+                    var newIndex = DataGridViewGroups.Rows.Add();
+                    DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
+
+                    if (group.Language != "") DataGridViewGroups.Rows[newIndex].Cells["Language"].Value = group.Language;
+                    if (group.Profession != "") DataGridViewGroups.Rows[newIndex].Cells["Profession"].Value = group.Profession;
+                    if (group.StudyPeriod != "") DataGridViewGroups.Rows[newIndex].Cells["StudyPeriod"].Value = group.StudyPeriod;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

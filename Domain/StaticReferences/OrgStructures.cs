@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI.StaticReferences
+namespace Domain.StaticReferences
 {
     public static class OrgStructures
     {
@@ -26,5 +26,7 @@ namespace UI.StaticReferences
 
             return "Должность не найдена";
         }
+
+        public static string FileName = "ISUClient.xml";
     }
 }

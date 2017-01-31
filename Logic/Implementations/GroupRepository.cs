@@ -1,5 +1,6 @@
-﻿using Domain.Models.Contingent;
-using Logic.Interfaces;
+﻿using Domain;
+using Domain.Entities.Contingent;
+using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,55 +10,33 @@ using System.Xml.Linq;
 
 namespace Logic.Implementations
 {
-    public class GroupRepository : EntityXmlRepository<Group>, IGroupRepository
+    public class GroupRepository:XRepository
     {
+        private XContext context;
         public GroupRepository()
-            : base(typeof(Group).Name)
         {
-
+            context = new XContext(OrgStructures.FileName);
         }
 
-        protected override XElement GetParentElement()
+        public Group Get(Guid Id)
         {
-            throw new NotImplementedException();
+            var xObj = context.GetElements(typeof(Group).Name + "s").FirstOrDefault(x => Guid.Parse(x.Element("Id").Value) == Id);
+            if (xObj != null)
+                return ParseTo<Group>(xObj);
+            return null;
         }
 
-        protected override Func<XElement, Group> Selector
+        public IEnumerable<Group> GetAll()
         {
-            get
-            {
-                return x => new Group()
-                {
-                    Id = Guid.Parse(x.Attribute("Id").Value),
-                    Name = x.Attribute("Name").Value,
-                    Language = x.Attribute("Language").Value,
-                    Profession = x.Attribute("Profession").Value,
-                    StudyPeriod = x.Attribute("StudyPeriod").Value
-                };
-            }
+            var xList = context.GetElements(typeof(Group).Name + "s");
+            if (xList != null && xList.Count() > 0)
+                return ParseList<Group>(xList);
+            return null;
         }
 
-        protected override void SetXElementValue(Group obj, XElement element)
+        public void Save(Group obj)
         {
-            element.Attribute("Name").SetValue(obj.Name);
-            element.Attribute("Language").SetValue(obj.Language);
-            element.Attribute("Profession").SetValue(obj.Profession);
-            element.Attribute("StudyPeriod").SetValue(obj.StudyPeriod);
-        }
-
-        protected override XElement CreateXElement(Group obj)
-        {
-            return new XElement(
-                ElementName,
-                new XAttribute("Id", obj.Id),
-                new XAttribute("Name", obj.Name),
-                new XAttribute("Language", obj.Language),
-                new XAttribute("Profession", obj.Profession),
-                new XAttribute("StudyPeriod", obj.StudyPeriod));
-        }
-        protected override object GetEntityId(Group obj)
-        {
-            return obj.Id;
+            context.AddElement(WrapFrom(obj), typeof(Group).Name + "s");
         }
     }
 }
