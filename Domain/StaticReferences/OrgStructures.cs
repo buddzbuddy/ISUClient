@@ -26,7 +26,5 @@ namespace Domain.StaticReferences
 
             return "Должность не найдена";
         }
-
-        public static string FileName = "ISUClient.xml";
     }
 }

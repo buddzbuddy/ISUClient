@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Contingent;
+﻿using Domain;
+using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,43 +8,40 @@ using System.Threading.Tasks;
 
 namespace Logic.Implementations
 {
-    public class EnumRepository:EntityXmlRepository<EnumDef>
+    public class EnumRepository : XRepository
     {
+        private XEnumContext context;
         public EnumRepository()
-            : base(typeof(EnumDef).Name)
         {
-
-        }
-        protected override System.Xml.Linq.XElement GetParentElement()
-        {
-            return XDocumentProvider.Default.GetDocument().Descendants("EnumDef").First();
-        }
-
-        protected override Func<System.Xml.Linq.XElement, EnumDef> Selector
-        {
-            get
+            if (Enums.EnumDefs.Count == 0)
             {
-                return x => new EnumDef
+                context = new XEnumContext();
+                var xList = context.GetAllElements();
+                if (xList != null && xList.Count() > 0)
                 {
-                    Id = Guid.Parse(x.Attribute("Id").Value),
-                    FullName = x.Attribute("FullName").Value
-                };
+                    foreach (var xObj in xList)
+                    {
+                        var enumDef = ParseTo<Enums.EnumDef>(xObj, true);
+                        var xSubList = xObj.Elements();
+                        if (xSubList != null && xSubList.Count() > 0)
+                            enumDef.Items.AddRange(from xSubObj in xSubList
+                                                   select ParseTo<Enums.EnumItem>(xSubObj, true));
+                        Enums.EnumDefs.Add(enumDef);
+                    }
+                }
+                else
+                    throw new ApplicationException("Справочники не загружены!");
             }
         }
 
-        protected override void SetXElementValue(EnumDef obj, System.Xml.Linq.XElement element)
+        public Enums.EnumDef GetEnum(Guid Id)
         {
-            throw new NotImplementedException();
+            return Enums.EnumDefs.FirstOrDefault(x => x.Id == Id);
         }
 
-        protected override System.Xml.Linq.XElement CreateXElement(EnumDef obj)
+        public Enums.EnumItem GetEnumItem(Guid Id)
         {
-            throw new NotImplementedException();
-        }
-
-        protected override object GetEntityId(EnumDef obj)
-        {
-            return obj.Id;
+            return Enums.EnumDefs.SelectMany(x => x.Items).FirstOrDefault(x => x.Id == Id);
         }
     }
 }

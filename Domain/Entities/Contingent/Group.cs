@@ -10,8 +10,8 @@ namespace Domain.Entities.Contingent
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string Language { get; set; }
-        public string Profession { get; set; }
-        public string StudyPeriod { get; set; }
+        public Guid? LanguageId { get; set; }
+        public Guid? ProfessionId { get; set; }
+        public Guid? StudyPeriodId { get; set; }
     }
 }

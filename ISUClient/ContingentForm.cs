@@ -20,11 +20,15 @@ namespace UI
         AddGroupForm _addGroupForm = null;
 
         GroupRepository _groupRepo;
+        ContingentRepository _contingentRepo;
+        EnumRepository _enumRepo;
 
         public ContingentForm()
         {
             InitializeComponent();
             _groupRepo = new GroupRepository();
+            _contingentRepo = new ContingentRepository();
+            _enumRepo = new EnumRepository();
             LoadGroupsFromDb();
         }
 
@@ -50,17 +54,7 @@ namespace UI
         private void ToExcelGroupsButton_Click(object sender, EventArgs e)
         {
             copyAlltoClipboard();
-            Microsoft.Office.Interop.Excel.Application xlexcel;
-            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new Microsoft.Office.Interop.Excel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            _contingentRepo.ClipboardToExcel();
         }
 
         private void LoadGroupsFromDb()
@@ -74,9 +68,18 @@ namespace UI
                     var newIndex = DataGridViewGroups.Rows.Add();
                     DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
 
-                    if (group.Language != "") DataGridViewGroups.Rows[newIndex].Cells["Language"].Value = group.Language;
-                    if (group.Profession != "") DataGridViewGroups.Rows[newIndex].Cells["Profession"].Value = group.Profession;
-                    if (group.StudyPeriod != "") DataGridViewGroups.Rows[newIndex].Cells["StudyPeriod"].Value = group.StudyPeriod;
+                    if (group.LanguageId != null)
+                    {
+                        DataGridViewGroups.Rows[newIndex].Cells["Language"].Value = _enumRepo.GetEnumItem(group.LanguageId.Value).FullName;
+                    }
+                    /*if (group.ProfessionId != null)
+                    {
+                        DataGridViewGroups.Rows[newIndex].Cells["Profession"].Value = group.ProfessionId;
+                    }*/
+                    if (group.StudyPeriodId != null)
+                    {
+                        DataGridViewGroups.Rows[newIndex].Cells["StudyPeriod"].Value = _enumRepo.GetEnumItem(group.StudyPeriodId.Value).FullName;
+                    }
                 }
             }
             catch (Exception ex)

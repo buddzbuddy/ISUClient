@@ -15,7 +15,7 @@ namespace Logic.Implementations
         private XContext context;
         public GroupRepository()
         {
-            context = new XContext(OrgStructures.FileName);
+            context = new XContext(DBConfigInfo.LocalDBFileName);
         }
 
         public Group Get(Guid Id)

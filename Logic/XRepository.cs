@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,17 @@ namespace Logic
 {
     public abstract class XRepository
     {
-        public T ParseTo<T>(XElement xObj)
+        public T ParseTo<T>(XElement xObj, bool fromAttribute = false)
         {
             T obj = (T)Activator.CreateInstance(typeof(T));
             foreach (var property in obj.GetType().GetProperties())
             {
+                //custom skips
+                if (property.IsDefined(typeof(SkipAttribute), false)) continue;
                 try
                 {
-                    var xValue = xObj.Element(property.Name).Value;
+                    string xValue = fromAttribute ? xObj.Attribute(property.Name).Value : xObj.Element(property.Name).Value;
+
                     if (property.PropertyType == typeof(Guid))
                     {
                         property.SetValue(obj, Guid.Parse(xValue));
@@ -45,6 +49,16 @@ namespace Logic
                     {
                         property.SetValue(obj, xValue);
                     }
+                    else if (property.PropertyType == typeof(List<>))
+                    {
+                        continue;
+                    }
+                    else if (property.PropertyType == typeof(Nullable<Guid>))
+                    {
+                        Guid id;
+                        if (Guid.TryParse(xValue, out id))
+                            property.SetValue(obj, id);
+                    }
                     else
                         throw new ApplicationException("Не могу преобразовать XElement, тип поля \"" + property.PropertyType.Name + "\"не определен!");
                 }
@@ -57,10 +71,10 @@ namespace Logic
             return obj;
         }
 
-        public IEnumerable<T> ParseList<T>(IEnumerable<XElement> xList)
+        public IEnumerable<T> ParseList<T>(IEnumerable<XElement> xList, bool fromAttribute = false)
         {
             return from xObj in xList
-                   select ParseTo<T>(xObj);
+                   select ParseTo<T>(xObj, fromAttribute);
         }
 
         public XElement WrapFrom<T>(T obj)
@@ -69,7 +83,9 @@ namespace Logic
             foreach (var property in obj.GetType().GetProperties())
             {
                 var xProperty = new XElement(property.Name);
-                xProperty.SetValue(property.GetValue(obj));
+                var val = property.GetValue(obj);
+                if (val != null)
+                    xProperty.SetValue(val);
                 xObj.Add(xProperty);
             }
             return xObj;

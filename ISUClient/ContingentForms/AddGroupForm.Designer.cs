@@ -60,11 +60,6 @@
             // LanguageComboBox
             // 
             this.LanguageComboBox.FormattingEnabled = true;
-            this.LanguageComboBox.Items.AddRange(new object[] {
-            "Русский",
-            "Кыргызский",
-            "Узбекский",
-            "Турецкий"});
             this.LanguageComboBox.Location = new System.Drawing.Point(116, 40);
             this.LanguageComboBox.Name = "LanguageComboBox";
             this.LanguageComboBox.Size = new System.Drawing.Size(121, 21);
@@ -108,13 +103,6 @@
             // StudyPeriodComboBox
             // 
             this.StudyPeriodComboBox.FormattingEnabled = true;
-            this.StudyPeriodComboBox.Items.AddRange(new object[] {
-            "3 месяца",
-            "6 месяцев",
-            "1 год",
-            "2 года",
-            "3 года",
-            "3 года и 10 мес."});
             this.StudyPeriodComboBox.Location = new System.Drawing.Point(116, 96);
             this.StudyPeriodComboBox.Name = "StudyPeriodComboBox";
             this.StudyPeriodComboBox.Size = new System.Drawing.Size(121, 21);
