@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Implementations\ChildEntityXmlRepository.cs" />
     <Compile Include="Implementations\EntityXmlRepository.cs" />
+    <Compile Include="Implementations\EnumRepository.cs" />
     <Compile Include="Implementations\GroupRepository.cs" />
     <Compile Include="Interfaces\IGroupRepository.cs" />
     <Compile Include="XDocumentProvider.cs" />

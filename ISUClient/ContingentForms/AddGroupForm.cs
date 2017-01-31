@@ -18,8 +18,17 @@ namespace UI.ContingentForms
         ContingentForm _contingentForm = null;
         public AddGroupForm(ContingentForm contingentForm)
         {
-            _contingentForm = contingentForm;
+
             InitializeComponent();
+            _contingentForm = contingentForm;
+
+            EnumRepository _enumRepository = new EnumRepository();
+            //var languages = _enumRepository.GetByKey(new Guid("{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}"));
+            var languages = _enumRepository.GetAll(new Guid("{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}"));
+            LanguageComboBox.DataSource = languages;
+            LanguageComboBox.DisplayMember = "FullName";
+            LanguageComboBox.ValueMember = "Id";
+
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

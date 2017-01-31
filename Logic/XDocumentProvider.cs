@@ -32,7 +32,7 @@ namespace Logic
             fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
             fileWatcher.Changed += fileWatcher_Changed;
 
-            FileName = "ISUClient2.xml";
+            FileName = "Списки.ProjectFolder.xml";
         }
 
         void fileWatcher_Changed(object sender, FileSystemEventArgs e)

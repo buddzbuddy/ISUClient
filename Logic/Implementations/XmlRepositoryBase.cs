@@ -36,7 +36,7 @@ namespace Logic.Implementations
     public T GetByKey(object keyValue)
     {
         // I intend to remove this magic string "Id"
-        return XDocumentProvider.Default.GetDocument().Descendants(ElementName)
+        return XDocumentProvider.Default.GetDocument().Root.Elements().Descendants(ElementName)
             .Where(e => e.Attribute("Id").Value == keyValue.ToString())
             .Select(Selector)
             .FirstOrDefault();
@@ -49,7 +49,8 @@ namespace Logic.Implementations
 
     public virtual IEnumerable<T> GetAll(object parentId)
     {
-        throw new InvalidOperationException("This entity doesn't contains a parent.");
+        //throw new InvalidOperationException("This entity doesn't contains a parent.");
+        return ParentElement.Elements(ElementName).Where(x => x.Attribute("Id").Value == parentId).Elements().Select(Selector);
     }
 
     public virtual void Insert(T entity, bool autoPersist = true)
