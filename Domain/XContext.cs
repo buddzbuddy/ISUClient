@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.StaticReferences;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +12,14 @@ namespace Domain
     {
         private XDocument _document;
         private string _filePath;
-        public XContext(string filePath)
+        public XContext()
         {
-            var isNew = !System.IO.File.Exists(filePath);
-
-            _document = isNew ? new XDocument() : XDocument.Load(filePath);
-
-            if (isNew)
-            {
-                _document.Add(new XElement("root"));
-                _document.Save(filePath);
-            }
-            _filePath = filePath;
+            _document = XDocument.Load(DBConfigInfo.LocalDBFileName);
+            _filePath = DBConfigInfo.LocalDBFileName;
+        }
+        private void ReloadDocument()
+        {
+            _document = XDocument.Load(_filePath);
         }
         public IEnumerable<XElement> GetElements(XName sectionName)
         {
@@ -41,6 +38,31 @@ namespace Domain
                 _document.Root.Add(new XElement(toSectionName, xObj));
             }
             _document.Save(_filePath);
+            ReloadDocument();
+        }
+
+        public void UpdateElement(XElement xObj, XName toSectionName)
+        {
+            var xList = GetElements(toSectionName);
+            if(xList != null)
+            {
+                var xOldObj = xList.FirstOrDefault(x => x.Element("Id").Value == xObj.Element("Id").Value);
+                if(xOldObj != null)
+                {
+                    foreach (var xProperty in xOldObj.Elements())
+                    {
+                        xProperty.SetValue(xObj.Element(xProperty.Name).Value);
+                    }
+                }
+                else
+                    throw new ApplicationException("Старая запись для редактирования не найдена! Ключ-айди записи: " + xObj.Element("Id").Value);
+            }
+            else
+            {
+                throw new ApplicationException("Контейнер старых записей для редактирования не найден! Имя контейнера: \"" + toSectionName + "\" Ключ-айди записи: " + xObj.Element("Id").Value);
+            }
+            _document.Save(_filePath);
+            ReloadDocument();
         }
     }
 }

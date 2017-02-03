@@ -1,6 +1,6 @@
 ﻿namespace UI.ContingentForms
 {
-    partial class AddGroupForm
+    partial class EditGroupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // AddGroupForm
+            // EditGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,8 +144,8 @@
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.GroupNameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddGroupForm";
-            this.Text = "Добавить группу";
+            this.Name = "EditGroupForm";
+            this.Text = "Редактировать группу";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.UserInfoLabel = new System.Windows.Forms.Label();
             this.AboutButton = new System.Windows.Forms.Button();
             this.ContingentOpenButton = new System.Windows.Forms.Button();
             this.LedgerOpenButton = new System.Windows.Forms.Button();
@@ -51,15 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UserInfoPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // UserInfoLabel
-            // 
-            this.UserInfoLabel.AutoSize = true;
-            this.UserInfoLabel.Location = new System.Drawing.Point(13, 13);
-            this.UserInfoLabel.Name = "UserInfoLabel";
-            this.UserInfoLabel.Size = new System.Drawing.Size(57, 13);
-            this.UserInfoLabel.TabIndex = 0;
-            this.UserInfoLabel.Text = "Описание";
             // 
             // AboutButton
             // 
@@ -146,24 +136,24 @@
             this.UserInfoPanel.Controls.Add(this.PositionNameLabel);
             this.UserInfoPanel.Controls.Add(this.UserNameTextBox);
             this.UserInfoPanel.Controls.Add(this.UserNameLabel);
-            this.UserInfoPanel.Location = new System.Drawing.Point(76, 12);
+            this.UserInfoPanel.Location = new System.Drawing.Point(12, 12);
             this.UserInfoPanel.Name = "UserInfoPanel";
-            this.UserInfoPanel.Size = new System.Drawing.Size(597, 57);
+            this.UserInfoPanel.Size = new System.Drawing.Size(661, 57);
             this.UserInfoPanel.TabIndex = 8;
             // 
             // UserIdTextBox
             // 
-            this.UserIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UserIdTextBox.Location = new System.Drawing.Point(366, 36);
+            this.UserIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserIdTextBox.Location = new System.Drawing.Point(422, 32);
             this.UserIdTextBox.Name = "UserIdTextBox";
             this.UserIdTextBox.ReadOnly = true;
-            this.UserIdTextBox.Size = new System.Drawing.Size(228, 18);
+            this.UserIdTextBox.Size = new System.Drawing.Size(236, 20);
             this.UserIdTextBox.TabIndex = 7;
             // 
             // UserIdLabel
             // 
             this.UserIdLabel.AutoSize = true;
-            this.UserIdLabel.Location = new System.Drawing.Point(273, 39);
+            this.UserIdLabel.Location = new System.Drawing.Point(321, 39);
             this.UserIdLabel.Name = "UserIdLabel";
             this.UserIdLabel.Size = new System.Drawing.Size(95, 13);
             this.UserIdLabel.TabIndex = 6;
@@ -171,7 +161,7 @@
             // 
             // OrganizationNameTextBox
             // 
-            this.OrganizationNameTextBox.Location = new System.Drawing.Point(358, 5);
+            this.OrganizationNameTextBox.Location = new System.Drawing.Point(422, 5);
             this.OrganizationNameTextBox.Name = "OrganizationNameTextBox";
             this.OrganizationNameTextBox.ReadOnly = true;
             this.OrganizationNameTextBox.Size = new System.Drawing.Size(236, 20);
@@ -180,7 +170,7 @@
             // OrganizationNameLabel
             // 
             this.OrganizationNameLabel.AutoSize = true;
-            this.OrganizationNameLabel.Location = new System.Drawing.Point(273, 12);
+            this.OrganizationNameLabel.Location = new System.Drawing.Point(338, 12);
             this.OrganizationNameLabel.Name = "OrganizationNameLabel";
             this.OrganizationNameLabel.Size = new System.Drawing.Size(78, 13);
             this.OrganizationNameLabel.TabIndex = 4;
@@ -191,7 +181,7 @@
             this.PositionNameTextBox.Location = new System.Drawing.Point(94, 32);
             this.PositionNameTextBox.Name = "PositionNameTextBox";
             this.PositionNameTextBox.ReadOnly = true;
-            this.PositionNameTextBox.Size = new System.Drawing.Size(170, 20);
+            this.PositionNameTextBox.Size = new System.Drawing.Size(209, 20);
             this.PositionNameTextBox.TabIndex = 3;
             // 
             // PositionNameLabel
@@ -208,7 +198,7 @@
             this.UserNameTextBox.Location = new System.Drawing.Point(94, 5);
             this.UserNameTextBox.Name = "UserNameTextBox";
             this.UserNameTextBox.ReadOnly = true;
-            this.UserNameTextBox.Size = new System.Drawing.Size(170, 20);
+            this.UserNameTextBox.Size = new System.Drawing.Size(209, 20);
             this.UserNameTextBox.TabIndex = 1;
             // 
             // UserNameLabel
@@ -233,7 +223,6 @@
             this.Controls.Add(this.LedgerOpenButton);
             this.Controls.Add(this.ContingentOpenButton);
             this.Controls.Add(this.AboutButton);
-            this.Controls.Add(this.UserInfoLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -244,13 +233,11 @@
             this.UserInfoPanel.ResumeLayout(false);
             this.UserInfoPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label UserInfoLabel;
         private System.Windows.Forms.Button AboutButton;
         private System.Windows.Forms.Button ContingentOpenButton;
         private System.Windows.Forms.Button LedgerOpenButton;

@@ -113,6 +113,12 @@
     <Compile Include="ContingentForm.Designer.cs">
       <DependentUpon>ContingentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContingentForms\EditGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContingentForms\EditGroupForm.Designer.cs">
+      <DependentUpon>EditGroupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContingentForms\AddGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     <EmbeddedResource Include="ContingentForm.resx">
       <DependentUpon>ContingentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContingentForms\EditGroupForm.resx">
+      <DependentUpon>EditGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContingentForms\AddGroupForm.resx">
       <DependentUpon>AddGroupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +168,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ISUClient_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Domain.Entities.Contingent.Group.datasource" />
+    <None Include="Properties\DataSources\Domain.StaticReferences.Enums+EnumItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -189,9 +200,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="favicon.ico" />
     <None Include="Resources\student_icon.png" />

@@ -36,14 +36,15 @@
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DataGridViewGroups = new System.Windows.Forms.DataGridView();
-            this.GroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Language = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Profession = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.StudyPeriod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.AddStudentButton = new System.Windows.Forms.Button();
             this.AddGroupButton = new System.Windows.Forms.Button();
             this.ToExcelGroupsButton = new System.Windows.Forms.Button();
+            this.GroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupLanguageId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.GroupProfessionId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.GroupStudyPeriodId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.EditGroup = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewGroups)).BeginInit();
             this.SuspendLayout();
@@ -109,60 +110,16 @@
             this.DataGridViewGroups.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupId,
             this.GroupName,
-            this.Language,
-            this.Profession,
-            this.StudyPeriod});
+            this.GroupLanguageId,
+            this.GroupProfessionId,
+            this.GroupStudyPeriodId,
+            this.EditGroup});
             this.DataGridViewGroups.Location = new System.Drawing.Point(13, 170);
             this.DataGridViewGroups.Name = "DataGridViewGroups";
             this.DataGridViewGroups.ReadOnly = true;
-            this.DataGridViewGroups.Size = new System.Drawing.Size(446, 150);
+            this.DataGridViewGroups.Size = new System.Drawing.Size(551, 150);
             this.DataGridViewGroups.TabIndex = 1;
-            // 
-            // GroupId
-            // 
-            this.GroupId.HeaderText = "Id";
-            this.GroupId.Name = "GroupId";
-            this.GroupId.ReadOnly = true;
-            this.GroupId.Visible = false;
-            // 
-            // GroupName
-            // 
-            this.GroupName.HeaderText = "Название группы";
-            this.GroupName.Name = "GroupName";
-            this.GroupName.ReadOnly = true;
-            // 
-            // Language
-            // 
-            this.Language.HeaderText = "Язык обучения";
-            this.Language.Items.AddRange(new object[] {
-            "Русский",
-            "Кыргызский",
-            "Узбекский",
-            "Турецкий"});
-            this.Language.Name = "Language";
-            this.Language.ReadOnly = true;
-            this.Language.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Profession
-            // 
-            this.Profession.HeaderText = "Профессия";
-            this.Profession.Name = "Profession";
-            this.Profession.ReadOnly = true;
-            this.Profession.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // StudyPeriod
-            // 
-            this.StudyPeriod.HeaderText = "Срок обучения";
-            this.StudyPeriod.Items.AddRange(new object[] {
-            "3 месяца",
-            "6 месяцев",
-            "1 год",
-            "2 года",
-            "3 года",
-            "3 года и 10 мес."});
-            this.StudyPeriod.Name = "StudyPeriod";
-            this.StudyPeriod.ReadOnly = true;
-            this.StudyPeriod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridViewGroups.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewGroups_CellContentClick);
             // 
             // AddStudentButton
             // 
@@ -196,6 +153,56 @@
             this.ToExcelGroupsButton.UseVisualStyleBackColor = true;
             this.ToExcelGroupsButton.Click += new System.EventHandler(this.ToExcelGroupsButton_Click);
             // 
+            // GroupId
+            // 
+            this.GroupId.HeaderText = "Id";
+            this.GroupId.Name = "GroupId";
+            this.GroupId.ReadOnly = true;
+            this.GroupId.Visible = false;
+            // 
+            // GroupName
+            // 
+            this.GroupName.HeaderText = "Название группы";
+            this.GroupName.Name = "GroupName";
+            this.GroupName.ReadOnly = true;
+            // 
+            // GroupLanguageId
+            // 
+            this.GroupLanguageId.HeaderText = "Язык обучения";
+            this.GroupLanguageId.Items.AddRange(new object[] {
+            "Русский",
+            "Кыргызский",
+            "Узбекский",
+            "Турецкий"});
+            this.GroupLanguageId.Name = "GroupLanguageId";
+            this.GroupLanguageId.ReadOnly = true;
+            this.GroupLanguageId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // GroupProfessionId
+            // 
+            this.GroupProfessionId.HeaderText = "Профессия";
+            this.GroupProfessionId.Name = "GroupProfessionId";
+            this.GroupProfessionId.ReadOnly = true;
+            this.GroupProfessionId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // GroupStudyPeriodId
+            // 
+            this.GroupStudyPeriodId.HeaderText = "Срок обучения";
+            this.GroupStudyPeriodId.Name = "GroupStudyPeriodId";
+            this.GroupStudyPeriodId.ReadOnly = true;
+            this.GroupStudyPeriodId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // EditGroup
+            // 
+            this.EditGroup.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.EditGroup.HeaderText = "";
+            this.EditGroup.LinkColor = System.Drawing.Color.Blue;
+            this.EditGroup.Name = "EditGroup";
+            this.EditGroup.ReadOnly = true;
+            this.EditGroup.Text = "изменить";
+            this.EditGroup.UseColumnTextForLinkValue = true;
+            this.EditGroup.VisitedLinkColor = System.Drawing.Color.Blue;
+            // 
             // ContingentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,11 +233,12 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Group;
         private System.Windows.Forms.Button AddStudentButton;
         private System.Windows.Forms.Button AddGroupButton;
+        private System.Windows.Forms.Button ToExcelGroupsButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupId;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Language;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Profession;
-        private System.Windows.Forms.DataGridViewComboBoxColumn StudyPeriod;
-        private System.Windows.Forms.Button ToExcelGroupsButton;
+        private System.Windows.Forms.DataGridViewComboBoxColumn GroupLanguageId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn GroupProfessionId;
+        private System.Windows.Forms.DataGridViewComboBoxColumn GroupStudyPeriodId;
+        private System.Windows.Forms.DataGridViewLinkColumn EditGroup;
     }
 }

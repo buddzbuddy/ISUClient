@@ -9,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using Logic.Implementations;
+using Logic.Repositories;
+using Domain.StaticReferences;
+using Domain.Entities.Contingent;
 
 namespace UI
 {
@@ -18,10 +20,12 @@ namespace UI
 
         AddStudentForm _addStudentForm = null;
         AddGroupForm _addGroupForm = null;
+        EditGroupForm _editGroupForm = null;
 
         GroupRepository _groupRepo;
         ContingentRepository _contingentRepo;
         EnumRepository _enumRepo;
+        ProfessionRepository _profRepo;
 
         public ContingentForm()
         {
@@ -29,6 +33,7 @@ namespace UI
             _groupRepo = new GroupRepository();
             _contingentRepo = new ContingentRepository();
             _enumRepo = new EnumRepository();
+            _profRepo = new ProfessionRepository();
             LoadGroupsFromDb();
         }
 
@@ -61,30 +66,57 @@ namespace UI
         {
             try
             {
-                var groups = _groupRepo.GetAll();
+                var groups = _groupRepo.GetAll<Group>();
                 if (groups == null) return;
-                foreach (var group in groups)
+
+                var studyPeriods = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
+                var languages = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
+                var professions = _profRepo.GetAll<Profession>().ToList();
+
+                foreach (var group in groups.Where(x => !x.IsDeleted))
                 {
                     var newIndex = DataGridViewGroups.Rows.Add();
+                    DataGridViewGroups.Rows[newIndex].Cells["GroupId"].Value = group.Id;
                     DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
 
                     if (group.LanguageId != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["Language"].Value = _enumRepo.GetEnumItem(group.LanguageId.Value).FullName;
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupLanguageId"] = InitDGVCB(languages, group.LanguageId);
                     }
-                    /*if (group.ProfessionId != null)
+                    if (group.ProfessionId != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["Profession"].Value = group.ProfessionId;
-                    }*/
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupProfessionId"] = InitDGVCB(professions, group.ProfessionId, "Name");
+                    }
                     if (group.StudyPeriodId != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["StudyPeriod"].Value = _enumRepo.GetEnumItem(group.StudyPeriodId.Value).FullName;
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"] = InitDGVCB(studyPeriods, group.StudyPeriodId);
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public DataGridViewComboBoxCell InitDGVCB(object dataSource, Guid? value, string displayMember = "FullName")
+        {
+            var CBCell = new DataGridViewComboBoxCell();
+            CBCell.DataSource = dataSource;
+            CBCell.DisplayMember = displayMember;
+            CBCell.ValueMember = "Id";
+            CBCell.Value = value;
+            return CBCell;
+        }
+
+        private void DataGridViewGroups_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridViewGroups.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell)
+            {
+                var groupId = (Guid)DataGridViewGroups.Rows[e.RowIndex].Cells["GroupId"].Value;
+                var obj = _groupRepo.Get<Group>(groupId);
+                _editGroupForm = new EditGroupForm(this, obj);
+                DialogResult dialog = _editGroupForm.ShowDialog();
             }
         }
     }

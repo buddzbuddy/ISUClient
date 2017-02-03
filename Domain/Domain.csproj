@@ -40,8 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Contingent\Group.cs" />
+    <Compile Include="Entities\Contingent\Profession.cs" />
     <Compile Include="Entities\Contingent\Student.cs" />
-    <Compile Include="Filters\SkipAttribute.cs" />
+    <Compile Include="Entities\LocalEntity.cs" />
+    <Compile Include="Filters\CustomAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticReferences\DBConfigInfo.cs" />
     <Compile Include="StaticReferences\Enums.cs" />

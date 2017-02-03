@@ -1,5 +1,5 @@
 ﻿using Domain.StaticReferences;
-using Logic.Implementations;
+using Logic.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

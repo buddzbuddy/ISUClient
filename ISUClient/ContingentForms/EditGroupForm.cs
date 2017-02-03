@@ -14,15 +14,16 @@ using System.Xml.Linq;
 
 namespace UI.ContingentForms
 {
-    public partial class AddGroupForm : Form
+    public partial class EditGroupForm : Form
     {
         ContingentForm _contingentForm = null;
 
         GroupRepository _groupRepo;
         EnumRepository _enumRepo;
         ProfessionRepository _profRepo;
+        Group _obj;
 
-        public AddGroupForm(ContingentForm contingentForm)
+        public EditGroupForm(ContingentForm contingentForm, Group obj)
         {
             InitializeComponent();
 
@@ -30,34 +31,43 @@ namespace UI.ContingentForms
             _groupRepo = new GroupRepository();
             _enumRepo = new EnumRepository();
             _profRepo = new ProfessionRepository();
-            LoadSources();
+            InitSources(obj.LanguageId, obj.StudyPeriodId, obj.ProfessionId);
+            _obj = obj;
+
+            NameTextBox.Text = obj.Name;
         }
 
-        private void LoadSources()
+        private void InitSources(Guid? languageId, Guid? studyPeriodId, Guid? professionId)
         {
-            LoadLanguages();
-            LoadStudyPeriods();
-            LoadProfessions();
+            InitLanguages(languageId);
+            InitStudyPeriods(studyPeriodId);
+            InitProfessions(professionId);
         }
 
-        private void LoadLanguages()
+        private void InitLanguages(Guid? value)
         {
             LanguageComboBox.DataSource = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
             LanguageComboBox.DisplayMember = "FullName";
             LanguageComboBox.ValueMember = "Id";
+            if (value != null)
+                LanguageComboBox.SelectedValue = value;
         }
-        private void LoadStudyPeriods()
+        private void InitStudyPeriods(Guid? value)
         {
             StudyPeriodComboBox.DataSource = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
             StudyPeriodComboBox.DisplayMember = "FullName";
             StudyPeriodComboBox.ValueMember = "Id";
+            if (value != null)
+                StudyPeriodComboBox.SelectedValue = value;
         }
 
-        private void LoadProfessions()
+        private void InitProfessions(Guid? value)
         {
             ProfessionComboBox.DataSource = _profRepo.GetAll<Profession>().ToList();
             ProfessionComboBox.DisplayMember = "Name";
             ProfessionComboBox.ValueMember = "Id";
+            if (value != null)
+                ProfessionComboBox.SelectedValue = value;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -65,38 +75,40 @@ namespace UI.ContingentForms
             this.Close();
         }
 
+        private void FillObj()
+        {
+            _obj.Name = NameTextBox.Text;
+            _obj.LanguageId = Guid.Parse(LanguageComboBox.SelectedValue.ToString());
+            _obj.StudyPeriodId = Guid.Parse(StudyPeriodComboBox.SelectedValue.ToString());
+            _obj.ProfessionId = Guid.Parse(ProfessionComboBox.SelectedValue.ToString());
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var group = new Group
-            {
-                Id = Guid.NewGuid(),
-                Name = NameTextBox.Text,
-                LanguageId = LanguageComboBox.SelectedItem != null ? (Guid?)LanguageComboBox.SelectedValue : null,
-                ProfessionId = ProfessionComboBox.SelectedItem != null ? (Guid?)ProfessionComboBox.SelectedValue : null,
-                StudyPeriodId = StudyPeriodComboBox.SelectedItem != null ? (Guid?)StudyPeriodComboBox.SelectedValue : null,
-                IsNew = true
-            };
             string errorMessage;
-            if (SaveToLocalDb(group, out errorMessage))
+            FillObj();
+            if (SaveToLocalDb(out errorMessage))
             {
                 try
                 {
-                    var newIndex = _contingentForm.DataGridViewGroups.Rows.Add();
-                    _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
-
-                    if (group.LanguageId != null)
+                    int currentIndex = -1;
+                    foreach (DataGridViewRow row in _contingentForm.DataGridViewGroups.Rows)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupLanguageId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, group.LanguageId);
+                        if (_obj.Id == Guid.Parse(row.Cells["GroupId"].Value.ToString()))
+                            currentIndex = row.Index;
                     }
-                    if (group.ProfessionId != null)
-                    {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupProfessionId"] = _contingentForm.InitDGVCB(_profRepo.GetAll<Profession>().ToList(), group.ProfessionId, "Name");
-                    }
-                    if (group.StudyPeriodId != null)
-                    {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, group.StudyPeriodId);
+                    _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupName"].Value = _obj.Name;
 
-                        //_contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"].Value = _enumRepo.GetEnumItem(group.StudyPeriodId.Value).FullName;
+                    if (_obj.LanguageId != null)
+                    {
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupLanguageId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, _obj.LanguageId);
+                    }
+                    if (_obj.ProfessionId != null)
+                    {
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupProfessionId"] = _contingentForm.InitDGVCB(_profRepo.GetAll<Profession>().ToList(), _obj.ProfessionId, "Name");
+                    }
+                    if (_obj.StudyPeriodId != null)
+                    {
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriodId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriodId);
                     }
                 }
                 catch (Exception ex)
@@ -115,16 +127,16 @@ namespace UI.ContingentForms
             }
         }
 
-        private bool SaveToLocalDb(Group obj, out string errorMessage)
+        private bool SaveToLocalDb(out string errorMessage)
         {
             errorMessage = "";
 
             //TODO: Write to progress bar
 
-            //Save to xml-db
+            //Save changes to xml-db
             try
             {
-                _groupRepo.Save(obj);
+                _groupRepo.Save(_obj, true);
             }
             catch (Exception e)
             {
