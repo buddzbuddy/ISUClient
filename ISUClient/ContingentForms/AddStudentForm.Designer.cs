@@ -39,6 +39,8 @@
             this.BirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.GroupComboBox = new System.Windows.Forms.ComboBox();
             this.GroupLabel = new System.Windows.Forms.Label();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LastNameLabel
@@ -123,11 +125,33 @@
             this.GroupLabel.TabIndex = 5;
             this.GroupLabel.Text = "Группа";
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(31, 161);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 6;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(130, 161);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Отмена";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 499);
+            this.ClientSize = new System.Drawing.Size(268, 227);
+            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.GroupLabel);
             this.Controls.Add(this.GroupComboBox);
             this.Controls.Add(this.BirthDateDateTimePicker);
@@ -159,5 +183,7 @@
         private System.Windows.Forms.DateTimePicker BirthDateDateTimePicker;
         private System.Windows.Forms.ComboBox GroupComboBox;
         private System.Windows.Forms.Label GroupLabel;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

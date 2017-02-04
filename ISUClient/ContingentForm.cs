@@ -26,6 +26,7 @@ namespace UI
         ContingentRepository _contingentRepo;
         EnumRepository _enumRepo;
         ProfessionRepository _profRepo;
+        StudentRepository _studentRepo;
 
         public ContingentForm()
         {
@@ -34,12 +35,14 @@ namespace UI
             _contingentRepo = new ContingentRepository();
             _enumRepo = new EnumRepository();
             _profRepo = new ProfessionRepository();
+            _studentRepo = new StudentRepository();
             LoadGroupsFromDb();
+            LoadStudentsFromDb();
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-            _addStudentForm = new AddStudentForm();
+            _addStudentForm = new AddStudentForm(this);
             DialogResult dialog = _addStudentForm.ShowDialog();
         }
 
@@ -98,6 +101,7 @@ namespace UI
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         public DataGridViewComboBoxCell InitDGVCB(object dataSource, Guid? value, string displayMember = "FullName")
         {

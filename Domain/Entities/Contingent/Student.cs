@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities.Contingent
 {
-    public class Student
+    public class Student:LocalEntity
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public DateTime BirthDate { get; set; }
-        public string GroupName { get; set; }
+        public Guid? GroupId { get; set; }
     }
 }
