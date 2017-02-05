@@ -101,6 +101,34 @@ namespace UI
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void LoadStudentsFromDb()
+        {
+            try
+            {
+                var students = _studentRepo.GetAll<Student>();
+                if (students == null) return;
+
+                var groups = _groupRepo.GetAll<Group>();
+                foreach (var student in students.Where(x => !x.IsDeleted))
+                {
+                    var newIndex = DataGridViewStudents.Rows.Add();
+                    DataGridViewStudents.Rows[newIndex].Cells["StudentGroupId"].Value = student.Id;
+                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.LastName;
+                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.FirstName;
+                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.MiddleName;
+                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.BirthDate;
+
+                    if (student.GroupId != null)
+                    {
+                        DataGridViewStudents.Rows[newIndex].Cells["StudentGroupId"] = InitDGVCB(groups.ToList(), student.GroupId, "Name");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
 
         public DataGridViewComboBoxCell InitDGVCB(object dataSource, Guid? value, string displayMember = "FullName")
@@ -115,13 +143,57 @@ namespace UI
 
         private void DataGridViewGroups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataGridViewGroups.Rows[e.RowIndex].Cells[e.ColumnIndex] is DataGridViewLinkCell)
+            if(e.RowIndex >= 0)
             {
-                var groupId = (Guid)DataGridViewGroups.Rows[e.RowIndex].Cells["GroupId"].Value;
-                var obj = _groupRepo.Get<Group>(groupId);
-                _editGroupForm = new EditGroupForm(this, obj);
-                DialogResult dialog = _editGroupForm.ShowDialog();
+                var row = DataGridViewGroups.Rows[e.RowIndex];
+                var cell = row.Cells[e.ColumnIndex];
+                var groupId = (Guid)row.Cells["GroupId"].Value;
+                if (cell.Equals(row.Cells["EditGroupLink"]))//Edit button clicked
+                {
+                    EditGroup(groupId);
+                }
+                else if (cell.Equals(row.Cells["DeleteGroupLink"]))//Delete button clicked
+                {
+                    DeleteGroup(groupId);
+                }
+                else if (cell.Equals(row.Cells["ShowGroupLink"]))//Show button clicked
+                {
+
+                }
             }
+        }
+        private void EditGroup(Guid groupId)
+        {
+            _groupRepo = new GroupRepository();
+            var obj = _groupRepo.Get<Group>(groupId);
+            _editGroupForm = new EditGroupForm(this, obj);
+            DialogResult dialog = _editGroupForm.ShowDialog();
+        }
+        private void DeleteGroup(Guid groupId)
+        {
+            if (IsBoundWithAnyStudent(groupId))
+            {
+                MessageBox.Show("В данной группе числятся учащиеся!\n\nПожалуйста, перед удалением переведите всех учащихся из этой группы в другую.");
+                return;
+            }
+
+            var obj = _groupRepo.Get<Group>(groupId);
+            var confirmResult = MessageBox.Show("Вы уверены что хотите удалить эту группу \"" + obj.Name + "\"",
+                             "Подтверждение",
+                             MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                // If 'Yes', do something here.
+            }
+            else
+            {
+                // If 'No', do something here.
+            }
+        }
+
+        private bool IsBoundWithAnyStudent(Guid groupId)
+        {
+            return _studentRepo.GetAll<Student>().Any(x => x.GroupId == groupId);
         }
     }
 }
