@@ -12,6 +12,8 @@ using System.Xml.Linq;
 using Logic.Repositories;
 using Domain.StaticReferences;
 using Domain.Entities.Contingent;
+using Logic;
+using Domain.Entities;
 
 namespace UI
 {
@@ -22,20 +24,13 @@ namespace UI
         AddGroupForm _addGroupForm = null;
         EditGroupForm _editGroupForm = null;
 
-        GroupRepository _groupRepo;
-        ContingentRepository _contingentRepo;
         EnumRepository _enumRepo;
-        ProfessionRepository _profRepo;
-        StudentRepository _studentRepo;
-
+        DocRepository _docRepo;
         public ContingentForm()
         {
             InitializeComponent();
-            _groupRepo = new GroupRepository();
-            _contingentRepo = new ContingentRepository();
             _enumRepo = new EnumRepository();
-            _profRepo = new ProfessionRepository();
-            _studentRepo = new StudentRepository();
+            _docRepo = new DocRepository();
             LoadGroupsFromDb();
             LoadStudentsFromDb();
         }
@@ -62,19 +57,20 @@ namespace UI
         private void ToExcelGroupsButton_Click(object sender, EventArgs e)
         {
             copyAlltoClipboard();
-            _contingentRepo.ClipboardToExcel();
+            _docRepo.ClipboardToExcel();
         }
 
         private void LoadGroupsFromDb()
         {
             try
             {
-                var groups = _groupRepo.GetAll<Group>();
+                _docRepo = new DocRepository();
+                var groups = _docRepo.GetAll<Group>();
                 if (groups == null) return;
 
                 var studyPeriods = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
                 var languages = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
-                var professions = _profRepo.GetAll<Profession>().ToList();
+                var professions = _docRepo.GetAll<Profession>().ToList();
 
                 foreach (var group in groups.Where(x => !x.IsDeleted))
                 {
@@ -82,17 +78,17 @@ namespace UI
                     DataGridViewGroups.Rows[newIndex].Cells["GroupId"].Value = group.Id;
                     DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
 
-                    if (group.LanguageId != null)
+                    if (group.Language != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupLanguageId"] = InitDGVCB(languages, group.LanguageId);
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupLanguage"] = InitDGVCB(languages, group.Language);
                     }
-                    if (group.ProfessionId != null)
+                    if (group.Profession != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupProfessionId"] = InitDGVCB(professions, group.ProfessionId, "Name");
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupProfession"] = InitDGVCB(professions, group.Profession, "Name");
                     }
-                    if (group.StudyPeriodId != null)
+                    if (group.StudyPeriod != null)
                     {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"] = InitDGVCB(studyPeriods, group.StudyPeriodId);
+                        DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriod"] = InitDGVCB(studyPeriods, group.StudyPeriod);
                     }
                 }
             }
@@ -105,28 +101,57 @@ namespace UI
         {
             try
             {
-                var students = _studentRepo.GetAll<Student>();
+                _docRepo = new DocRepository();
+                var students = _docRepo.GetAll<Student>();
                 if (students == null) return;
+                var groups = _docRepo.GetAll<Group>();
+                var genders = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
+                var nationalities = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
 
-                var groups = _groupRepo.GetAll<Group>();
                 foreach (var student in students.Where(x => !x.IsDeleted))
                 {
+                    student.Person = _docRepo.Get<Person>(student.PersonId);
+                    if (student.Person == null) continue;
                     var newIndex = DataGridViewStudents.Rows.Add();
-                    DataGridViewStudents.Rows[newIndex].Cells["StudentGroupId"].Value = student.Id;
-                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.LastName;
-                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.FirstName;
-                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.MiddleName;
-                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.BirthDate;
+                    DataGridViewStudents.Rows[newIndex].Cells["StudentId"].Value = student.Id;
+                    DataGridViewStudents.Rows[newIndex].Cells["PIN"].Value = student.Person.PIN;
+                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.Person.LastName;
+                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.Person.FirstName;
+                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.Person.MiddleName;
+                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.Person.BirthDate;
 
-                    if (student.GroupId != null)
+                    if (student.Group != null)
                     {
-                        DataGridViewStudents.Rows[newIndex].Cells["StudentGroupId"] = InitDGVCB(groups.ToList(), student.GroupId, "Name");
+                        DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = InitDGVCB(groups.ToList(), student.Group, "Name");
+                    }
+
+                    if (student.Person.Gender != null)
+                    {
+                        DataGridViewStudents.Rows[newIndex].Cells["StudentGender"] = InitDGVCB(genders.ToList(), student.Person.Gender);
+                    }
+
+                    if (student.Person.Nationality != null)
+                    {
+                        DataGridViewStudents.Rows[newIndex].Cells["StudentNationality"] = InitDGVCB(nationalities.ToList(), student.Person.Nationality);
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void ResetDropDownValues<T>(T obj, string columnName, object dataSource, string displayMember = "FullName")
+        {
+            var objId = (Guid?)typeof(T).GetProperty("Id").GetValue(obj);
+            if(!objId.HasValue) return;
+            foreach (DataGridViewRow row in DataGridViewStudents.Rows)
+            {
+                if (Guid.Parse(row.Cells[columnName].Value.ToString()) == objId)
+                {
+                    row.Cells[columnName] = InitDGVCB(dataSource, objId, displayMember);
+                }
             }
         }
 
@@ -158,14 +183,14 @@ namespace UI
                 }
                 else if (cell.Equals(row.Cells["ShowGroupLink"]))//Show button clicked
                 {
-
+                    ShowGroup(groupId);
                 }
             }
         }
         private void EditGroup(Guid groupId)
         {
-            _groupRepo = new GroupRepository();
-            var obj = _groupRepo.Get<Group>(groupId);
+            _docRepo = new DocRepository();
+            var obj = _docRepo.Get<Group>(groupId);
             _editGroupForm = new EditGroupForm(this, obj);
             DialogResult dialog = _editGroupForm.ShowDialog();
         }
@@ -177,7 +202,7 @@ namespace UI
                 return;
             }
 
-            var obj = _groupRepo.Get<Group>(groupId);
+            var obj = _docRepo.Get<Group>(groupId);
             var confirmResult = MessageBox.Show("Вы уверены что хотите удалить эту группу \"" + obj.Name + "\"",
                              "Подтверждение",
                              MessageBoxButtons.YesNo);
@@ -190,10 +215,18 @@ namespace UI
                 // If 'No', do something here.
             }
         }
+        private void ShowGroup(Guid groupId)
+        {
+            _docRepo = new DocRepository();
+            var obj = _docRepo.Get<Group>(groupId);
+            var viewGroupForm = new ViewGroupForm(this, obj);
+
+            DialogResult dialog = viewGroupForm.ShowDialog();
+        }
 
         private bool IsBoundWithAnyStudent(Guid groupId)
         {
-            return _studentRepo.GetAll<Student>().Any(x => x.GroupId == groupId);
+            return _docRepo.GetAll<Student>().Any(x => x.Group == groupId);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Repositories
 {
-    public class ContingentRepository
+    public class DocRepository : XRepository
     {
         public void ClipboardToExcel()
         {

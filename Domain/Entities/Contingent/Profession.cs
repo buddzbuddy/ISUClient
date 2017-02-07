@@ -8,6 +8,6 @@ namespace Domain.Entities.Contingent
 {
     public class Profession : LocalEntity
     {
-
+        public string Name { get; set; }
     }
 }

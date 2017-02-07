@@ -18,9 +18,8 @@ namespace UI.ContingentForms
     {
         ContingentForm _contingentForm = null;
 
-        GroupRepository _groupRepo;
+        DocRepository _docRepo;
         EnumRepository _enumRepo;
-        ProfessionRepository _profRepo;
         Group _obj;
 
         public EditGroupForm(ContingentForm contingentForm, Group obj)
@@ -28,20 +27,19 @@ namespace UI.ContingentForms
             InitializeComponent();
 
             _contingentForm = contingentForm;
-            _groupRepo = new GroupRepository();
+            _docRepo = new DocRepository();
             _enumRepo = new EnumRepository();
-            _profRepo = new ProfessionRepository();
-            InitSources(obj.LanguageId, obj.StudyPeriodId, obj.ProfessionId);
+            InitSources(obj.Language, obj.StudyPeriod, obj.Profession);
             _obj = obj;
 
             NameTextBox.Text = obj.Name;
         }
 
-        private void InitSources(Guid? languageId, Guid? studyPeriodId, Guid? professionId)
+        private void InitSources(Guid? Language, Guid? studyPeriod, Guid? profession)
         {
-            InitLanguages(languageId);
-            InitStudyPeriods(studyPeriodId);
-            InitProfessions(professionId);
+            InitLanguages(Language);
+            InitStudyPeriods(studyPeriod);
+            InitProfessions(profession);
         }
 
         private void InitLanguages(Guid? value)
@@ -63,7 +61,7 @@ namespace UI.ContingentForms
 
         private void InitProfessions(Guid? value)
         {
-            ProfessionComboBox.DataSource = _profRepo.GetAll<Profession>().ToList();
+            ProfessionComboBox.DataSource = _docRepo.GetAll<Profession>().ToList();
             ProfessionComboBox.DisplayMember = "Name";
             ProfessionComboBox.ValueMember = "Id";
             if (value != null)
@@ -78,9 +76,9 @@ namespace UI.ContingentForms
         private void FillObj()
         {
             _obj.Name = NameTextBox.Text;
-            _obj.LanguageId = Guid.Parse(LanguageComboBox.SelectedValue.ToString());
-            _obj.StudyPeriodId = Guid.Parse(StudyPeriodComboBox.SelectedValue.ToString());
-            _obj.ProfessionId = Guid.Parse(ProfessionComboBox.SelectedValue.ToString());
+            _obj.Language = Guid.Parse(LanguageComboBox.SelectedValue.ToString());
+            _obj.StudyPeriod = Guid.Parse(StudyPeriodComboBox.SelectedValue.ToString());
+            _obj.Profession = Guid.Parse(ProfessionComboBox.SelectedValue.ToString());
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -98,18 +96,19 @@ namespace UI.ContingentForms
                     }
                     _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupName"].Value = _obj.Name;
 
-                    if (_obj.LanguageId != null)
+                    if (_obj.Language != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupLanguageId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, _obj.LanguageId);
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupLanguage"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, _obj.Language);
                     }
-                    if (_obj.ProfessionId != null)
+                    if (_obj.Profession != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupProfessionId"] = _contingentForm.InitDGVCB(_profRepo.GetAll<Profession>().ToList(), _obj.ProfessionId, "Name");
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupProfession"] = _contingentForm.InitDGVCB(_docRepo.GetAll<Profession>().ToList(), _obj.Profession, "Name");
                     }
-                    if (_obj.StudyPeriodId != null)
+                    if (_obj.StudyPeriod != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriodId"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriodId);
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriod"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriod);
                     }
+                    _contingentForm.ResetDropDownValues(_obj, "StudentGroup", _docRepo.GetAll<Group>().ToList(), "Name");
                 }
                 catch (Exception ex)
                 {
@@ -136,7 +135,7 @@ namespace UI.ContingentForms
             //Save changes to xml-db
             try
             {
-                _groupRepo.Save(_obj, true);
+                _docRepo.Save(_obj, true);
             }
             catch (Exception e)
             {

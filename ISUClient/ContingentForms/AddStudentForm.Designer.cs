@@ -41,12 +41,18 @@
             this.GroupLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.GenderComboBox = new System.Windows.Forms.ComboBox();
+            this.NationalityLabel = new System.Windows.Forms.Label();
+            this.NationalityComboBox = new System.Windows.Forms.ComboBox();
+            this.PINLabel = new System.Windows.Forms.Label();
+            this.PINTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(14, 20);
+            this.LastNameLabel.Location = new System.Drawing.Point(47, 50);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(56, 13);
             this.LastNameLabel.TabIndex = 0;
@@ -55,7 +61,7 @@
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(41, 46);
+            this.FirstNameLabel.Location = new System.Drawing.Point(74, 76);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(29, 13);
             this.FirstNameLabel.TabIndex = 1;
@@ -64,7 +70,7 @@
             // MiddleNameLabel
             // 
             this.MiddleNameLabel.AutoSize = true;
-            this.MiddleNameLabel.Location = new System.Drawing.Point(16, 72);
+            this.MiddleNameLabel.Location = new System.Drawing.Point(49, 102);
             this.MiddleNameLabel.Name = "MiddleNameLabel";
             this.MiddleNameLabel.Size = new System.Drawing.Size(54, 13);
             this.MiddleNameLabel.TabIndex = 2;
@@ -72,29 +78,29 @@
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(76, 13);
+            this.LastNameTextBox.Location = new System.Drawing.Point(109, 43);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.LastNameTextBox.TabIndex = 0;
+            this.LastNameTextBox.TabIndex = 1;
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(76, 39);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(109, 69);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.FirstNameTextBox.TabIndex = 1;
+            this.FirstNameTextBox.TabIndex = 2;
             // 
             // MiddleNameTextBox
             // 
-            this.MiddleNameTextBox.Location = new System.Drawing.Point(76, 65);
+            this.MiddleNameTextBox.Location = new System.Drawing.Point(109, 95);
             this.MiddleNameTextBox.Name = "MiddleNameTextBox";
             this.MiddleNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.MiddleNameTextBox.TabIndex = 2;
+            this.MiddleNameTextBox.TabIndex = 3;
             // 
             // BirthDateLabel
             // 
             this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(14, 97);
+            this.BirthDateLabel.Location = new System.Drawing.Point(17, 127);
             this.BirthDateLabel.Name = "BirthDateLabel";
             this.BirthDateLabel.Size = new System.Drawing.Size(86, 13);
             this.BirthDateLabel.TabIndex = 3;
@@ -103,23 +109,23 @@
             // BirthDateDateTimePicker
             // 
             this.BirthDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BirthDateDateTimePicker.Location = new System.Drawing.Point(103, 91);
+            this.BirthDateDateTimePicker.Location = new System.Drawing.Point(109, 121);
             this.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
-            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(121, 20);
-            this.BirthDateDateTimePicker.TabIndex = 3;
+            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.BirthDateDateTimePicker.TabIndex = 4;
             // 
             // GroupComboBox
             // 
             this.GroupComboBox.FormattingEnabled = true;
-            this.GroupComboBox.Location = new System.Drawing.Point(76, 117);
+            this.GroupComboBox.Location = new System.Drawing.Point(109, 202);
             this.GroupComboBox.Name = "GroupComboBox";
             this.GroupComboBox.Size = new System.Drawing.Size(148, 21);
-            this.GroupComboBox.TabIndex = 4;
+            this.GroupComboBox.TabIndex = 100;
             // 
             // GroupLabel
             // 
             this.GroupLabel.AutoSize = true;
-            this.GroupLabel.Location = new System.Drawing.Point(28, 125);
+            this.GroupLabel.Location = new System.Drawing.Point(61, 210);
             this.GroupLabel.Name = "GroupLabel";
             this.GroupLabel.Size = new System.Drawing.Size(42, 13);
             this.GroupLabel.TabIndex = 5;
@@ -127,7 +133,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(31, 161);
+            this.SaveButton.Location = new System.Drawing.Point(31, 404);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 6;
@@ -137,7 +143,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(130, 161);
+            this.CancelButton.Location = new System.Drawing.Point(130, 404);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 7;
@@ -145,11 +151,67 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // GenderLabel
+            // 
+            this.GenderLabel.AutoSize = true;
+            this.GenderLabel.Location = new System.Drawing.Point(74, 155);
+            this.GenderLabel.Name = "GenderLabel";
+            this.GenderLabel.Size = new System.Drawing.Size(27, 13);
+            this.GenderLabel.TabIndex = 8;
+            this.GenderLabel.Text = "Пол";
+            // 
+            // GenderComboBox
+            // 
+            this.GenderComboBox.FormattingEnabled = true;
+            this.GenderComboBox.Location = new System.Drawing.Point(109, 147);
+            this.GenderComboBox.Name = "GenderComboBox";
+            this.GenderComboBox.Size = new System.Drawing.Size(148, 21);
+            this.GenderComboBox.TabIndex = 5;
+            // 
+            // NationalityLabel
+            // 
+            this.NationalityLabel.AutoSize = true;
+            this.NationalityLabel.Location = new System.Drawing.Point(11, 185);
+            this.NationalityLabel.Name = "NationalityLabel";
+            this.NationalityLabel.Size = new System.Drawing.Size(92, 13);
+            this.NationalityLabel.TabIndex = 101;
+            this.NationalityLabel.Text = "Национальность";
+            // 
+            // NationalityComboBox
+            // 
+            this.NationalityComboBox.FormattingEnabled = true;
+            this.NationalityComboBox.Location = new System.Drawing.Point(109, 175);
+            this.NationalityComboBox.Name = "NationalityComboBox";
+            this.NationalityComboBox.Size = new System.Drawing.Size(148, 21);
+            this.NationalityComboBox.TabIndex = 6;
+            // 
+            // PINLabel
+            // 
+            this.PINLabel.AutoSize = true;
+            this.PINLabel.Location = new System.Drawing.Point(39, 24);
+            this.PINLabel.Name = "PINLabel";
+            this.PINLabel.Size = new System.Drawing.Size(64, 13);
+            this.PINLabel.TabIndex = 103;
+            this.PINLabel.Text = "ПИН (ИНН)";
+            // 
+            // PINTextBox
+            // 
+            this.PINTextBox.Location = new System.Drawing.Point(109, 17);
+            this.PINTextBox.Name = "PINTextBox";
+            this.PINTextBox.Size = new System.Drawing.Size(148, 20);
+            this.PINTextBox.TabIndex = 0;
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 227);
+            this.ClientSize = new System.Drawing.Size(598, 430);
+            this.Controls.Add(this.PINTextBox);
+            this.Controls.Add(this.PINLabel);
+            this.Controls.Add(this.NationalityComboBox);
+            this.Controls.Add(this.NationalityLabel);
+            this.Controls.Add(this.GenderComboBox);
+            this.Controls.Add(this.GenderLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.GroupLabel);
@@ -185,5 +247,11 @@
         private System.Windows.Forms.Label GroupLabel;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.ComboBox GenderComboBox;
+        private System.Windows.Forms.Label NationalityLabel;
+        private System.Windows.Forms.ComboBox NationalityComboBox;
+        private System.Windows.Forms.Label PINLabel;
+        private System.Windows.Forms.TextBox PINTextBox;
     }
 }

@@ -145,6 +145,7 @@
             this.Controls.Add(this.GroupNameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditGroupForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Редактировать группу";
             this.ResumeLayout(false);
             this.PerformLayout();

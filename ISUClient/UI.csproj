@@ -131,6 +131,12 @@
     <Compile Include="ContingentForms\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContingentForms\ViewGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContingentForms\ViewGroupForm.Designer.cs">
+      <DependentUpon>ViewGroupForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContingentForms\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContingentForms\ViewGroupForm.resx">
+      <DependentUpon>ViewGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

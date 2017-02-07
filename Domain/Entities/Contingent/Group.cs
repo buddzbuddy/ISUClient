@@ -8,8 +8,9 @@ namespace Domain.Entities.Contingent
 {
     public class Group : LocalEntity
     {
-        public Guid? LanguageId { get; set; }
-        public Guid? ProfessionId { get; set; }
-        public Guid? StudyPeriodId { get; set; }
+        public Guid? Language { get; set; }
+        public Guid? Profession { get; set; }
+        public Guid? StudyPeriod { get; set; }
+        public string Name { get; set; }
     }
 }

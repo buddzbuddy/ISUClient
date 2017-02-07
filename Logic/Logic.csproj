@@ -43,12 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Repositories\AccountRepository.cs" />
-    <Compile Include="Repositories\ContingentRepository.cs" />
     <Compile Include="Repositories\EnumRepository.cs" />
-    <Compile Include="Repositories\StudentRepository.cs" />
-    <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\DocRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ProfessionRepository.cs" />
     <Compile Include="XRepository.cs" />
   </ItemGroup>
   <ItemGroup>
