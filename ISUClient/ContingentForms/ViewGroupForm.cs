@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Contingent;
+﻿using Domain.Entities;
+using Domain.Entities.Contingent;
 using Domain.StaticReferences;
 using Logic.Repositories;
 using System;
@@ -39,7 +40,10 @@ namespace UI.ContingentForms
             InitLanguages(Language);
             InitStudyPeriods(studyPeriodId);
             InitProfessions(professionId);
-            LoadStudents();
+
+            var students = _docRepo.GetAll<Student>();
+            if (students == null) return;
+            _contingentForm.LoadStudentsFromDb(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
         }
 
         private void InitLanguages(Guid? value)
@@ -76,6 +80,7 @@ namespace UI.ContingentForms
                 if (students == null) return;
                 foreach (var student in students.Where(x => !x.IsDeleted && x.Group == _obj.Id))
                 {
+                    student.Person = _docRepo.Get<Person>(student.PersonId);
                     var newIndex = DataGridViewStudents.Rows.Add();
                     DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.Person.LastName;
                     DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.Person.FirstName;

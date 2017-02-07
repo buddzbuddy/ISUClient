@@ -32,7 +32,7 @@ namespace UI
             _enumRepo = new EnumRepository();
             _docRepo = new DocRepository();
             LoadGroupsFromDb();
-            LoadStudentsFromDb();
+            LoadStudentsFromDb(DataGridViewStudents, _docRepo.GetAll<Student>());
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
@@ -97,42 +97,48 @@ namespace UI
                 MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LoadStudentsFromDb()
+        public void LoadStudentsFromDb(DataGridView dataGridView, IEnumerable<Student> students)
         {
             try
             {
-                _docRepo = new DocRepository();
-                var students = _docRepo.GetAll<Student>();
-                if (students == null) return;
                 var groups = _docRepo.GetAll<Group>();
                 var genders = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
                 var nationalities = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
+                var personalDocumentTypes = _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items;
 
                 foreach (var student in students.Where(x => !x.IsDeleted))
                 {
                     student.Person = _docRepo.Get<Person>(student.PersonId);
                     if (student.Person == null) continue;
-                    var newIndex = DataGridViewStudents.Rows.Add();
-                    DataGridViewStudents.Rows[newIndex].Cells["StudentId"].Value = student.Id;
-                    DataGridViewStudents.Rows[newIndex].Cells["PIN"].Value = student.Person.PIN;
-                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.Person.LastName;
-                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.Person.FirstName;
-                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.Person.MiddleName;
-                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.Person.BirthDate;
+                    var newIndex = dataGridView.Rows.Add();
+                    dataGridView.Rows[newIndex].Cells["StudentId"].Value = student.Id;
+                    dataGridView.Rows[newIndex].Cells["PIN"].Value = student.Person.PIN;
+                    dataGridView.Rows[newIndex].Cells["LastName"].Value = student.Person.LastName;
+                    dataGridView.Rows[newIndex].Cells["FirstName"].Value = student.Person.FirstName;
+                    dataGridView.Rows[newIndex].Cells["MiddleName"].Value = student.Person.MiddleName;
+                    dataGridView.Rows[newIndex].Cells["BirthDate"].Value = student.Person.BirthDate;
 
-                    if (student.Group != null)
+                    dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = student.PassportSeries;
+                    dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = student.PassportNo;
+
+                    if (student.Group != null && dataGridView.Columns["StudentGroup"] != null)
                     {
-                        DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = InitDGVCB(groups.ToList(), student.Group, "Name");
+                        dataGridView.Rows[newIndex].Cells["StudentGroup"] = InitDGVCB(groups.ToList(), student.Group, "Name");
                     }
 
-                    if (student.Person.Gender != null)
+                    if (student.Person.Gender != null && dataGridView.Columns["StudentGender"] != null)
                     {
-                        DataGridViewStudents.Rows[newIndex].Cells["StudentGender"] = InitDGVCB(genders.ToList(), student.Person.Gender);
+                        dataGridView.Rows[newIndex].Cells["StudentGender"] = InitDGVCB(genders.ToList(), student.Person.Gender);
                     }
 
-                    if (student.Person.Nationality != null)
+                    if (student.Person.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
                     {
-                        DataGridViewStudents.Rows[newIndex].Cells["StudentNationality"] = InitDGVCB(nationalities.ToList(), student.Person.Nationality);
+                        dataGridView.Rows[newIndex].Cells["StudentNationality"] = InitDGVCB(nationalities.ToList(), student.Person.Nationality);
+                    }
+
+                    if (student.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
+                    {
+                        dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = InitDGVCB(personalDocumentTypes.ToList(), student.PersonalDocumentType);
                     }
                 }
             }

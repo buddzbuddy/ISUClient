@@ -47,6 +47,13 @@
             this.NationalityComboBox = new System.Windows.Forms.ComboBox();
             this.PINLabel = new System.Windows.Forms.Label();
             this.PINTextBox = new System.Windows.Forms.TextBox();
+            this.PassportSeriesLabel = new System.Windows.Forms.Label();
+            this.PassportSeriesTextBox = new System.Windows.Forms.TextBox();
+            this.PassportNoLabel = new System.Windows.Forms.Label();
+            this.PassportNoTextBox = new System.Windows.Forms.TextBox();
+            this.PersonalDocumentLabel = new System.Windows.Forms.Label();
+            this.PersonalDocumentTypeLabel = new System.Windows.Forms.Label();
+            this.PersonalDocumentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LastNameLabel
@@ -201,11 +208,76 @@
             this.PINTextBox.Size = new System.Drawing.Size(148, 20);
             this.PINTextBox.TabIndex = 0;
             // 
+            // PassportSeriesLabel
+            // 
+            this.PassportSeriesLabel.AutoSize = true;
+            this.PassportSeriesLabel.Location = new System.Drawing.Point(321, 68);
+            this.PassportSeriesLabel.Name = "PassportSeriesLabel";
+            this.PassportSeriesLabel.Size = new System.Drawing.Size(38, 13);
+            this.PassportSeriesLabel.TabIndex = 104;
+            this.PassportSeriesLabel.Text = "Серия";
+            // 
+            // PassportSeriesTextBox
+            // 
+            this.PassportSeriesTextBox.Location = new System.Drawing.Point(365, 61);
+            this.PassportSeriesTextBox.Name = "PassportSeriesTextBox";
+            this.PassportSeriesTextBox.Size = new System.Drawing.Size(37, 20);
+            this.PassportSeriesTextBox.TabIndex = 105;
+            // 
+            // PassportNoLabel
+            // 
+            this.PassportNoLabel.AutoSize = true;
+            this.PassportNoLabel.Location = new System.Drawing.Point(408, 68);
+            this.PassportNoLabel.Name = "PassportNoLabel";
+            this.PassportNoLabel.Size = new System.Drawing.Size(41, 13);
+            this.PassportNoLabel.TabIndex = 106;
+            this.PassportNoLabel.Text = "Номер";
+            // 
+            // PassportNoTextBox
+            // 
+            this.PassportNoTextBox.Location = new System.Drawing.Point(455, 61);
+            this.PassportNoTextBox.Name = "PassportNoTextBox";
+            this.PassportNoTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PassportNoTextBox.TabIndex = 107;
+            // 
+            // PersonalDocumentLabel
+            // 
+            this.PersonalDocumentLabel.AutoSize = true;
+            this.PersonalDocumentLabel.Location = new System.Drawing.Point(315, 17);
+            this.PersonalDocumentLabel.Name = "PersonalDocumentLabel";
+            this.PersonalDocumentLabel.Size = new System.Drawing.Size(203, 13);
+            this.PersonalDocumentLabel.TabIndex = 108;
+            this.PersonalDocumentLabel.Text = "Документ, удостоверяющий личность:";
+            // 
+            // PersonalDocumentTypeLabel
+            // 
+            this.PersonalDocumentTypeLabel.AutoSize = true;
+            this.PersonalDocumentTypeLabel.Location = new System.Drawing.Point(318, 34);
+            this.PersonalDocumentTypeLabel.Name = "PersonalDocumentTypeLabel";
+            this.PersonalDocumentTypeLabel.Size = new System.Drawing.Size(29, 13);
+            this.PersonalDocumentTypeLabel.TabIndex = 109;
+            this.PersonalDocumentTypeLabel.Text = "Вид:";
+            // 
+            // PersonalDocumentTypeComboBox
+            // 
+            this.PersonalDocumentTypeComboBox.FormattingEnabled = true;
+            this.PersonalDocumentTypeComboBox.Location = new System.Drawing.Point(356, 34);
+            this.PersonalDocumentTypeComboBox.Name = "PersonalDocumentTypeComboBox";
+            this.PersonalDocumentTypeComboBox.Size = new System.Drawing.Size(199, 21);
+            this.PersonalDocumentTypeComboBox.TabIndex = 110;
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 430);
+            this.Controls.Add(this.PersonalDocumentTypeComboBox);
+            this.Controls.Add(this.PersonalDocumentTypeLabel);
+            this.Controls.Add(this.PersonalDocumentLabel);
+            this.Controls.Add(this.PassportNoTextBox);
+            this.Controls.Add(this.PassportNoLabel);
+            this.Controls.Add(this.PassportSeriesTextBox);
+            this.Controls.Add(this.PassportSeriesLabel);
             this.Controls.Add(this.PINTextBox);
             this.Controls.Add(this.PINLabel);
             this.Controls.Add(this.NationalityComboBox);
@@ -253,5 +325,12 @@
         private System.Windows.Forms.ComboBox NationalityComboBox;
         private System.Windows.Forms.Label PINLabel;
         private System.Windows.Forms.TextBox PINTextBox;
+        private System.Windows.Forms.Label PassportSeriesLabel;
+        private System.Windows.Forms.TextBox PassportSeriesTextBox;
+        private System.Windows.Forms.Label PassportNoLabel;
+        private System.Windows.Forms.TextBox PassportNoTextBox;
+        private System.Windows.Forms.Label PersonalDocumentLabel;
+        private System.Windows.Forms.Label PersonalDocumentTypeLabel;
+        private System.Windows.Forms.ComboBox PersonalDocumentTypeComboBox;
     }
 }

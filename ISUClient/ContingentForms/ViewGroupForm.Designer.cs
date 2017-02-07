@@ -38,12 +38,19 @@
             this.LanguageComboBox = new System.Windows.Forms.ComboBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.GroupNameLabel = new System.Windows.Forms.Label();
+            this.AddStudentButton = new System.Windows.Forms.Button();
             this.DataGridViewStudents = new System.Windows.Forms.DataGridView();
+            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddStudentButton = new System.Windows.Forms.Button();
+            this.StudentPersonalDocumentType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.StudentPassportSeries = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentPassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentGender = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.StudentNationality = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,22 +125,52 @@
             this.GroupNameLabel.TabIndex = 7;
             this.GroupNameLabel.Text = "Название группы";
             // 
+            // AddStudentButton
+            // 
+            this.AddStudentButton.Location = new System.Drawing.Point(860, 135);
+            this.AddStudentButton.Name = "AddStudentButton";
+            this.AddStudentButton.Size = new System.Drawing.Size(75, 34);
+            this.AddStudentButton.TabIndex = 16;
+            this.AddStudentButton.Text = "Добавить учащегося";
+            this.AddStudentButton.UseVisualStyleBackColor = true;
+            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
+            // 
             // DataGridViewStudents
             // 
             this.DataGridViewStudents.AllowUserToAddRows = false;
             this.DataGridViewStudents.AllowUserToDeleteRows = false;
             this.DataGridViewStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StudentId,
+            this.PIN,
             this.LastName,
             this.FirstName,
             this.MiddleName,
-            this.BirthDate});
-            this.DataGridViewStudents.Location = new System.Drawing.Point(12, 125);
+            this.BirthDate,
+            this.StudentPersonalDocumentType,
+            this.StudentPassportSeries,
+            this.StudentPassportNo,
+            this.StudentGender,
+            this.StudentNationality});
+            this.DataGridViewStudents.Location = new System.Drawing.Point(3, 135);
             this.DataGridViewStudents.Name = "DataGridViewStudents";
             this.DataGridViewStudents.ReadOnly = true;
             this.DataGridViewStudents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.DataGridViewStudents.Size = new System.Drawing.Size(413, 150);
-            this.DataGridViewStudents.TabIndex = 15;
+            this.DataGridViewStudents.Size = new System.Drawing.Size(841, 150);
+            this.DataGridViewStudents.TabIndex = 17;
+            // 
+            // StudentId
+            // 
+            this.StudentId.HeaderText = "Id";
+            this.StudentId.Name = "StudentId";
+            this.StudentId.ReadOnly = true;
+            this.StudentId.Visible = false;
+            // 
+            // PIN
+            // 
+            this.PIN.HeaderText = "ПИН (ИНН)";
+            this.PIN.Name = "PIN";
+            this.PIN.ReadOnly = true;
             // 
             // LastName
             // 
@@ -164,23 +201,51 @@
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.ReadOnly = true;
             // 
-            // AddStudentButton
+            // StudentPersonalDocumentType
             // 
-            this.AddStudentButton.Location = new System.Drawing.Point(483, 125);
-            this.AddStudentButton.Name = "AddStudentButton";
-            this.AddStudentButton.Size = new System.Drawing.Size(75, 34);
-            this.AddStudentButton.TabIndex = 16;
-            this.AddStudentButton.Text = "Добавить учащегося";
-            this.AddStudentButton.UseVisualStyleBackColor = true;
-            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
+            this.StudentPersonalDocumentType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentPersonalDocumentType.HeaderText = "Вид";
+            this.StudentPersonalDocumentType.Name = "StudentPersonalDocumentType";
+            this.StudentPersonalDocumentType.ReadOnly = true;
+            this.StudentPersonalDocumentType.Width = 32;
+            // 
+            // StudentPassportSeries
+            // 
+            this.StudentPassportSeries.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentPassportSeries.HeaderText = "Серия";
+            this.StudentPassportSeries.Name = "StudentPassportSeries";
+            this.StudentPassportSeries.ReadOnly = true;
+            this.StudentPassportSeries.Width = 63;
+            // 
+            // StudentPassportNo
+            // 
+            this.StudentPassportNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentPassportNo.HeaderText = "Номер";
+            this.StudentPassportNo.Name = "StudentPassportNo";
+            this.StudentPassportNo.ReadOnly = true;
+            this.StudentPassportNo.Width = 66;
+            // 
+            // StudentGender
+            // 
+            this.StudentGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentGender.HeaderText = "Пол";
+            this.StudentGender.Name = "StudentGender";
+            this.StudentGender.ReadOnly = true;
+            this.StudentGender.Width = 33;
+            // 
+            // StudentNationality
+            // 
+            this.StudentNationality.HeaderText = "Национальность";
+            this.StudentNationality.Name = "StudentNationality";
+            this.StudentNationality.ReadOnly = true;
             // 
             // ViewGroupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 361);
-            this.Controls.Add(this.AddStudentButton);
+            this.ClientSize = new System.Drawing.Size(947, 361);
             this.Controls.Add(this.DataGridViewStudents);
+            this.Controls.Add(this.AddStudentButton);
             this.Controls.Add(this.StudyPeriodComboBox);
             this.Controls.Add(this.StudyPeriodLabel);
             this.Controls.Add(this.ProfessionLabel);
@@ -209,11 +274,18 @@
         private System.Windows.Forms.ComboBox LanguageComboBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label GroupNameLabel;
+        private System.Windows.Forms.Button AddStudentButton;
         public System.Windows.Forms.DataGridView DataGridViewStudents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PIN;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
-        private System.Windows.Forms.Button AddStudentButton;
+        private System.Windows.Forms.DataGridViewComboBoxColumn StudentPersonalDocumentType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPassportSeries;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPassportNo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn StudentGender;
+        private System.Windows.Forms.DataGridViewComboBoxColumn StudentNationality;
     }
 }
