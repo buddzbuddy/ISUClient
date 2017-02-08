@@ -10,4 +10,8 @@ namespace Domain.Filters
     {
 
     }
+    public class BindWithPropertyAttribute : Attribute
+    {
+        public virtual string PropertyName { get; set; }
+    }
 }

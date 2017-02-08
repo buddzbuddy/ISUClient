@@ -98,15 +98,15 @@ namespace UI.ContingentForms
 
                     if (_obj.Language != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupLanguage"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, _obj.Language);
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupLanguage"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, _obj.Language);
                     }
                     if (_obj.Profession != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupProfession"] = _contingentForm.InitDGVCB(_docRepo.GetAll<Profession>().ToList(), _obj.Profession, "Name");
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupProfession"] = FormManager.InitDGVCB(_docRepo.GetAll<Profession>().ToList(), _obj.Profession, "Name");
                     }
                     if (_obj.StudyPeriod != null)
                     {
-                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriod"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriod);
+                        _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriod"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriod);
                     }
                     _contingentForm.ResetDropDownValues(_obj, "StudentGroup", _docRepo.GetAll<Group>().ToList(), "Name");
                 }

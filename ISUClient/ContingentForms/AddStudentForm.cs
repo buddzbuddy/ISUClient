@@ -121,8 +121,8 @@ namespace UI.ContingentForms
             var student = new Student
             {
                 Id = Guid.NewGuid(),
-                PersonId = person.Id,
-                Person = person,
+                Person = person.Id,
+                PersonObj = person,
                 Group = Guid.Parse(GroupComboBox.SelectedValue.ToString()),
                 IsNew = true,
                 PersonalDocumentType = Guid.Parse(PersonalDocumentTypeComboBox.SelectedValue.ToString()),
@@ -159,33 +159,33 @@ namespace UI.ContingentForms
         private void AddToDataGridViewStudents(Student obj, DataGridView dataGridView)
         {
             var newIndex = dataGridView.Rows.Add();
-            dataGridView.Rows[newIndex].Cells["PIN"].Value = obj.Person.PIN;
-            dataGridView.Rows[newIndex].Cells["LastName"].Value = obj.Person.LastName;
-            dataGridView.Rows[newIndex].Cells["FirstName"].Value = obj.Person.FirstName;
-            dataGridView.Rows[newIndex].Cells["MiddleName"].Value = obj.Person.MiddleName;
-            dataGridView.Rows[newIndex].Cells["BirthDate"].Value = obj.Person.BirthDate;
+            dataGridView.Rows[newIndex].Cells["PIN"].Value = obj.PersonObj.PIN;
+            dataGridView.Rows[newIndex].Cells["LastName"].Value = obj.PersonObj.LastName;
+            dataGridView.Rows[newIndex].Cells["FirstName"].Value = obj.PersonObj.FirstName;
+            dataGridView.Rows[newIndex].Cells["MiddleName"].Value = obj.PersonObj.MiddleName;
+            dataGridView.Rows[newIndex].Cells["BirthDate"].Value = obj.PersonObj.BirthDate;
 
             dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = obj.PassportSeries;
             dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = obj.PassportNo;
 
             if (obj.Group != null && dataGridView.Columns["StudentGroup"] != null)
             {
-                _contingentForm.DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = _contingentForm.InitDGVCB(_docRepo.GetAll<Group>().ToList(), obj.Group, "Name");
+                _contingentForm.DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(_docRepo.GetAll<Group>().ToList(), obj.Group, "Name");
             }
 
-            if (obj.Person.Gender != null && dataGridView.Columns["StudentGender"] != null)
+            if (obj.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentGender"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.GenderEnumDefId).Items, obj.Person.Gender);
+                dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.GenderEnumDefId).Items, obj.PersonObj.Gender);
             }
 
-            if (obj.Person.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
+            if (obj.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentNationality"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.NationalityEnumDefId).Items, obj.Person.Nationality);
+                dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.NationalityEnumDefId).Items, obj.PersonObj.Nationality);
             }
 
             if (obj.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = _contingentForm.InitDGVCB(_enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items, obj.PersonalDocumentType);
+                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items, obj.PersonalDocumentType);
             }
         }
         private bool SaveToLocalDb(Student obj, out string errorMessage)

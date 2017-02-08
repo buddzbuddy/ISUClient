@@ -10,9 +10,10 @@ namespace Domain.Entities.Contingent
     public class Student:LocalEntity
     {
         #region About Student
-        public Guid PersonId { get; set; }
+        public Guid Person { get; set; }
         [Skip]
-        public Person Person { get; set; }
+        [BindWithProperty(PropertyName = "Person")]
+        public Person PersonObj { get; set; }
 
         #region PassportDetails
         public Guid? PersonalDocumentType { get; set; }

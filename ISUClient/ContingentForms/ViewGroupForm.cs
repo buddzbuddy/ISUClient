@@ -80,12 +80,12 @@ namespace UI.ContingentForms
                 if (students == null) return;
                 foreach (var student in students.Where(x => !x.IsDeleted && x.Group == _obj.Id))
                 {
-                    student.Person = _docRepo.Get<Person>(student.PersonId);
+                    student.PersonObj = _docRepo.Get<Person>(student.Person);
                     var newIndex = DataGridViewStudents.Rows.Add();
-                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.Person.LastName;
-                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.Person.FirstName;
-                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.Person.MiddleName;
-                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.Person.BirthDate;
+                    DataGridViewStudents.Rows[newIndex].Cells["LastName"].Value = student.PersonObj.LastName;
+                    DataGridViewStudents.Rows[newIndex].Cells["FirstName"].Value = student.PersonObj.FirstName;
+                    DataGridViewStudents.Rows[newIndex].Cells["MiddleName"].Value = student.PersonObj.MiddleName;
+                    DataGridViewStudents.Rows[newIndex].Cells["BirthDate"].Value = student.PersonObj.BirthDate;
                 }
             }
             catch (Exception ex)
