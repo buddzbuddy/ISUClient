@@ -41,15 +41,16 @@ namespace UI.ContingentForms
             InitStudyPeriods(studyPeriodId);
             InitProfessions(professionId);
 
-            var students = _docRepo.GetAll<Student>();
-            if (students == null) return;
-            FormManager.LoadToDataGridView(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id), new Dictionary<string, IEnumerable<object>>()
+            if (_docRepo.GetAll<Student>() == null) return;
+            var students = _docRepo.GetAll<Student>().ToList();
+            students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+
+            FormManager.LoadToDataGridView(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id)/*, new Dictionary<string, IEnumerable<object>>()
             {
-                { "Group", _docRepo.GetAll<Group>() },
                     { "Gender", _enumRepo.GetEnum(Enums.GenderEnumDefId).Items },
                     { "Nationality", _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items },
                     { "PersonalDocumentType", _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items }
-            });
+            }*/);
             //_contingentForm.LoadStudentsFromDb(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
         }
 

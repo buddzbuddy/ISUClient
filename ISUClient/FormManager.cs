@@ -52,9 +52,14 @@ namespace UI
                     var dataSource = comboBoxes[property.Name];
                     if (dataSource != null && dataSource.Count() > 0)
                     {
-                        if (property.IsDefined(typeof(MemberAttribute), false))
+                        if (property.IsDefined(typeof(DocMemberAttribute), false))
                         {
-                            var member = (MemberAttribute)Attribute.GetCustomAttribute(property, typeof(MemberAttribute));
+                            var member = (DocMemberAttribute)Attribute.GetCustomAttribute(property, typeof(DocMemberAttribute));
+                            row.Cells[cellName] = InitDGVCB(dataSource.ToList(), (Nullable<Guid>)cellValue, member.Display, member.Value);
+                        }
+                        else if (property.IsDefined(typeof(EnumMemberAttribute), false))
+                        {
+                            var member = (EnumMemberAttribute)Attribute.GetCustomAttribute(property, typeof(EnumMemberAttribute));
                             row.Cells[cellName] = InitDGVCB(dataSource.ToList(), (Nullable<Guid>)cellValue, member.Display, member.Value);
                         }
                         else
@@ -64,19 +69,57 @@ namespace UI
             }
             else
                 throw new ApplicationException("Не могу загрузить источник в табличную форму, тип поля \"" + property.PropertyType.Name + "\" не определен!");
-                            
+
         }
-        
-        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> objs, Dictionary<string, IEnumerable<object>> comboBoxes)
+
+        private static Dictionary<string, IEnumerable<object>> GetComboBox<T>(PropertyInfo property, T obj)
         {
+            var comboBoxes = new Dictionary<string, IEnumerable<object>>();
+            var _docRepo = new DocRepository();
+            var _enumRepo = new EnumRepository();
+            if (property.IsDefined(typeof(EnumMemberAttribute), false))
+            {
+                var enumDefName = ((EnumMemberAttribute)Attribute.GetCustomAttribute(property, typeof(EnumMemberAttribute))).EnumDefName;
+                comboBoxes.Add(property.Name, _enumRepo.GetEnum(Enums.GetEnumDefId(enumDefName)).Items);
+            }
+            else if (property.IsDefined(typeof(DocMemberAttribute), false))
+            {
+                IEnumerable<object> dataSource = null;
+                var objType = ((DocMemberAttribute)Attribute.GetCustomAttribute(property, typeof(DocMemberAttribute))).ObjType;
+                if (objType.Name.Equals(typeof(Person).Name))
+                {
+                    dataSource = _docRepo.GetAll<Person>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(Profession).Name))
+                {
+                    dataSource = _docRepo.GetAll<Profession>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(Group).Name))
+                {
+                    dataSource = _docRepo.GetAll<Group>().ToList();
+                }
+                else
+                    throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\" Тип выпадающего списка \"" + dataSource.First().GetType().Name + "\"");
+
+
+                comboBoxes.Add(property.Name, dataSource);
+            }
+            return comboBoxes;
+        }
+
+        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> objs)
+        {
+            dataGridView.Rows.Clear();
             foreach (var obj in objs)
             {
                 var newIndex = dataGridView.Rows.Add();
                 var row = dataGridView.Rows[newIndex];
-                foreach (var property in obj.GetType().GetProperties().OrderByDescending(x => x.Name))
+                foreach (var property in obj.GetType().GetProperties())
                 {
                     if (property.Name == DBConfigInfo.IsNew || property.Name == DBConfigInfo.IsDeleted || property.IsDefined(typeof(SkipAttribute), false))
                         continue;
+
+                    var comboBoxes = GetComboBox(property, obj);
 
                     if (property.IsDefined(typeof(BoundWithAttribute), false))
                     {
@@ -90,6 +133,7 @@ namespace UI
                                 var cellEntityName = obj.GetType().Name + property.Name;
                                 foreach (var subProperty in boundObj.GetType().GetProperties())
                                 {
+                                    comboBoxes = GetComboBox(subProperty, boundObj);
                                     InitCellFromProperty(dataGridView, row, cellEntityName + subProperty.Name, boundObj, subProperty, comboBoxes);
                                 }
 
@@ -107,17 +151,21 @@ namespace UI
             }
         }
 
-        public static void ResetDropDownValues<T>(T obj, DataGridView dataGridView)
+
+        public static void ResetDropDownValues<T>(T obj, DataGridView dataGridView, Type owner)
         {
             var property = typeof(T).GetProperty(DBConfigInfo.Id);
-            var objId = (Guid?)property.GetValue(obj);
-            if (!objId.HasValue) return;
+
+            var objName = obj.GetType().Name;
+
+            var cellName = owner.Name + objName;
+            var _docRepo = new DocRepository();
+
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                if (Guid.Parse(row.Cells[obj.GetType().Name + property.Name].Value.ToString()) == objId)
+                if (Guid.Parse(row.Cells[cellName].Value.ToString()) == (Guid)property.GetValue(obj))
                 {
-                    //row.Cells[columnName] = FormManager.InitDGVCB(dataSource, objId, "FullName", "Id");
-                    InitCellFromProperty(dataGridView, row, obj.GetType().Name + property.Name, obj, property, new Dictionary<string, IEnumerable<object>>());
+                    InitCellFromProperty(dataGridView, row, cellName, obj, property, new Dictionary<string, IEnumerable<object>>() { { objName, _docRepo.GetAll<T>().Cast<object>() } });
                 }
             }
         }

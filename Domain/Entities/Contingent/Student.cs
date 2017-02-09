@@ -1,4 +1,5 @@
 ﻿using Domain.Filters;
+using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Domain.Entities.Contingent
         public Person PersonObj { get; set; }
 
         #region PassportDetails
-        [Member("FullName")]
+        [EnumMember("PersonalDocumentType", "FullName")]
         public Guid? PersonalDocumentType { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNo { get; set; }
@@ -84,7 +85,7 @@ namespace Domain.Entities.Contingent
         public Guid? AdmittedToResultExam { get; set; }
         public Guid? PassedQualifExam { get; set; }
         public Guid? PassedResultExam { get; set; }
-        [Member("Name")]
+        [DocMember("Name", typeof(Group))]
         public Guid? Group { get; set; }
 
         #endregion

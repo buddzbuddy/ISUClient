@@ -19,16 +19,34 @@ namespace Domain.Filters
         }
         public string PropertyName { get { return _propertyName; } }
     }
-    public class MemberAttribute : Attribute
+    public class DocMemberAttribute : Attribute
     {
         private string _display { get; set; }
         private string _value { get; set; }
-        public MemberAttribute(string display, string value = "Id")
+        private Type _objType { get; set; }
+        public DocMemberAttribute(string display, Type objType, string value = "Id")
         {
+            _display = display;
+            _value = value;
+            _objType = objType;
+        }
+        public string Display { get { return _display; } }
+        public string Value { get { return _value; } }
+        public Type ObjType { get { return _objType; } }
+    }
+    public class EnumMemberAttribute : Attribute
+    {
+        private string _display { get; set; }
+        private string _value { get; set; }
+        private string _enumDefName { get; set; }
+        public EnumMemberAttribute(string enumDefName, string display, string value = "Id")
+        {
+            _enumDefName = enumDefName;
             _display = display;
             _value = value;
         }
         public string Display { get { return _display; } }
         public string Value { get { return _value; } }
+        public string EnumDefName { get { return _enumDefName; } }
     }
 }

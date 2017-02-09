@@ -1,4 +1,5 @@
 ﻿using Domain.Filters;
+using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,9 @@ namespace Domain.Entities
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public DateTime BirthDate { get; set; }
-        [Member("FullName")]
+        [EnumMember("Gender", "FullName")]
         public Guid? Gender { get; set; }
-        [Member("FullName")]
+        [EnumMember("Nationality", "FullName")]
         public Guid? Nationality { get; set; }
     }
 }

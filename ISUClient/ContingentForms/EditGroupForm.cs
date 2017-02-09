@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Contingent;
+﻿using Domain.Entities;
+using Domain.Entities.Contingent;
 using Domain.StaticReferences;
 using Logic.Repositories;
 using System;
@@ -108,8 +109,17 @@ namespace UI.ContingentForms
                     {
                         _contingentForm.DataGridViewGroups.Rows[currentIndex].Cells["GroupStudyPeriod"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, _obj.StudyPeriod, "FullName", "Id");
                     }
-                    FormManager.ResetDropDownValues(_obj, _contingentForm.DataGridViewStudents);
-                    //_contingentForm.ResetDropDownValues(_obj, "StudentGroup", _docRepo.GetAll<Group>().ToList(), "Name");
+                    //FormManager.ResetDropDownValues(_obj, _contingentForm.DataGridViewStudents, typeof(Student));
+                    var students = _docRepo.GetAll<Student>().ToList();
+                    students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                    FormManager.LoadToDataGridView(_contingentForm.DataGridViewStudents, students/*,
+                        new Dictionary<string, IEnumerable<object>>()
+                {
+                    { "Group", _docRepo.GetAll<Group>() },
+                    { "Gender", _enumRepo.GetEnum(Enums.GenderEnumDefId).Items },
+                    { "Nationality", _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items },
+                    { "PersonalDocumentType", _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items }
+                }*/);
                 }
                 catch (Exception ex)
                 {

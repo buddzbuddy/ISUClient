@@ -1,4 +1,5 @@
 ﻿using Domain.Filters;
+using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Domain.Entities.Contingent
 {
     public class Group : LocalEntity
     {
-        [Member("FullName")]
+        [EnumMember("Language", "FullName")]
         public Guid? Language { get; set; }
-        [Member("Name")]
+        [DocMember("Name", typeof(Profession))]
         public Guid? Profession { get; set; }
-        [Member("FullName")]
+        [EnumMember("StudyPeriod", "FullName")]
         public Guid? StudyPeriod { get; set; }
         public string Name { get; set; }
     }

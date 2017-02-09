@@ -79,23 +79,7 @@ namespace UI.ContingentForms
             {
                 try
                 {
-                    var newIndex = _contingentForm.DataGridViewGroups.Rows.Add();
-                    _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
-
-                    if (group.Language != null)
-                    {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupLanguage"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.LanguageEnumDefId).Items, group.Language, "FullName", "Id");
-                    }
-                    if (group.Profession != null)
-                    {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupProfessionId"] = FormManager.InitDGVCB(_docRepo.GetAll<Profession>().ToList(), group.Profession, "Name", "Id");
-                    }
-                    if (group.StudyPeriod != null)
-                    {
-                        _contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items, group.StudyPeriod, "FullName", "Id");
-
-                        //_contingentForm.DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriodId"].Value = _enumRepo.GetEnumItem(group.StudyPeriodId.Value).FullName;
-                    }
+                    FormManager.LoadToDataGridView(_contingentForm.DataGridViewGroups, _docRepo.GetAll<Group>());
                 }
                 catch (Exception ex)
                 {

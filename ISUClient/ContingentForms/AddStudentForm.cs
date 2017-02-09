@@ -134,11 +134,14 @@ namespace UI.ContingentForms
             {
                 try
                 {
-                    AddToDataGridViewStudents(student, _contingentForm.DataGridViewStudents);
+                    _docRepo = new DocRepository();
+                    if(_docRepo.GetAll<Student>() == null) return;
+                    var students = _docRepo.GetAll<Student>().ToList();
+                    students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                    FormManager.LoadToDataGridView(_contingentForm.DataGridViewStudents, students);
                     if (_viewGroupForm != null)
                     {
-                        //AddToDataGridViewStudents(student, _contingentForm.DataGridViewStudents);
-                        AddToDataGridViewStudents(student, _viewGroupForm.DataGridViewStudents);
+                        FormManager.LoadToDataGridView(_viewGroupForm.DataGridViewStudents, students.Where(x => x.Group == student.Group));
                     }
                 }
                 catch (Exception ex)
@@ -154,38 +157,6 @@ namespace UI.ContingentForms
             else
             {
                 MessageBox.Show(errorMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void AddToDataGridViewStudents(Student obj, DataGridView dataGridView)
-        {
-            var newIndex = dataGridView.Rows.Add();
-            dataGridView.Rows[newIndex].Cells["PIN"].Value = obj.PersonObj.PIN;
-            dataGridView.Rows[newIndex].Cells["LastName"].Value = obj.PersonObj.LastName;
-            dataGridView.Rows[newIndex].Cells["FirstName"].Value = obj.PersonObj.FirstName;
-            dataGridView.Rows[newIndex].Cells["MiddleName"].Value = obj.PersonObj.MiddleName;
-            dataGridView.Rows[newIndex].Cells["BirthDate"].Value = obj.PersonObj.BirthDate;
-
-            dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = obj.PassportSeries;
-            dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = obj.PassportNo;
-
-            if (obj.Group != null && dataGridView.Columns["StudentGroup"] != null)
-            {
-                _contingentForm.DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(_docRepo.GetAll<Group>().ToList(), obj.Group, "Name", "Id");
-            }
-
-            if (obj.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
-            {
-                dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.GenderEnumDefId).Items, obj.PersonObj.Gender, "FullName", "Id");
-            }
-
-            if (obj.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
-            {
-                dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.NationalityEnumDefId).Items, obj.PersonObj.Nationality, "FullName", "Id");
-            }
-
-            if (obj.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
-            {
-                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items, obj.PersonalDocumentType, "FullName", "Id");
             }
         }
         private bool SaveToLocalDb(Student obj, out string errorMessage)

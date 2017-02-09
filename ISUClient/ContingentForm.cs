@@ -32,23 +32,23 @@ namespace UI
             _enumRepo = new EnumRepository();
             _docRepo = new DocRepository();
             //LoadGroupsFromDb();
-            FormManager.LoadToDataGridView(DataGridViewGroups, _docRepo.GetAll<Group>(), new Dictionary<string, IEnumerable<object>>()
+            FormManager.LoadToDataGridView(DataGridViewGroups, _docRepo.GetAll<Group>()/*, new Dictionary<string, IEnumerable<object>>()
             {
                 {"Language", _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items},
                 {"Profession", _docRepo.GetAll<Profession>()},
                 {"StudyPeriod", _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items}
-            });
+            }*/);
             //LoadStudentsFromDb(DataGridViewStudents, _docRepo.GetAll<Student>());
             var students = _docRepo.GetAll<Student>().ToList();
             students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-            FormManager.LoadToDataGridView(DataGridViewStudents, students,
+            FormManager.LoadToDataGridView(DataGridViewStudents, students/*,
                 new Dictionary<string, IEnumerable<object>>()
                 {
                     { "Group", _docRepo.GetAll<Group>() },
                     { "Gender", _enumRepo.GetEnum(Enums.GenderEnumDefId).Items },
                     { "Nationality", _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items },
                     { "PersonalDocumentType", _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items }
-                });
+                }*/);
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
