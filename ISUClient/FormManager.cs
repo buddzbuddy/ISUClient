@@ -99,7 +99,7 @@ namespace UI
                     dataSource = _docRepo.GetAll<Group>().ToList();
                 }
                 else
-                    throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\" Тип выпадающего списка \"" + dataSource.First().GetType().Name + "\"");
+                    throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");
 
 
                 comboBoxes.Add(property.Name, dataSource);
@@ -151,23 +151,83 @@ namespace UI
             }
         }
 
-
-        public static void ResetDropDownValues<T>(T obj, DataGridView dataGridView, Type owner)
+        public static void InitializeComboBoxes<T>(Form form, T obj, string parentObjName = "")
         {
-            var property = typeof(T).GetProperty(DBConfigInfo.Id);
-
-            var objName = obj.GetType().Name;
-
-            var cellName = owner.Name + objName;
             var _docRepo = new DocRepository();
+            var _enumRepo = new EnumRepository();
 
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            foreach(var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute)) || x.IsDefined(typeof(DocMemberAttribute))))
             {
-                if (Guid.Parse(row.Cells[cellName].Value.ToString()) == (Guid)property.GetValue(obj))
+                var controlName = parentObjName + obj.GetType().Name + property.Name + "ComboBox";
+                if (form.Controls.ContainsKey(controlName))
                 {
-                    InitCellFromProperty(dataGridView, row, cellName, obj, property, new Dictionary<string, IEnumerable<object>>() { { objName, _docRepo.GetAll<T>().Cast<object>() } });
+                    var control = form.Controls[controlName];
+                    if (control is ComboBox)
+                    {
+                        var cb = (ComboBox)control;
+                        IEnumerable<object> dataSource = null;
+                        string displayMember = "";
+                        string valueMember = "";
+                        if (property.IsDefined(typeof(EnumMemberAttribute)))
+                        {
+                            var member = (EnumMemberAttribute)Attribute.GetCustomAttribute(property, typeof(EnumMemberAttribute));
+                            dataSource = _enumRepo.GetEnum(Enums.GetEnumDefId(member.EnumDefName)).Items;
+                            displayMember = member.Display;
+                            valueMember = member.Value;
+                        }
+                        else
+                        {
+                            var member = (DocMemberAttribute)Attribute.GetCustomAttribute(property, typeof(DocMemberAttribute));
+                            var objType = member.ObjType;
+                            if (objType.Name.Equals(typeof(Person).Name))
+                            {
+                                dataSource = _docRepo.GetAll<Person>().ToList();
+                            }
+                            else if (objType.Name.Equals(typeof(Profession).Name))
+                            {
+                                dataSource = _docRepo.GetAll<Profession>().ToList();
+                            }
+                            else if (objType.Name.Equals(typeof(Group).Name))
+                            {
+                                dataSource = _docRepo.GetAll<Group>().ToList();
+                            }
+                            else
+                                throw new ApplicationException("При загрузке источника для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");
+                            displayMember = member.Display;
+                            valueMember = member.Value;
+                        }
+                        InitCB(cb, dataSource, (Guid?)property.GetValue(obj), displayMember, valueMember);
+                    }
+                    else
+                        throw new ApplicationException("При попытке инициализировать выпадающий список для свойства \"" + obj.GetType().Name + "->" + property.Name + "\" в форме \"" + form.Name + "\" элемент под названием \"" + controlName + "\" найден, но его тип не выпадающий список а \"" + control.GetType().Name + "\"");
+                }
+                else
+                    throw new ApplicationException("При попытке инициализировать выпадающий список для свойства \"" + obj.GetType().Name + "->" + property.Name + "\" в форме \"" + form.Name + "\" элемент под названием \"" + controlName + "\" не найден!");
+            }
+
+            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(BoundWithAttribute))))
+            {
+                if (property.IsDefined(typeof(BoundWithAttribute), false))
+                {
+                    string boundWith = ((BoundWithAttribute)Attribute.GetCustomAttribute(property, typeof(BoundWithAttribute), false)).PropertyName;
+                    var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
+                    if (boundObj != null)
+                    {
+                        InitializeComboBoxes(form, boundObj, parentObjName + obj.GetType().Name);
+                    }
+                    else throw new ApplicationException("При попытке инициализировать выпадающий список, при попытке получить объект. Связанный объект пуст!  Сущность \"" + boundObj.GetType().Name + "\" Свойство \"" + property.Name + "\"");
                 }
             }
+
+        }
+
+        private static void InitCB(ComboBox CB, object dataSource, Guid? value, string displayMember, string valueMember)
+        {
+            CB.DataSource = dataSource;
+            CB.DisplayMember = displayMember;
+            CB.ValueMember = valueMember;
+            if (value != null)
+                CB.SelectedValue = value;
         }
     }
 }

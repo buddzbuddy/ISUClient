@@ -32,28 +32,28 @@
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
-            this.LastNameTextBox = new System.Windows.Forms.TextBox();
-            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.MiddleNameTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPersonLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPersonFirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPersonMiddleNameTextBox = new System.Windows.Forms.TextBox();
             this.BirthDateLabel = new System.Windows.Forms.Label();
-            this.BirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.GroupComboBox = new System.Windows.Forms.ComboBox();
+            this.StudentPersonBirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.StudentGroupComboBox = new System.Windows.Forms.ComboBox();
             this.GroupLabel = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.GenderLabel = new System.Windows.Forms.Label();
-            this.GenderComboBox = new System.Windows.Forms.ComboBox();
+            this.StudentPersonGenderComboBox = new System.Windows.Forms.ComboBox();
             this.NationalityLabel = new System.Windows.Forms.Label();
-            this.NationalityComboBox = new System.Windows.Forms.ComboBox();
+            this.StudentPersonNationalityComboBox = new System.Windows.Forms.ComboBox();
             this.PINLabel = new System.Windows.Forms.Label();
-            this.PINTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPersonPINTextBox = new System.Windows.Forms.TextBox();
             this.PassportSeriesLabel = new System.Windows.Forms.Label();
-            this.PassportSeriesTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPassportSeriesTextBox = new System.Windows.Forms.TextBox();
             this.PassportNoLabel = new System.Windows.Forms.Label();
-            this.PassportNoTextBox = new System.Windows.Forms.TextBox();
+            this.StudentPassportNoTextBox = new System.Windows.Forms.TextBox();
             this.PersonalDocumentLabel = new System.Windows.Forms.Label();
             this.PersonalDocumentTypeLabel = new System.Windows.Forms.Label();
-            this.PersonalDocumentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.StudentPersonalDocumentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // LastNameLabel
@@ -83,26 +83,26 @@
             this.MiddleNameLabel.TabIndex = 2;
             this.MiddleNameLabel.Text = "Отчество";
             // 
-            // LastNameTextBox
+            // StudentPersonLastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(109, 43);
-            this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.LastNameTextBox.TabIndex = 1;
+            this.StudentPersonLastNameTextBox.Location = new System.Drawing.Point(109, 43);
+            this.StudentPersonLastNameTextBox.Name = "StudentPersonLastNameTextBox";
+            this.StudentPersonLastNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.StudentPersonLastNameTextBox.TabIndex = 1;
             // 
-            // FirstNameTextBox
+            // StudentPersonFirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(109, 69);
-            this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.FirstNameTextBox.TabIndex = 2;
+            this.StudentPersonFirstNameTextBox.Location = new System.Drawing.Point(109, 69);
+            this.StudentPersonFirstNameTextBox.Name = "StudentPersonFirstNameTextBox";
+            this.StudentPersonFirstNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.StudentPersonFirstNameTextBox.TabIndex = 2;
             // 
-            // MiddleNameTextBox
+            // StudentPersonMiddleNameTextBox
             // 
-            this.MiddleNameTextBox.Location = new System.Drawing.Point(109, 95);
-            this.MiddleNameTextBox.Name = "MiddleNameTextBox";
-            this.MiddleNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.MiddleNameTextBox.TabIndex = 3;
+            this.StudentPersonMiddleNameTextBox.Location = new System.Drawing.Point(109, 95);
+            this.StudentPersonMiddleNameTextBox.Name = "StudentPersonMiddleNameTextBox";
+            this.StudentPersonMiddleNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.StudentPersonMiddleNameTextBox.TabIndex = 3;
             // 
             // BirthDateLabel
             // 
@@ -113,21 +113,21 @@
             this.BirthDateLabel.TabIndex = 3;
             this.BirthDateLabel.Text = "Дата рождения";
             // 
-            // BirthDateDateTimePicker
+            // StudentPersonBirthDateDateTimePicker
             // 
-            this.BirthDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.BirthDateDateTimePicker.Location = new System.Drawing.Point(109, 121);
-            this.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
-            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(148, 20);
-            this.BirthDateDateTimePicker.TabIndex = 4;
+            this.StudentPersonBirthDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.StudentPersonBirthDateDateTimePicker.Location = new System.Drawing.Point(109, 121);
+            this.StudentPersonBirthDateDateTimePicker.Name = "StudentPersonBirthDateDateTimePicker";
+            this.StudentPersonBirthDateDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.StudentPersonBirthDateDateTimePicker.TabIndex = 4;
             // 
-            // GroupComboBox
+            // StudentGroupComboBox
             // 
-            this.GroupComboBox.FormattingEnabled = true;
-            this.GroupComboBox.Location = new System.Drawing.Point(109, 202);
-            this.GroupComboBox.Name = "GroupComboBox";
-            this.GroupComboBox.Size = new System.Drawing.Size(148, 21);
-            this.GroupComboBox.TabIndex = 100;
+            this.StudentGroupComboBox.FormattingEnabled = true;
+            this.StudentGroupComboBox.Location = new System.Drawing.Point(109, 202);
+            this.StudentGroupComboBox.Name = "StudentGroupComboBox";
+            this.StudentGroupComboBox.Size = new System.Drawing.Size(148, 21);
+            this.StudentGroupComboBox.TabIndex = 100;
             // 
             // GroupLabel
             // 
@@ -167,13 +167,13 @@
             this.GenderLabel.TabIndex = 8;
             this.GenderLabel.Text = "Пол";
             // 
-            // GenderComboBox
+            // StudentPersonGenderComboBox
             // 
-            this.GenderComboBox.FormattingEnabled = true;
-            this.GenderComboBox.Location = new System.Drawing.Point(109, 147);
-            this.GenderComboBox.Name = "GenderComboBox";
-            this.GenderComboBox.Size = new System.Drawing.Size(148, 21);
-            this.GenderComboBox.TabIndex = 5;
+            this.StudentPersonGenderComboBox.FormattingEnabled = true;
+            this.StudentPersonGenderComboBox.Location = new System.Drawing.Point(109, 147);
+            this.StudentPersonGenderComboBox.Name = "StudentPersonGenderComboBox";
+            this.StudentPersonGenderComboBox.Size = new System.Drawing.Size(148, 21);
+            this.StudentPersonGenderComboBox.TabIndex = 5;
             // 
             // NationalityLabel
             // 
@@ -184,13 +184,13 @@
             this.NationalityLabel.TabIndex = 101;
             this.NationalityLabel.Text = "Национальность";
             // 
-            // NationalityComboBox
+            // StudentPersonNationalityComboBox
             // 
-            this.NationalityComboBox.FormattingEnabled = true;
-            this.NationalityComboBox.Location = new System.Drawing.Point(109, 175);
-            this.NationalityComboBox.Name = "NationalityComboBox";
-            this.NationalityComboBox.Size = new System.Drawing.Size(148, 21);
-            this.NationalityComboBox.TabIndex = 6;
+            this.StudentPersonNationalityComboBox.FormattingEnabled = true;
+            this.StudentPersonNationalityComboBox.Location = new System.Drawing.Point(109, 175);
+            this.StudentPersonNationalityComboBox.Name = "StudentPersonNationalityComboBox";
+            this.StudentPersonNationalityComboBox.Size = new System.Drawing.Size(148, 21);
+            this.StudentPersonNationalityComboBox.TabIndex = 6;
             // 
             // PINLabel
             // 
@@ -201,12 +201,12 @@
             this.PINLabel.TabIndex = 103;
             this.PINLabel.Text = "ПИН (ИНН)";
             // 
-            // PINTextBox
+            // StudentPersonPINTextBox
             // 
-            this.PINTextBox.Location = new System.Drawing.Point(109, 17);
-            this.PINTextBox.Name = "PINTextBox";
-            this.PINTextBox.Size = new System.Drawing.Size(148, 20);
-            this.PINTextBox.TabIndex = 0;
+            this.StudentPersonPINTextBox.Location = new System.Drawing.Point(109, 17);
+            this.StudentPersonPINTextBox.Name = "StudentPersonPINTextBox";
+            this.StudentPersonPINTextBox.Size = new System.Drawing.Size(148, 20);
+            this.StudentPersonPINTextBox.TabIndex = 0;
             // 
             // PassportSeriesLabel
             // 
@@ -217,12 +217,12 @@
             this.PassportSeriesLabel.TabIndex = 104;
             this.PassportSeriesLabel.Text = "Серия";
             // 
-            // PassportSeriesTextBox
+            // StudentPassportSeriesTextBox
             // 
-            this.PassportSeriesTextBox.Location = new System.Drawing.Point(365, 61);
-            this.PassportSeriesTextBox.Name = "PassportSeriesTextBox";
-            this.PassportSeriesTextBox.Size = new System.Drawing.Size(37, 20);
-            this.PassportSeriesTextBox.TabIndex = 105;
+            this.StudentPassportSeriesTextBox.Location = new System.Drawing.Point(365, 61);
+            this.StudentPassportSeriesTextBox.Name = "StudentPassportSeriesTextBox";
+            this.StudentPassportSeriesTextBox.Size = new System.Drawing.Size(37, 20);
+            this.StudentPassportSeriesTextBox.TabIndex = 105;
             // 
             // PassportNoLabel
             // 
@@ -233,12 +233,12 @@
             this.PassportNoLabel.TabIndex = 106;
             this.PassportNoLabel.Text = "Номер";
             // 
-            // PassportNoTextBox
+            // StudentPassportNoTextBox
             // 
-            this.PassportNoTextBox.Location = new System.Drawing.Point(455, 61);
-            this.PassportNoTextBox.Name = "PassportNoTextBox";
-            this.PassportNoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.PassportNoTextBox.TabIndex = 107;
+            this.StudentPassportNoTextBox.Location = new System.Drawing.Point(455, 61);
+            this.StudentPassportNoTextBox.Name = "StudentPassportNoTextBox";
+            this.StudentPassportNoTextBox.Size = new System.Drawing.Size(100, 20);
+            this.StudentPassportNoTextBox.TabIndex = 107;
             // 
             // PersonalDocumentLabel
             // 
@@ -258,41 +258,41 @@
             this.PersonalDocumentTypeLabel.TabIndex = 109;
             this.PersonalDocumentTypeLabel.Text = "Вид:";
             // 
-            // PersonalDocumentTypeComboBox
+            // StudentPersonalDocumentTypeComboBox
             // 
-            this.PersonalDocumentTypeComboBox.FormattingEnabled = true;
-            this.PersonalDocumentTypeComboBox.Location = new System.Drawing.Point(356, 34);
-            this.PersonalDocumentTypeComboBox.Name = "PersonalDocumentTypeComboBox";
-            this.PersonalDocumentTypeComboBox.Size = new System.Drawing.Size(199, 21);
-            this.PersonalDocumentTypeComboBox.TabIndex = 110;
+            this.StudentPersonalDocumentTypeComboBox.FormattingEnabled = true;
+            this.StudentPersonalDocumentTypeComboBox.Location = new System.Drawing.Point(356, 34);
+            this.StudentPersonalDocumentTypeComboBox.Name = "StudentPersonalDocumentTypeComboBox";
+            this.StudentPersonalDocumentTypeComboBox.Size = new System.Drawing.Size(199, 21);
+            this.StudentPersonalDocumentTypeComboBox.TabIndex = 110;
             // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(598, 430);
-            this.Controls.Add(this.PersonalDocumentTypeComboBox);
+            this.Controls.Add(this.StudentPersonalDocumentTypeComboBox);
             this.Controls.Add(this.PersonalDocumentTypeLabel);
             this.Controls.Add(this.PersonalDocumentLabel);
-            this.Controls.Add(this.PassportNoTextBox);
+            this.Controls.Add(this.StudentPassportNoTextBox);
             this.Controls.Add(this.PassportNoLabel);
-            this.Controls.Add(this.PassportSeriesTextBox);
+            this.Controls.Add(this.StudentPassportSeriesTextBox);
             this.Controls.Add(this.PassportSeriesLabel);
-            this.Controls.Add(this.PINTextBox);
+            this.Controls.Add(this.StudentPersonPINTextBox);
             this.Controls.Add(this.PINLabel);
-            this.Controls.Add(this.NationalityComboBox);
+            this.Controls.Add(this.StudentPersonNationalityComboBox);
             this.Controls.Add(this.NationalityLabel);
-            this.Controls.Add(this.GenderComboBox);
+            this.Controls.Add(this.StudentPersonGenderComboBox);
             this.Controls.Add(this.GenderLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.GroupLabel);
-            this.Controls.Add(this.GroupComboBox);
-            this.Controls.Add(this.BirthDateDateTimePicker);
+            this.Controls.Add(this.StudentGroupComboBox);
+            this.Controls.Add(this.StudentPersonBirthDateDateTimePicker);
             this.Controls.Add(this.BirthDateLabel);
-            this.Controls.Add(this.MiddleNameTextBox);
-            this.Controls.Add(this.FirstNameTextBox);
-            this.Controls.Add(this.LastNameTextBox);
+            this.Controls.Add(this.StudentPersonMiddleNameTextBox);
+            this.Controls.Add(this.StudentPersonFirstNameTextBox);
+            this.Controls.Add(this.StudentPersonLastNameTextBox);
             this.Controls.Add(this.MiddleNameLabel);
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.LastNameLabel);
@@ -310,27 +310,27 @@
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.Label MiddleNameLabel;
-        private System.Windows.Forms.TextBox LastNameTextBox;
-        private System.Windows.Forms.TextBox FirstNameTextBox;
-        private System.Windows.Forms.TextBox MiddleNameTextBox;
+        private System.Windows.Forms.TextBox StudentPersonLastNameTextBox;
+        private System.Windows.Forms.TextBox StudentPersonFirstNameTextBox;
+        private System.Windows.Forms.TextBox StudentPersonMiddleNameTextBox;
         private System.Windows.Forms.Label BirthDateLabel;
-        private System.Windows.Forms.DateTimePicker BirthDateDateTimePicker;
-        private System.Windows.Forms.ComboBox GroupComboBox;
+        private System.Windows.Forms.DateTimePicker StudentPersonBirthDateDateTimePicker;
+        private System.Windows.Forms.ComboBox StudentGroupComboBox;
         private System.Windows.Forms.Label GroupLabel;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label GenderLabel;
-        private System.Windows.Forms.ComboBox GenderComboBox;
+        private System.Windows.Forms.ComboBox StudentPersonGenderComboBox;
         private System.Windows.Forms.Label NationalityLabel;
-        private System.Windows.Forms.ComboBox NationalityComboBox;
+        private System.Windows.Forms.ComboBox StudentPersonNationalityComboBox;
         private System.Windows.Forms.Label PINLabel;
-        private System.Windows.Forms.TextBox PINTextBox;
+        private System.Windows.Forms.TextBox StudentPersonPINTextBox;
         private System.Windows.Forms.Label PassportSeriesLabel;
-        private System.Windows.Forms.TextBox PassportSeriesTextBox;
+        private System.Windows.Forms.TextBox StudentPassportSeriesTextBox;
         private System.Windows.Forms.Label PassportNoLabel;
-        private System.Windows.Forms.TextBox PassportNoTextBox;
+        private System.Windows.Forms.TextBox StudentPassportNoTextBox;
         private System.Windows.Forms.Label PersonalDocumentLabel;
         private System.Windows.Forms.Label PersonalDocumentTypeLabel;
-        private System.Windows.Forms.ComboBox PersonalDocumentTypeComboBox;
+        private System.Windows.Forms.ComboBox StudentPersonalDocumentTypeComboBox;
     }
 }

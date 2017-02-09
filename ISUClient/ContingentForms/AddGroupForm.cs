@@ -18,44 +18,13 @@ namespace UI.ContingentForms
     {
         ContingentForm _contingentForm = null;
 
-        DocRepository _docRepo;
-        EnumRepository _enumRepo;
-
         public AddGroupForm(ContingentForm contingentForm)
         {
             InitializeComponent();
 
             _contingentForm = contingentForm;
-            _docRepo = new DocRepository();
-            _enumRepo = new EnumRepository();
-            LoadSources();
-        }
-
-        private void LoadSources()
-        {
-            LoadLanguages();
-            LoadStudyPeriods();
-            LoadProfessions();
-        }
-
-        private void LoadLanguages()
-        {
-            LanguageComboBox.DataSource = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
-            LanguageComboBox.DisplayMember = "FullName";
-            LanguageComboBox.ValueMember = "Id";
-        }
-        private void LoadStudyPeriods()
-        {
-            StudyPeriodComboBox.DataSource = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
-            StudyPeriodComboBox.DisplayMember = "FullName";
-            StudyPeriodComboBox.ValueMember = "Id";
-        }
-
-        private void LoadProfessions()
-        {
-            ProfessionComboBox.DataSource = _docRepo.GetAll<Profession>().ToList();
-            ProfessionComboBox.DisplayMember = "Name";
-            ProfessionComboBox.ValueMember = "Id";
+            
+            FormManager.InitializeComboBoxes(this, new Group());
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -68,10 +37,10 @@ namespace UI.ContingentForms
             var group = new Group
             {
                 Id = Guid.NewGuid(),
-                Name = NameTextBox.Text,
-                Language = LanguageComboBox.SelectedItem != null ? (Guid?)LanguageComboBox.SelectedValue : null,
-                Profession = ProfessionComboBox.SelectedItem != null ? (Guid?)ProfessionComboBox.SelectedValue : null,
-                StudyPeriod = StudyPeriodComboBox.SelectedItem != null ? (Guid?)StudyPeriodComboBox.SelectedValue : null,
+                Name = GroupNameTextBox.Text,
+                Language = GroupLanguageComboBox.SelectedItem != null ? (Guid?)GroupLanguageComboBox.SelectedValue : null,
+                Profession = GroupProfessionComboBox.SelectedItem != null ? (Guid?)GroupProfessionComboBox.SelectedValue : null,
+                StudyPeriod = GroupStudyPeriodComboBox.SelectedItem != null ? (Guid?)GroupStudyPeriodComboBox.SelectedValue : null,
                 IsNew = true
             };
             string errorMessage;
@@ -79,6 +48,7 @@ namespace UI.ContingentForms
             {
                 try
                 {
+                    var _docRepo = new DocRepository();
                     FormManager.LoadToDataGridView(_contingentForm.DataGridViewGroups, _docRepo.GetAll<Group>());
                 }
                 catch (Exception ex)
@@ -106,6 +76,7 @@ namespace UI.ContingentForms
             //Save to xml-db
             try
             {
+                var _docRepo = new DocRepository();
                 _docRepo.Save(obj);
             }
             catch (Exception e)

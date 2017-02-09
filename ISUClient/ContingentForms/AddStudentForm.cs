@@ -19,19 +19,13 @@ namespace UI.ContingentForms
         ContingentForm _contingentForm;
         ViewGroupForm _viewGroupForm;
 
-        DocRepository _docRepo;
-        EnumRepository _enumRepo;
-
         Guid _groupId;
 
         public AddStudentForm(ContingentForm contingentForm)
         {
             InitializeComponent();
             _contingentForm = contingentForm;
-
-            _docRepo = new DocRepository();
-            _enumRepo = new EnumRepository();
-            LoadSources();
+            FormManager.InitializeComboBoxes(this, new Student { PersonObj = new Person() });
         }
         public AddStudentForm(ContingentForm contingentForm, ViewGroupForm viewGroupForm, Guid groupId)
         {
@@ -40,50 +34,7 @@ namespace UI.ContingentForms
 
             InitializeComponent();
             _contingentForm = contingentForm;
-
-            _docRepo = new DocRepository();
-            _enumRepo = new EnumRepository();
-
-            LoadSources();
-        }
-
-        private void LoadSources()
-        {
-            LoadGroups();
-            LoadGenders();
-            LoadNationalities();
-            LoadPersonalDocumentTypes();
-        }
-
-        private void LoadGroups()
-        {
-            var groups = _docRepo.GetAll<Group>().ToList();
-            GroupComboBox.DataSource = groups;
-            GroupComboBox.DisplayMember = "Name";
-            GroupComboBox.ValueMember = "Id";
-            if (_viewGroupForm != null)
-                GroupComboBox.SelectedValue = _groupId;
-        }
-
-        private void LoadGenders()
-        {
-            GenderComboBox.DataSource = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
-            GenderComboBox.DisplayMember = "FullName";
-            GenderComboBox.ValueMember = "Id";
-        }
-
-        private void LoadNationalities()
-        {
-            NationalityComboBox.DataSource = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
-            NationalityComboBox.DisplayMember = "FullName";
-            NationalityComboBox.ValueMember = "Id";
-        }
-
-        private void LoadPersonalDocumentTypes()
-        {
-            PersonalDocumentTypeComboBox.DataSource = _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items;
-            PersonalDocumentTypeComboBox.DisplayMember = "FullName";
-            PersonalDocumentTypeComboBox.ValueMember = "Id";
+            FormManager.InitializeComboBoxes(this, new Student { PersonObj = new Person() });
         }
 
 
@@ -94,13 +45,16 @@ namespace UI.ContingentForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var _docRepo = new DocRepository();
+            var _enumRepo = new EnumRepository();
+
             var persons = _docRepo.GetAll<Person>();
             Person person = persons != null ? persons.FirstOrDefault(x =>
                 !x.IsDeleted &&
-                x.LastName.Equals(LastNameTextBox.Text) &&
-                x.FirstName.Equals(FirstNameTextBox.Text) &&
-                x.MiddleName.Equals(MiddleNameTextBox.Text) &&
-                x.BirthDate.Date.Equals(BirthDateDateTimePicker.Value.Date)
+                x.LastName.Equals(StudentPersonLastNameTextBox.Text) &&
+                x.FirstName.Equals(StudentPersonFirstNameTextBox.Text) &&
+                x.MiddleName.Equals(StudentPersonMiddleNameTextBox.Text) &&
+                x.BirthDate.Date.Equals(StudentPersonBirthDateDateTimePicker.Value.Date)
                 ) : null;
             if (person == null)
             {
@@ -108,13 +62,13 @@ namespace UI.ContingentForms
                 {
                     Id = Guid.NewGuid(),
                     IsNew = true,
-                    PIN = PINTextBox.Text,
-                    LastName = LastNameTextBox.Text,
-                    FirstName = FirstNameTextBox.Text,
-                    MiddleName = MiddleNameTextBox.Text,
-                    BirthDate = BirthDateDateTimePicker.Value.Date,
-                    Gender = GenderComboBox.SelectedItem != null ? (Guid?)GenderComboBox.SelectedValue : null,
-                    Nationality = NationalityComboBox.SelectedItem != null ? (Guid?)NationalityComboBox.SelectedValue : null
+                    PIN = StudentPersonPINTextBox.Text,
+                    LastName = StudentPersonLastNameTextBox.Text,
+                    FirstName = StudentPersonFirstNameTextBox.Text,
+                    MiddleName = StudentPersonMiddleNameTextBox.Text,
+                    BirthDate = StudentPersonBirthDateDateTimePicker.Value.Date,
+                    Gender = StudentPersonGenderComboBox.SelectedItem != null ? (Guid?)StudentPersonGenderComboBox.SelectedValue : null,
+                    Nationality = StudentPersonNationalityComboBox.SelectedItem != null ? (Guid?)StudentPersonNationalityComboBox.SelectedValue : null
                 };
                 _docRepo.Save(person);
             }
@@ -123,11 +77,11 @@ namespace UI.ContingentForms
                 Id = Guid.NewGuid(),
                 Person = person.Id,
                 PersonObj = person,
-                Group = Guid.Parse(GroupComboBox.SelectedValue.ToString()),
+                Group = Guid.Parse(StudentGroupComboBox.SelectedValue.ToString()),
                 IsNew = true,
-                PersonalDocumentType = Guid.Parse(PersonalDocumentTypeComboBox.SelectedValue.ToString()),
-                PassportSeries = PassportSeriesTextBox.Text,
-                PassportNo = PassportNoTextBox.Text
+                PersonalDocumentType = Guid.Parse(StudentPersonalDocumentTypeComboBox.SelectedValue.ToString()),
+                PassportSeries = StudentPassportSeriesTextBox.Text,
+                PassportNo = StudentPassportNoTextBox.Text
             };
             string errorMessage;
             if (SaveToLocalDb(student, out errorMessage))
@@ -161,6 +115,8 @@ namespace UI.ContingentForms
         }
         private bool SaveToLocalDb(Student obj, out string errorMessage)
         {
+            var _docRepo = new DocRepository();
+            var _enumRepo = new EnumRepository();
             errorMessage = "";
 
             //TODO: Write to progress bar
