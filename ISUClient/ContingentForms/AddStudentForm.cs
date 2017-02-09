@@ -170,22 +170,22 @@ namespace UI.ContingentForms
 
             if (obj.Group != null && dataGridView.Columns["StudentGroup"] != null)
             {
-                _contingentForm.DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(_docRepo.GetAll<Group>().ToList(), obj.Group, "Name");
+                _contingentForm.DataGridViewStudents.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(_docRepo.GetAll<Group>().ToList(), obj.Group, "Name", "Id");
             }
 
             if (obj.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.GenderEnumDefId).Items, obj.PersonObj.Gender);
+                dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.GenderEnumDefId).Items, obj.PersonObj.Gender, "FullName", "Id");
             }
 
             if (obj.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.NationalityEnumDefId).Items, obj.PersonObj.Nationality);
+                dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.NationalityEnumDefId).Items, obj.PersonObj.Nationality, "FullName", "Id");
             }
 
             if (obj.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
             {
-                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items, obj.PersonalDocumentType);
+                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(_enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items, obj.PersonalDocumentType, "FullName", "Id");
             }
         }
         private bool SaveToLocalDb(Student obj, out string errorMessage)

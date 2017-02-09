@@ -10,8 +10,25 @@ namespace Domain.Filters
     {
 
     }
-    public class BindWithPropertyAttribute : Attribute
+    public class BoundWithAttribute : Attribute
     {
-        public virtual string PropertyName { get; set; }
+        private string _propertyName { get; set; }
+        public BoundWithAttribute(string propertyName)
+        {
+            _propertyName = propertyName;
+        }
+        public string PropertyName { get { return _propertyName; } }
+    }
+    public class MemberAttribute : Attribute
+    {
+        private string _display { get; set; }
+        private string _value { get; set; }
+        public MemberAttribute(string display, string value = "Id")
+        {
+            _display = display;
+            _value = value;
+        }
+        public string Display { get { return _display; } }
+        public string Value { get { return _value; } }
     }
 }

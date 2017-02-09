@@ -10,13 +10,13 @@ namespace Logic.Repositories
 {
     public class EnumRepository : XRepository
     {
-        private XEnumContext context;
+        private XEnumContext enumContext;
         public EnumRepository()
         {
             if (Enums.EnumDefs.Count == 0)
             {
-                context = new XEnumContext();
-                var xList = context.GetAllElements();
+                enumContext = new XEnumContext();
+                var xList = enumContext.GetAllElements();
                 if (xList != null && xList.Count() > 0)
                 {
                     foreach (var xObj in xList)

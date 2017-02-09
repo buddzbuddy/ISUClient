@@ -22,12 +22,12 @@ namespace Logic
             T obj = (T)Activator.CreateInstance(typeof(T));
 
             bool isNew = false;
-            var isNewAttribute = xObj.Attribute(DBConfigInfo.IsNewKeyPropertyName);
+            var isNewAttribute = xObj.Attribute(DBConfigInfo.IsNew);
             if (isNewAttribute != null)
                 Boolean.TryParse(isNewAttribute.Value, out isNew);
 
             bool isDeleted = false;
-            var isDeletedAttribute = xObj.Attribute(DBConfigInfo.IsDeletedKeyPropertyName);
+            var isDeletedAttribute = xObj.Attribute(DBConfigInfo.IsDeleted);
             if (isDeletedAttribute != null)
                 Boolean.TryParse(isDeletedAttribute.Value, out isDeleted);
 
@@ -69,11 +69,11 @@ namespace Logic
                     }
                     else if (property.PropertyType == typeof(Boolean))
                     {
-                        if (property.Name == DBConfigInfo.IsNewKeyPropertyName)
+                        if (property.Name == DBConfigInfo.IsNew)
                         {
                             property.SetValue(obj, isNew);
                         }
-                        else if (property.Name == DBConfigInfo.IsDeletedKeyPropertyName)
+                        else if (property.Name == DBConfigInfo.IsDeleted)
                         {
                             property.SetValue(obj, isDeleted);
                         }

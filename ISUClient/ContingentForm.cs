@@ -31,8 +31,24 @@ namespace UI
             InitializeComponent();
             _enumRepo = new EnumRepository();
             _docRepo = new DocRepository();
-            LoadGroupsFromDb();
-            LoadStudentsFromDb(DataGridViewStudents, _docRepo.GetAll<Student>());
+            //LoadGroupsFromDb();
+            FormManager.LoadToDataGridView(DataGridViewGroups, _docRepo.GetAll<Group>(), new Dictionary<string, IEnumerable<object>>()
+            {
+                {"Language", _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items},
+                {"Profession", _docRepo.GetAll<Profession>()},
+                {"StudyPeriod", _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items}
+            });
+            //LoadStudentsFromDb(DataGridViewStudents, _docRepo.GetAll<Student>());
+            var students = _docRepo.GetAll<Student>().ToList();
+            students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+            FormManager.LoadToDataGridView(DataGridViewStudents, students,
+                new Dictionary<string, IEnumerable<object>>()
+                {
+                    { "Group", _docRepo.GetAll<Group>() },
+                    { "Gender", _enumRepo.GetEnum(Enums.GenderEnumDefId).Items },
+                    { "Nationality", _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items },
+                    { "PersonalDocumentType", _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items }
+                });
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
@@ -60,110 +76,110 @@ namespace UI
             _docRepo.ClipboardToExcel();
         }
 
-        private void LoadGroupsFromDb()
-        {
-            try
-            {
-                _docRepo = new DocRepository();
-                var groups = _docRepo.GetAll<Group>();
-                if (groups == null) return;
+        //private void LoadGroupsFromDb()
+        //{
+        //    try
+        //    {
+        //        _docRepo = new DocRepository();
+        //        var groups = _docRepo.GetAll<Group>();
+        //        if (groups == null) return;
 
-                var studyPeriods = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
-                var languages = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
-                var professions = _docRepo.GetAll<Profession>().ToList();
+        //        var studyPeriods = _enumRepo.GetEnum(Enums.StudyPeriodEnumDefId).Items;
+        //        var languages = _enumRepo.GetEnum(Enums.LanguageEnumDefId).Items;
+        //        var professions = _docRepo.GetAll<Profession>().ToList();
 
-                foreach (var group in groups.Where(x => !x.IsDeleted))
-                {
-                    var newIndex = DataGridViewGroups.Rows.Add();
-                    DataGridViewGroups.Rows[newIndex].Cells["GroupId"].Value = group.Id;
-                    DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
+        //        foreach (var group in groups.Where(x => !x.IsDeleted))
+        //        {
+        //            var newIndex = DataGridViewGroups.Rows.Add();
+        //            DataGridViewGroups.Rows[newIndex].Cells["GroupId"].Value = group.Id;
+        //            DataGridViewGroups.Rows[newIndex].Cells["GroupName"].Value = group.Name;
 
-                    if (group.Language != null)
-                    {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupLanguage"] = FormManager.InitDGVCB(languages, group.Language);
-                    }
-                    if (group.Profession != null)
-                    {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupProfession"] = FormManager.InitDGVCB(professions, group.Profession, "Name");
-                    }
-                    if (group.StudyPeriod != null)
-                    {
-                        DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriod"] = FormManager.InitDGVCB(studyPeriods, group.StudyPeriod);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        public void LoadStudentsFromDb(DataGridView dataGridView, IEnumerable<Student> students)
-        {
-            try
-            {
-                var groups = _docRepo.GetAll<Group>();
-                var genders = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
-                var nationalities = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
-                var personalDocumentTypes = _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items;
+        //            if (group.Language != null)
+        //            {
+        //                DataGridViewGroups.Rows[newIndex].Cells["GroupLanguage"] = FormManager.InitDGVCB(languages, group.Language, "FullName", "Id");
+        //            }
+        //            if (group.Profession != null)
+        //            {
+        //                DataGridViewGroups.Rows[newIndex].Cells["GroupProfession"] = FormManager.InitDGVCB(professions, group.Profession, "Name", "Id");
+        //            }
+        //            if (group.StudyPeriod != null)
+        //            {
+        //                DataGridViewGroups.Rows[newIndex].Cells["GroupStudyPeriod"] = FormManager.InitDGVCB(studyPeriods, group.StudyPeriod, "FullName", "Id");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+        //public void LoadStudentsFromDb(DataGridView dataGridView, IEnumerable<Student> students)
+        //{
+        //    try
+        //    {
+        //        var groups = _docRepo.GetAll<Group>();
+        //        var genders = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
+        //        var nationalities = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
+        //        var personalDocumentTypes = _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items;
 
-                foreach (var student in students.Where(x => !x.IsDeleted))
-                {
-                    student.PersonObj = _docRepo.Get<Person>(student.Person);
-                    if (student.PersonObj == null) continue;
-                    var newIndex = dataGridView.Rows.Add();
-                    dataGridView.Rows[newIndex].Cells["StudentId"].Value = student.Id;
-                    dataGridView.Rows[newIndex].Cells["PIN"].Value = student.PersonObj.PIN;
-                    dataGridView.Rows[newIndex].Cells["LastName"].Value = student.PersonObj.LastName;
-                    dataGridView.Rows[newIndex].Cells["FirstName"].Value = student.PersonObj.FirstName;
-                    dataGridView.Rows[newIndex].Cells["MiddleName"].Value = student.PersonObj.MiddleName;
-                    dataGridView.Rows[newIndex].Cells["BirthDate"].Value = student.PersonObj.BirthDate;
+        //        foreach (var student in students.Where(x => !x.IsDeleted))
+        //        {
+        //            student.PersonObj = _docRepo.Get<Person>(student.Person);
+        //            if (student.PersonObj == null) continue;
+        //            var newIndex = dataGridView.Rows.Add();
+        //            dataGridView.Rows[newIndex].Cells["StudentId"].Value = student.Id;
+        //            dataGridView.Rows[newIndex].Cells["PIN"].Value = student.PersonObj.PIN;
+        //            dataGridView.Rows[newIndex].Cells["LastName"].Value = student.PersonObj.LastName;
+        //            dataGridView.Rows[newIndex].Cells["FirstName"].Value = student.PersonObj.FirstName;
+        //            dataGridView.Rows[newIndex].Cells["MiddleName"].Value = student.PersonObj.MiddleName;
+        //            dataGridView.Rows[newIndex].Cells["BirthDate"].Value = student.PersonObj.BirthDate;
 
-                    dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = student.PassportSeries;
-                    dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = student.PassportNo;
+        //            dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = student.PassportSeries;
+        //            dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = student.PassportNo;
 
-                    if (student.Group != null && dataGridView.Columns["StudentGroup"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(groups.ToList(), student.Group, "Name");
-                    }
+        //            if (student.Group != null && dataGridView.Columns["StudentGroup"] != null)
+        //            {
+        //                dataGridView.Rows[newIndex].Cells["StudentGroup"] = FormManager.InitDGVCB(groups.ToList(), student.Group, "Name", "Id");
+        //            }
 
-                    if (student.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(genders.ToList(), student.PersonObj.Gender);
-                    }
+        //            if (student.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
+        //            {
+        //                dataGridView.Rows[newIndex].Cells["StudentGender"] = FormManager.InitDGVCB(genders.ToList(), student.PersonObj.Gender, "FullName", "Id");
+        //            }
 
-                    if (student.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(nationalities.ToList(), student.PersonObj.Nationality);
-                    }
+        //            if (student.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
+        //            {
+        //                dataGridView.Rows[newIndex].Cells["StudentNationality"] = FormManager.InitDGVCB(nationalities.ToList(), student.PersonObj.Nationality, "FullName", "Id");
+        //            }
 
-                    if (student.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(personalDocumentTypes.ToList(), student.PersonalDocumentType);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //            if (student.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
+        //            {
+        //                dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = FormManager.InitDGVCB(personalDocumentTypes.ToList(), student.PersonalDocumentType, "FullName", "Id");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         public void ResetDropDownValues<T>(T obj, string columnName, object dataSource, string displayMember = "FullName")
         {
             var objId = (Guid?)typeof(T).GetProperty("Id").GetValue(obj);
-            if(!objId.HasValue) return;
+            if (!objId.HasValue) return;
             foreach (DataGridViewRow row in DataGridViewStudents.Rows)
             {
                 if (Guid.Parse(row.Cells[columnName].Value.ToString()) == objId)
                 {
-                    row.Cells[columnName] = FormManager.InitDGVCB(dataSource, objId, displayMember);
+                    row.Cells[columnName] = FormManager.InitDGVCB(dataSource, objId, "FullName", "Id");
                 }
             }
         }
 
         private void DataGridViewGroups_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 var row = DataGridViewGroups.Rows[e.RowIndex];
                 var cell = row.Cells[e.ColumnIndex];

@@ -6,6 +6,7 @@ using Logic.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,89 +15,110 @@ namespace UI
 {
     public static class FormManager
     {
-        public static DataGridViewComboBoxCell InitDGVCB(object dataSource, Guid? value, string displayMember = "FullName")
+        public static DataGridViewComboBoxCell InitDGVCB(object dataSource, Guid? value, string displayMember, string valueMember)
         {
             var CBCell = new DataGridViewComboBoxCell();
             CBCell.DataSource = dataSource;
             CBCell.DisplayMember = displayMember;
-            CBCell.ValueMember = "Id";
+            CBCell.ValueMember = valueMember;
             CBCell.Value = value;
             return CBCell;
         }
 
-
-        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> entries, IDictionary<string, IEnumerable<object>> comboBoxes)
+        static void InitCellFromProperty(DataGridView dataGridView, DataGridViewRow row, string cellName, object obj, PropertyInfo property, Dictionary<string, IEnumerable<object>> comboBoxes)
         {
-            foreach (var entry in entries)
+            var cellValue = property.GetValue(obj);
+            if (property.Name == DBConfigInfo.Id ||
+                new[]
+                                    {
+                                        typeof(DateTime),
+                                        typeof(Int32),
+                                        typeof(Nullable<Int32>),
+                                        typeof(Boolean),
+                                        typeof(Decimal),
+                                        typeof(Double),
+                                        typeof(String)
+                                    }.Contains(property.PropertyType))
             {
-                foreach (var property in typeof(T).GetProperties().OrderByDescending(x => x.Name))
+                if (dataGridView.Columns[cellName] != null)
+                    row.Cells[cellName].Value = cellValue;
+            }
+            else if (new[] { typeof(Guid), typeof(Nullable<Guid>) }.Contains(property.PropertyType))
+            {
+                if (comboBoxes.ContainsKey(property.Name) &&
+                    cellValue != null &&
+                    dataGridView.Columns[cellName] != null)
                 {
-                    string boundWithProperty = "";
-                    if (property.GetCustomAttributes(typeof(SkipAttribute), false).Length > 0)
+                    var dataSource = comboBoxes[property.Name];
+                    if (dataSource != null && dataSource.Count() > 0)
                     {
-                        if (property.GetCustomAttributes(typeof(BindWithPropertyAttribute), false).Length > 0)
+                        if (property.IsDefined(typeof(MemberAttribute), false))
                         {
-                            boundWithProperty = ((BindWithPropertyAttribute)Attribute.GetCustomAttribute(typeof(T), typeof(BindWithPropertyAttribute))).PropertyName;
+                            var member = (MemberAttribute)Attribute.GetCustomAttribute(property, typeof(MemberAttribute));
+                            row.Cells[cellName] = InitDGVCB(dataSource.ToList(), (Nullable<Guid>)cellValue, member.Display, member.Value);
                         }
-                        else continue;
+                        else
+                            throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка атрибут не найден! Тип объекта \"" + obj.GetType().Name + "\" Имя свойства \"" + property.Name + "\" Тип выпадающего списка \"" + dataSource.First().GetType().Name + "\"");
+                    }
+                }
+            }
+            else
+                throw new ApplicationException("Не могу загрузить источник в табличную форму, тип поля \"" + property.PropertyType.Name + "\" не определен!");
+                            
+        }
+        
+        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> objs, Dictionary<string, IEnumerable<object>> comboBoxes)
+        {
+            foreach (var obj in objs)
+            {
+                var newIndex = dataGridView.Rows.Add();
+                var row = dataGridView.Rows[newIndex];
+                foreach (var property in obj.GetType().GetProperties().OrderByDescending(x => x.Name))
+                {
+                    if (property.Name == DBConfigInfo.IsNew || property.Name == DBConfigInfo.IsDeleted || property.IsDefined(typeof(SkipAttribute), false))
+                        continue;
+
+                    if (property.IsDefined(typeof(BoundWithAttribute), false))
+                    {
+                        var customAttribute = Attribute.GetCustomAttribute(property, typeof(BoundWithAttribute), false);
+                        if (customAttribute != null)
+                        {
+                            string boundWith = ((BoundWithAttribute)customAttribute).PropertyName;
+                            var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
+                            if (boundObj != null)
+                            {
+                                var cellEntityName = obj.GetType().Name + property.Name;
+                                foreach (var subProperty in boundObj.GetType().GetProperties())
+                                {
+                                    InitCellFromProperty(dataGridView, row, cellEntityName + subProperty.Name, boundObj, subProperty, comboBoxes);
+                                }
+
+                            }
+                            else throw new ApplicationException("При загрузке источника в табличную форму, при попытке получить объект. Связанный объект пуст!  Сущность \"" + boundObj.GetType().Name + "\" Свойство \"" + property.Name + "\"");
+                        }
+                        else
+                            throw new ApplicationException("При загрузке источника в табличную форму, при попытке получить атрибут поля. Атрибут не найден!  Сущность \"" + obj.GetType().Name + "\" Свойство \"" + property.Name + "\"");
                     }
                     else
                     {
-
+                        InitCellFromProperty(dataGridView, row, obj.GetType().Name + property.Name, obj, property, comboBoxes);
                     }
                 }
             }
         }
-        public static void LoadStudentsFromDb(DataGridView dataGridView, IEnumerable<Student> students)
+
+        public static void ResetDropDownValues<T>(T obj, DataGridView dataGridView)
         {
-            try
+            var property = typeof(T).GetProperty(DBConfigInfo.Id);
+            var objId = (Guid?)property.GetValue(obj);
+            if (!objId.HasValue) return;
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                var _docRepo = new DocRepository();
-                var _enumRepo = new EnumRepository();
-                var groups = _docRepo.GetAll<Group>();
-                var genders = _enumRepo.GetEnum(Enums.GenderEnumDefId).Items;
-                var nationalities = _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items;
-                var personalDocumentTypes = _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items;
-
-                foreach (var student in students.Where(x => !x.IsDeleted))
+                if (Guid.Parse(row.Cells[obj.GetType().Name + property.Name].Value.ToString()) == objId)
                 {
-                    student.PersonObj = _docRepo.Get<Person>(student.Person);
-                    if (student.PersonObj == null) continue;
-                    var newIndex = dataGridView.Rows.Add();
-                    dataGridView.Rows[newIndex].Cells["StudentId"].Value = student.Id;
-                    dataGridView.Rows[newIndex].Cells["PIN"].Value = student.PersonObj.PIN;
-                    dataGridView.Rows[newIndex].Cells["LastName"].Value = student.PersonObj.LastName;
-                    dataGridView.Rows[newIndex].Cells["FirstName"].Value = student.PersonObj.FirstName;
-                    dataGridView.Rows[newIndex].Cells["MiddleName"].Value = student.PersonObj.MiddleName;
-                    dataGridView.Rows[newIndex].Cells["BirthDate"].Value = student.PersonObj.BirthDate;
-
-                    dataGridView.Rows[newIndex].Cells["StudentPassportSeries"].Value = student.PassportSeries;
-                    dataGridView.Rows[newIndex].Cells["StudentPassportNo"].Value = student.PassportNo;
-
-                    if (student.Group != null && dataGridView.Columns["StudentGroup"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentGroup"] = InitDGVCB(groups.ToList(), student.Group, "Name");
-                    }
-
-                    if (student.PersonObj.Gender != null && dataGridView.Columns["StudentGender"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentGender"] = InitDGVCB(genders.ToList(), student.PersonObj.Gender);
-                    }
-
-                    if (student.PersonObj.Nationality != null && dataGridView.Columns["StudentNationality"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentNationality"] = InitDGVCB(nationalities.ToList(), student.PersonObj.Nationality);
-                    }
-
-                    if (student.PersonalDocumentType != null && dataGridView.Columns["StudentPersonalDocumentType"] != null)
-                    {
-                        dataGridView.Rows[newIndex].Cells["StudentPersonalDocumentType"] = InitDGVCB(personalDocumentTypes.ToList(), student.PersonalDocumentType);
-                    }
+                    //row.Cells[columnName] = FormManager.InitDGVCB(dataSource, objId, "FullName", "Id");
+                    InitCellFromProperty(dataGridView, row, obj.GetType().Name + property.Name, obj, property, new Dictionary<string, IEnumerable<object>>());
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

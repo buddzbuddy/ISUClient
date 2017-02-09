@@ -10,12 +10,13 @@ namespace Domain.Entities.Contingent
     public class Student:LocalEntity
     {
         #region About Student
+        [BoundWith("PersonObj")]
         public Guid Person { get; set; }
         [Skip]
-        [BindWithProperty(PropertyName = "Person")]
         public Person PersonObj { get; set; }
 
         #region PassportDetails
+        [Member("FullName")]
         public Guid? PersonalDocumentType { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNo { get; set; }
@@ -83,6 +84,7 @@ namespace Domain.Entities.Contingent
         public Guid? AdmittedToResultExam { get; set; }
         public Guid? PassedQualifExam { get; set; }
         public Guid? PassedResultExam { get; set; }
+        [Member("Name")]
         public Guid? Group { get; set; }
 
         #endregion

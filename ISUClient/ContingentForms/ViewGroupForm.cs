@@ -43,7 +43,14 @@ namespace UI.ContingentForms
 
             var students = _docRepo.GetAll<Student>();
             if (students == null) return;
-            _contingentForm.LoadStudentsFromDb(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
+            FormManager.LoadToDataGridView(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id), new Dictionary<string, IEnumerable<object>>()
+            {
+                { "Group", _docRepo.GetAll<Group>() },
+                    { "Gender", _enumRepo.GetEnum(Enums.GenderEnumDefId).Items },
+                    { "Nationality", _enumRepo.GetEnum(Enums.NationalityEnumDefId).Items },
+                    { "PersonalDocumentType", _enumRepo.GetEnum(Enums.PersonalDocumentTypeEnumDefId).Items }
+            });
+            //_contingentForm.LoadStudentsFromDb(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
         }
 
         private void InitLanguages(Guid? value)
