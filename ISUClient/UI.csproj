@@ -131,11 +131,23 @@
     <Compile Include="ContingentForms\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContingentForms\EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContingentForms\EditStudentForm.Designer.cs">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContingentForms\ViewGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ContingentForms\ViewGroupForm.Designer.cs">
       <DependentUpon>ViewGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContingentForms\ViewStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContingentForms\ViewStudentForm.Designer.cs">
+      <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -161,8 +173,14 @@
     <EmbeddedResource Include="ContingentForms\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContingentForms\EditStudentForm.resx">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContingentForms\ViewGroupForm.resx">
       <DependentUpon>ViewGroupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContingentForms\ViewStudentForm.resx">
+      <DependentUpon>ViewStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

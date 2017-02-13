@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -107,10 +105,11 @@ namespace UI
             return comboBoxes;
         }
 
-        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> objs)
+        public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> entries)
         {
             dataGridView.Rows.Clear();
-            foreach (var obj in objs)
+            if (entries == null) return;
+            foreach (var obj in entries)
             {
                 var newIndex = dataGridView.Rows.Add();
                 var row = dataGridView.Rows[newIndex];
@@ -156,7 +155,7 @@ namespace UI
             var _docRepo = new DocRepository();
             var _enumRepo = new EnumRepository();
 
-            foreach(var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute)) || x.IsDefined(typeof(DocMemberAttribute))))
+            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute)) || x.IsDefined(typeof(DocMemberAttribute))))
             {
                 var controlName = parentObjName + obj.GetType().Name + property.Name + "ComboBox";
                 if (form.Controls.ContainsKey(controlName))
@@ -181,15 +180,18 @@ namespace UI
                             var objType = member.ObjType;
                             if (objType.Name.Equals(typeof(Person).Name))
                             {
-                                dataSource = _docRepo.GetAll<Person>().ToList();
+                                if (_docRepo.GetAll<Person>() != null)
+                                    dataSource = _docRepo.GetAll<Person>().ToList();
                             }
                             else if (objType.Name.Equals(typeof(Profession).Name))
                             {
-                                dataSource = _docRepo.GetAll<Profession>().ToList();
+                                if (_docRepo.GetAll<Profession>() != null)
+                                    dataSource = _docRepo.GetAll<Profession>().ToList();
                             }
                             else if (objType.Name.Equals(typeof(Group).Name))
                             {
-                                dataSource = _docRepo.GetAll<Group>().ToList();
+                                if (_docRepo.GetAll<Group>() != null)
+                                    dataSource = _docRepo.GetAll<Group>().ToList();
                             }
                             else
                                 throw new ApplicationException("При загрузке источника для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");
@@ -207,16 +209,13 @@ namespace UI
 
             foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(BoundWithAttribute))))
             {
-                if (property.IsDefined(typeof(BoundWithAttribute), false))
+                string boundWith = ((BoundWithAttribute)Attribute.GetCustomAttribute(property, typeof(BoundWithAttribute), false)).PropertyName;
+                var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
+                if (boundObj != null)
                 {
-                    string boundWith = ((BoundWithAttribute)Attribute.GetCustomAttribute(property, typeof(BoundWithAttribute), false)).PropertyName;
-                    var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
-                    if (boundObj != null)
-                    {
-                        InitializeComboBoxes(form, boundObj, parentObjName + obj.GetType().Name);
-                    }
-                    else throw new ApplicationException("При попытке инициализировать выпадающий список, при попытке получить объект. Связанный объект пуст!  Сущность \"" + boundObj.GetType().Name + "\" Свойство \"" + property.Name + "\"");
+                    InitializeComboBoxes(form, boundObj, parentObjName + obj.GetType().Name);
                 }
+                else throw new ApplicationException("При попытке инициализировать выпадающий список, при попытке получить объект. Связанный объект пуст!  Сущность \"" + boundObj.GetType().Name + "\" Свойство \"" + property.Name + "\"");
             }
 
         }

@@ -4,8 +4,6 @@ using Domain.StaticReferences;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Logic
@@ -113,6 +111,7 @@ namespace Logic
         public IEnumerable<T> ParseList<T>(IEnumerable<XElement> xList, bool fromAttribute = false)
         {
             return from xObj in xList
+                   where (xObj.Attribute(DBConfigInfo.IsDeleted) != null ? (!bool.Parse(xObj.Attribute(DBConfigInfo.IsDeleted).Value)) : true)
                    select ParseTo<T>(xObj, fromAttribute);
         }
 
@@ -124,9 +123,10 @@ namespace Logic
                 //custom skips
                 if (property.IsDefined(typeof(SkipAttribute), false)) continue;
 
-                if (property.PropertyType == typeof(bool) && property.Name == "IsNew")
+                if ((property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsNew)
+                    || (property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsDeleted))
                 {
-                    xObj.SetAttributeValue("IsNew", property.GetValue(obj));
+                    xObj.SetAttributeValue(property.Name, property.GetValue(obj));
                 }
                 else
                 {
@@ -163,6 +163,16 @@ namespace Logic
                 context.AddElement(WrapFrom(obj), typeof(T).Name + "s");
             else
                 context.UpdateElement(WrapFrom(obj), typeof(T).Name + "s");
+        }
+
+        public void Delete<T>(Guid Id) where T : class
+        {
+            if (Get<T>(Id) != null)
+            {
+                context.DeleteElement(typeof(T).Name + "s", Id);
+            }
+            else
+                throw new ApplicationException("Не могу удалить запись \"" + typeof(T).Name + "\" Запись не найдена. Id \"" + Id + "\"");
         }
     }
 }

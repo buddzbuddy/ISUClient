@@ -10,6 +10,10 @@ namespace Domain.Filters
     {
 
     }
+    public class MarkAttribute : Attribute
+    {
+
+    }
     public class BoundWithAttribute : Attribute
     {
         private string _propertyName { get; set; }
@@ -30,6 +34,13 @@ namespace Domain.Filters
             _value = value;
             _objType = objType;
         }
+
+        public DocMemberAttribute(Type objType)
+        {
+            _display = objType.Name;
+            _value = "Id";
+            _objType = objType;
+        }
         public string Display { get { return _display; } }
         public string Value { get { return _value; } }
         public Type ObjType { get { return _objType; } }
@@ -39,7 +50,7 @@ namespace Domain.Filters
         private string _display { get; set; }
         private string _value { get; set; }
         private string _enumDefName { get; set; }
-        public EnumMemberAttribute(string enumDefName, string display, string value = "Id")
+        public EnumMemberAttribute(string enumDefName, string display = "FullName", string value = "Id")
         {
             _enumDefName = enumDefName;
             _display = display;

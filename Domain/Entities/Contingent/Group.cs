@@ -10,11 +10,11 @@ namespace Domain.Entities.Contingent
 {
     public class Group : LocalEntity
     {
-        [EnumMember("Language", "FullName")]
+        [EnumMember("Language")]
         public Guid? Language { get; set; }
         [DocMember("Name", typeof(Profession))]
         public Guid? Profession { get; set; }
-        [EnumMember("StudyPeriod", "FullName")]
+        [EnumMember("StudyPeriod")]
         public Guid? StudyPeriod { get; set; }
         public string Name { get; set; }
     }

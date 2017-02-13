@@ -46,7 +46,7 @@ namespace Domain
             var xList = GetElements(toSectionName);
             if(xList != null)
             {
-                var xOldObj = xList.FirstOrDefault(x => x.Element("Id").Value == xObj.Element("Id").Value);
+                var xOldObj = xList.FirstOrDefault(x => x.Element(DBConfigInfo.Id).Value == xObj.Element(DBConfigInfo.Id).Value);
                 if(xOldObj != null)
                 {
                     foreach (var xProperty in xOldObj.Elements())
@@ -60,6 +60,32 @@ namespace Domain
             else
             {
                 throw new ApplicationException("Контейнер старых записей для редактирования не найден! Имя контейнера: \"" + toSectionName + "\" Ключ-айди записи: " + xObj.Element("Id").Value);
+            }
+            _document.Save(_filePath);
+            ReloadDocument();
+        }
+
+        public void DeleteElement(XName fromSection, Guid Id)
+        {
+            var xList = GetElements(fromSection);
+            if(xList != null)
+            {
+                var xObj = xList.FirstOrDefault(x => x.Element(DBConfigInfo.Id).Value == Id.ToString());
+                if(xObj != null)
+                {
+                    if (xObj.Attribute(DBConfigInfo.IsNew) != null && bool.Parse(xObj.Attribute(DBConfigInfo.IsNew).Value))
+                    {
+                        xObj.Remove();
+                    }
+                    else
+                        xObj.SetAttributeValue(DBConfigInfo.IsDeleted, true);
+                }
+                else
+                    throw new ApplicationException("Запись для удаления не найдена! Имя контейнера: \"" + fromSection + "\" Ключ-айди записи: " + Id);
+            }
+            else
+            {
+                throw new ApplicationException("Контейнер для удаления не найден! Имя контейнера: \"" + fromSection + "\" Ключ-айди записи: " + Id);
             }
             _document.Save(_filePath);
             ReloadDocument();

@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Contingent\Area.cs" />
+    <Compile Include="Entities\Contingent\District.cs" />
     <Compile Include="Entities\Contingent\Group.cs" />
     <Compile Include="Entities\Contingent\Profession.cs" />
     <Compile Include="Entities\Contingent\Student.cs" />
