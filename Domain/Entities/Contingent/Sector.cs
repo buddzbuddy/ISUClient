@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities.Contingent
 {
-    public class Profession : LocalEntity
+    public class Sector : LocalEntity
     {
         public string Name { get; set; }
-        [DocMember(typeof(Sector))]
-        public Guid Sector { get; set; }
+        [Skip]
+        public List<Profession> Professions { get; set; }
     }
 }

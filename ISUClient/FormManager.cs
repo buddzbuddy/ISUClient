@@ -50,6 +50,7 @@ namespace UI
                     var dataSource = comboBoxes[property.Name];
                     if (dataSource != null && dataSource.Count() > 0)
                     {
+                        dataSource = dataSource.ToList();
                         if (property.IsDefined(typeof(DocMemberAttribute), false))
                         {
                             var member = (DocMemberAttribute)Attribute.GetCustomAttribute(property, typeof(DocMemberAttribute));
@@ -86,15 +87,33 @@ namespace UI
                 var objType = ((DocMemberAttribute)Attribute.GetCustomAttribute(property, typeof(DocMemberAttribute))).ObjType;
                 if (objType.Name.Equals(typeof(Person).Name))
                 {
-                    dataSource = _docRepo.GetAll<Person>().ToList();
+                    if (_docRepo.GetAll<Person>() != null)
+                        dataSource = _docRepo.GetAll<Person>().ToList();
                 }
                 else if (objType.Name.Equals(typeof(Profession).Name))
                 {
+                    if (_docRepo.GetAll<Profession>() != null)
                     dataSource = _docRepo.GetAll<Profession>().ToList();
                 }
                 else if (objType.Name.Equals(typeof(Group).Name))
                 {
-                    dataSource = _docRepo.GetAll<Group>().ToList();
+                    if (_docRepo.GetAll<Group>() != null)
+                        dataSource = _docRepo.GetAll<Group>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(Area).Name))
+                {
+                    if (_docRepo.GetAll<Area>() != null)
+                        dataSource = _docRepo.GetAll<Area>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(District).Name))
+                {
+                    if (_docRepo.GetAll<District>() != null)
+                        dataSource = _docRepo.GetAll<District>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(Sector).Name))
+                {
+                    if (_docRepo.GetAll<Sector>() != null)
+                        dataSource = _docRepo.GetAll<Sector>().ToList();
                 }
                 else
                     throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");
@@ -192,6 +211,21 @@ namespace UI
                             {
                                 if (_docRepo.GetAll<Group>() != null)
                                     dataSource = _docRepo.GetAll<Group>().ToList();
+                            }
+                            else if (objType.Name.Equals(typeof(Area).Name))
+                            {
+                                if (_docRepo.GetAll<Area>() != null)
+                                    dataSource = _docRepo.GetAll<Area>().ToList();
+                            }
+                            else if (objType.Name.Equals(typeof(District).Name))
+                            {
+                                if (_docRepo.GetAll<District>() != null)
+                                    dataSource = _docRepo.GetAll<District>().ToList();
+                            }
+                            else if (objType.Name.Equals(typeof(Sector).Name))
+                            {
+                                if (_docRepo.GetAll<Sector>() != null)
+                                    dataSource = _docRepo.GetAll<Sector>().ToList();
                             }
                             else
                                 throw new ApplicationException("При загрузке источника для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");

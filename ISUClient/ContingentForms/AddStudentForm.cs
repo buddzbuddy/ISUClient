@@ -43,10 +43,66 @@ namespace UI.ContingentForms
             this.Close();
         }
 
+
+        public Student FillObj(Student _obj)
+        {
+            _obj.PersonObj.PIN = StudentPersonPINTextBox.Text;
+            _obj.PersonObj.LastName = StudentPersonLastNameTextBox.Text;
+            _obj.PersonObj.FirstName = StudentPersonFirstNameTextBox.Text;
+            _obj.PersonObj.MiddleName = StudentPersonMiddleNameTextBox.Text;
+            _obj.PersonObj.BirthDate = StudentPersonBirthDateDateTimePicker.Value;
+            _obj.PersonObj.Gender = (Guid)StudentPersonGenderComboBox.SelectedValue;
+            _obj.PersonObj.Nationality = (Guid)StudentPersonNationalityComboBox.SelectedValue;
+            _obj.PassportSeries = StudentPassportSeriesTextBox.Text;
+            _obj.PassportNo = StudentPassportNoTextBox.Text;
+            _obj.PersonalDocumentType = (Guid)StudentPersonalDocumentTypeComboBox.SelectedValue;
+            _obj.Citizenship = (Guid)StudentCitizenshipComboBox.SelectedValue;
+
+            _obj.Area = (Guid)StudentAreaComboBox.SelectedValue;
+            _obj.District = (Guid)StudentDistrictComboBox.SelectedValue;
+            _obj.Address = StudentAddressTextBox.Text;
+
+            _obj.IsNeedHostel = StudentIsNeedHostelCheckBox.Checked;
+
+            _obj.HomePhone = StudentHomePhoneTextBox.Text;
+            _obj.MobilePhone = StudentMobilePhoneTextBox.Text;
+            _obj.Email = StudentEmailTextBox.Text;
+
+            _obj.HasCriminalRecord = StudentHasCriminalRecordCheckBox.Checked;
+            _obj.SocialStatus = (Guid)StudentSocialStatusComboBox.SelectedValue;
+            _obj.IsDisability = StudentIsDisabilityCheckBox.Checked;
+            _obj.MilitaryStatus = (Guid)StudentMilitaryStatusComboBox.SelectedValue;
+
+            _obj.Year = string.IsNullOrEmpty(StudentYearTextBox.Text) ? null : (int?)int.Parse(StudentYearTextBox.Text);
+            _obj.EducationType = (Guid)StudentEducationTypeComboBox.SelectedValue;
+            _obj.EducationDocumentType = (Guid)StudentEducationDocumentTypeComboBox.SelectedValue;
+            _obj.EducationDocumentNo = StudentEducationDocumentNoTextBox.Text;
+            _obj.EducationDocumentStatus = (Guid)StudentEducationDocumentStatusComboBox.SelectedValue;
+            _obj.SecondaryEducationYear = string.IsNullOrEmpty(StudentSecondaryEducationYearTextBox.Text) ? null : (int?)int.Parse(StudentSecondaryEducationYearTextBox.Text);
+            _obj.SchoolType = (Guid)StudentSchoolTypeComboBox.SelectedValue;
+            _obj.SchoolName = StudentSchoolNameTextBox.Text;
+
+            _obj.ReceiptType = (Guid)StudentReceiptTypeComboBox.SelectedValue;
+            _obj.StudyPeriod = (Guid)StudentStudyPeriodComboBox.SelectedValue;
+            _obj.Sector = (Guid)StudentSectorComboBox.SelectedValue;
+            _obj.Profession = (Guid)StudentProfessionComboBox.SelectedValue;
+            _obj.StudyMode = (Guid)StudentStudyModeComboBox.SelectedValue;
+            _obj.EducationDirection = (Guid)StudentEducationDirectionComboBox.SelectedValue;
+            _obj.PayType = (Guid)StudentPayTypeComboBox.SelectedValue;
+            _obj.EducationEndType = (Guid)StudentEducationEndTypeComboBox.SelectedValue;
+
+
+            _obj.Group = (Guid)StudentGroupComboBox.SelectedValue;
+            _obj.AdmittedToQualifExam = (Guid)StudentAdmittedToQualifExamComboBox.SelectedValue;
+            _obj.AdmittedToResultExam = (Guid)StudentAdmittedToResultExamComboBox.SelectedValue;
+            _obj.PassedQualifExam = (Guid)StudentPassedQualifExamComboBox.SelectedValue;
+            _obj.PassedResultExam = (Guid)StudentPassedResultExamComboBox.SelectedValue;
+
+            return _obj;
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
             var _docRepo = new DocRepository();
-            var _enumRepo = new EnumRepository();
 
             var persons = _docRepo.GetAll<Person>();
             Person person = persons != null ? persons.FirstOrDefault(x =>
@@ -72,17 +128,14 @@ namespace UI.ContingentForms
                 };
                 _docRepo.Save(person);
             }
-            var student = new Student
+            var student = FillObj(new Student
             {
                 Id = Guid.NewGuid(),
-                Person = person.Id,
-                PersonObj = person,
-                Group = Guid.Parse(StudentGroupComboBox.SelectedValue.ToString()),
                 IsNew = true,
-                PersonalDocumentType = Guid.Parse(StudentPersonalDocumentTypeComboBox.SelectedValue.ToString()),
-                PassportSeries = StudentPassportSeriesTextBox.Text,
-                PassportNo = StudentPassportNoTextBox.Text
-            };
+                IsDeleted = false,
+                Person = person.Id,
+                PersonObj = person
+            });
             string errorMessage;
             if (SaveToLocalDb(student, out errorMessage))
             {
@@ -116,7 +169,6 @@ namespace UI.ContingentForms
         private bool SaveToLocalDb(Student obj, out string errorMessage)
         {
             var _docRepo = new DocRepository();
-            var _enumRepo = new EnumRepository();
             errorMessage = "";
 
             //TODO: Write to progress bar

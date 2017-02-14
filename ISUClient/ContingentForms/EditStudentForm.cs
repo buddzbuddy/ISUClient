@@ -71,7 +71,7 @@ namespace UI.ContingentForms
             }
         }
 
-        private void FillObj()
+        public void FillObj()
         {
             _obj.PersonObj.PIN = StudentPersonPINTextBox.Text;
             _obj.PersonObj.LastName = StudentPersonLastNameTextBox.Text;

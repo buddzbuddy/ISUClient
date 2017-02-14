@@ -37,7 +37,7 @@ namespace Domain.Filters
 
         public DocMemberAttribute(Type objType)
         {
-            _display = objType.Name;
+            _display = "Name";
             _value = "Id";
             _objType = objType;
         }

@@ -24,7 +24,7 @@ namespace Logic.Repositories
             orgName = "";
             userIdStr = "";
             errorMessage = "";
-            string dbpassword = "QQQwww123";
+            string dbpassword = DBConfigInfo.accountMetaDBPassword;
             string fullPath = System.IO.Path.Combine(_fileLocation, DBConfigInfo.AccountMetaFileName);
 
             int userNameColIndex = 36;

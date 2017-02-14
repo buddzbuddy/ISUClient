@@ -12,7 +12,7 @@ namespace Domain.Entities.Contingent
     {
         [EnumMember("Language")]
         public Guid? Language { get; set; }
-        [DocMember("Name", typeof(Profession))]
+        [DocMember(typeof(Profession))]
         public Guid? Profession { get; set; }
         [EnumMember("StudyPeriod")]
         public Guid? StudyPeriod { get; set; }

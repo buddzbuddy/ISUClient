@@ -43,6 +43,7 @@
     <Compile Include="Entities\Contingent\District.cs" />
     <Compile Include="Entities\Contingent\Group.cs" />
     <Compile Include="Entities\Contingent\Profession.cs" />
+    <Compile Include="Entities\Contingent\Sector.cs" />
     <Compile Include="Entities\Contingent\Student.cs" />
     <Compile Include="Entities\LocalEntity.cs" />
     <Compile Include="Entities\Person.cs" />

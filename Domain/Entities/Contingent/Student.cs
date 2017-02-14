@@ -28,9 +28,9 @@ namespace Domain.Entities.Contingent
         #endregion
 
         #region RegAddress
-        [DocMember("Area", typeof(Area))]
+        [DocMember(typeof(Area))]
         public Guid? Area { get; set; }
-        [DocMember("District", typeof(District))]
+        [DocMember(typeof(District))]
         public Guid? District { get; set; }
         public string  Address { get; set; }
 
@@ -73,11 +73,12 @@ namespace Domain.Entities.Contingent
         #region Enrollment details
         [EnumMember("ReceiptType")]
         public Guid? ReceiptType { get; set; }
+        public int? Year { get; set; }
         [EnumMember("StudyPeriod")]
         public Guid? StudyPeriod { get; set; }
-        public int? Year { get; set; }
+        [DocMember(typeof(Sector))]
         public Guid? Sector { get; set; }
-        [DocMember("Profession", typeof(Profession))]
+        [DocMember(typeof(Profession))]
         public Guid? Profession { get; set; }
         [EnumMember("StudyMode")]
         public Guid? StudyMode { get; set; }
@@ -85,6 +86,7 @@ namespace Domain.Entities.Contingent
         public Guid? EducationDirection { get; set; }
         [EnumMember("PayType")]
         public Guid? PayType { get; set; }
+        [EnumMember("EducationEndType")]
         public Guid? EducationEndType { get; set; }
 
 
@@ -92,12 +94,16 @@ namespace Domain.Entities.Contingent
 
         #region Learning details
 
-        public Guid? AdmittedToQualifExam { get; set; }
-        public Guid? AdmittedToResultExam { get; set; }
-        public Guid? PassedQualifExam { get; set; }
-        public Guid? PassedResultExam { get; set; }
         [DocMember(typeof(Group))]
         public Guid? Group { get; set; }
+        [EnumMember("YesNo")]
+        public Guid? AdmittedToQualifExam { get; set; }
+        [EnumMember("YesNo")]
+        public Guid? AdmittedToResultExam { get; set; }
+        [EnumMember("YesNo")]
+        public Guid? PassedQualifExam { get; set; }
+        [EnumMember("YesNo")]
+        public Guid? PassedResultExam { get; set; }
 
         #endregion
 
