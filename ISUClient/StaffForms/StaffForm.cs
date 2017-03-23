@@ -15,7 +15,7 @@ namespace UI.StaffForms
 {
     public partial class StaffForm : Form
     {
-        AddEmployeeForm _addEmployeeForm = null;
+        AddStudentForm _addStudentForm = null;
         AddPositionForm _addPositionForm = null;
         public StaffForm()
         {
@@ -24,9 +24,9 @@ namespace UI.StaffForms
             FormManager.LoadToDataGridView(DataGridViewPositions, _docRepo.GetAll<Position>());
             if (_docRepo.GetAll<Employee>() != null)
             {
-                var students = _docRepo.GetAll<Employee>().ToList();
-                students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-                FormManager.LoadToDataGridView(DataGridViewEmployees, students);
+                var Employees = _docRepo.GetAll<Employee>().ToList();
+                Employees.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                FormManager.LoadToDataGridView(DataGridViewEmployees, Employees);
             }
         }
 
@@ -36,10 +36,10 @@ namespace UI.StaffForms
             DialogResult dialog = _addPositionForm.ShowDialog();
         }
 
-        private void AddEmployeeButton_Click(object sender, EventArgs e)
+        private void AddStudentButton_Click(object sender, EventArgs e)
         {
-            _addEmployeeForm = new AddEmployeeForm(this);
-            DialogResult dialog = _addEmployeeForm.ShowDialog();
+            _addStudentForm = new AddStudentForm(this);
+            DialogResult dialog = _addStudentForm.ShowDialog();
         }
     }
 }

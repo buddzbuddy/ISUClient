@@ -49,18 +49,18 @@ namespace UI
         {
             LedgerOpenButton.Enabled = true;
         }
-        public void EnableEmployee()
+        public void EnableStudent()
         {
-            EmployeeOpenButton.Enabled = true;
+            StudentOpenButton.Enabled = true;
         }
         public void EnableAll()
         {
             EnableContingent();
             EnableLedger();
-            EnableEmployee();
+            EnableStudent();
         }
 
-        private void EmployeeOpenButton_Click(object sender, EventArgs e)
+        private void StudentOpenButton_Click(object sender, EventArgs e)
         {
             _staffForm = new StaffForm();
 

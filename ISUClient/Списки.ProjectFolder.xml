@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CissaMetaData>
+	<ProjectFolder Id="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Deleted="False" FullName="Списки" ParentId="{B6D56B14-2CBD-4000-BC30-8B1518C89D3B}" Description="" OrderIndex="0">
+		<EnumDef Id="{90D4DDA7-2B39-4DB6-BA05-8D64DFF7AA34}" Deleted="False" Name="Gender" FullName="Пол" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="0">
+			<EnumItem Id="{9EA7CD82-54FE-49F6-9CE5-BC982F21F048}" Deleted="False" Name="Female" FullName="Женский" ParentId="{90D4DDA7-2B39-4DB6-BA05-8D64DFF7AA34}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{FF06D929-C341-4C82-A6D7-E1D058787734}" Deleted="False" Name="Male" FullName="Мужской" ParentId="{90D4DDA7-2B39-4DB6-BA05-8D64DFF7AA34}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Deleted="False" Name="Countries" FullName="Гражданство" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="1">
+			<EnumItem Id="{33F0E2EA-7C2A-4569-B5F8-0C8A7616AF41}" Deleted="False" Name="KG" FullName="Кыргызстан" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{E901E0C6-F957-46DD-AA79-2A6CBD8EEF8A}" Deleted="False" Name="KZ" FullName="Казахстан" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{02EC60A3-BC7F-46FF-9289-E61433DEFF72}" Deleted="False" Name="RU" FullName="Россия" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{6E1417E8-0B86-4EAF-A0CC-512224D7062C}" Deleted="False" Name="TJ" FullName="Таджикистан" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{55BC9732-2EBD-4B49-8145-54D9F10E4EB0}" Deleted="False" FullName="Южная Корея" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{9EFEFDCF-E734-4C64-A268-A614D41536AF}" Deleted="False" Name="UZ" FullName="Узбекистан" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{C5D1E1D9-0110-4088-BDF5-E42DBCD8AE5C}" Deleted="False" FullName="Пакистан" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{45A0F608-C2CE-415E-A446-5347BDF31B13}" Deleted="False" FullName="Индия" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{252A311A-E477-40F5-822D-1F6FCF693EDA}" Deleted="False" FullName="Другое" ParentId="{ADAA9BBD-1A7D-495F-9140-9BE7B3CC508F}" Description="" OrderIndex="8"/>
+		</EnumDef>
+		<EnumDef Id="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Deleted="False" Name="BuildingPurpose" FullName="Назначение здания" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="2">
+			<EnumItem Id="{19F092A2-C1BC-491A-A1F0-863C38A43060}" Deleted="False" FullName="Учебно-административное" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{D3E40F66-CA0D-42BC-8749-659B3CE0CE5F}" Deleted="False" FullName="Административное" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{538202E9-98FA-40E8-97B3-110BEE053E00}" Deleted="False" FullName="Учебное" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{4EE21675-E348-44E4-9010-410027A32345}" Deleted="False" FullName="Мастерская" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{052BDDF6-8D42-4307-97EC-A0FA779EC44D}" Deleted="False" FullName="Мастерской склад" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{12A267F8-E678-43F6-A2EB-83925A225788}" Deleted="False" FullName="Общежитие" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{D959C0B8-0957-4A89-A5D3-4B9738EFE6C1}" Deleted="False" FullName="Ведомственное жилье" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{413F91EE-3275-469F-A98D-C3AD8CDDF423}" Deleted="False" FullName="Туалет" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{90F21C8E-05EA-4BED-8B26-1516D96C4720}" Deleted="False" FullName="Хозяйственный двор (гараж, ...)" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{614ED0CA-6B03-480E-AA77-F5735518B8FF}" Deleted="False" FullName="Культурно-бытовое (спорт-зал, столовая, актовый зал)" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="9"/>
+			<EnumItem Id="{06939090-BC02-47B2-9FAC-EBA5EBA2B26D}" Deleted="False" FullName="Другое" ParentId="{237181C6-C6AE-4475-88BD-BD93060EF2EE}" Description="" OrderIndex="10"/>
+		</EnumDef>
+		<EnumDef Id="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Deleted="False" Name="Nationality" FullName="Национальность" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="3">
+			<EnumItem Id="{2C8D9E62-52A6-43C9-B833-049BB1EC7D4A}" Deleted="False" FullName="Русский" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{37B47E84-3DED-45C5-98BC-466EF3DEC2F7}" Deleted="False" FullName="Кыргыз" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{6381822F-A1A5-46EB-96B7-F61F91ECCA41}" Deleted="False" FullName="Узбек" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{3738C00F-7D52-4EF2-9305-D93D0ACBCC8D}" Deleted="False" FullName="Татар" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{65C7FB7A-13BD-4472-82B8-E8F25EFAFA3C}" Deleted="False" FullName="Таджик" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{84EC374A-1B25-4B6B-B10E-B9AF340C024D}" Deleted="False" FullName="Уйгур" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{41C7F3A1-0C5B-4356-B223-86827D896AB4}" Deleted="False" FullName="Казах" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{A5D180B1-5EF4-4233-AABA-10F6DB466C3A}" Deleted="False" FullName="Дунган" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{4CA899B6-FC64-4928-8502-BE826846D679}" Deleted="False" FullName="Азербайджан" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{487B2095-9493-42A1-AD32-C7AC5D0B72D3}" Deleted="False" FullName="Немец" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="9"/>
+			<EnumItem Id="{47EA0436-D1AA-4FDB-9C1C-4AE46ADD8D43}" Deleted="False" FullName="Чеченец" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="10"/>
+			<EnumItem Id="{48977EC7-C415-4ECC-AF7F-7D9A940F663E}" Deleted="False" FullName="Другое" ParentId="{E6AF3BB2-E1AD-4330-AAE7-5579440C2A02}" Description="" OrderIndex="11"/>
+		</EnumDef>
+		<EnumDef Id="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Deleted="False" Name="MembershipRel" FullName="Родственное отношение" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="4">
+			<EnumItem Id="{59124EDF-8BE7-4A4D-B2D2-45BEBA6670DB}" Deleted="False" FullName="Сын/Дочь" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{98096BB1-C943-4826-AF3B-F5B882803359}" Deleted="False" FullName="Муж/Жена" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{4C240A21-A260-43EC-8880-0CEFCAD87915}" Deleted="False" FullName="Брат/Сестра" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{A9EDA152-16E4-49B8-A4E9-5F167BCA686F}" Deleted="False" FullName="Внук/Внучка" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{0CC61F0F-33B6-4A65-BC74-BDA8BF572CF3}" Deleted="False" FullName="Бабушка/Дедушка" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{14164974-3017-4058-B0A0-0DC107AFDE94}" Deleted="False" FullName="Мать/Отец" ParentId="{0BCFFB4C-30EB-4975-8DD6-2F7C308CA462}" Description="" OrderIndex="5"/>
+		</EnumDef>
+		<EnumDef Id="{FDE90A23-2C64-4EA1-9E18-550D6E022C9A}" Deleted="False" Name="BuildingType" FullName="Тип здания" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="5">
+			<EnumItem Id="{587CD95F-0E5D-45F4-B2E5-EEDB1ABE508D}" Deleted="False" FullName="Типовое" ParentId="{FDE90A23-2C64-4EA1-9E18-550D6E022C9A}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{52CAD13B-3387-47E9-8390-CBB831BA44F7}" Deleted="False" FullName="Индивидуальное" ParentId="{FDE90A23-2C64-4EA1-9E18-550D6E022C9A}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{CC27716E-1EDF-4621-9459-3FFEF78406D0}" Deleted="False" FullName="Приспособленное" ParentId="{FDE90A23-2C64-4EA1-9E18-550D6E022C9A}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{1319CBBB-9B89-41E5-AACF-D51A0D6CDF55}" Deleted="False" Name="YesNo" FullName="Да/Нет" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="6">
+			<EnumItem Id="{2F67D4DB-AFF5-4BEB-9D9B-248C11EF0C1B}" Deleted="False" Name="Yes" FullName="Да" ParentId="{1319CBBB-9B89-41E5-AACF-D51A0D6CDF55}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{F55E0741-4DF4-4133-8B42-16039D9CCABF}" Deleted="False" Name="No" FullName="Нет" ParentId="{1319CBBB-9B89-41E5-AACF-D51A0D6CDF55}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Deleted="False" Name="StaffType" FullName="Тип персонала" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="7">
+			<EnumItem Id="{FD400186-D6B3-4854-979F-86EE5F0219EA}" Deleted="False" FullName="Административно-управленческий" ParentId="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{E05A8EB0-2031-459A-992E-207C9E20922D}" Deleted="False" FullName="Педагогический" ParentId="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{7FE629DD-3280-4E95-AB60-42677E59681B}" Deleted="False" FullName="Технический" ParentId="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{A2B9C851-E0DD-4AD1-B22C-1D2E6FC12575}" Deleted="False" FullName="Младший обслуживающий" ParentId="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{6A1DFAD1-B2B2-4E9E-9FAB-D7C5F708EE81}" Deleted="False" FullName="Гос. служащий" ParentId="{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}" Description="" OrderIndex="4"/>
+		</EnumDef>
+		<EnumDef Id="{5EB9BF6A-1809-4245-8C05-E203CBEC4733}" Deleted="False" Name="RoofType" FullName="Материал крыши" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="8">
+			<EnumItem Id="{C9D55979-8E60-4F19-BA6A-45F50B54E709}" Deleted="False" FullName="Мягкая" ParentId="{5EB9BF6A-1809-4245-8C05-E203CBEC4733}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{B22AA71F-DFC0-43C3-868E-00AFCE9BCC0E}" Deleted="False" FullName="Металлическая" ParentId="{5EB9BF6A-1809-4245-8C05-E203CBEC4733}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{8A811BE1-22F9-42D4-BF98-A78FDFBDD842}" Deleted="False" FullName="Шифер" ParentId="{5EB9BF6A-1809-4245-8C05-E203CBEC4733}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{7D5A281B-0397-4B2C-A574-5FA7E28CB335}" Deleted="False" FullName="Другое" ParentId="{5EB9BF6A-1809-4245-8C05-E203CBEC4733}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{1C17065E-6F72-4508-AC4A-62DF96B54C5E}" Deleted="False" Name="SchoolType" FullName="Тип учебного заведения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="9">
+			<EnumItem Id="{8A8DC7C3-4841-4311-B5AD-6CA5F6495445}" Deleted="False" FullName="Школа/Гимназия" ParentId="{1C17065E-6F72-4508-AC4A-62DF96B54C5E}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{2F44A038-F141-4C90-B336-A4340964D2E2}" Deleted="False" FullName="Лицей/Училище" ParentId="{1C17065E-6F72-4508-AC4A-62DF96B54C5E}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{22BC326A-46AB-4222-B2EE-C77EFB65FE64}" Deleted="False" FullName="Колледж/Техникум" ParentId="{1C17065E-6F72-4508-AC4A-62DF96B54C5E}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}" Deleted="False" Name="State" FullName="Состояние" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="10">
+			<EnumItem Id="{8242DF97-8849-4152-B662-790447FAA0E8}" Deleted="False" FullName="Удовлетворительное" ParentId="{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{85BB5061-25C3-45D8-8A12-1A88A407FCF2}" Deleted="False" FullName="Не удовлетворительное" ParentId="{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{8F1E53C2-2291-46F9-B299-3992BCC1AD78}" Deleted="False" FullName="Аварийное" ParentId="{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{54A6C925-6D87-41E2-95D2-0FE1E88BF5B0}" Deleted="False" Name="WorkingConditions" FullName="Условия труда" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="11">
+			<EnumItem Id="{6BA2BE1B-AB2E-4B89-913C-2654EE125DD2}" Deleted="False" FullName="I. Оптимальные" ParentId="{54A6C925-6D87-41E2-95D2-0FE1E88BF5B0}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{6EC76840-CED8-4496-B8E4-EA6B6143C858}" Deleted="False" FullName="II. Допустимые" ParentId="{54A6C925-6D87-41E2-95D2-0FE1E88BF5B0}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{DABEFE44-E026-4D50-B759-A568B7671D5D}" Deleted="False" FullName="III. Вредные" ParentId="{54A6C925-6D87-41E2-95D2-0FE1E88BF5B0}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{D11B9568-5021-4E13-850C-49E2B2F61229}" Deleted="False" FullName="IV. Опасные" ParentId="{54A6C925-6D87-41E2-95D2-0FE1E88BF5B0}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Deleted="False" Name="RefresherTrainingType" FullName="Вид повышения квал." ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="12">
+			<EnumItem Id="{E6DFF069-6042-4C31-8758-561FEB3E5899}" Deleted="False" FullName="Образовательные программы" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{A2E5BACB-D57D-4E50-91B8-0B92C938E946}" Deleted="False" FullName="Научные, педагогические и целевые стажировки" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{F80DBCD8-4D5A-4ADF-850A-F4AAB303CD02}" Deleted="False" FullName="Семинары, тренинги, лекции, мастер-классы" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{B3640D47-D704-4C3E-A617-344F8A728EB9}" Deleted="False" FullName="Научная деятельность, проводимая при участии зарубежных специалистов" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{A6DD1DB6-177C-4D9C-AA84-EC7FBE63941A}" Deleted="False" FullName="Выездные мероприятия, летние школы" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{F6811634-E49E-4762-AFD7-845AB1434F87}" Deleted="False" FullName="Дистанционные интерактивные программы образования" ParentId="{7CFBF5A2-76FF-4E3A-82D4-01CBC0E07C8D}" Description="" OrderIndex="5"/>
+		</EnumDef>
+		<EnumDef Id="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Deleted="False" Name="HeatingSystem" FullName="Отопительная система" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="13">
+			<EnumItem Id="{F9C95826-AAAE-43C8-BFF5-9E9922D2970F}" Deleted="False" FullName="Центральная" ParentId="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{2640523E-A858-4F33-BF76-E80AAD11513A}" Deleted="False" FullName="Электричество" ParentId="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{98B67A71-C796-4AA2-81EB-80AC3AA0F00D}" Deleted="False" FullName="Печное отопление" ParentId="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{343F4164-C928-4744-86D8-2E620BD217B1}" Deleted="False" FullName="Смешанное" ParentId="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{3A2E83F6-23EE-460B-ADF0-1DE763C56C5E}" Deleted="False" FullName="Нет" ParentId="{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}" Description="" OrderIndex="4"/>
+		</EnumDef>
+		<EnumDef Id="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Deleted="False" Name="EducationType" FullName="Вид образования" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="14">
+			<EnumItem Id="{C87D3601-ECFC-4A84-B190-71E1DC0C6A5E}" Deleted="False" FullName="Отсутствует" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{3CF3D1CD-D559-47D2-BA85-223A22C1B4D6}" Deleted="False" FullName="Неполное среднее" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{23FD8715-CBBD-494C-B5A3-60B32F587710}" Deleted="False" FullName="Среднее" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{B5EBDF4F-F4E2-487B-86EC-010CCA4FEEEC}" Deleted="False" FullName="Среднеспециальное" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{30992FC0-16EE-47E4-8CE5-540EED661FE6}" Deleted="False" FullName="Незаконченное высшее" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{57D8CD13-575D-4352-B63A-5A3D1310DF96}" Deleted="False" FullName="Высшее" ParentId="{95CAE993-9DC6-4A91-B0C0-D243429E7565}" Description="" OrderIndex="5"/>
+		</EnumDef>
+		<EnumDef Id="{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}" Deleted="False" Name="EquipmentCategory" FullName="Категория оборудования" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="15">
+			<EnumItem Id="{C0AEBA58-3D4C-4360-90D7-A993F6717B28}" Deleted="False" Name="1" FullName="Автомобиль, трактор, СХМ" ParentId="{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{9F22C813-50C6-4DC0-8882-35949975A28E}" Deleted="False" Name="2" FullName="Компьютер" ParentId="{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{408F2A03-4367-44AC-873E-46D7B3029DBD}" Deleted="False" Name="3" FullName="Оборудование" ParentId="{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{1DB27110-BCAD-46D8-BE2E-2DCB4F4411AB}" Deleted="False" Name="4" FullName="Мебель" ParentId="{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Deleted="False" Name="EvaluatingScale" FullName="Шкала оценки" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="16">
+			<EnumItem Id="{C90155E4-C121-41E8-86C1-CAFD5C530D64}" Deleted="False" Name="1" FullName="1" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{6987DF51-E94F-4ED1-A71A-913825EBCB50}" Deleted="False" Name="2" FullName="2" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{3AA544FD-56F0-4CD9-924B-873C02DBE171}" Deleted="False" Name="3" FullName="3" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{F50E20CF-D13C-40C0-895E-658E5C766B55}" Deleted="False" Name="4" FullName="4" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{4971BE1C-0E06-4B63-8E17-7FB1AD2C13EC}" Deleted="False" Name="5" FullName="5" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{B0FCA5FA-18A5-4924-9025-D891D7C03AFD}" Deleted="False" Name="6" FullName="6" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{7E6EAEFB-2568-4FED-A8FB-177C8F5E6E86}" Deleted="False" Name="7" FullName="7" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{DCC014EE-5199-44F3-86DF-6F18DDB40B33}" Deleted="False" Name="8" FullName="8" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{B5534381-B3ED-4E87-9E23-5BA9189B5451}" Deleted="False" Name="9" FullName="9" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{D31A6210-DFA0-427D-8E5D-C9C98E321845}" Deleted="False" Name="10" FullName="10" ParentId="{E9524A27-43EA-48C2-94C5-0D40BED79CD2}" Description="" OrderIndex="9"/>
+		</EnumDef>
+		<EnumDef Id="{2E6A19CC-0D5C-4A07-9C41-1081EE65A2E4}" Deleted="False" Name="SocialStatus" FullName="Социальное положение" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="17">
+			<EnumItem Id="{5816F9A5-FF2C-4509-B0D5-5B5A771DE376}" Deleted="False" FullName="Нет" ParentId="{2E6A19CC-0D5C-4A07-9C41-1081EE65A2E4}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{7EE4A204-C36C-4745-80FF-34446D09CC4E}" Deleted="False" FullName="Социальная сирота" ParentId="{2E6A19CC-0D5C-4A07-9C41-1081EE65A2E4}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{70E46B74-351E-4079-A0D5-3942F317C6CA}" Deleted="False" FullName="Круглая сирота" ParentId="{2E6A19CC-0D5C-4A07-9C41-1081EE65A2E4}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Deleted="False" Name="PremiseType" FullName="Тип помещения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="18">
+			<EnumItem Id="{CEA45625-6851-45BB-B930-A1E16CBCCAE6}" Deleted="False" FullName="Кабинет" ParentId="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{25A17739-AA68-4368-B3F6-F1F56A395A56}" Deleted="False" FullName="Мастерская" ParentId="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{72581CC1-0809-4468-ADA5-69A1E39CDAFB}" Deleted="False" FullName="Служебная" ParentId="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{83B6B9F3-0408-4644-9FF2-487653C9D46F}" Deleted="False" FullName="Комната общежития" ParentId="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{E672B2B3-CA03-4686-8F24-7E24946E514C}" Deleted="False" FullName="Другое" ParentId="{EA2DA283-F971-46E2-B7B5-D6FD627BD777}" Description="" OrderIndex="4"/>
+		</EnumDef>
+		<EnumDef Id="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Deleted="False" Name="DismissBy" FullName="Основаниями прекращения трудового договора являются:" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="19">
+			<EnumItem Id="{2113934F-4BB4-411C-861E-30C4BD36418D}" Deleted="False" FullName="1) соглашение сторон (статья 80)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{3866977E-7CED-45E6-B122-7D6C0EE73724}" Deleted="False" FullName="2) истечение срока трудового договора (статья 81)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{2EE6813F-264F-49B7-AB96-806DA8B8D48A}" Deleted="False" FullName="3) инициатива работника (статья 82)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{E5E42D68-77BB-444D-811D-21631D8D0D9E}" Deleted="False" FullName="4) инициатива работодателя (статья 83)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{DBCBA15D-C7EA-4D6D-A22E-88B0A2254E78}" Deleted="False" FullName="5) перевод работника по его просьбе или с его согласия на работу к другому работодателю или переход на выборную (работу) должность" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{DDB4FA9C-F119-4F8E-9D99-F0BACF2EAFEE}" Deleted="False" FullName="6) обстоятельства, не зависящие от воли сторон (статья 88)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{55C0432B-C844-4A08-BEAD-8F76D9537465}" Deleted="False" FullName="7) отказ работника от перевода на другую работу вследствие состояния здоровья в соответствии с медицинским заключением (часть третья статьи 75)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{8C2D5019-C2C3-49D8-89EE-FA8DBD8828F2}" Deleted="False" FullName="8) отказ работника от продолжения работы в связи с изменением существенных условий труда (часть четвертая статьи 71)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{45AFD493-8CB7-4E8D-8493-761815173585}" Deleted="False" FullName="9) отказ работника от продолжения работы в организации в связи со сменой собственника, изменением ее подчиненности (подведомственности) и ее реорганизации (статья 77)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{AEEDED42-9071-4821-A8AB-B4C5C118B779}" Deleted="False" FullName="10) отказ работника от перевода в связи с перемещением работодателя в другую местность (часть первая статьи 69)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="9"/>
+			<EnumItem Id="{DD425711-3ECE-4F44-9634-56DC62C7652E}" Deleted="False" FullName="11) неудовлетворительные результаты испытательного срока (часть 7 статьи 62)" ParentId="{B056EAB7-A6C5-4DB8-A7F4-9079F1075851}" Description="" OrderIndex="10"/>
+		</EnumDef>
+		<EnumDef Id="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Deleted="False" Name="DisciplinaryActionType" FullName="Тип взыскания" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="20">
+			<EnumItem Id="{B040CA96-4DAF-4B56-8235-928B13AB133E}" Deleted="False" FullName="Выговор" ParentId="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{2F3E3BF1-1E5C-49CC-B17F-8333713AF9CB}" Deleted="False" FullName="Замечание" ParentId="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{202C60FE-1667-4D23-9A98-2F7BE619D80F}" Deleted="False" FullName="Предупреждение" ParentId="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{01425072-EEDC-41C6-AAF0-9AFAAF0D4B91}" Deleted="False" FullName="Увольнение" ParentId="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{917DE890-C036-4E18-BAA9-F50F4EC7BFB9}" Deleted="False" FullName="Другое" ParentId="{EB45AD97-E212-4C72-A9B0-73BDE3D7356A}" Description="" OrderIndex="4"/>
+		</EnumDef>
+		<EnumDef Id="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Deleted="False" Name="MilitaryStatus" FullName="Отношение к военной службе" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="21">
+			<EnumItem Id="{DFB0031B-3733-462E-AE5B-770C38CFA279}" Deleted="False" FullName="призывник" ParentId="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{92C88A9D-8A49-4057-B750-6AF87325E6F3}" Deleted="False" FullName="военнообязанный" ParentId="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{1605068F-ECBB-4521-BC11-C00E0AFA4D51}" Deleted="False" FullName="военнослужащий" ParentId="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{C85126C8-2C71-4991-8D33-F91B1A9873D6}" Deleted="False" FullName="уволенный в запас" ParentId="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{93F1B930-758F-49A2-8AEC-28EC6EC87852}" Deleted="False" FullName="невоеннообязанный" ParentId="{F424BFAB-E354-49E0-816A-78E536B7F34B}" Description="" OrderIndex="4"/>
+		</EnumDef>
+		<EnumDef Id="{4090545E-0AF7-4C25-8A0D-5372E10EA6EC}" Deleted="False" Name="StudentStatus" FullName="Статус студента" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="22">
+			<EnumItem Id="{1A2A6EAB-F0C0-459A-BE6B-660A4CF34C55}" Deleted="False" FullName="Принят" ParentId="{4090545E-0AF7-4C25-8A0D-5372E10EA6EC}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{ADE465C0-CAA4-49D8-BF3E-14939A6B05C9}" Deleted="False" FullName="Отчислен" ParentId="{4090545E-0AF7-4C25-8A0D-5372E10EA6EC}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{C5D9C1BD-0DCB-45C4-90EA-F6BDC9DC251D}" Deleted="False" FullName="Переведен" ParentId="{4090545E-0AF7-4C25-8A0D-5372E10EA6EC}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Deleted="False" Name="ParentStatus" FullName="Статус родителя" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="23">
+			<EnumItem Id="{AE65C58D-EDBA-4DE2-B5DC-65F0FA412ED3}" Deleted="False" FullName="Отец" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{D8CC3084-5717-45F1-91EC-04A437467D2E}" Deleted="False" FullName="Мать" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{AB3C346D-E7AE-49AB-8813-1A0E88729E18}" Deleted="False" FullName="Опекун" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{F0B6A660-2A4E-461B-80E3-CF86BEB95471}" Deleted="False" FullName="Бабушка" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{D1C3CD25-F08C-48BA-A306-D1A43BE0B7F8}" Deleted="False" FullName="Дедушка" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{436A1250-8DD0-475B-B088-A6614C6D3C75}" Deleted="False" FullName="Дядя" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{DA15B264-FA2B-4031-ABD9-1192B27A70A8}" Deleted="False" FullName="Тетя" ParentId="{93816651-C7D1-4F9D-933B-4DA218D8F694}" Description="" OrderIndex="6"/>
+		</EnumDef>
+		<EnumDef Id="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Deleted="False" Name="EducationDocumentType" FullName="Документ об образовании" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="24">
+			<EnumItem Id="{6B425C99-456D-45E5-8C64-45341D83DC4B}" Deleted="False" FullName="Отсутствует" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{B7D9A851-D7EF-48A9-9964-AA8CC1D997A6}" Deleted="False" FullName="Свидетельство об основном общем образовании (9 классов)" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{2ED6E579-4BD2-4BCB-AB25-D1254883ABB9}" Deleted="False" FullName="Аттестат" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{4A0A83C9-BD47-4101-8A78-323A6827AC0A}" Deleted="False" FullName="Диплом училища/лицея" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{AC9C78E1-B449-4B0A-86FA-2D97C43B7140}" Deleted="False" FullName="Диплом техникума" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{FF38CBD3-08C1-4778-A3CE-D76038889E52}" Deleted="False" FullName="Диплом колледжа" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{FE1C5273-AC62-4DD4-8071-381562240F9C}" Deleted="False" FullName="Диплом института" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{AE0D4637-66AC-497F-99EC-B694F7027EE1}" Deleted="False" FullName="Диплом ВУЗ" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{7D0E6A6B-F529-476B-9484-82A4E467808A}" Deleted="False" FullName="Диплом кандидата наук" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{6396334C-FD41-4185-8F65-B149BE2B09BD}" Deleted="False" FullName="Личное дело школьника" ParentId="{B1892A2A-664E-4796-8071-3EFC968DFC29}" Description="" OrderIndex="9"/>
+		</EnumDef>
+		<EnumDef Id="{8EF8DD24-5BA9-4790-8C5C-A1E80E8DA910}" Deleted="False" Name="EducationDocumentStatus" FullName="Статус докум. об образовании" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="25">
+			<EnumItem Id="{D37D28D8-5E1C-4169-92EB-3823443DCA4D}" Deleted="False" FullName="Подлинник" ParentId="{8EF8DD24-5BA9-4790-8C5C-A1E80E8DA910}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{DA54C0A1-F37D-4C92-92CE-5A2A9275601E}" Deleted="False" FullName="Копия" ParentId="{8EF8DD24-5BA9-4790-8C5C-A1E80E8DA910}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{A5337F42-7A36-4078-AF4D-743EA9691512}" Deleted="False" Name="MovementType" FullName="Тип движения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="26">
+			<EnumItem Id="{D9B5C266-2E01-4B4E-8B67-CA4B479B02B4}" Deleted="False" FullName="Зачисление" ParentId="{A5337F42-7A36-4078-AF4D-743EA9691512}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{97024779-E5E5-4289-872B-A55554AC66BC}" Deleted="False" FullName="Перевод" ParentId="{A5337F42-7A36-4078-AF4D-743EA9691512}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{9691B470-7738-4C20-9262-13702166E74F}" Deleted="False" FullName="Отсев (отчисление)" ParentId="{A5337F42-7A36-4078-AF4D-743EA9691512}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{BB2E5F58-095F-4E62-ACDB-43F7510F7CBD}" Deleted="False" FullName="Выпуск" ParentId="{A5337F42-7A36-4078-AF4D-743EA9691512}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{068B20B7-D4B0-41CB-99AC-FFEE6ACB853F}" Deleted="False" Name="StudyMode" FullName="Форма обучения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="27">
+			<EnumItem Id="{9459A1AE-54F7-4A2F-A0C4-B528D77F6606}" Deleted="False" FullName="Дневное (бюджетное)" ParentId="{068B20B7-D4B0-41CB-99AC-FFEE6ACB853F}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{9A3525DE-9FE8-4530-8D71-E85F4A2D1CC7}" Deleted="False" FullName="Платное (внебюджетное)" ParentId="{068B20B7-D4B0-41CB-99AC-FFEE6ACB853F}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{C970366A-3B48-411E-8638-E76FE07FA47D}" Deleted="False" Name="ReceiptTypes" FullName="Типы поступлений" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="28">
+			<EnumItem Id="{537CE11E-2479-4357-AD84-AB8E439811A8}" Deleted="False" FullName="Первичное" ParentId="{C970366A-3B48-411E-8638-E76FE07FA47D}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{45EB69B8-79C7-4640-8C3F-789D04B11227}" Deleted="False" FullName="Повторное (ранее был отчислен)" ParentId="{C970366A-3B48-411E-8638-E76FE07FA47D}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{0E6907A1-A15C-4220-9861-DB13BE846077}" Deleted="False" FullName="Переведен из др. ПЛ" ParentId="{C970366A-3B48-411E-8638-E76FE07FA47D}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{AFD96E8D-BE78-4F2B-ABCC-406BB0D8B61F}" Deleted="False" Name="EducationEndType" FullName="Тип предоставляемого образования" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="29">
+			<EnumItem Id="{94DF9FBA-0E69-4794-8814-247B7D03DDF5}" Deleted="False" FullName="С предоставлением среднего образования" ParentId="{AFD96E8D-BE78-4F2B-ABCC-406BB0D8B61F}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{C44F6CE8-022B-4186-9C01-67D80DAA4A59}" Deleted="False" FullName="Без предоставления среднего образования" ParentId="{AFD96E8D-BE78-4F2B-ABCC-406BB0D8B61F}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{4AFD3B1E-CC03-45A3-9797-690B5B41A9B4}" Deleted="False" Name="EducationDirection" FullName="Направление обучения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="30">
+			<EnumItem Id="{FE31D589-EB06-4691-9E18-620BCA2E937A}" Deleted="False" FullName="Подготовка безработных" ParentId="{4AFD3B1E-CC03-45A3-9797-690B5B41A9B4}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{7C3E8D42-561F-448F-9B8D-69DA5A0311BA}" Deleted="False" FullName="Подготовка для водителей вооруженных сил" ParentId="{4AFD3B1E-CC03-45A3-9797-690B5B41A9B4}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{4ECCCC1A-3C06-45ED-9BDD-28BE7D3F038A}" Deleted="False" FullName="Подготовка" ParentId="{4AFD3B1E-CC03-45A3-9797-690B5B41A9B4}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{5F713283-CCBF-4587-B6F9-218E72FD2C95}" Deleted="False" Name="PayType" FullName="Форма оплаты за обучение" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="31">
+			<EnumItem Id="{80091FD8-4F0D-4CEC-9928-3F560C6DA6DB}" Deleted="False" FullName="За счет собственных средств" ParentId="{5F713283-CCBF-4587-B6F9-218E72FD2C95}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{D141EA13-AE7D-4F84-B9B8-386F12CF61B8}" Deleted="False" FullName="За счет средств предприятия/организации" ParentId="{5F713283-CCBF-4587-B6F9-218E72FD2C95}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{FB4A1E79-F587-46D6-AAEB-7E567F0CE2F3}" Deleted="False" FullName="За счет средств служб занятости" ParentId="{5F713283-CCBF-4587-B6F9-218E72FD2C95}" Description="" OrderIndex="2"/>
+		</EnumDef>
+		<EnumDef Id="{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}" Deleted="False" Name="Laguage" FullName="Язык" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="32">
+			<EnumItem Id="{FE7A9293-DCF1-42A7-9FC2-C9C1DF7F3D9C}" Deleted="False" FullName="Русский" ParentId="{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{407C8AC1-7F1D-46F2-A976-02B3D8CEDC71}" Deleted="False" FullName="Кыргызский" ParentId="{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{8B173B7E-D883-40B3-BC55-1D57159D7940}" Deleted="False" FullName="Узбекский" ParentId="{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{323B3BA3-4884-4FD4-AA5E-FF67D226FB43}" Deleted="False" FullName="Турецкий" ParentId="{78D15DE5-17CC-4CAE-8D0C-9CBB7D23CBD6}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Deleted="False" Name="GraduateDocumentType" FullName="Тип документа о выпуске" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="33">
+			<EnumItem Id="{0F5668DB-51E2-4C29-9680-3743298C5B12}" Deleted="False" FullName="Квалификационный диплом" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{EBE84595-E9D6-44B7-84AC-13C7490BCD7C}" Deleted="False" FullName="Сертификат" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{E60AC12D-EFD9-4684-9317-498C256242A5}" Deleted="False" FullName="Документ об общем среднем образовании (аттестат)" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{CB965F03-AE1D-40D9-B1A6-0EBA7265C075}" Deleted="False" FullName="Квалификационный диплом с отличием" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{0E7A1776-516C-43C2-9C03-77B22FB30B23}" Deleted="False" FullName="Документ об общем ср. образовании (аттестат) с отличием" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{5F42971D-F0F0-4009-9BE3-49D468D6B86A}" Deleted="False" FullName="Выпущен со справкой" ParentId="{2E5AF66E-E37B-46B1-85EA-E43EA066A4F3}" Description="" OrderIndex="5"/>
+		</EnumDef>
+		<EnumDef Id="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Deleted="False" Name="JobDirection" FullName="Направлены на работу" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="34">
+			<EnumItem Id="{43A14B19-A2A8-4467-975B-54DEF765BE6A}" Deleted="False" FullName="В предприятие/организацию" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{B44629ED-9C4B-41A5-9274-298795882B8B}" Deleted="False" FullName="В данный регион" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{74C492CD-C110-40B5-A0F8-A1C61DBAA8F2}" Deleted="False" FullName="В другие регионы" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{6B3CAB8C-A4A9-4066-BF75-D03DEAF743CA}" Deleted="False" FullName="За пределы республики: Россия" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{F011C975-F321-401A-8216-D0A4A06AD699}" Deleted="False" FullName="За пределы республики: Казахстан" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{291B0DCB-6C8D-4186-9186-B383A9DA2EA3}" Deleted="False" FullName="За пределы республики: другие по СНГ" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{3B8238F1-2E85-4568-8E8B-B05DD02EAD1D}" Deleted="False" FullName="Свободное трудоустройство" ParentId="{2A5628A1-80C3-46FB-891D-81ED96CC0543}" Description="" OrderIndex="6"/>
+		</EnumDef>
+		<EnumDef Id="{4720AF66-C3E6-4D48-95A7-8F69EE2B3692}" Deleted="False" Name="GraduateIntentType" FullName="Намерение выпускника" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="35">
+			<EnumItem Id="{4B161703-2D27-46A1-959D-EABA6AD81570}" Deleted="False" FullName="Продолжение учебы в УЗ" ParentId="{4720AF66-C3E6-4D48-95A7-8F69EE2B3692}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{B60AB537-CE1C-4781-B1F2-C5B76834A676}" Deleted="False" FullName="Работа и трудоустройство" ParentId="{4720AF66-C3E6-4D48-95A7-8F69EE2B3692}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{F4E465D4-4B67-4FA3-8DCE-D04C5814DD2F}" Deleted="False" FullName="Служба в армии" ParentId="{4720AF66-C3E6-4D48-95A7-8F69EE2B3692}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{5E9132FF-4B10-4308-9A8B-72E05A6B9A89}" Deleted="False" FullName="Другое" ParentId="{4720AF66-C3E6-4D48-95A7-8F69EE2B3692}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{D877560E-9272-4C85-A185-F19DAC53DE44}" Deleted="False" Name="StudyPeriod" FullName="Срок обучения" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="36">
+			<EnumItem Id="{141136E0-54C0-4448-9556-9E0665F976C8}" Deleted="False" FullName="1 месяц" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{A958CC01-94C1-442A-AA82-0ABED00F6A78}" Deleted="False" FullName="1,5 месяца" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{879A2D81-334C-4B16-A95D-4BCADAF06DB6}" Deleted="False" FullName="2 месяца" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{38DC687A-502C-4330-A209-C4E4F5D9048E}" Deleted="False" FullName="2,5 месяца" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="3"/>
+			<EnumItem Id="{A9F3296B-FB81-4AA5-80AB-A9A3B24766C9}" Deleted="False" FullName="3 месяца" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="4"/>
+			<EnumItem Id="{2E4FBB03-2AF6-41E0-8D77-F3A51FD16801}" Deleted="False" FullName="6 месяцев" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="5"/>
+			<EnumItem Id="{62F37D6B-6957-461E-992A-5A426F7C087B}" Deleted="False" FullName="1 год" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="6"/>
+			<EnumItem Id="{693FE19B-8B81-46E4-9DE2-809B93DE7D6F}" Deleted="False" FullName="2 года" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="7"/>
+			<EnumItem Id="{2D8162BB-020B-4A7E-825E-EB100A82EAAF}" Deleted="False" FullName="3 года" ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="8"/>
+			<EnumItem Id="{140611FD-893B-4DAD-8DA1-7EC74B4377CF}" Deleted="False" FullName="3 года и 10 мес." ParentId="{D877560E-9272-4C85-A185-F19DAC53DE44}" Description="" OrderIndex="9"/>
+		</EnumDef>
+		<EnumDef Id="{D4F39AB9-5FCC-49AE-A2E9-013F43C88DFA}" Deleted="False" Name="PersonalDocumentType" FullName="Тип документа, удостоверяющего личность" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="37">
+			<EnumItem Id="{4A65B6C1-1CAF-40C6-A30D-217A4242A478}" Deleted="False" FullName="Паспорт" ParentId="{D4F39AB9-5FCC-49AE-A2E9-013F43C88DFA}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{D9390ED4-E063-4AD8-9942-7A2B83228218}" Deleted="False" FullName="Свидетельство о рождении" ParentId="{D4F39AB9-5FCC-49AE-A2E9-013F43C88DFA}" Description="" OrderIndex="1"/>
+		</EnumDef>
+		<EnumDef Id="{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}" Deleted="False" Name="MaritalStatus" FullName="Семейное положение" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="38">
+			<EnumItem Id="{2AA41394-B7BF-46B1-8222-8B3F9CEF5798}" Deleted="False" FullName="Замужем/Женат" ParentId="{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{25788E8F-1A44-4617-A268-DB4FF16B61B7}" Deleted="False" FullName="Не замужем/Холост" ParentId="{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}" Description="" OrderIndex="1"/>
+			<EnumItem Id="{AB541626-7C81-41DE-89C8-A430C932CAAD}" Deleted="False" FullName="Вдова/Вдовец" ParentId="{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}" Description="" OrderIndex="2"/>
+			<EnumItem Id="{2ABC0DFA-212D-4165-899D-E581DBF4F3E9}" Deleted="False" FullName="Разведена/Разведен" ParentId="{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}" Description="" OrderIndex="3"/>
+		</EnumDef>
+		<EnumDef Id="{0558FFB1-3F84-4DFE-A103-D6B0579507C1}" Deleted="False" Name="Teacher" FullName="Преподаватель" ParentId="{D1BE8693-07E5-4ECD-BEEC-78C0735DEAE4}" Description="" OrderIndex="39">
+			<EnumItem Id="{72AE7DAC-FF09-46A0-AF55-5E1780522679}" Deleted="False" FullName="Общеобразовательного цикла" ParentId="{0558FFB1-3F84-4DFE-A103-D6B0579507C1}" Description="" OrderIndex="0"/>
+			<EnumItem Id="{DB5FC122-BF89-4012-8E98-F3368AFA6F2C}" Deleted="False" FullName="Профессионального цикла" ParentId="{0558FFB1-3F84-4DFE-A103-D6B0579507C1}" Description="" OrderIndex="1"/>
+		</EnumDef>
+	</ProjectFolder>
+</CissaMetaData>

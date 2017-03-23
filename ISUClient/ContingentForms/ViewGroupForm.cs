@@ -25,10 +25,10 @@ namespace UI.ContingentForms
             var _docRepo = new DocRepository();
 
             if (_docRepo.GetAll<Student>() == null) return;
-            var students = _docRepo.GetAll<Student>().ToList();
-            students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+            var Students = _docRepo.GetAll<Student>().ToList();
+            Students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
 
-            FormManager.LoadToDataGridView(DataGridViewStudents, students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
+            FormManager.LoadToDataGridView(DataGridViewStudents, Students.Where(x => !x.IsDeleted && x.Group == _obj.Id));
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)

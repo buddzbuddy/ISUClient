@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace UI.StaffForms
 {
-    public partial class AddEmployeeForm : Form
+    public partial class AddStudentForm : Form
     {
         StaffForm _staffForm = null;
-        public AddEmployeeForm(StaffForm staffForm)
+        public AddStudentForm(StaffForm staffForm)
         {
             InitializeComponent();
 

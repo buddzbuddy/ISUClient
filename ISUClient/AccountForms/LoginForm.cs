@@ -64,9 +64,9 @@ namespace UI.AccountForms
                     {
                         _formMain.EnableLedger();
                     }
-                    else if (positionId == OrgStructures.EmployeeEntryPositionId)
+                    else if (positionId == OrgStructures.StudentEntryPositionId)
                     {
-                        _formMain.EnableEmployee();
+                        _formMain.EnableStudent();
                     }
                     else if (positionId == OrgStructures.AllEntryPositionId)
                     {

@@ -22,9 +22,9 @@ namespace UI
             FormManager.LoadToDataGridView(DataGridViewGroups, _docRepo.GetAll<Group>());
             if(_docRepo.GetAll<Student>() != null)
             {
-                var students = _docRepo.GetAll<Student>().ToList();
-                students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-                FormManager.LoadToDataGridView(DataGridViewStudents, students);
+                var Students = _docRepo.GetAll<Student>().ToList();
+                Students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                FormManager.LoadToDataGridView(DataGridViewStudents, Students);
             }
         }
 
@@ -135,34 +135,34 @@ namespace UI
             {
                 var row = DataGridViewStudents.Rows[e.RowIndex];
                 var cell = row.Cells[e.ColumnIndex];
-                var studentId = (Guid)row.Cells["StudentId"].Value;
+                var StudentId = (Guid)row.Cells["StudentId"].Value;
                 if (cell.Equals(row.Cells["EditStudentLink"]))//Edit button clicked
                 {
-                    EditStudent(studentId);
+                    EditStudent(StudentId);
                 }
                 else if (cell.Equals(row.Cells["DeleteStudentLink"]))//Delete button clicked
                 {
-                    DeleteStudent(studentId);
+                    DeleteStudent(StudentId);
                 }
                 else if (cell.Equals(row.Cells["ShowStudentLink"]))//Show button clicked
                 {
-                    ShowStudent(studentId);
+                    ShowStudent(StudentId);
                 }
             }
         }
 
-        public void EditStudent(Guid studentId)
+        public void EditStudent(Guid StudentId)
         {
             var _docRepo = new DocRepository();
-            var obj = _docRepo.Get<Student>(studentId);
+            var obj = _docRepo.Get<Student>(StudentId);
             obj.PersonObj = _docRepo.Get<Person>(obj.Person);
             _editStudentForm = new EditStudentForm(this, obj);
             DialogResult dialog = _editStudentForm.ShowDialog();
         }
-        private void DeleteStudent(Guid studentId)
+        private void DeleteStudent(Guid StudentId)
         {
             var _docRepo = new DocRepository();
-            var obj = _docRepo.Get<Student>(studentId);
+            var obj = _docRepo.Get<Student>(StudentId);
             obj.PersonObj = _docRepo.Get<Person>(obj.Person);
             var confirmResult = MessageBox.Show("Вы уверены что хотите удалить студента \"" + obj.PersonObj.LastName + "\"?",
                              "Подтверждение",
@@ -171,7 +171,7 @@ namespace UI
             {
                 try
                 {
-                    _docRepo.Delete<Student>(studentId);
+                    _docRepo.Delete<Student>(StudentId);
                     _docRepo.Delete<Person>(obj.Person);
                 }
                 catch (Exception e)
@@ -181,17 +181,17 @@ namespace UI
             }
             if (_docRepo.GetAll<Student>() != null)
             {
-                var students = _docRepo.GetAll<Student>().ToList();
-                students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-                FormManager.LoadToDataGridView(DataGridViewStudents, students);
+                var Students = _docRepo.GetAll<Student>().ToList();
+                Students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                FormManager.LoadToDataGridView(DataGridViewStudents, Students);
             }
             else
                 FormManager.LoadToDataGridView(DataGridViewStudents, _docRepo.GetAll<Student>());
         }
-        private void ShowStudent(Guid studentId)
+        private void ShowStudent(Guid StudentId)
         {
             var _docRepo = new DocRepository();
-            var obj = _docRepo.Get<Student>(studentId);
+            var obj = _docRepo.Get<Student>(StudentId);
             obj.PersonObj = _docRepo.Get<Person>(obj.Person);
             var viewStudentForm = new ViewStudentForm(this, obj);
 

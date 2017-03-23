@@ -46,9 +46,9 @@ namespace UI.ContingentForms
                 {
                     var _docRepo = new DocRepository();
                     FormManager.LoadToDataGridView(_contingentForm.DataGridViewGroups, _docRepo.GetAll<Group>().ToList());
-                    var students = _docRepo.GetAll<Student>().ToList();
-                    students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-                    FormManager.LoadToDataGridView(_contingentForm.DataGridViewStudents, students);
+                    var Students = _docRepo.GetAll<Student>().ToList();
+                    Students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                    FormManager.LoadToDataGridView(_contingentForm.DataGridViewStudents, Students);
                 }
                 catch (Exception ex)
                 {

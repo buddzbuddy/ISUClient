@@ -1,6 +1,6 @@
 ﻿namespace UI.StaffForms
 {
-    partial class AddEmployeeForm
+    partial class AddStudentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEmployeeForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudentForm));
             this.NationalityLabel = new System.Windows.Forms.Label();
             this.EmployeePersonPINTextBox = new System.Windows.Forms.TextBox();
             this.PINLabel = new System.Windows.Forms.Label();
@@ -49,19 +49,19 @@
             this.EmployeePassportSeriesTextBox = new System.Windows.Forms.TextBox();
             this.PassportSeriesLabel = new System.Windows.Forms.Label();
             this.EmployeePassportDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.EmployeePassportDateLabel = new System.Windows.Forms.Label();
-            this.EmployeePassportOrgLabel = new System.Windows.Forms.Label();
+            this.StudentPassportDateLabel = new System.Windows.Forms.Label();
+            this.StudentPassportOrgLabel = new System.Windows.Forms.Label();
             this.EmployeePassportOrgTextBox = new System.Windows.Forms.TextBox();
             this.EmployeeMaritalStatusComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeeMaritalStatusLabel = new System.Windows.Forms.Label();
+            this.StudentMaritalStatusLabel = new System.Windows.Forms.Label();
             this.EmployeeStaffTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeeStaffTypeLabel = new System.Windows.Forms.Label();
+            this.StudentStaffTypeLabel = new System.Windows.Forms.Label();
             this.EmployeePositionComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeePositionLabel = new System.Windows.Forms.Label();
+            this.StudentPositionLabel = new System.Windows.Forms.Label();
             this.EmployeeTeacherComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeeTeacherLabel = new System.Windows.Forms.Label();
+            this.StudentTeacherLabel = new System.Windows.Forms.Label();
             this.EmployeeProfessionComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeeProfessionLabel = new System.Windows.Forms.Label();
+            this.StudentProfessionLabel = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -231,23 +231,23 @@
             this.EmployeePassportDateDateTimePicker.Size = new System.Drawing.Size(155, 20);
             this.EmployeePassportDateDateTimePicker.TabIndex = 112;
             // 
-            // EmployeePassportDateLabel
+            // StudentPassportDateLabel
             // 
-            this.EmployeePassportDateLabel.AutoSize = true;
-            this.EmployeePassportDateLabel.Location = new System.Drawing.Point(293, 79);
-            this.EmployeePassportDateLabel.Name = "EmployeePassportDateLabel";
-            this.EmployeePassportDateLabel.Size = new System.Drawing.Size(73, 13);
-            this.EmployeePassportDateLabel.TabIndex = 118;
-            this.EmployeePassportDateLabel.Text = "Дата выдачи";
+            this.StudentPassportDateLabel.AutoSize = true;
+            this.StudentPassportDateLabel.Location = new System.Drawing.Point(293, 79);
+            this.StudentPassportDateLabel.Name = "StudentPassportDateLabel";
+            this.StudentPassportDateLabel.Size = new System.Drawing.Size(73, 13);
+            this.StudentPassportDateLabel.TabIndex = 118;
+            this.StudentPassportDateLabel.Text = "Дата выдачи";
             // 
-            // EmployeePassportOrgLabel
+            // StudentPassportOrgLabel
             // 
-            this.EmployeePassportOrgLabel.AutoSize = true;
-            this.EmployeePassportOrgLabel.Location = new System.Drawing.Point(290, 109);
-            this.EmployeePassportOrgLabel.Name = "EmployeePassportOrgLabel";
-            this.EmployeePassportOrgLabel.Size = new System.Drawing.Size(92, 13);
-            this.EmployeePassportOrgLabel.TabIndex = 120;
-            this.EmployeePassportOrgLabel.Text = "Выдавший орган";
+            this.StudentPassportOrgLabel.AutoSize = true;
+            this.StudentPassportOrgLabel.Location = new System.Drawing.Point(290, 109);
+            this.StudentPassportOrgLabel.Name = "StudentPassportOrgLabel";
+            this.StudentPassportOrgLabel.Size = new System.Drawing.Size(92, 13);
+            this.StudentPassportOrgLabel.TabIndex = 120;
+            this.StudentPassportOrgLabel.Text = "Выдавший орган";
             // 
             // EmployeePassportOrgTextBox
             // 
@@ -264,14 +264,14 @@
             this.EmployeeMaritalStatusComboBox.Size = new System.Drawing.Size(148, 21);
             this.EmployeeMaritalStatusComboBox.TabIndex = 114;
             // 
-            // EmployeeMaritalStatusLabel
+            // StudentMaritalStatusLabel
             // 
-            this.EmployeeMaritalStatusLabel.AutoSize = true;
-            this.EmployeeMaritalStatusLabel.Location = new System.Drawing.Point(42, 213);
-            this.EmployeeMaritalStatusLabel.Name = "EmployeeMaritalStatusLabel";
-            this.EmployeeMaritalStatusLabel.Size = new System.Drawing.Size(63, 26);
-            this.EmployeeMaritalStatusLabel.TabIndex = 116;
-            this.EmployeeMaritalStatusLabel.Text = "Семейное\r\nположение";
+            this.StudentMaritalStatusLabel.AutoSize = true;
+            this.StudentMaritalStatusLabel.Location = new System.Drawing.Point(42, 213);
+            this.StudentMaritalStatusLabel.Name = "StudentMaritalStatusLabel";
+            this.StudentMaritalStatusLabel.Size = new System.Drawing.Size(63, 26);
+            this.StudentMaritalStatusLabel.TabIndex = 116;
+            this.StudentMaritalStatusLabel.Text = "Семейное\r\nположение";
             // 
             // EmployeeStaffTypeComboBox
             // 
@@ -281,14 +281,14 @@
             this.EmployeeStaffTypeComboBox.Size = new System.Drawing.Size(148, 21);
             this.EmployeeStaffTypeComboBox.TabIndex = 114;
             // 
-            // EmployeeStaffTypeLabel
+            // StudentStaffTypeLabel
             // 
-            this.EmployeeStaffTypeLabel.AutoSize = true;
-            this.EmployeeStaffTypeLabel.Location = new System.Drawing.Point(43, 253);
-            this.EmployeeStaffTypeLabel.Name = "EmployeeStaffTypeLabel";
-            this.EmployeeStaffTypeLabel.Size = new System.Drawing.Size(62, 26);
-            this.EmployeeStaffTypeLabel.TabIndex = 116;
-            this.EmployeeStaffTypeLabel.Text = "Категория\r\nдолжности";
+            this.StudentStaffTypeLabel.AutoSize = true;
+            this.StudentStaffTypeLabel.Location = new System.Drawing.Point(43, 253);
+            this.StudentStaffTypeLabel.Name = "StudentStaffTypeLabel";
+            this.StudentStaffTypeLabel.Size = new System.Drawing.Size(62, 26);
+            this.StudentStaffTypeLabel.TabIndex = 116;
+            this.StudentStaffTypeLabel.Text = "Категория\r\nдолжности";
             // 
             // EmployeePositionComboBox
             // 
@@ -298,14 +298,14 @@
             this.EmployeePositionComboBox.Size = new System.Drawing.Size(148, 21);
             this.EmployeePositionComboBox.TabIndex = 114;
             // 
-            // EmployeePositionLabel
+            // StudentPositionLabel
             // 
-            this.EmployeePositionLabel.AutoSize = true;
-            this.EmployeePositionLabel.Location = new System.Drawing.Point(40, 293);
-            this.EmployeePositionLabel.Name = "EmployeePositionLabel";
-            this.EmployeePositionLabel.Size = new System.Drawing.Size(65, 13);
-            this.EmployeePositionLabel.TabIndex = 116;
-            this.EmployeePositionLabel.Text = "Должность";
+            this.StudentPositionLabel.AutoSize = true;
+            this.StudentPositionLabel.Location = new System.Drawing.Point(40, 293);
+            this.StudentPositionLabel.Name = "StudentPositionLabel";
+            this.StudentPositionLabel.Size = new System.Drawing.Size(65, 13);
+            this.StudentPositionLabel.TabIndex = 116;
+            this.StudentPositionLabel.Text = "Должность";
             // 
             // EmployeeTeacherComboBox
             // 
@@ -315,14 +315,14 @@
             this.EmployeeTeacherComboBox.Size = new System.Drawing.Size(148, 21);
             this.EmployeeTeacherComboBox.TabIndex = 114;
             // 
-            // EmployeeTeacherLabel
+            // StudentTeacherLabel
             // 
-            this.EmployeeTeacherLabel.AutoSize = true;
-            this.EmployeeTeacherLabel.Location = new System.Drawing.Point(19, 320);
-            this.EmployeeTeacherLabel.Name = "EmployeeTeacherLabel";
-            this.EmployeeTeacherLabel.Size = new System.Drawing.Size(86, 13);
-            this.EmployeeTeacherLabel.TabIndex = 116;
-            this.EmployeeTeacherLabel.Text = "Преподаватель";
+            this.StudentTeacherLabel.AutoSize = true;
+            this.StudentTeacherLabel.Location = new System.Drawing.Point(19, 320);
+            this.StudentTeacherLabel.Name = "StudentTeacherLabel";
+            this.StudentTeacherLabel.Size = new System.Drawing.Size(86, 13);
+            this.StudentTeacherLabel.TabIndex = 116;
+            this.StudentTeacherLabel.Text = "Преподаватель";
             // 
             // EmployeeProfessionComboBox
             // 
@@ -332,14 +332,14 @@
             this.EmployeeProfessionComboBox.Size = new System.Drawing.Size(148, 21);
             this.EmployeeProfessionComboBox.TabIndex = 114;
             // 
-            // EmployeeProfessionLabel
+            // StudentProfessionLabel
             // 
-            this.EmployeeProfessionLabel.AutoSize = true;
-            this.EmployeeProfessionLabel.Location = new System.Drawing.Point(19, 347);
-            this.EmployeeProfessionLabel.Name = "EmployeeProfessionLabel";
-            this.EmployeeProfessionLabel.Size = new System.Drawing.Size(85, 13);
-            this.EmployeeProfessionLabel.TabIndex = 116;
-            this.EmployeeProfessionLabel.Text = "Специальность";
+            this.StudentProfessionLabel.AutoSize = true;
+            this.StudentProfessionLabel.Location = new System.Drawing.Point(19, 347);
+            this.StudentProfessionLabel.Name = "StudentProfessionLabel";
+            this.StudentProfessionLabel.Size = new System.Drawing.Size(85, 13);
+            this.StudentProfessionLabel.TabIndex = 116;
+            this.StudentProfessionLabel.Text = "Специальность";
             // 
             // CancelButton
             // 
@@ -361,7 +361,7 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // AddEmployeeForm
+            // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -370,17 +370,17 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.PassportDetailsLabel);
             this.Controls.Add(this.EmployeePassportOrgTextBox);
-            this.Controls.Add(this.EmployeePassportOrgLabel);
+            this.Controls.Add(this.StudentPassportOrgLabel);
             this.Controls.Add(this.EmployeePassportNoTextBox);
             this.Controls.Add(this.PassportNoLabel);
             this.Controls.Add(this.EmployeePassportSeriesTextBox);
-            this.Controls.Add(this.EmployeePassportDateLabel);
+            this.Controls.Add(this.StudentPassportDateLabel);
             this.Controls.Add(this.PassportSeriesLabel);
-            this.Controls.Add(this.EmployeeMaritalStatusLabel);
-            this.Controls.Add(this.EmployeeStaffTypeLabel);
-            this.Controls.Add(this.EmployeeProfessionLabel);
-            this.Controls.Add(this.EmployeeTeacherLabel);
-            this.Controls.Add(this.EmployeePositionLabel);
+            this.Controls.Add(this.StudentMaritalStatusLabel);
+            this.Controls.Add(this.StudentStaffTypeLabel);
+            this.Controls.Add(this.StudentProfessionLabel);
+            this.Controls.Add(this.StudentTeacherLabel);
+            this.Controls.Add(this.StudentPositionLabel);
             this.Controls.Add(this.NationalityLabel);
             this.Controls.Add(this.EmployeePersonPINTextBox);
             this.Controls.Add(this.PINLabel);
@@ -402,7 +402,7 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.LastNameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddEmployeeForm";
+            this.Name = "AddStudentForm";
             this.Text = "Ввод сотрудника";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -431,19 +431,19 @@
         private System.Windows.Forms.TextBox EmployeePassportSeriesTextBox;
         private System.Windows.Forms.Label PassportSeriesLabel;
         private System.Windows.Forms.DateTimePicker EmployeePassportDateDateTimePicker;
-        private System.Windows.Forms.Label EmployeePassportDateLabel;
-        private System.Windows.Forms.Label EmployeePassportOrgLabel;
+        private System.Windows.Forms.Label StudentPassportDateLabel;
+        private System.Windows.Forms.Label StudentPassportOrgLabel;
         private System.Windows.Forms.TextBox EmployeePassportOrgTextBox;
         private System.Windows.Forms.ComboBox EmployeeMaritalStatusComboBox;
-        private System.Windows.Forms.Label EmployeeMaritalStatusLabel;
+        private System.Windows.Forms.Label StudentMaritalStatusLabel;
         private System.Windows.Forms.ComboBox EmployeeStaffTypeComboBox;
-        private System.Windows.Forms.Label EmployeeStaffTypeLabel;
+        private System.Windows.Forms.Label StudentStaffTypeLabel;
         private System.Windows.Forms.ComboBox EmployeePositionComboBox;
-        private System.Windows.Forms.Label EmployeePositionLabel;
+        private System.Windows.Forms.Label StudentPositionLabel;
         private System.Windows.Forms.ComboBox EmployeeTeacherComboBox;
-        private System.Windows.Forms.Label EmployeeTeacherLabel;
+        private System.Windows.Forms.Label StudentTeacherLabel;
         private System.Windows.Forms.ComboBox EmployeeProfessionComboBox;
-        private System.Windows.Forms.Label EmployeeProfessionLabel;
+        private System.Windows.Forms.Label StudentProfessionLabel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
     }

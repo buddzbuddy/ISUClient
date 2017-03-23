@@ -83,9 +83,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap student_icon {
+        internal static System.Drawing.Bitmap Student_icon {
             get {
-                object obj = ResourceManager.GetObject("student_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Student_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
