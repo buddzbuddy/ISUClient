@@ -8,6 +8,6 @@ namespace Domain.Entities.Staff
 {
     public class Position:LocalEntity
     {
-
+        public string Name { get; set; }
     }
 }

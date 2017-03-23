@@ -9,12 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.StaffForms;
 
 namespace UI
 {
     public partial class FormMain : Form
     {
         ContingentForm _contingentForm = null;
+        StaffForm _staffForm = null;
         public FormMain()
         {
             InitializeComponent();
@@ -56,6 +58,13 @@ namespace UI
             EnableContingent();
             EnableLedger();
             EnableEmployee();
+        }
+
+        private void EmployeeOpenButton_Click(object sender, EventArgs e)
+        {
+            _staffForm = new StaffForm();
+
+            DialogResult dialog = _staffForm.ShowDialog();
         }
     }
 }

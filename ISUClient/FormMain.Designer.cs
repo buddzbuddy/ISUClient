@@ -94,6 +94,7 @@
             this.EmployeeOpenButton.TabIndex = 4;
             this.EmployeeOpenButton.Text = "Кадры";
             this.EmployeeOpenButton.UseVisualStyleBackColor = true;
+            this.EmployeeOpenButton.Click += new System.EventHandler(this.EmployeeOpenButton_Click);
             // 
             // ContingentPictureBox
             // 

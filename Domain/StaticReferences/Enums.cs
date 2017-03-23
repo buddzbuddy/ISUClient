@@ -27,6 +27,9 @@ namespace Domain.StaticReferences
         private static Guid EducationDirectionEnumDefId = new Guid("{4AFD3B1E-CC03-45A3-9797-690B5B41A9B4}");
         private static Guid EducationEndTypeEnumDefId = new Guid("{AFD96E8D-BE78-4F2B-ABCC-406BB0D8B61F}");
         private static Guid YesNoEnumDefId = new Guid("{1319CBBB-9B89-41E5-AACF-D51A0D6CDF55}");
+        private static Guid MaritalStatusEnumDefId = new Guid("{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}");
+        private static Guid TeacherEnumDefId = new Guid("{0558FFB1-3F84-4DFE-A103-D6B0579507C1}");
+        private static Guid StaffTypeEnumDefId = new Guid("{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}");
         private static Dictionary<string, Guid> EnumDefIds = new Dictionary<string, Guid>
         {
             {"Language", LanguageEnumDefId},
@@ -46,7 +49,10 @@ namespace Domain.StaticReferences
             {"PayType", PayTypeEnumDefId},
             {"EducationDirection", EducationDirectionEnumDefId},
             {"EducationEndType", EducationEndTypeEnumDefId},
-            {"YesNo", YesNoEnumDefId}
+            {"YesNo", YesNoEnumDefId},
+            {"MaritalStatus", MaritalStatusEnumDefId},
+            {"Teacher", TeacherEnumDefId},
+            {"StaffType", StaffTypeEnumDefId}
         };
 
         public static List<EnumDef> EnumDefs = new List<EnumDef>();
