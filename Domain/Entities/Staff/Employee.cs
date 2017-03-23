@@ -78,6 +78,66 @@ namespace Domain.Entities.Staff
 
         #endregion
 
+        #region Стаж
 
+        #region По основной профессии
+        public int GenExperienceYears { get; set; }
+
+        public int GenExperienceMonths { get; set; }
+
+        public int GenExperienceDays { get; set; }
+        #endregion
+
+        #region Общий
+
+        public int ExperienceYears { get; set; }
+
+        public int ExperienceMonths { get; set; }
+
+        public int ExperienceDays { get; set; }
+
+        #endregion
+
+        #region Руководящий
+
+        public int LeadershipExperienceYears { get; set; }
+
+        public int LeadershipExperienceMonths { get; set; }
+
+        public int LeadershipExperienceDays { get; set; }
+
+        #endregion
+
+        #region Педагогический
+
+        public int PedagogicalExperienceYears { get; set; }
+
+        public int PedagogicalExperienceMonths { get; set; }
+
+        public int PedagogicalExperienceDays { get; set; }
+
+        #endregion
+
+        #region в ПТО
+
+        public int VocationalExperienceYears { get; set; }
+
+        public int VocationalExperienceMonths { get; set; }
+
+        public int VocationalExperienceDays { get; set; }
+
+        #endregion
+
+        #region Госсужба
+
+        public int GovernmentExperienceYears { get; set; }
+
+        public int GovernmentExperienceMonths { get; set; }
+
+        public int GovernmentExperienceDays { get; set; }
+
+        #endregion
+
+        #endregion
     }
 }
