@@ -13,17 +13,45 @@ using System.Windows.Forms;
 
 namespace UI.StaffForms
 {
-    public partial class AddEmployeeForm : Form
+    public partial class EditEmployeeForm : Form
     {
         StaffForm _staffForm = null;
-        public AddEmployeeForm(StaffForm staffForm)
+        Employee _obj = null;
+        public EditEmployeeForm(StaffForm staffForm, Employee obj)
         {
             InitializeComponent();
 
             _staffForm = staffForm;
-            FormManager.InitializeComboBoxes(this, new Employee { PersonObj = new Person() });
+            _obj = obj;
+
+            EmployeePersonPINTextBox.Text = obj.PersonObj.PIN;
+            EmployeePersonLastNameTextBox.Text = obj.PersonObj.LastName;
+            EmployeePersonFirstNameTextBox.Text = obj.PersonObj.FirstName;
+            EmployeePersonMiddleNameTextBox.Text = obj.PersonObj.MiddleName;
+            EmployeePersonBirthDateDateTimePicker.Value = obj.PersonObj.BirthDate;
+
+            EmployeePassportSeriesTextBox.Text = obj.PassportSeries;
+            EmployeePassportNoTextBox.Text = obj.PassportNo;
+            EmployeePassportOrgTextBox.Text = obj.PassportOrg;
+            EmployeePassportDateDateTimePicker.Value = obj.PassportDate ?? DateTime.Now;
+            EmployeeTownTextBox.Text = obj.Town;
+            EmployeeStreetTextBox.Text = obj.Street;
+            EmployeeHouseTextBox.Text = obj.House;
+            EmployeeApartmentTextBox.Text = obj.Apartment;
+            EmployeeMobilePhoneTextBox.Text = obj.MobilePhone;
+            EmployeeWorkPhoneTextBox.Text = obj.WorkPhone;
+            EmployeeEmailTextBox.Text = obj.Email;
+            EmployeeMilitaryPositionTextBox.Text = obj.MilitaryPosition;
+            EmployeeMilitaryDistrictOfficeNameTextBox.Text = obj.MilitaryDistrictOfficeName;
+
+            FormManager.InitializeComboBoxes(this, obj);
         }
-        public Employee FillObj(Employee _obj)
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public Employee FillObj()
         {
             _obj.PersonObj.PIN = EmployeePersonPINTextBox.Text;
             _obj.PersonObj.LastName = EmployeePersonLastNameTextBox.Text;
@@ -58,77 +86,43 @@ namespace UI.StaffForms
         }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var _docRepo = new DocRepository();
-
-            var persons = _docRepo.GetAll<Person>();
-            Person person = persons != null ? persons.FirstOrDefault(x =>
-                !x.IsDeleted &&
-                x.LastName.Equals(EmployeePersonLastNameTextBox.Text) &&
-                x.FirstName.Equals(EmployeePersonFirstNameTextBox.Text) &&
-                x.MiddleName.Equals(EmployeePersonMiddleNameTextBox.Text) &&
-                x.BirthDate.Date.Equals(EmployeePersonBirthDateDateTimePicker.Value.Date)
-                ) : null;
-            if (person == null)
-            {
-                person = new Person
-                {
-                    Id = Guid.NewGuid(),
-                    IsNew = true,
-                    PIN = EmployeePersonPINTextBox.Text,
-                    LastName = EmployeePersonLastNameTextBox.Text,
-                    FirstName = EmployeePersonFirstNameTextBox.Text,
-                    MiddleName = EmployeePersonMiddleNameTextBox.Text,
-                    BirthDate = EmployeePersonBirthDateDateTimePicker.Value.Date,
-                    Gender = EmployeePersonGenderComboBox.SelectedItem != null ? (Guid?)EmployeePersonGenderComboBox.SelectedValue : null,
-                    Nationality = EmployeePersonNationalityComboBox.SelectedItem != null ? (Guid?)EmployeePersonNationalityComboBox.SelectedValue : null
-                };
-                _docRepo.Save(person);
-            }
-            var employee = FillObj(new Employee
-            {
-                Id = Guid.NewGuid(),
-                IsNew = true,
-                IsDeleted = false,
-                Person = person.Id,
-                PersonObj = person
-            });
             string errorMessage;
-            if (SaveToLocalDb(employee, out errorMessage))
+            FillObj();
+            if (SaveToLocalDb(out errorMessage))
             {
                 try
                 {
-                    _docRepo = new DocRepository();
-                    if (_docRepo.GetAll<Employee>() == null) return;
-                    var employees = _docRepo.GetAll<Employee>().ToList();
-                    employees.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
-                    FormManager.LoadToDataGridView(_staffForm.DataGridViewEmployees, employees);
+                    var _docRepo = new DocRepository();
+                    if (_docRepo.GetAll<Employee>() != null)
+                    {
+                        var Employees = _docRepo.GetAll<Employee>().ToList();
+                        Employees.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                        FormManager.LoadToDataGridView(_staffForm.DataGridViewEmployees, Employees);
+                    }
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally
-                {
-                    this.Close();
-                }
-
             }
             else
             {
                 MessageBox.Show(errorMessage, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private bool SaveToLocalDb(Employee obj, out string errorMessage)
+        private bool SaveToLocalDb(out string errorMessage)
         {
             var _docRepo = new DocRepository();
             errorMessage = "";
 
             //TODO: Write to progress bar
 
-            //Save to xml-db
+            //Save changes to xml-db
             try
             {
-                _docRepo.Save(obj);
+                _docRepo.Save(_obj, true);
+                _docRepo.Save(_obj.PersonObj, true);
             }
             catch (Exception e)
             {
@@ -137,10 +131,6 @@ namespace UI.StaffForms
                 return false;
             }
             return true;
-        }
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

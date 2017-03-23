@@ -1,6 +1,6 @@
 ﻿namespace UI.StaffForms
 {
-    partial class AddStudentForm
+    partial class AddEmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudentForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEmployeeForm));
             this.NationalityLabel = new System.Windows.Forms.Label();
             this.EmployeePersonPINTextBox = new System.Windows.Forms.TextBox();
             this.PINLabel = new System.Windows.Forms.Label();
@@ -64,6 +64,33 @@
             this.StudentProfessionLabel = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.AddressDetailsLabel = new System.Windows.Forms.Label();
+            this.EmployeeAreaComboBox = new System.Windows.Forms.ComboBox();
+            this.AreaLabel = new System.Windows.Forms.Label();
+            this.EmployeeDistrictComboBox = new System.Windows.Forms.ComboBox();
+            this.DistrictLabel = new System.Windows.Forms.Label();
+            this.TownLabel = new System.Windows.Forms.Label();
+            this.EmployeeTownTextBox = new System.Windows.Forms.TextBox();
+            this.StreetLabel = new System.Windows.Forms.Label();
+            this.EmployeeStreetTextBox = new System.Windows.Forms.TextBox();
+            this.HouseLabel = new System.Windows.Forms.Label();
+            this.EmployeeHouseTextBox = new System.Windows.Forms.TextBox();
+            this.ApartmentLabel = new System.Windows.Forms.Label();
+            this.EmployeeApartmentTextBox = new System.Windows.Forms.TextBox();
+            this.WorkPhoneLabel = new System.Windows.Forms.Label();
+            this.MobilePhoneLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.EmployeeWorkPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeMobilePhoneTextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeEmailTextBox = new System.Windows.Forms.TextBox();
+            this.ContactsLabel = new System.Windows.Forms.Label();
+            this.MilitaryPositionLabel = new System.Windows.Forms.Label();
+            this.MilitaryDistrictOfficeNameLabel = new System.Windows.Forms.Label();
+            this.EmployeeMilitaryPositionTextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeMilitaryDistrictOfficeNameTextBox = new System.Windows.Forms.TextBox();
+            this.MilitaryDetailsLabel = new System.Windows.Forms.Label();
+            this.EmployeeEnabledToMilitaryComboBox = new System.Windows.Forms.ComboBox();
+            this.EnabledToMilitaryLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NationalityLabel
@@ -343,7 +370,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(299, 427);
+            this.CancelButton.Location = new System.Drawing.Point(346, 627);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 124;
@@ -353,7 +380,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(200, 427);
+            this.SaveButton.Location = new System.Drawing.Point(247, 627);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 123;
@@ -361,13 +388,241 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // AddStudentForm
+            // AddressDetailsLabel
+            // 
+            this.AddressDetailsLabel.AutoSize = true;
+            this.AddressDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddressDetailsLabel.Location = new System.Drawing.Point(290, 153);
+            this.AddressDetailsLabel.Name = "AddressDetailsLabel";
+            this.AddressDetailsLabel.Size = new System.Drawing.Size(99, 13);
+            this.AddressDetailsLabel.TabIndex = 122;
+            this.AddressDetailsLabel.Text = "Адресные данные";
+            // 
+            // EmployeeAreaComboBox
+            // 
+            this.EmployeeAreaComboBox.FormattingEnabled = true;
+            this.EmployeeAreaComboBox.Location = new System.Drawing.Point(388, 186);
+            this.EmployeeAreaComboBox.Name = "EmployeeAreaComboBox";
+            this.EmployeeAreaComboBox.Size = new System.Drawing.Size(148, 21);
+            this.EmployeeAreaComboBox.TabIndex = 114;
+            // 
+            // AreaLabel
+            // 
+            this.AreaLabel.AutoSize = true;
+            this.AreaLabel.Location = new System.Drawing.Point(332, 194);
+            this.AreaLabel.Name = "AreaLabel";
+            this.AreaLabel.Size = new System.Drawing.Size(50, 13);
+            this.AreaLabel.TabIndex = 116;
+            this.AreaLabel.Text = "Область";
+            // 
+            // EmployeeDistrictComboBox
+            // 
+            this.EmployeeDistrictComboBox.FormattingEnabled = true;
+            this.EmployeeDistrictComboBox.Location = new System.Drawing.Point(388, 213);
+            this.EmployeeDistrictComboBox.Name = "EmployeeDistrictComboBox";
+            this.EmployeeDistrictComboBox.Size = new System.Drawing.Size(148, 21);
+            this.EmployeeDistrictComboBox.TabIndex = 114;
+            // 
+            // DistrictLabel
+            // 
+            this.DistrictLabel.AutoSize = true;
+            this.DistrictLabel.Location = new System.Drawing.Point(344, 221);
+            this.DistrictLabel.Name = "DistrictLabel";
+            this.DistrictLabel.Size = new System.Drawing.Size(38, 13);
+            this.DistrictLabel.TabIndex = 116;
+            this.DistrictLabel.Text = "Район";
+            // 
+            // TownLabel
+            // 
+            this.TownLabel.AutoSize = true;
+            this.TownLabel.Location = new System.Drawing.Point(324, 247);
+            this.TownLabel.Name = "TownLabel";
+            this.TownLabel.Size = new System.Drawing.Size(58, 13);
+            this.TownLabel.TabIndex = 109;
+            this.TownLabel.Text = "Нас.пункт";
+            // 
+            // EmployeeTownTextBox
+            // 
+            this.EmployeeTownTextBox.Location = new System.Drawing.Point(388, 240);
+            this.EmployeeTownTextBox.Name = "EmployeeTownTextBox";
+            this.EmployeeTownTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeTownTextBox.TabIndex = 111;
+            // 
+            // StreetLabel
+            // 
+            this.StreetLabel.AutoSize = true;
+            this.StreetLabel.Location = new System.Drawing.Point(343, 273);
+            this.StreetLabel.Name = "StreetLabel";
+            this.StreetLabel.Size = new System.Drawing.Size(39, 13);
+            this.StreetLabel.TabIndex = 109;
+            this.StreetLabel.Text = "Улица";
+            // 
+            // EmployeeStreetTextBox
+            // 
+            this.EmployeeStreetTextBox.Location = new System.Drawing.Point(388, 266);
+            this.EmployeeStreetTextBox.Name = "EmployeeStreetTextBox";
+            this.EmployeeStreetTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeStreetTextBox.TabIndex = 111;
+            // 
+            // HouseLabel
+            // 
+            this.HouseLabel.AutoSize = true;
+            this.HouseLabel.Location = new System.Drawing.Point(352, 299);
+            this.HouseLabel.Name = "HouseLabel";
+            this.HouseLabel.Size = new System.Drawing.Size(30, 13);
+            this.HouseLabel.TabIndex = 109;
+            this.HouseLabel.Text = "Дом";
+            // 
+            // EmployeeHouseTextBox
+            // 
+            this.EmployeeHouseTextBox.Location = new System.Drawing.Point(388, 292);
+            this.EmployeeHouseTextBox.Name = "EmployeeHouseTextBox";
+            this.EmployeeHouseTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeHouseTextBox.TabIndex = 111;
+            // 
+            // ApartmentLabel
+            // 
+            this.ApartmentLabel.AutoSize = true;
+            this.ApartmentLabel.Location = new System.Drawing.Point(327, 325);
+            this.ApartmentLabel.Name = "ApartmentLabel";
+            this.ApartmentLabel.Size = new System.Drawing.Size(55, 13);
+            this.ApartmentLabel.TabIndex = 109;
+            this.ApartmentLabel.Text = "Квартира";
+            // 
+            // EmployeeApartmentTextBox
+            // 
+            this.EmployeeApartmentTextBox.Location = new System.Drawing.Point(388, 318);
+            this.EmployeeApartmentTextBox.Name = "EmployeeApartmentTextBox";
+            this.EmployeeApartmentTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeApartmentTextBox.TabIndex = 111;
+            // 
+            // WorkPhoneLabel
+            // 
+            this.WorkPhoneLabel.AutoSize = true;
+            this.WorkPhoneLabel.Location = new System.Drawing.Point(53, 428);
+            this.WorkPhoneLabel.Name = "WorkPhoneLabel";
+            this.WorkPhoneLabel.Size = new System.Drawing.Size(52, 13);
+            this.WorkPhoneLabel.TabIndex = 109;
+            this.WorkPhoneLabel.Text = "Раб. тел.";
+            // 
+            // MobilePhoneLabel
+            // 
+            this.MobilePhoneLabel.AutoSize = true;
+            this.MobilePhoneLabel.Location = new System.Drawing.Point(51, 454);
+            this.MobilePhoneLabel.Name = "MobilePhoneLabel";
+            this.MobilePhoneLabel.Size = new System.Drawing.Size(54, 13);
+            this.MobilePhoneLabel.TabIndex = 109;
+            this.MobilePhoneLabel.Text = "Моб. тел.";
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(71, 480);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(32, 13);
+            this.EmailLabel.TabIndex = 109;
+            this.EmailLabel.Text = "Email";
+            // 
+            // EmployeeWorkPhoneTextBox
+            // 
+            this.EmployeeWorkPhoneTextBox.Location = new System.Drawing.Point(111, 421);
+            this.EmployeeWorkPhoneTextBox.Name = "EmployeeWorkPhoneTextBox";
+            this.EmployeeWorkPhoneTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeWorkPhoneTextBox.TabIndex = 111;
+            // 
+            // EmployeeMobilePhoneTextBox
+            // 
+            this.EmployeeMobilePhoneTextBox.Location = new System.Drawing.Point(111, 447);
+            this.EmployeeMobilePhoneTextBox.Name = "EmployeeMobilePhoneTextBox";
+            this.EmployeeMobilePhoneTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeMobilePhoneTextBox.TabIndex = 111;
+            // 
+            // EmployeeEmailTextBox
+            // 
+            this.EmployeeEmailTextBox.Location = new System.Drawing.Point(111, 473);
+            this.EmployeeEmailTextBox.Name = "EmployeeEmailTextBox";
+            this.EmployeeEmailTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeEmailTextBox.TabIndex = 111;
+            // 
+            // ContactsLabel
+            // 
+            this.ContactsLabel.AutoSize = true;
+            this.ContactsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ContactsLabel.Location = new System.Drawing.Point(53, 393);
+            this.ContactsLabel.Name = "ContactsLabel";
+            this.ContactsLabel.Size = new System.Drawing.Size(109, 13);
+            this.ContactsLabel.TabIndex = 122;
+            this.ContactsLabel.Text = "Контактные данные";
+            // 
+            // MilitaryPositionLabel
+            // 
+            this.MilitaryPositionLabel.AutoSize = true;
+            this.MilitaryPositionLabel.Location = new System.Drawing.Point(288, 461);
+            this.MilitaryPositionLabel.Name = "MilitaryPositionLabel";
+            this.MilitaryPositionLabel.Size = new System.Drawing.Size(95, 13);
+            this.MilitaryPositionLabel.TabIndex = 109;
+            this.MilitaryPositionLabel.Text = "Воинское звание";
+            // 
+            // MilitaryDistrictOfficeNameLabel
+            // 
+            this.MilitaryDistrictOfficeNameLabel.AutoSize = true;
+            this.MilitaryDistrictOfficeNameLabel.Location = new System.Drawing.Point(296, 483);
+            this.MilitaryDistrictOfficeNameLabel.Name = "MilitaryDistrictOfficeNameLabel";
+            this.MilitaryDistrictOfficeNameLabel.Size = new System.Drawing.Size(86, 26);
+            this.MilitaryDistrictOfficeNameLabel.TabIndex = 109;
+            this.MilitaryDistrictOfficeNameLabel.Text = "Название\r\nрайвоенкомата";
+            // 
+            // EmployeeMilitaryPositionTextBox
+            // 
+            this.EmployeeMilitaryPositionTextBox.Location = new System.Drawing.Point(389, 454);
+            this.EmployeeMilitaryPositionTextBox.Name = "EmployeeMilitaryPositionTextBox";
+            this.EmployeeMilitaryPositionTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeMilitaryPositionTextBox.TabIndex = 111;
+            // 
+            // EmployeeMilitaryDistrictOfficeNameTextBox
+            // 
+            this.EmployeeMilitaryDistrictOfficeNameTextBox.Location = new System.Drawing.Point(389, 489);
+            this.EmployeeMilitaryDistrictOfficeNameTextBox.Name = "EmployeeMilitaryDistrictOfficeNameTextBox";
+            this.EmployeeMilitaryDistrictOfficeNameTextBox.Size = new System.Drawing.Size(148, 20);
+            this.EmployeeMilitaryDistrictOfficeNameTextBox.TabIndex = 111;
+            // 
+            // MilitaryDetailsLabel
+            // 
+            this.MilitaryDetailsLabel.AutoSize = true;
+            this.MilitaryDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MilitaryDetailsLabel.Location = new System.Drawing.Point(327, 393);
+            this.MilitaryDetailsLabel.Name = "MilitaryDetailsLabel";
+            this.MilitaryDetailsLabel.Size = new System.Drawing.Size(148, 13);
+            this.MilitaryDetailsLabel.TabIndex = 122;
+            this.MilitaryDetailsLabel.Text = "Сведения о воинском учете";
+            // 
+            // EmployeeEnabledToMilitaryComboBox
+            // 
+            this.EmployeeEnabledToMilitaryComboBox.FormattingEnabled = true;
+            this.EmployeeEnabledToMilitaryComboBox.Location = new System.Drawing.Point(389, 426);
+            this.EmployeeEnabledToMilitaryComboBox.Name = "EmployeeEnabledToMilitaryComboBox";
+            this.EmployeeEnabledToMilitaryComboBox.Size = new System.Drawing.Size(148, 21);
+            this.EmployeeEnabledToMilitaryComboBox.TabIndex = 114;
+            // 
+            // EnabledToMilitaryLabel
+            // 
+            this.EnabledToMilitaryLabel.AutoSize = true;
+            this.EnabledToMilitaryLabel.Location = new System.Drawing.Point(294, 421);
+            this.EnabledToMilitaryLabel.Name = "EnabledToMilitaryLabel";
+            this.EnabledToMilitaryLabel.Size = new System.Drawing.Size(89, 26);
+            this.EnabledToMilitaryLabel.TabIndex = 116;
+            this.EnabledToMilitaryLabel.Text = "Годность к\r\nвоенной службе";
+            // 
+            // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 462);
+            this.ClientSize = new System.Drawing.Size(561, 662);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.MilitaryDetailsLabel);
+            this.Controls.Add(this.ContactsLabel);
+            this.Controls.Add(this.AddressDetailsLabel);
             this.Controls.Add(this.PassportDetailsLabel);
             this.Controls.Add(this.EmployeePassportOrgTextBox);
             this.Controls.Add(this.StudentPassportOrgLabel);
@@ -378,31 +633,55 @@
             this.Controls.Add(this.PassportSeriesLabel);
             this.Controls.Add(this.StudentMaritalStatusLabel);
             this.Controls.Add(this.StudentStaffTypeLabel);
+            this.Controls.Add(this.DistrictLabel);
+            this.Controls.Add(this.AreaLabel);
             this.Controls.Add(this.StudentProfessionLabel);
             this.Controls.Add(this.StudentTeacherLabel);
             this.Controls.Add(this.StudentPositionLabel);
+            this.Controls.Add(this.EnabledToMilitaryLabel);
             this.Controls.Add(this.NationalityLabel);
             this.Controls.Add(this.EmployeePersonPINTextBox);
             this.Controls.Add(this.PINLabel);
             this.Controls.Add(this.EmployeeMaritalStatusComboBox);
             this.Controls.Add(this.EmployeeStaffTypeComboBox);
+            this.Controls.Add(this.EmployeeDistrictComboBox);
+            this.Controls.Add(this.EmployeeAreaComboBox);
             this.Controls.Add(this.EmployeeProfessionComboBox);
             this.Controls.Add(this.EmployeeTeacherComboBox);
             this.Controls.Add(this.EmployeePositionComboBox);
+            this.Controls.Add(this.EmployeeEnabledToMilitaryComboBox);
             this.Controls.Add(this.EmployeePersonNationalityComboBox);
             this.Controls.Add(this.EmployeePersonGenderComboBox);
             this.Controls.Add(this.GenderLabel);
             this.Controls.Add(this.EmployeePassportDateDateTimePicker);
             this.Controls.Add(this.EmployeePersonBirthDateDateTimePicker);
             this.Controls.Add(this.BirthDateLabel);
+            this.Controls.Add(this.EmployeeApartmentTextBox);
+            this.Controls.Add(this.EmployeeMilitaryDistrictOfficeNameTextBox);
+            this.Controls.Add(this.EmployeeEmailTextBox);
+            this.Controls.Add(this.EmployeeMobilePhoneTextBox);
+            this.Controls.Add(this.EmployeeHouseTextBox);
+            this.Controls.Add(this.EmployeeMilitaryPositionTextBox);
+            this.Controls.Add(this.EmployeeStreetTextBox);
+            this.Controls.Add(this.EmployeeWorkPhoneTextBox);
+            this.Controls.Add(this.ApartmentLabel);
+            this.Controls.Add(this.EmailLabel);
+            this.Controls.Add(this.EmployeeTownTextBox);
+            this.Controls.Add(this.MilitaryDistrictOfficeNameLabel);
+            this.Controls.Add(this.HouseLabel);
+            this.Controls.Add(this.MobilePhoneLabel);
             this.Controls.Add(this.EmployeePersonMiddleNameTextBox);
+            this.Controls.Add(this.MilitaryPositionLabel);
+            this.Controls.Add(this.StreetLabel);
+            this.Controls.Add(this.WorkPhoneLabel);
             this.Controls.Add(this.EmployeePersonFirstNameTextBox);
+            this.Controls.Add(this.TownLabel);
             this.Controls.Add(this.EmployeePersonLastNameTextBox);
             this.Controls.Add(this.MiddleNameLabel);
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.LastNameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddStudentForm";
+            this.Name = "AddEmployeeForm";
             this.Text = "Ввод сотрудника";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -446,5 +725,32 @@
         private System.Windows.Forms.Label StudentProfessionLabel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label AddressDetailsLabel;
+        private System.Windows.Forms.ComboBox EmployeeAreaComboBox;
+        private System.Windows.Forms.Label AreaLabel;
+        private System.Windows.Forms.ComboBox EmployeeDistrictComboBox;
+        private System.Windows.Forms.Label DistrictLabel;
+        private System.Windows.Forms.Label TownLabel;
+        private System.Windows.Forms.TextBox EmployeeTownTextBox;
+        private System.Windows.Forms.Label StreetLabel;
+        private System.Windows.Forms.TextBox EmployeeStreetTextBox;
+        private System.Windows.Forms.Label HouseLabel;
+        private System.Windows.Forms.TextBox EmployeeHouseTextBox;
+        private System.Windows.Forms.Label ApartmentLabel;
+        private System.Windows.Forms.TextBox EmployeeApartmentTextBox;
+        private System.Windows.Forms.Label WorkPhoneLabel;
+        private System.Windows.Forms.Label MobilePhoneLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.TextBox EmployeeWorkPhoneTextBox;
+        private System.Windows.Forms.TextBox EmployeeMobilePhoneTextBox;
+        private System.Windows.Forms.TextBox EmployeeEmailTextBox;
+        private System.Windows.Forms.Label ContactsLabel;
+        private System.Windows.Forms.Label MilitaryPositionLabel;
+        private System.Windows.Forms.Label MilitaryDistrictOfficeNameLabel;
+        private System.Windows.Forms.TextBox EmployeeMilitaryPositionTextBox;
+        private System.Windows.Forms.TextBox EmployeeMilitaryDistrictOfficeNameTextBox;
+        private System.Windows.Forms.Label MilitaryDetailsLabel;
+        private System.Windows.Forms.ComboBox EmployeeEnabledToMilitaryComboBox;
+        private System.Windows.Forms.Label EnabledToMilitaryLabel;
     }
 }

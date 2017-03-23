@@ -44,49 +44,37 @@ namespace Domain.Entities.Staff
 
         #region Address details
 
-        [Skip]
-        //[DocMember(typeof(Area))]
+        [DocMember(typeof(Area))]
         public Guid? Area { get; set; }
 
-        [Skip]
-        //[DocMember(typeof(District))]
+        [DocMember(typeof(District))]
         public Guid? District { get; set; }
 
-        [Skip]
         public string Town { get; set; }
 
-        [Skip]
         public string Street { get; set; }
 
-        [Skip]
         public string House { get; set; }
 
-        [Skip]
         public string Apartment { get; set; }
 
         #endregion
 
         #region Contacts
 
-        [Skip]
         public string WorkPhone { get; set; }
-        [Skip]
         public string MobilePhone { get; set; }
-        [Skip]
         public string Email { get; set; }
 
         #endregion
 
         #region Сведения о воинском учете
 
-        [Skip]
-        //[EnumMember("YesNo")]
+        [EnumMember("YesNo")]
         public Guid? EnabledToMilitary { get; set; }
 
-        [Skip]
         public string MilitaryPosition { get; set; }
 
-        [Skip]
         public string MilitaryDistrictOfficeName { get; set; }
 
         #endregion
@@ -96,77 +84,59 @@ namespace Domain.Entities.Staff
         #region По основной профессии
         [Skip]
         public int GenExperienceYears { get; set; }
-
         [Skip]
         public int GenExperienceMonths { get; set; }
-
         [Skip]
         public int GenExperienceDays { get; set; }
         #endregion
 
         #region Общий
-
         [Skip]
         public int ExperienceYears { get; set; }
-
         [Skip]
         public int ExperienceMonths { get; set; }
-
         [Skip]
         public int ExperienceDays { get; set; }
 
         #endregion
 
         #region Руководящий
-
         [Skip]
         public int LeadershipExperienceYears { get; set; }
-
         [Skip]
         public int LeadershipExperienceMonths { get; set; }
-
         [Skip]
         public int LeadershipExperienceDays { get; set; }
 
         #endregion
 
         #region Педагогический
-
         [Skip]
         public int PedagogicalExperienceYears { get; set; }
-
         [Skip]
         public int PedagogicalExperienceMonths { get; set; }
-
         [Skip]
         public int PedagogicalExperienceDays { get; set; }
 
         #endregion
 
         #region в ПТО
-
         [Skip]
         public int VocationalExperienceYears { get; set; }
-
         [Skip]
         public int VocationalExperienceMonths { get; set; }
-
         [Skip]
         public int VocationalExperienceDays { get; set; }
 
         #endregion
 
         #region Госсужба
-
         [Skip]
         public int GovernmentExperienceYears { get; set; }
-
         [Skip]
         public int GovernmentExperienceMonths { get; set; }
-
         [Skip]
         public int GovernmentExperienceDays { get; set; }
-
         #endregion
 
         #endregion

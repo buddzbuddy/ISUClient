@@ -96,6 +96,11 @@ namespace Logic
                     {
                         property.SetValue(obj, xValue);
                     }
+                    else if (property.PropertyType == typeof(Nullable<DateTime>))
+                    {
+                        if (!string.IsNullOrEmpty(xValue))
+                            property.SetValue(obj, DateTime.Parse(xValue));
+                    }
                     else
                         throw new ApplicationException("Не могу преобразовать XElement, тип поля \"" + property.PropertyType.Name + "\"не определен!");
                 }

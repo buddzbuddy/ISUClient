@@ -30,16 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             this.DataGridViewEmployees = new System.Windows.Forms.DataGridView();
-            this.StudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentPersonLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentPersonFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentStaffType = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.StudentPosition = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DataGridViewPositions = new System.Windows.Forms.DataGridView();
             this.PositionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddPositionButton = new System.Windows.Forms.Button();
-            this.AddStudentButton = new System.Windows.Forms.Button();
+            this.AddEmployeeButton = new System.Windows.Forms.Button();
+            this.EmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeePersonLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeePersonFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeStaffType = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.EmployeePosition = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ShowEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.EditEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DeleteEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPositions)).BeginInit();
             this.SuspendLayout();
@@ -50,47 +53,20 @@
             this.DataGridViewEmployees.AllowUserToDeleteRows = false;
             this.DataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridViewEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.StudentId,
-            this.StudentPersonLastName,
-            this.StudentPersonFirstName,
-            this.StudentStaffType,
-            this.StudentPosition});
+            this.EmployeeId,
+            this.EmployeePersonLastName,
+            this.EmployeePersonFirstName,
+            this.EmployeeStaffType,
+            this.EmployeePosition,
+            this.ShowEmployeeLink,
+            this.EditEmployeeLink,
+            this.DeleteEmployeeLink});
             this.DataGridViewEmployees.Location = new System.Drawing.Point(13, 13);
             this.DataGridViewEmployees.Name = "DataGridViewEmployees";
             this.DataGridViewEmployees.ReadOnly = true;
             this.DataGridViewEmployees.Size = new System.Drawing.Size(707, 150);
             this.DataGridViewEmployees.TabIndex = 0;
-            // 
-            // StudentId
-            // 
-            this.StudentId.HeaderText = "Id";
-            this.StudentId.Name = "StudentId";
-            this.StudentId.ReadOnly = true;
-            this.StudentId.Visible = false;
-            // 
-            // StudentPersonLastName
-            // 
-            this.StudentPersonLastName.HeaderText = "Фамилия";
-            this.StudentPersonLastName.Name = "StudentPersonLastName";
-            this.StudentPersonLastName.ReadOnly = true;
-            // 
-            // StudentPersonFirstName
-            // 
-            this.StudentPersonFirstName.HeaderText = "Имя";
-            this.StudentPersonFirstName.Name = "StudentPersonFirstName";
-            this.StudentPersonFirstName.ReadOnly = true;
-            // 
-            // StudentStaffType
-            // 
-            this.StudentStaffType.HeaderText = "Категория должности";
-            this.StudentStaffType.Name = "StudentStaffType";
-            this.StudentStaffType.ReadOnly = true;
-            // 
-            // StudentPosition
-            // 
-            this.StudentPosition.HeaderText = "Дожность";
-            this.StudentPosition.Name = "StudentPosition";
-            this.StudentPosition.ReadOnly = true;
+            this.DataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployees_CellContentClick);
             // 
             // DataGridViewPositions
             // 
@@ -129,22 +105,86 @@
             this.AddPositionButton.UseVisualStyleBackColor = true;
             this.AddPositionButton.Click += new System.EventHandler(this.AddPositionButton_Click);
             // 
-            // AddStudentButton
+            // AddEmployeeButton
             // 
-            this.AddStudentButton.Location = new System.Drawing.Point(727, 13);
-            this.AddStudentButton.Name = "AddStudentButton";
-            this.AddStudentButton.Size = new System.Drawing.Size(75, 43);
-            this.AddStudentButton.TabIndex = 3;
-            this.AddStudentButton.Text = "Ввод сотрудника";
-            this.AddStudentButton.UseVisualStyleBackColor = true;
-            this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
+            this.AddEmployeeButton.Location = new System.Drawing.Point(727, 13);
+            this.AddEmployeeButton.Name = "AddEmployeeButton";
+            this.AddEmployeeButton.Size = new System.Drawing.Size(75, 43);
+            this.AddEmployeeButton.TabIndex = 3;
+            this.AddEmployeeButton.Text = "Ввод сотрудника";
+            this.AddEmployeeButton.UseVisualStyleBackColor = true;
+            this.AddEmployeeButton.Click += new System.EventHandler(this.AddEmployeeButton_Click);
+            // 
+            // EmployeeId
+            // 
+            this.EmployeeId.HeaderText = "Id";
+            this.EmployeeId.Name = "EmployeeId";
+            this.EmployeeId.ReadOnly = true;
+            this.EmployeeId.Visible = false;
+            // 
+            // EmployeePersonLastName
+            // 
+            this.EmployeePersonLastName.HeaderText = "Фамилия";
+            this.EmployeePersonLastName.Name = "EmployeePersonLastName";
+            this.EmployeePersonLastName.ReadOnly = true;
+            // 
+            // EmployeePersonFirstName
+            // 
+            this.EmployeePersonFirstName.HeaderText = "Имя";
+            this.EmployeePersonFirstName.Name = "EmployeePersonFirstName";
+            this.EmployeePersonFirstName.ReadOnly = true;
+            // 
+            // EmployeeStaffType
+            // 
+            this.EmployeeStaffType.HeaderText = "Категория должности";
+            this.EmployeeStaffType.Name = "EmployeeStaffType";
+            this.EmployeeStaffType.ReadOnly = true;
+            // 
+            // EmployeePosition
+            // 
+            this.EmployeePosition.HeaderText = "Дожность";
+            this.EmployeePosition.Name = "EmployeePosition";
+            this.EmployeePosition.ReadOnly = true;
+            // 
+            // ShowEmployeeLink
+            // 
+            this.ShowEmployeeLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ShowEmployeeLink.HeaderText = "";
+            this.ShowEmployeeLink.Name = "ShowEmployeeLink";
+            this.ShowEmployeeLink.ReadOnly = true;
+            this.ShowEmployeeLink.Text = "открыть";
+            this.ShowEmployeeLink.TrackVisitedState = false;
+            this.ShowEmployeeLink.UseColumnTextForLinkValue = true;
+            this.ShowEmployeeLink.Width = 5;
+            // 
+            // EditEmployeeLink
+            // 
+            this.EditEmployeeLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EditEmployeeLink.HeaderText = "";
+            this.EditEmployeeLink.Name = "EditEmployeeLink";
+            this.EditEmployeeLink.ReadOnly = true;
+            this.EditEmployeeLink.Text = "изменить";
+            this.EditEmployeeLink.TrackVisitedState = false;
+            this.EditEmployeeLink.UseColumnTextForLinkValue = true;
+            this.EditEmployeeLink.Width = 5;
+            // 
+            // DeleteEmployeeLink
+            // 
+            this.DeleteEmployeeLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DeleteEmployeeLink.HeaderText = "";
+            this.DeleteEmployeeLink.Name = "DeleteEmployeeLink";
+            this.DeleteEmployeeLink.ReadOnly = true;
+            this.DeleteEmployeeLink.Text = "удалить";
+            this.DeleteEmployeeLink.TrackVisitedState = false;
+            this.DeleteEmployeeLink.UseColumnTextForLinkValue = true;
+            this.DeleteEmployeeLink.Width = 5;
             // 
             // StaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 458);
-            this.Controls.Add(this.AddStudentButton);
+            this.Controls.Add(this.AddEmployeeButton);
             this.Controls.Add(this.AddPositionButton);
             this.Controls.Add(this.DataGridViewPositions);
             this.Controls.Add(this.DataGridViewEmployees);
@@ -162,14 +202,17 @@
 
         public System.Windows.Forms.DataGridView DataGridViewEmployees;
         public System.Windows.Forms.DataGridView DataGridViewPositions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPersonLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPersonFirstName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn StudentStaffType;
-        private System.Windows.Forms.DataGridViewComboBoxColumn StudentPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn PositionId;
         private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
         private System.Windows.Forms.Button AddPositionButton;
-        private System.Windows.Forms.Button AddStudentButton;
+        private System.Windows.Forms.Button AddEmployeeButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeePersonLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeePersonFirstName;
+        private System.Windows.Forms.DataGridViewComboBoxColumn EmployeeStaffType;
+        private System.Windows.Forms.DataGridViewComboBoxColumn EmployeePosition;
+        private System.Windows.Forms.DataGridViewLinkColumn ShowEmployeeLink;
+        private System.Windows.Forms.DataGridViewLinkColumn EditEmployeeLink;
+        private System.Windows.Forms.DataGridViewLinkColumn DeleteEmployeeLink;
     }
 }

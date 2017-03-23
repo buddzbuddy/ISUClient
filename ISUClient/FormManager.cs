@@ -36,7 +36,8 @@ namespace UI
                                         typeof(Boolean),
                                         typeof(Decimal),
                                         typeof(Double),
-                                        typeof(String)
+                                        typeof(String),
+                                        typeof(Nullable<DateTime>)
                                     }.Contains(property.PropertyType))
             {
                 if (dataGridView.Columns[cellName] != null)
@@ -115,6 +116,11 @@ namespace UI
                 {
                     if (_docRepo.GetAll<Sector>() != null)
                         dataSource = _docRepo.GetAll<Sector>().ToList();
+                }
+                else if (objType.Name.Equals(typeof(Position).Name))
+                {
+                    if (_docRepo.GetAll<Position>() != null)
+                        dataSource = _docRepo.GetAll<Position>().ToList();
                 }
                 else
                     throw new ApplicationException("При загрузке источника в табличную форму, для отображения выпадающего списка тип выпадающего списка не найден! Тип объекта \"" + typeof(T).Name + "\" Имя свойства \"" + property.Name + "\"");
