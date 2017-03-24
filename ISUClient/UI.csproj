@@ -195,6 +195,12 @@
     <Compile Include="StaffForms\EditEmployeeForm.Designer.cs">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StaffForms\EditPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffForms\EditPositionForm.Designer.cs">
+      <DependentUpon>EditPositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffForms\StaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,12 @@
     </Compile>
     <Compile Include="StaffForms\ViewEmployeeForm.Designer.cs">
       <DependentUpon>ViewEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaffForms\ViewPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StaffForms\ViewPositionForm.Designer.cs">
+      <DependentUpon>ViewPositionForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AccountForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -253,11 +265,17 @@
     <EmbeddedResource Include="StaffForms\EditEmployeeForm.resx">
       <DependentUpon>EditEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StaffForms\EditPositionForm.resx">
+      <DependentUpon>EditPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffForms\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaffForms\ViewEmployeeForm.resx">
       <DependentUpon>ViewEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StaffForms\ViewPositionForm.resx">
+      <DependentUpon>ViewPositionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ISUClient_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />

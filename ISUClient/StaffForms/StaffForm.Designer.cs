@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             this.DataGridViewEmployees = new System.Windows.Forms.DataGridView();
-            this.DataGridViewPositions = new System.Windows.Forms.DataGridView();
-            this.PositionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddPositionButton = new System.Windows.Forms.Button();
-            this.AddEmployeeButton = new System.Windows.Forms.Button();
             this.EmployeeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeePersonLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeePersonFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +38,14 @@
             this.ShowEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
             this.EditEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
             this.DeleteEmployeeLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DataGridViewPositions = new System.Windows.Forms.DataGridView();
+            this.AddPositionButton = new System.Windows.Forms.Button();
+            this.AddEmployeeButton = new System.Windows.Forms.Button();
+            this.PositionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PositionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ShowPositionLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.EditPositionLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.DeletePositionLink = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewPositions)).BeginInit();
             this.SuspendLayout();
@@ -67,53 +70,6 @@
             this.DataGridViewEmployees.Size = new System.Drawing.Size(707, 150);
             this.DataGridViewEmployees.TabIndex = 0;
             this.DataGridViewEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewEmployees_CellContentClick);
-            // 
-            // DataGridViewPositions
-            // 
-            this.DataGridViewPositions.AllowUserToAddRows = false;
-            this.DataGridViewPositions.AllowUserToDeleteRows = false;
-            this.DataGridViewPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PositionId,
-            this.PositionName});
-            this.DataGridViewPositions.Location = new System.Drawing.Point(4, 210);
-            this.DataGridViewPositions.Name = "DataGridViewPositions";
-            this.DataGridViewPositions.ReadOnly = true;
-            this.DataGridViewPositions.Size = new System.Drawing.Size(311, 133);
-            this.DataGridViewPositions.TabIndex = 1;
-            // 
-            // PositionId
-            // 
-            this.PositionId.HeaderText = "Id";
-            this.PositionId.Name = "PositionId";
-            this.PositionId.ReadOnly = true;
-            this.PositionId.Visible = false;
-            // 
-            // PositionName
-            // 
-            this.PositionName.HeaderText = "Должность";
-            this.PositionName.Name = "PositionName";
-            this.PositionName.ReadOnly = true;
-            // 
-            // AddPositionButton
-            // 
-            this.AddPositionButton.Location = new System.Drawing.Point(322, 210);
-            this.AddPositionButton.Name = "AddPositionButton";
-            this.AddPositionButton.Size = new System.Drawing.Size(75, 23);
-            this.AddPositionButton.TabIndex = 2;
-            this.AddPositionButton.Text = "Добавить должность";
-            this.AddPositionButton.UseVisualStyleBackColor = true;
-            this.AddPositionButton.Click += new System.EventHandler(this.AddPositionButton_Click);
-            // 
-            // AddEmployeeButton
-            // 
-            this.AddEmployeeButton.Location = new System.Drawing.Point(727, 13);
-            this.AddEmployeeButton.Name = "AddEmployeeButton";
-            this.AddEmployeeButton.Size = new System.Drawing.Size(75, 43);
-            this.AddEmployeeButton.TabIndex = 3;
-            this.AddEmployeeButton.Text = "Ввод сотрудника";
-            this.AddEmployeeButton.UseVisualStyleBackColor = true;
-            this.AddEmployeeButton.Click += new System.EventHandler(this.AddEmployeeButton_Click);
             // 
             // EmployeeId
             // 
@@ -179,6 +135,90 @@
             this.DeleteEmployeeLink.UseColumnTextForLinkValue = true;
             this.DeleteEmployeeLink.Width = 5;
             // 
+            // DataGridViewPositions
+            // 
+            this.DataGridViewPositions.AllowUserToAddRows = false;
+            this.DataGridViewPositions.AllowUserToDeleteRows = false;
+            this.DataGridViewPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewPositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PositionId,
+            this.PositionName,
+            this.ShowPositionLink,
+            this.EditPositionLink,
+            this.DeletePositionLink});
+            this.DataGridViewPositions.Location = new System.Drawing.Point(4, 210);
+            this.DataGridViewPositions.Name = "DataGridViewPositions";
+            this.DataGridViewPositions.ReadOnly = true;
+            this.DataGridViewPositions.Size = new System.Drawing.Size(311, 133);
+            this.DataGridViewPositions.TabIndex = 1;
+            this.DataGridViewPositions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewPositions_CellContentClick);
+            // 
+            // AddPositionButton
+            // 
+            this.AddPositionButton.Location = new System.Drawing.Point(322, 210);
+            this.AddPositionButton.Name = "AddPositionButton";
+            this.AddPositionButton.Size = new System.Drawing.Size(75, 23);
+            this.AddPositionButton.TabIndex = 2;
+            this.AddPositionButton.Text = "Добавить должность";
+            this.AddPositionButton.UseVisualStyleBackColor = true;
+            this.AddPositionButton.Click += new System.EventHandler(this.AddPositionButton_Click);
+            // 
+            // AddEmployeeButton
+            // 
+            this.AddEmployeeButton.Location = new System.Drawing.Point(727, 13);
+            this.AddEmployeeButton.Name = "AddEmployeeButton";
+            this.AddEmployeeButton.Size = new System.Drawing.Size(75, 43);
+            this.AddEmployeeButton.TabIndex = 3;
+            this.AddEmployeeButton.Text = "Ввод сотрудника";
+            this.AddEmployeeButton.UseVisualStyleBackColor = true;
+            this.AddEmployeeButton.Click += new System.EventHandler(this.AddEmployeeButton_Click);
+            // 
+            // PositionId
+            // 
+            this.PositionId.HeaderText = "Id";
+            this.PositionId.Name = "PositionId";
+            this.PositionId.ReadOnly = true;
+            this.PositionId.Visible = false;
+            // 
+            // PositionName
+            // 
+            this.PositionName.HeaderText = "Должность";
+            this.PositionName.Name = "PositionName";
+            this.PositionName.ReadOnly = true;
+            // 
+            // ShowPositionLink
+            // 
+            this.ShowPositionLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ShowPositionLink.HeaderText = "";
+            this.ShowPositionLink.Name = "ShowPositionLink";
+            this.ShowPositionLink.ReadOnly = true;
+            this.ShowPositionLink.Text = "открыть";
+            this.ShowPositionLink.TrackVisitedState = false;
+            this.ShowPositionLink.UseColumnTextForLinkValue = true;
+            this.ShowPositionLink.Width = 5;
+            // 
+            // EditPositionLink
+            // 
+            this.EditPositionLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.EditPositionLink.HeaderText = "";
+            this.EditPositionLink.Name = "EditPositionLink";
+            this.EditPositionLink.ReadOnly = true;
+            this.EditPositionLink.Text = "изменить";
+            this.EditPositionLink.TrackVisitedState = false;
+            this.EditPositionLink.UseColumnTextForLinkValue = true;
+            this.EditPositionLink.Width = 5;
+            // 
+            // DeletePositionLink
+            // 
+            this.DeletePositionLink.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.DeletePositionLink.HeaderText = "";
+            this.DeletePositionLink.Name = "DeletePositionLink";
+            this.DeletePositionLink.ReadOnly = true;
+            this.DeletePositionLink.Text = "удалить";
+            this.DeletePositionLink.TrackVisitedState = false;
+            this.DeletePositionLink.UseColumnTextForLinkValue = true;
+            this.DeletePositionLink.Width = 5;
+            // 
             // StaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,8 +242,6 @@
 
         public System.Windows.Forms.DataGridView DataGridViewEmployees;
         public System.Windows.Forms.DataGridView DataGridViewPositions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PositionId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
         private System.Windows.Forms.Button AddPositionButton;
         private System.Windows.Forms.Button AddEmployeeButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeId;
@@ -214,5 +252,10 @@
         private System.Windows.Forms.DataGridViewLinkColumn ShowEmployeeLink;
         private System.Windows.Forms.DataGridViewLinkColumn EditEmployeeLink;
         private System.Windows.Forms.DataGridViewLinkColumn DeleteEmployeeLink;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionName;
+        private System.Windows.Forms.DataGridViewLinkColumn ShowPositionLink;
+        private System.Windows.Forms.DataGridViewLinkColumn EditPositionLink;
+        private System.Windows.Forms.DataGridViewLinkColumn DeletePositionLink;
     }
 }

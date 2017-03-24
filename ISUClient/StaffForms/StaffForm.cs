@@ -110,5 +110,75 @@ namespace UI.StaffForms
             _addEmployeeForm = new AddEmployeeForm(this);
             DialogResult dialog = _addEmployeeForm.ShowDialog();
         }
+
+        private void DataGridViewPositions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = DataGridViewPositions.Rows[e.RowIndex];
+                var cell = row.Cells[e.ColumnIndex];
+                var PositionId = (Guid)row.Cells["PositionId"].Value;
+                if (cell.Equals(row.Cells["EditPositionLink"]))//Edit button clicked
+                {
+                    EditPosition(PositionId);
+                }
+                else if (cell.Equals(row.Cells["DeletePositionLink"]))//Delete button clicked
+                {
+                    DeletePosition(PositionId);
+                }
+                else if (cell.Equals(row.Cells["ShowPositionLink"]))//Show button clicked
+                {
+                    ShowPosition(PositionId);
+                }
+            }
+        }
+        public void EditPosition(Guid PositionId)
+        {
+            var _docRepo = new DocRepository();
+            var obj = _docRepo.Get<Position>(PositionId);
+            var _editPositionForm = new EditPositionForm(this, obj);
+            DialogResult dialog = _editPositionForm.ShowDialog();
+        }
+        private void DeletePosition(Guid PositionId)
+        {
+            if (IsBoundWithAnyEmployee(PositionId))
+            {
+                MessageBox.Show("В данной должности числятся сотрудники!\n\nПожалуйста, перед удалением переведите всех сотрудников из этой должности в другую.");
+                return;
+            }
+            var _docRepo = new DocRepository();
+
+            var obj = _docRepo.Get<Position>(PositionId);
+
+            var confirmResult = MessageBox.Show("Вы уверены что хотите удалить должность \"" + obj.Name + "\"?",
+                             "Подтверждение",
+                             MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    _docRepo.Delete<Position>(PositionId);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Ошибка произошла при попытке удалить должность \"" + obj.Name + "\", текст ошибки: " + e.Message);
+                }
+            }
+            FormManager.LoadToDataGridView(DataGridViewPositions, _docRepo.GetAll<Position>());
+        }
+        private bool IsBoundWithAnyEmployee(Guid PositionId)
+        {
+            var _docRepo = new DocRepository();
+            return _docRepo.GetAll<Employee>().Any(x => x.Position == PositionId);
+        }
+
+        private void ShowPosition(Guid PositionId)
+        {
+            var _docRepo = new DocRepository();
+            var obj = _docRepo.Get<Position>(PositionId);
+            var _viewPositionForm = new ViewPositionForm(this, obj);
+
+            DialogResult dialog = _viewPositionForm.ShowDialog();
+        }
     }
 }
