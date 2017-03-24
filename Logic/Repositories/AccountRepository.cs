@@ -60,15 +60,18 @@ namespace Logic.Repositories
                     {
                         var userNameDb = cells[row, userNameColIndex].Value;
                         var passwordDb = cells[row, passwordColIndex].Value;
-                        if (!string.IsNullOrEmpty(userNameDb) && !string.IsNullOrEmpty(passwordDb))
+                        if (userNameDb != null && passwordDb != null)
                         {
-                            if (userName.ToUpper().Equals(userNameDb.ToUpper()) && password.ToUpper().Equals(passwordDb.ToUpper()))
+                            if (!string.IsNullOrEmpty(userNameDb.ToString()) && !string.IsNullOrEmpty(passwordDb.ToString()))
                             {
-                                positionIdStr = cells[row, positionIdColIndex].Value;
-                                orgName = cells[row, orgNameColIndex].Value;
-                                userIdStr = cells[row, userIdColIndex].Value;
-                                isLogged = true;
-                                break;
+                                if (userName.ToUpper().Equals(userNameDb.ToUpper()) && password.ToUpper().Equals(passwordDb.ToString().ToUpper()))
+                                {
+                                    positionIdStr = cells[row, positionIdColIndex].Value;
+                                    orgName = cells[row, orgNameColIndex].Value;
+                                    userIdStr = cells[row, userIdColIndex].Value;
+                                    isLogged = true;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -79,7 +82,7 @@ namespace Logic.Repositories
                 }
                 catch (Exception e)
                 {
-                    errorMessage = "Проблемы при открытии мета-базы ИСУ. Описание: \"" + e.Message + "\"";
+                    errorMessage = "Проблемы при открытии мета-базы ИСУ. Описание: \"" + e.Message + "\", stacktrace: " + e.StackTrace;
                 }
                 finally
                 {

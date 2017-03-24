@@ -32,7 +32,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>23</ApplicationRevision>
+    <ApplicationRevision>26</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -344,10 +344,10 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountMeta.xml" />
     <Content Include="favicon.ico" />
     <Content Include="LocalDB.xml" />
     <Content Include="Списки.ProjectFolder.xml" />
-    <Content Include="AccountMeta.xml" />
     <None Include="Resources\student_icon.png" />
     <None Include="Resources\ledger_icon.png" />
     <None Include="Resources\employee_icon.png" />
