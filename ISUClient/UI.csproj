@@ -32,7 +32,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>26</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -175,6 +175,30 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManager.cs" />
+    <Compile Include="MTBForms\AddBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\AddBuildingForm.Designer.cs">
+      <DependentUpon>AddBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MTBForms\EditBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\EditBuildingForm.Designer.cs">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MTBForms\MTBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\MTBForm.Designer.cs">
+      <DependentUpon>MTBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MTBForms\ViewBuildingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\ViewBuildingForm.Designer.cs">
+      <DependentUpon>ViewBuildingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffForms\AddEmployeeForm.cs">
@@ -245,6 +269,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\AddBuildingForm.resx">
+      <DependentUpon>AddBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\EditBuildingForm.resx">
+      <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\MTBForm.resx">
+      <DependentUpon>MTBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\ViewBuildingForm.resx">
+      <DependentUpon>ViewBuildingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -347,6 +383,7 @@
     <Content Include="AccountMeta.xml" />
     <Content Include="favicon.ico" />
     <Content Include="LocalDB.xml" />
+    <Content Include="Resources\sync-button-icon.png" />
     <Content Include="Списки.ProjectFolder.xml" />
     <None Include="Resources\student_icon.png" />
     <None Include="Resources\ledger_icon.png" />

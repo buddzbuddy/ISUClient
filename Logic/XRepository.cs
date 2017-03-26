@@ -101,13 +101,23 @@ namespace Logic
                         if (!string.IsNullOrEmpty(xValue))
                             property.SetValue(obj, DateTime.Parse(xValue));
                     }
+                    else if (property.PropertyType == typeof(Nullable<double>))
+                    {
+                        if (!string.IsNullOrEmpty(xValue))
+                            property.SetValue(obj, double.Parse(xValue));
+                    }
+                    else if (property.PropertyType == typeof(Nullable<decimal>))
+                    {
+                        if (!string.IsNullOrEmpty(xValue))
+                            property.SetValue(obj, decimal.Parse(xValue));
+                    }
                     else
-                        throw new ApplicationException("Не могу преобразовать XElement, тип поля \"" + property.PropertyType.Name + "\"не определен!");
+                        throw new ApplicationException("Не могу преобразовать XElement, тип поля \"" + property.PropertyType.FullName + "\" не определен!");
                 }
                 catch (Exception e)
                 {
                     while (e.InnerException != null) e = e.InnerException;
-                    throw new InvalidOperationException("Ошибка при преобразовании XElement в свойство сущности \"" + property.Name + "\". Описание: " + e.Message);
+                    throw new InvalidOperationException("Ошибка при преобразовании XElement в свойство сущности \"" + typeof(T).Name + " -> " + property.Name + "\". Описание: " + e.Message);
                 }
             }
             return obj;

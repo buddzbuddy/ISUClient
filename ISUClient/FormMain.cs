@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.StaffForms;
+using UI.MTBForms;
 
 namespace UI
 {
@@ -17,6 +18,7 @@ namespace UI
     {
         ContingentForm _contingentForm = null;
         StaffForm _staffForm = null;
+        MTBForm _mtbForm = null;
         public FormMain()
         {
             InitializeComponent();
@@ -51,7 +53,7 @@ namespace UI
         }
         public void EnableStudent()
         {
-            StudentOpenButton.Enabled = true;
+            StaffOpenButton.Enabled = true;
         }
         public void EnableAll()
         {
@@ -60,11 +62,18 @@ namespace UI
             EnableStudent();
         }
 
-        private void StudentOpenButton_Click(object sender, EventArgs e)
+        private void StaffOpenButton_Click(object sender, EventArgs e)
         {
             _staffForm = new StaffForm();
 
             DialogResult dialog = _staffForm.ShowDialog();
+        }
+
+        private void LedgerOpenButton_Click(object sender, EventArgs e)
+        {
+            _mtbForm = new MTBForm();
+
+            DialogResult dialog = _mtbForm.ShowDialog();
         }
     }
 }

@@ -32,7 +32,7 @@
             this.AboutButton = new System.Windows.Forms.Button();
             this.ContingentOpenButton = new System.Windows.Forms.Button();
             this.LedgerOpenButton = new System.Windows.Forms.Button();
-            this.StudentOpenButton = new System.Windows.Forms.Button();
+            this.StaffOpenButton = new System.Windows.Forms.Button();
             this.ContingentPictureBox = new System.Windows.Forms.PictureBox();
             this.MTBPictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -83,18 +83,19 @@
             this.LedgerOpenButton.TabIndex = 3;
             this.LedgerOpenButton.Text = "МТБ";
             this.LedgerOpenButton.UseVisualStyleBackColor = true;
+            this.LedgerOpenButton.Click += new System.EventHandler(this.LedgerOpenButton_Click);
             // 
-            // StudentOpenButton
+            // StaffOpenButton
             // 
-            this.StudentOpenButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StudentOpenButton.Enabled = false;
-            this.StudentOpenButton.Location = new System.Drawing.Point(462, 250);
-            this.StudentOpenButton.Name = "StudentOpenButton";
-            this.StudentOpenButton.Size = new System.Drawing.Size(75, 23);
-            this.StudentOpenButton.TabIndex = 4;
-            this.StudentOpenButton.Text = "Кадры";
-            this.StudentOpenButton.UseVisualStyleBackColor = true;
-            this.StudentOpenButton.Click += new System.EventHandler(this.StudentOpenButton_Click);
+            this.StaffOpenButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StaffOpenButton.Enabled = false;
+            this.StaffOpenButton.Location = new System.Drawing.Point(462, 250);
+            this.StaffOpenButton.Name = "StaffOpenButton";
+            this.StaffOpenButton.Size = new System.Drawing.Size(75, 23);
+            this.StaffOpenButton.TabIndex = 4;
+            this.StaffOpenButton.Text = "Кадры";
+            this.StaffOpenButton.UseVisualStyleBackColor = true;
+            this.StaffOpenButton.Click += new System.EventHandler(this.StaffOpenButton_Click);
             // 
             // ContingentPictureBox
             // 
@@ -220,7 +221,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MTBPictureBox);
             this.Controls.Add(this.ContingentPictureBox);
-            this.Controls.Add(this.StudentOpenButton);
+            this.Controls.Add(this.StaffOpenButton);
             this.Controls.Add(this.LedgerOpenButton);
             this.Controls.Add(this.ContingentOpenButton);
             this.Controls.Add(this.AboutButton);
@@ -242,7 +243,7 @@
         private System.Windows.Forms.Button AboutButton;
         private System.Windows.Forms.Button ContingentOpenButton;
         private System.Windows.Forms.Button LedgerOpenButton;
-        private System.Windows.Forms.Button StudentOpenButton;
+        private System.Windows.Forms.Button StaffOpenButton;
         private System.Windows.Forms.PictureBox ContingentPictureBox;
         private System.Windows.Forms.PictureBox MTBPictureBox;
         private System.Windows.Forms.PictureBox pictureBox1;

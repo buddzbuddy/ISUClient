@@ -37,7 +37,9 @@ namespace UI
                                         typeof(Decimal),
                                         typeof(Double),
                                         typeof(String),
-                                        typeof(Nullable<DateTime>)
+                                        typeof(Nullable<DateTime>),
+                                        typeof(Nullable<double>),
+                                        typeof(Nullable<decimal>)
                                     }.Contains(property.PropertyType))
             {
                 if (dataGridView.Columns[cellName] != null)

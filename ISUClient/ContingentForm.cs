@@ -197,5 +197,10 @@ namespace UI
 
             DialogResult dialog = viewStudentForm.ShowDialog();
         }
+
+        private void SynchronizingButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Данные загружаются...");
+        }
     }
 }

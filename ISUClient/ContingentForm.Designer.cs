@@ -52,6 +52,8 @@
             this.AddGroupButton = new System.Windows.Forms.Button();
             this.ToExcelGroupsButton = new System.Windows.Forms.Button();
             this.ToExcelStudentsButton = new System.Windows.Forms.Button();
+            this.SynchronizingButton = new System.Windows.Forms.Button();
+            this.SyncLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewGroups)).BeginInit();
             this.SuspendLayout();
@@ -292,11 +294,36 @@
             this.ToExcelStudentsButton.UseVisualStyleBackColor = true;
             this.ToExcelStudentsButton.Click += new System.EventHandler(this.ToExcelStudentsButton_Click);
             // 
+            // SynchronizingButton
+            // 
+            this.SynchronizingButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.SynchronizingButton.BackgroundImage = global::UI.Properties.Resources.sync_button_icon;
+            this.SynchronizingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SynchronizingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SynchronizingButton.Location = new System.Drawing.Point(18, 388);
+            this.SynchronizingButton.Name = "SynchronizingButton";
+            this.SynchronizingButton.Size = new System.Drawing.Size(73, 70);
+            this.SynchronizingButton.TabIndex = 5;
+            this.SynchronizingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SynchronizingButton.UseVisualStyleBackColor = false;
+            this.SynchronizingButton.Click += new System.EventHandler(this.SynchronizingButton_Click);
+            // 
+            // SyncLabel
+            // 
+            this.SyncLabel.AutoSize = true;
+            this.SyncLabel.Location = new System.Drawing.Point(13, 461);
+            this.SyncLabel.Name = "SyncLabel";
+            this.SyncLabel.Size = new System.Drawing.Size(84, 13);
+            this.SyncLabel.TabIndex = 6;
+            this.SyncLabel.Text = "синхронизация";
+            // 
             // ContingentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 483);
+            this.Controls.Add(this.SyncLabel);
+            this.Controls.Add(this.SynchronizingButton);
             this.Controls.Add(this.ToExcelStudentsButton);
             this.Controls.Add(this.ToExcelGroupsButton);
             this.Controls.Add(this.AddGroupButton);
@@ -310,6 +337,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewGroups)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,5 +365,7 @@
         private System.Windows.Forms.DataGridViewLinkColumn EditStudentLink;
         private System.Windows.Forms.DataGridViewLinkColumn DeleteStudentLink;
         private System.Windows.Forms.Button ToExcelStudentsButton;
+        private System.Windows.Forms.Button SynchronizingButton;
+        private System.Windows.Forms.Label SyncLabel;
     }
 }

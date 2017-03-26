@@ -46,6 +46,8 @@
     <Compile Include="Entities\Contingent\Sector.cs" />
     <Compile Include="Entities\Contingent\Student.cs" />
     <Compile Include="Entities\LocalEntity.cs" />
+    <Compile Include="Entities\MTB\Building.cs" />
+    <Compile Include="Entities\MTB\Premise.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Staff\Assign.cs" />
     <Compile Include="Entities\Staff\Award.cs" />
@@ -62,9 +64,7 @@
     <Compile Include="XEnumContext.cs" />
     <Compile Include="XContext.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\MTB\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

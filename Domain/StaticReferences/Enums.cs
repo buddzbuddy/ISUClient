@@ -30,6 +30,11 @@ namespace Domain.StaticReferences
         private static Guid MaritalStatusEnumDefId = new Guid("{78EF1430-4AA5-4886-9AC2-A39A0BCD8863}");
         private static Guid TeacherEnumDefId = new Guid("{0558FFB1-3F84-4DFE-A103-D6B0579507C1}");
         private static Guid StaffTypeEnumDefId = new Guid("{D0862EEC-DC20-4FC9-83AC-D9A391827BEF}");
+        private static Guid BuildingTypeEnumDefId = new Guid("{FDE90A23-2C64-4EA1-9E18-550D6E022C9A}");
+        private static Guid BuildingPurposeEnumDefId = new Guid("{237181C6-C6AE-4475-88BD-BD93060EF2EE}");
+        private static Guid RoofTypeEnumDefId = new Guid("{5EB9BF6A-1809-4245-8C05-E203CBEC4733}");
+        private static Guid StateEnumDefId = new Guid("{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}");
+        private static Guid HeatingSystemEnumDefId = new Guid("{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}");
         private static Dictionary<string, Guid> EnumDefIds = new Dictionary<string, Guid>
         {
             {"Language", LanguageEnumDefId},
@@ -52,7 +57,12 @@ namespace Domain.StaticReferences
             {"YesNo", YesNoEnumDefId},
             {"MaritalStatus", MaritalStatusEnumDefId},
             {"Teacher", TeacherEnumDefId},
-            {"StaffType", StaffTypeEnumDefId}
+            {"StaffType", StaffTypeEnumDefId},
+            {"BuildingType", BuildingTypeEnumDefId},
+            {"BuildingPurpose", BuildingPurposeEnumDefId},
+            {"RoofType", RoofTypeEnumDefId},
+            {"State", StateEnumDefId},
+            {"HeatingSystem", HeatingSystemEnumDefId}
         };
 
         public static List<EnumDef> EnumDefs = new List<EnumDef>();
