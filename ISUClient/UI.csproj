@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://192.168.55.5/offline/</InstallUrl>
+    <InstallUrl>http://isuoffline.kesip.kg/</InstallUrl>
     <SupportUrl>http://isu.kesip.kg:8080/Home/About</SupportUrl>
     <ErrorReportUrl>http://isu.kesip.kg:8080/Home/About</ErrorReportUrl>
     <TargetCulture>ru-KG</TargetCulture>
@@ -30,9 +30,9 @@
     <PublisherName>АНСПО</PublisherName>
     <SuiteName>Автономный клиент</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>publish.htm</WebPage>
+    <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -368,7 +368,7 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
-    <PublishFile Include="Списки.ProjectFolder.xml">
+    <PublishFile Include="Spiski.ProjectFolder.xml">
       <Visible>False</Visible>
       <Group>
       </Group>
@@ -384,7 +384,7 @@
     <Content Include="favicon.ico" />
     <Content Include="LocalDB.xml" />
     <Content Include="Resources\sync-button-icon.png" />
-    <Content Include="Списки.ProjectFolder.xml" />
+    <Content Include="Spiski.ProjectFolder.xml" />
     <None Include="Resources\student_icon.png" />
     <None Include="Resources\ledger_icon.png" />
     <None Include="Resources\employee_icon.png" />
