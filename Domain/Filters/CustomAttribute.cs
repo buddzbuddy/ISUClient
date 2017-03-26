@@ -10,10 +10,6 @@ namespace Domain.Filters
     {
 
     }
-    public class MarkAttribute : Attribute
-    {
-
-    }
     public class BoundWithAttribute : Attribute
     {
         private string _propertyName { get; set; }

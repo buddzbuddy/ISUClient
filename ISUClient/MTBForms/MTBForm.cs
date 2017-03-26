@@ -54,7 +54,7 @@ namespace UI.MTBForms
         {
             if (IsBoundWithAnyPremise(BuildingId))
             {
-                MessageBox.Show("В данной должности числятся сотрудники!\n\nПожалуйста, перед удалением переведите всех сотрудников из этой должности в другую.");
+                MessageBox.Show("В данном здании имеются помещения!\n\nПожалуйста, перед удалением здания удалите все помещения внутри здания.");
                 return;
             }
             var _docRepo = new DocRepository();
