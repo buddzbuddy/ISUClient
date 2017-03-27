@@ -9,7 +9,7 @@ namespace Domain.StaticReferences
     public static  class DBConfigInfo
     {
         public static string LocalDBFileName = "LocalDB.xml";
-        public static string EnumDefsFileName = "Списки.ProjectFolder.xml";
+        public static string EnumDefsFileName = "Spiski.ProjectFolder.xml";
         public static string AccountMetaFileName = "AccountMeta.xml";
         public static string AccountMetaFileName2 = "sys.xml";
         public static string accountMetaDBPassword = "QQQwww123";
