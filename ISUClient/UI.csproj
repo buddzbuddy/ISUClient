@@ -378,6 +378,16 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
+    <PublishFile Include="sys.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountMeta.xml" />
@@ -385,6 +395,7 @@
     <Content Include="LocalDB.xml" />
     <Content Include="Resources\sync-button-icon.png" />
     <Content Include="Spiski.ProjectFolder.xml" />
+    <Content Include="sys.xml" />
     <None Include="Resources\student_icon.png" />
     <None Include="Resources\ledger_icon.png" />
     <None Include="Resources\employee_icon.png" />

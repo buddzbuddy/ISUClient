@@ -44,7 +44,7 @@ namespace UI.AccountForms
             }
             LoginButton.Enabled = false;
 
-            if (_accountRepo.AuthenticateUser(userName, password, out positionIdStr, out orgName, out userIdStr, out errorMessage))
+            if (_accountRepo.AuthenticateUser2(userName, password, out positionIdStr, out orgName, out userIdStr, out errorMessage))
             {
                 // save the user has logged in somewhere
                 // set the dialog result to ok

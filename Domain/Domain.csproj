@@ -46,6 +46,7 @@
     <Compile Include="Entities\Contingent\Sector.cs" />
     <Compile Include="Entities\Contingent\Student.cs" />
     <Compile Include="Entities\LocalEntity.cs" />
+    <Compile Include="Entities\Meta\Organization.cs" />
     <Compile Include="Entities\MTB\Building.cs" />
     <Compile Include="Entities\MTB\Premise.cs" />
     <Compile Include="Entities\Person.cs" />
