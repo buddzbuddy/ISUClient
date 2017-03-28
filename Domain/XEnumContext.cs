@@ -15,7 +15,18 @@ namespace Domain
         {
             if (System.IO.File.Exists(DBConfigInfo.EnumDefsFileName))
             {
-                _document = XDocument.Load(DBConfigInfo.EnumDefsFileName);
+                
+                //_document = XDocument.Load(DBConfigInfo.EnumDefsFileName);
+                var cachedDocument = Caching.Get<XDocument>(DBConfigInfo.EnumDefsFileName);
+                if (cachedDocument != null)
+                {
+                    _document = cachedDocument;//XDocument.Load(DBConfigInfo.LocalDBFileName);
+                }
+                else
+                {
+                    _document = XDocument.Load(DBConfigInfo.EnumDefsFileName);
+                    Caching.Set(DBConfigInfo.EnumDefsFileName, _document);
+                }
             }
             else throw new ApplicationException("Файл \"" + DBConfigInfo.EnumDefsFileName + "\" не найден!");
         }

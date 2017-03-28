@@ -14,12 +14,28 @@ namespace Domain
         private string _filePath;
         public XContext()
         {
-            _document = XDocument.Load(DBConfigInfo.LocalDBFileName);
+            var cachedDocument = Caching.Get<XDocument>(DBConfigInfo.LocalDBFileName);
+            if (cachedDocument != null)
+            {
+                _document = cachedDocument;//XDocument.Load(DBConfigInfo.LocalDBFileName);
+            }
+            else
+            {
+                _document = XDocument.Load(DBConfigInfo.LocalDBFileName);
+                Caching.Set(DBConfigInfo.LocalDBFileName, _document);
+            }
             _filePath = DBConfigInfo.LocalDBFileName;
+        }
+        public void UpdateSource(XDocument doc)
+        {
+            _document = doc;
+            _document.Save(_filePath);
         }
         private void ReloadDocument()
         {
-            _document = XDocument.Load(_filePath);
+            //_document = XDocument.Load(_filePath);
+            _document = XDocument.Load(DBConfigInfo.LocalDBFileName);
+            Caching.Set(DBConfigInfo.LocalDBFileName, _document);
         }
         public IEnumerable<XElement> GetElements(XName sectionName)
         {

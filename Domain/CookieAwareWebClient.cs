@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Web
+namespace Domain
 {
     public class CookieAwareWebClient : WebClient
     {

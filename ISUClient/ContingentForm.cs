@@ -20,10 +20,12 @@ namespace UI
             InitializeComponent();
             var _docRepo = new DocRepository();
             FormManager.LoadToDataGridView(DataGridViewGroups, _docRepo.GetAll<Group>());
-            if(_docRepo.GetAll<Student>() != null)
+            var studentsObj = _docRepo.GetAll<Student>();
+            if (studentsObj != null)
             {
-                var Students = _docRepo.GetAll<Student>().ToList();
-                Students.ForEach(x => x.PersonObj = _docRepo.Get<Person>(x.Person));
+                var Students = studentsObj.ToList();
+                var personsObj = _docRepo.GetAll<Person>().ToList();
+                Students.ForEach(x => x.PersonObj = personsObj.FirstOrDefault(p => p.Id == x.Person)/*_docRepo.Get<Person>(x.Person)*/);
                 FormManager.LoadToDataGridView(DataGridViewStudents, Students);
             }
         }
@@ -200,7 +202,9 @@ namespace UI
 
         private void SynchronizingButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Данные загружаются...");
+            SynchronizeForm _syncForm = new SynchronizeForm("Contingent", "Контингент");
+            DialogResult dialog = _syncForm.ShowDialog();
+            //MessageBox.Show("Данные загружаются...");
         }
     }
 }

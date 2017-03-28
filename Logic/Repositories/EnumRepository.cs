@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Logic.Repositories
 {
@@ -16,10 +17,10 @@ namespace Logic.Repositories
             if (Enums.EnumDefs.Count == 0)
             {
                 enumContext = new XEnumContext();
-                var xList = enumContext.GetAllElements();
+                IEnumerable<XElement> xList = enumContext.GetAllElements();
                 if (xList != null && xList.Count() > 0)
                 {
-                    foreach (var xObj in xList)
+                    foreach (var xObj in xList.ToList())
                     {
                         var enumDef = ParseTo<Enums.EnumDef>(xObj, true);
                         var xSubList = xObj.Elements();

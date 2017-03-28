@@ -15,6 +15,10 @@ namespace Logic
         {
             context = new XContext();
         }
+        public void UpdateSource(XDocument doc)
+        {
+            context.UpdateSource(doc);
+        }
         public T ParseTo<T>(XElement xObj, bool fromAttribute = false)
         {
             T obj = (T)Activator.CreateInstance(typeof(T));
