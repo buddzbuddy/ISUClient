@@ -15,35 +15,34 @@ namespace UI
     {
         string _objName = "";
         string _objNameRu = "";
-        public SynchronizeForm(string objName, string objNameRu)
+        FormMain _formMain = null;
+        public SynchronizeForm(string objName, string objNameRu, FormMain formMain)
         {
             InitializeComponent();
 
             _objName = objName;
             _objNameRu = objNameRu;
-
+            _formMain = formMain;
         }
 
         void Start()
         {
             SetInfo(string.Format("Начинаю выгрузку данных \"{0}\"...", _objNameRu));
 
-            System.Threading.Thread.Sleep(3000);
+            //System.Threading.Thread.Sleep(3000);
 
-            var syncRepo = new SyncRepository("http://192.168.55.5/");
+            var syncRepo = new SyncRepository("http://isu.kesip.kg:8080/");
             string result = "";
             string resval = "";
             try
             {
-                result = syncRepo.GetTestData(out resval);
+                result = syncRepo.GetLocalDB(out resval, _formMain._u, _formMain._p);
+                SetInfo("Выгрузка выполнена успешно.");
             }
             catch (Exception e)
             {
-                result = " ОШИБКА: ТЕКСТ: " + e.Message + " МЕСТО: " + e.TargetSite.Name + " STACKTRACE: " + e.StackTrace + " ЗНАЧЕНИЕ ОТ СЕРВЕРА: " + resval;
+                SetInfo(" ОШИБКА: ТЕКСТ: " + e.Message + " МЕСТО: " + e.TargetSite.Name + " STACKTRACE: " + e.StackTrace + " ЗНАЧЕНИЕ ОТ СЕРВЕРА: " + resval);
             }
-
-            SetInfo(string.Format("Результат: {0}", result));
-            
         }
 
         void SetInfo(string text)

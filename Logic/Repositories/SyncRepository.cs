@@ -18,7 +18,7 @@ namespace Logic.Repositories
             HostAddress = hostAddress;
         }
 
-        public string GetTestData(out string resval)
+        public string GetLocalDB(out string resval, string u, string p)
         {
             string result = "no result";
             resval = "no val";
@@ -27,8 +27,8 @@ namespace Logic.Repositories
             {
                 var values = new NameValueCollection
                 {
-                    { "username", "ВенераМолдобаева" },
-                    { "password", "942" }
+                    { "username", u },
+                    { "password", p }
                 };
                 client.UploadValues(HostAddress, values);
 

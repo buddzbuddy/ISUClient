@@ -15,7 +15,8 @@ namespace UI
         AddGroupForm _addGroupForm = null;
         EditGroupForm _editGroupForm = null;
         EditStudentForm _editStudentForm = null;
-        public ContingentForm()
+        FormMain _formMain = null;
+        public ContingentForm(FormMain formMain)
         {
             InitializeComponent();
             var _docRepo = new DocRepository();
@@ -28,6 +29,7 @@ namespace UI
                 Students.ForEach(x => x.PersonObj = personsObj.FirstOrDefault(p => p.Id == x.Person)/*_docRepo.Get<Person>(x.Person)*/);
                 FormManager.LoadToDataGridView(DataGridViewStudents, Students);
             }
+            _formMain = formMain;
         }
 
         private void addStudentButton_Click(object sender, EventArgs e)
@@ -202,7 +204,7 @@ namespace UI
 
         private void SynchronizingButton_Click(object sender, EventArgs e)
         {
-            SynchronizeForm _syncForm = new SynchronizeForm("Contingent", "Контингент");
+            SynchronizeForm _syncForm = new SynchronizeForm("Contingent", "Контингент", _formMain);
             DialogResult dialog = _syncForm.ShowDialog();
             //MessageBox.Show("Данные загружаются...");
         }

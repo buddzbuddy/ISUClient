@@ -30,6 +30,7 @@ namespace Domain
         {
             _document = doc;
             _document.Save(_filePath);
+            Caching.Set(DBConfigInfo.LocalDBFileName, _document);
         }
         private void ReloadDocument()
         {

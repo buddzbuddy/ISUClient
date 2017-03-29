@@ -19,6 +19,8 @@ namespace UI
         ContingentForm _contingentForm = null;
         StaffForm _staffForm = null;
         MTBForm _mtbForm = null;
+        public string _u = "";
+        public string _p = "";
         public FormMain()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace UI
 
         private void ContingentOpenButton_Click(object sender, EventArgs e)
         {
-            _contingentForm = new ContingentForm();
+            _contingentForm = new ContingentForm(this);
             DialogResult dialog = _contingentForm.ShowDialog();
         }
 

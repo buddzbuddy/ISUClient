@@ -49,6 +49,9 @@ namespace UI.AccountForms
                 // save the user has logged in somewhere
                 // set the dialog result to ok
                 this.DialogResult = DialogResult.OK;
+                _formMain._u = userName;
+                _formMain._p = password;
+
 
                 string positionName = "Должность не распознана";
                 Guid positionId = Guid.Empty;
