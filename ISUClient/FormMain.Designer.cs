@@ -45,6 +45,8 @@
             this.PositionNameLabel = new System.Windows.Forms.Label();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.UserNameLabel = new System.Windows.Forms.Label();
+            this.SyncLabel = new System.Windows.Forms.Label();
+            this.SynchronizingButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ContingentPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MTBPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,7 +67,7 @@
             // 
             this.ContingentOpenButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ContingentOpenButton.Enabled = false;
-            this.ContingentOpenButton.Location = new System.Drawing.Point(120, 250);
+            this.ContingentOpenButton.Location = new System.Drawing.Point(120, 204);
             this.ContingentOpenButton.Name = "ContingentOpenButton";
             this.ContingentOpenButton.Size = new System.Drawing.Size(75, 23);
             this.ContingentOpenButton.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.LedgerOpenButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LedgerOpenButton.Enabled = false;
-            this.LedgerOpenButton.Location = new System.Drawing.Point(293, 250);
+            this.LedgerOpenButton.Location = new System.Drawing.Point(293, 204);
             this.LedgerOpenButton.Name = "LedgerOpenButton";
             this.LedgerOpenButton.Size = new System.Drawing.Size(75, 23);
             this.LedgerOpenButton.TabIndex = 3;
@@ -89,7 +91,7 @@
             // 
             this.StaffOpenButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StaffOpenButton.Enabled = false;
-            this.StaffOpenButton.Location = new System.Drawing.Point(462, 250);
+            this.StaffOpenButton.Location = new System.Drawing.Point(462, 204);
             this.StaffOpenButton.Name = "StaffOpenButton";
             this.StaffOpenButton.Size = new System.Drawing.Size(75, 23);
             this.StaffOpenButton.TabIndex = 4;
@@ -100,7 +102,7 @@
             // ContingentPictureBox
             // 
             this.ContingentPictureBox.Image = global::UI.Properties.Resources.Student_icon;
-            this.ContingentPictureBox.Location = new System.Drawing.Point(104, 143);
+            this.ContingentPictureBox.Location = new System.Drawing.Point(104, 97);
             this.ContingentPictureBox.Name = "ContingentPictureBox";
             this.ContingentPictureBox.Size = new System.Drawing.Size(108, 101);
             this.ContingentPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +112,7 @@
             // MTBPictureBox
             // 
             this.MTBPictureBox.Image = global::UI.Properties.Resources.ledger_icon;
-            this.MTBPictureBox.Location = new System.Drawing.Point(270, 163);
+            this.MTBPictureBox.Location = new System.Drawing.Point(270, 117);
             this.MTBPictureBox.Name = "MTBPictureBox";
             this.MTBPictureBox.Size = new System.Drawing.Size(123, 81);
             this.MTBPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +122,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.employee_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(449, 153);
+            this.pictureBox1.Location = new System.Drawing.Point(449, 107);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,11 +214,36 @@
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "Пользователь:";
             // 
+            // SyncLabel
+            // 
+            this.SyncLabel.AutoSize = true;
+            this.SyncLabel.Location = new System.Drawing.Point(290, 339);
+            this.SyncLabel.Name = "SyncLabel";
+            this.SyncLabel.Size = new System.Drawing.Size(84, 13);
+            this.SyncLabel.TabIndex = 10;
+            this.SyncLabel.Text = "синхронизация";
+            // 
+            // SynchronizingButton
+            // 
+            this.SynchronizingButton.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.SynchronizingButton.BackgroundImage = global::UI.Properties.Resources.sync_button_icon;
+            this.SynchronizingButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SynchronizingButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SynchronizingButton.Location = new System.Drawing.Point(295, 266);
+            this.SynchronizingButton.Name = "SynchronizingButton";
+            this.SynchronizingButton.Size = new System.Drawing.Size(73, 70);
+            this.SynchronizingButton.TabIndex = 9;
+            this.SynchronizingButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SynchronizingButton.UseVisualStyleBackColor = false;
+            this.SynchronizingButton.Click += new System.EventHandler(this.SynchronizingButton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 453);
+            this.Controls.Add(this.SyncLabel);
+            this.Controls.Add(this.SynchronizingButton);
             this.Controls.Add(this.UserInfoPanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MTBPictureBox);
@@ -235,6 +262,7 @@
             this.UserInfoPanel.ResumeLayout(false);
             this.UserInfoPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -256,6 +284,8 @@
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.TextBox UserIdTextBox;
         private System.Windows.Forms.Label UserIdLabel;
+        private System.Windows.Forms.Label SyncLabel;
+        private System.Windows.Forms.Button SynchronizingButton;
     }
 }
 

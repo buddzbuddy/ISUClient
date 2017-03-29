@@ -47,11 +47,14 @@
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(13, 320);
+            this.StartButton.BackgroundImage = global::UI.Properties.Resources.play_button;
+            this.StartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartButton.Location = new System.Drawing.Point(180, 222);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.Size = new System.Drawing.Size(206, 177);
             this.StartButton.TabIndex = 1;
-            this.StartButton.Text = "Старт";
             this.StartButton.UseVisualStyleBackColor = true;
             this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -59,11 +62,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 576);
+            this.ClientSize = new System.Drawing.Size(589, 463);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.SyncInfoTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SynchronizeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Синхронизация с центральной базой";
             this.ResumeLayout(false);
             this.PerformLayout();

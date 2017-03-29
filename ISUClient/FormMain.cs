@@ -77,5 +77,11 @@ namespace UI
 
             DialogResult dialog = _mtbForm.ShowDialog();
         }
+
+        private void SynchronizingButton_Click(object sender, EventArgs e)
+        {
+            SynchronizeForm _syncForm = new SynchronizeForm("Contingent", "Контингент", this);
+            DialogResult dialog = _syncForm.ShowDialog();
+        }
     }
 }

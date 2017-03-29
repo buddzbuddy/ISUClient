@@ -16,6 +16,7 @@ namespace UI
         string _objName = "";
         string _objNameRu = "";
         FormMain _formMain = null;
+        string hostAddress = "http://isu.kesip.kg:8080/";
         public SynchronizeForm(string objName, string objNameRu, FormMain formMain)
         {
             InitializeComponent();
@@ -23,36 +24,60 @@ namespace UI
             _objName = objName;
             _objNameRu = objNameRu;
             _formMain = formMain;
+
         }
 
-        void Start()
+        delegate void SetTextCallback(string text);
+
+        private void SetInfo(string text)
         {
-            SetInfo(string.Format("Начинаю выгрузку данных \"{0}\"...", _objNameRu));
-
-            //System.Threading.Thread.Sleep(3000);
-
-            var syncRepo = new SyncRepository("http://isu.kesip.kg:8080/");
-            string result = "";
-            string resval = "";
-            try
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.SyncInfoTextBox.InvokeRequired)
             {
-                result = syncRepo.GetLocalDB(out resval, _formMain._u, _formMain._p);
-                SetInfo("Выгрузка выполнена успешно.");
+                SetTextCallback d = new SetTextCallback(SetInfo);
+                this.Invoke(d, new object[] { text });
             }
-            catch (Exception e)
+            else
             {
-                SetInfo(" ОШИБКА: ТЕКСТ: " + e.Message + " МЕСТО: " + e.TargetSite.Name + " STACKTRACE: " + e.StackTrace + " ЗНАЧЕНИЕ ОТ СЕРВЕРА: " + resval);
+                this.SyncInfoTextBox.Text += text;
             }
         }
 
-        void SetInfo(string text)
+        async void Start(EventArgs e)
         {
-            SyncInfoTextBox.Text = text;
+            await Task.Factory.StartNew(() =>
+            {
+                SetInfo(string.Format(Environment.NewLine + "Начинаю выгрузку из центральной базы данных {0}", hostAddress));
+
+                var syncRepo = new SyncRepository(hostAddress);
+                string result = "";
+                string resval = "";
+                try
+                {
+                    SetInfo(Environment.NewLine + "Отправка запроса...");
+                    result = syncRepo.GetLocalDB(out resval, _formMain._u, _formMain._p);
+                    SetInfo(Environment.NewLine + "Данные получены");
+                    SetInfo(Environment.NewLine + "Выгрузка успешно завершена.");
+                    //textBox1.BorderStyle = BorderStyle.FixedSingle;
+                }
+                catch (Exception ex)
+                {
+                    SetInfo(Environment.NewLine + "ОШИБКА: ТЕКСТ: " + ex.Message + " МЕСТО: " + ex.TargetSite.Name + " STACKTRACE: " + ex.StackTrace + " ЗНАЧЕНИЕ ОТ СЕРВЕРА: " + resval);
+                }
+            });
+        }
+
+        void SetInfo_old(string text)
+        {
+            SyncInfoTextBox.Text += text;
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Start();
+            StartButton.Enabled = false;
+            Start(e);
         }
     }
 }

@@ -201,12 +201,5 @@ namespace UI
 
             DialogResult dialog = viewStudentForm.ShowDialog();
         }
-
-        private void SynchronizingButton_Click(object sender, EventArgs e)
-        {
-            SynchronizeForm _syncForm = new SynchronizeForm("Contingent", "Контингент", _formMain);
-            DialogResult dialog = _syncForm.ShowDialog();
-            //MessageBox.Show("Данные загружаются...");
-        }
     }
 }
