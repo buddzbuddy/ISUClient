@@ -26,7 +26,7 @@ namespace UI
 
         static void InitCellFromProperty(DataGridView dataGridView, DataGridViewRow row, string cellName, object obj, PropertyInfo property, Dictionary<string, IEnumerable<object>> comboBoxes)
         {
-            var cellValue = property.GetValue(obj);
+            var cellValue = property.GetValue(obj, null);
             if (property.Name == DBConfigInfo.Id ||
                 new[]
                                     {
@@ -154,7 +154,7 @@ namespace UI
                         if (customAttribute != null)
                         {
                             string boundWith = ((BoundWithAttribute)customAttribute).PropertyName;
-                            var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
+                            var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj, null);
                             if (boundObj != null)
                             {
                                 var cellEntityName = obj.GetType().Name + property.Name;
@@ -183,7 +183,7 @@ namespace UI
             var _docRepo = new DocRepository();
             var _enumRepo = new EnumRepository();
 
-            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute)) || x.IsDefined(typeof(DocMemberAttribute))))
+            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute), false) || x.IsDefined(typeof(DocMemberAttribute), false)))
             {
                 var controlName = parentObjName + obj.GetType().Name + property.Name + "ComboBox";
                 if (form.Controls.ContainsKey(controlName))
@@ -195,7 +195,7 @@ namespace UI
                         IEnumerable<object> dataSource = null;
                         string displayMember = "";
                         string valueMember = "";
-                        if (property.IsDefined(typeof(EnumMemberAttribute)))
+                        if (property.IsDefined(typeof(EnumMemberAttribute), false))
                         {
                             var member = (EnumMemberAttribute)Attribute.GetCustomAttribute(property, typeof(EnumMemberAttribute));
                             dataSource = _enumRepo.GetEnum(Enums.GetEnumDefId(member.EnumDefName)).Items;
@@ -246,7 +246,7 @@ namespace UI
                             displayMember = member.Display;
                             valueMember = member.Value;
                         }
-                        InitCB(cb, dataSource, (Guid?)property.GetValue(obj), displayMember, valueMember);
+                        InitCB(cb, dataSource, (Guid?)property.GetValue(obj, null), displayMember, valueMember);
                     }
                     else
                         throw new ApplicationException("При попытке инициализировать выпадающий список для свойства \"" + obj.GetType().Name + "->" + property.Name + "\" в форме \"" + form.Name + "\" элемент под названием \"" + controlName + "\" найден, но его тип не выпадающий список а \"" + control.GetType().Name + "\"");
@@ -255,10 +255,10 @@ namespace UI
                     throw new ApplicationException("При попытке инициализировать выпадающий список для свойства \"" + obj.GetType().Name + "->" + property.Name + "\" в форме \"" + form.Name + "\" элемент под названием \"" + controlName + "\" не найден!");
             }
 
-            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(BoundWithAttribute))))
+            foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(BoundWithAttribute), false)))
             {
                 string boundWith = ((BoundWithAttribute)Attribute.GetCustomAttribute(property, typeof(BoundWithAttribute), false)).PropertyName;
-                var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj);
+                var boundObj = obj.GetType().GetProperty(boundWith).GetValue(obj, null);
                 if (boundObj != null)
                 {
                     InitializeComboBoxes(form, boundObj, parentObjName + obj.GetType().Name);

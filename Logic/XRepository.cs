@@ -57,63 +57,63 @@ namespace Logic
                     {
                         Guid val;
                         if (Guid.TryParse(xValue, out val))
-                            property.SetValue(obj, val);
+                            property.SetValue(obj, val, null);
                     }
                     else if (property.PropertyType == typeof(DateTime))
                     {
-                        property.SetValue(obj, DateTime.Parse(xValue));
+                        property.SetValue(obj, DateTime.Parse(xValue), null);
                     }
                     else if (new[] { typeof(Int32), typeof(Nullable<Int32>) }.Contains(property.PropertyType))
                     {
                         int val;
                         if (int.TryParse(xValue, out val))
-                            property.SetValue(obj, val);
+                            property.SetValue(obj, val, null);
                     }
                     else if (property.PropertyType == typeof(Boolean))
                     {
                         if (property.Name == DBConfigInfo.IsNew)
                         {
-                            property.SetValue(obj, isNew);
+                            property.SetValue(obj, isNew, null);
                         }
                         else if (property.Name == DBConfigInfo.IsDeleted)
                         {
-                            property.SetValue(obj, isDeleted);
+                            property.SetValue(obj, isDeleted, null);
                         }
                         else
                         {
                             bool val = false;
                             if (Boolean.TryParse(xValue, out val))
-                                property.SetValue(obj, val);
+                                property.SetValue(obj, val, null);
                             else
-                                property.SetValue(obj, val);
+                                property.SetValue(obj, val, null);
                         }
                     }
                     else if (property.PropertyType == typeof(Decimal))
                     {
-                        property.SetValue(obj, Decimal.Parse(xValue));
+                        property.SetValue(obj, Decimal.Parse(xValue), null);
                     }
                     else if (property.PropertyType == typeof(Double))
                     {
-                        property.SetValue(obj, Double.Parse(xValue));
+                        property.SetValue(obj, Double.Parse(xValue), null);
                     }
                     else if (property.PropertyType == typeof(String))
                     {
-                        property.SetValue(obj, xValue);
+                        property.SetValue(obj, xValue, null);
                     }
                     else if (property.PropertyType == typeof(Nullable<DateTime>))
                     {
                         if (!string.IsNullOrEmpty(xValue))
-                            property.SetValue(obj, DateTime.Parse(xValue));
+                            property.SetValue(obj, DateTime.Parse(xValue), null);
                     }
                     else if (property.PropertyType == typeof(Nullable<double>))
                     {
                         if (!string.IsNullOrEmpty(xValue))
-                            property.SetValue(obj, double.Parse(xValue));
+                            property.SetValue(obj, double.Parse(xValue), null);
                     }
                     else if (property.PropertyType == typeof(Nullable<decimal>))
                     {
                         if (!string.IsNullOrEmpty(xValue))
-                            property.SetValue(obj, decimal.Parse(xValue));
+                            property.SetValue(obj, decimal.Parse(xValue), null);
                     }
                     else
                         throw new ApplicationException("Не могу преобразовать XElement, тип поля \"" + property.PropertyType.FullName + "\" не определен!");
@@ -145,12 +145,12 @@ namespace Logic
                 if ((property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsNew)
                     || (property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsDeleted))
                 {
-                    xObj.SetAttributeValue(property.Name, property.GetValue(obj));
+                    xObj.SetAttributeValue(property.Name, property.GetValue(obj, null));
                 }
                 else
                 {
                     var xProperty = new XElement(property.Name);
-                    var val = property.GetValue(obj);
+                    var val = property.GetValue(obj, null);
                     if (val != null)
                         xProperty.SetValue(val);
                     xObj.Add(xProperty);
