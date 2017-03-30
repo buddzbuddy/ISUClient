@@ -16,7 +16,7 @@ namespace UI
         string _objName = "";
         string _objNameRu = "";
         FormMain _formMain = null;
-        string hostAddress = "http://isu.kesip.kg:8080/";
+        string hostAddress = "http://192.168.55.5/";//"http://isu.kesip.kg:8080/";
         public SynchronizeForm(string objName, string objNameRu, FormMain formMain)
         {
             InitializeComponent();
@@ -49,17 +49,19 @@ namespace UI
         {
             await Task.Factory.StartNew(() =>
             {
-                SetInfo(string.Format(Environment.NewLine + "Начинаю выгрузку из центральной базы данных {0}", hostAddress));
+                //SetInfo(string.Format(Environment.NewLine + "Начинаю выгрузку из центральной базы данных {0}", hostAddress));
 
                 var syncRepo = new SyncRepository(hostAddress);
                 string result = "";
                 string resval = "";
                 try
                 {
-                    SetInfo(Environment.NewLine + "Отправка запроса...");
+                    /*SetInfo(Environment.NewLine + "Отправка запроса...");
                     result = syncRepo.GetLocalDB(out resval, _formMain._u, _formMain._p);
                     SetInfo(Environment.NewLine + "Данные получены");
-                    SetInfo(Environment.NewLine + "Выгрузка успешно завершена.");
+                    SetInfo(Environment.NewLine + "Выгрузка успешно завершена.");*/
+                    SetInfo(Environment.NewLine + "Начинаю загрузку...");
+                    SetInfo(Environment.NewLine + "Загрузка завершена. Результат:" + Environment.NewLine + syncRepo.UploadLocalDB(out resval, _formMain._u, _formMain._p));
                     //textBox1.BorderStyle = BorderStyle.FixedSingle;
                 }
                 catch (Exception ex)

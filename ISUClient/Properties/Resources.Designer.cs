@@ -85,7 +85,7 @@ namespace UI.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap play_button {
             get {
-                object obj = ResourceManager.GetObject("play button", resourceCulture);
+                object obj = ResourceManager.GetObject("play_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

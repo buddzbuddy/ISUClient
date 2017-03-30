@@ -9,6 +9,7 @@ namespace Domain
 {
     public class CookieAwareWebClient : WebClient
     {
+        public WebRequest Request { get; set; }
         public CookieAwareWebClient()
         {
             CookieContainer = new CookieContainer();
@@ -19,6 +20,7 @@ namespace Domain
         {
             var request = (HttpWebRequest)base.GetWebRequest(address);
             request.CookieContainer = CookieContainer;
+            Request = request;
             return request;
         }
     }

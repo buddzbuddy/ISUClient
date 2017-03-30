@@ -30,12 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewGroupForm));
-            this.StudyPeriodComboBox = new System.Windows.Forms.ComboBox();
+            this.GroupStudyPeriodComboBox = new System.Windows.Forms.ComboBox();
             this.StudyPeriodLabel = new System.Windows.Forms.Label();
             this.ProfessionLabel = new System.Windows.Forms.Label();
-            this.ProfessionComboBox = new System.Windows.Forms.ComboBox();
+            this.GroupProfessionComboBox = new System.Windows.Forms.ComboBox();
             this.LanguageLabel = new System.Windows.Forms.Label();
-            this.LanguageComboBox = new System.Windows.Forms.ComboBox();
+            this.GroupLanguageComboBox = new System.Windows.Forms.ComboBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.GroupNameLabel = new System.Windows.Forms.Label();
             this.AddStudentButton = new System.Windows.Forms.Button();
@@ -54,14 +54,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewStudents)).BeginInit();
             this.SuspendLayout();
             // 
-            // StudyPeriodComboBox
+            // GroupStudyPeriodComboBox
             // 
-            this.StudyPeriodComboBox.Enabled = false;
-            this.StudyPeriodComboBox.FormattingEnabled = true;
-            this.StudyPeriodComboBox.Location = new System.Drawing.Point(114, 98);
-            this.StudyPeriodComboBox.Name = "StudyPeriodComboBox";
-            this.StudyPeriodComboBox.Size = new System.Drawing.Size(121, 21);
-            this.StudyPeriodComboBox.TabIndex = 12;
+            this.GroupStudyPeriodComboBox.Enabled = false;
+            this.GroupStudyPeriodComboBox.FormattingEnabled = true;
+            this.GroupStudyPeriodComboBox.Location = new System.Drawing.Point(114, 98);
+            this.GroupStudyPeriodComboBox.Name = "GroupStudyPeriodComboBox";
+            this.GroupStudyPeriodComboBox.Size = new System.Drawing.Size(121, 21);
+            this.GroupStudyPeriodComboBox.TabIndex = 12;
             // 
             // StudyPeriodLabel
             // 
@@ -81,14 +81,14 @@
             this.ProfessionLabel.TabIndex = 13;
             this.ProfessionLabel.Text = "Профессия";
             // 
-            // ProfessionComboBox
+            // GroupProfessionComboBox
             // 
-            this.ProfessionComboBox.Enabled = false;
-            this.ProfessionComboBox.FormattingEnabled = true;
-            this.ProfessionComboBox.Location = new System.Drawing.Point(114, 70);
-            this.ProfessionComboBox.Name = "ProfessionComboBox";
-            this.ProfessionComboBox.Size = new System.Drawing.Size(121, 21);
-            this.ProfessionComboBox.TabIndex = 10;
+            this.GroupProfessionComboBox.Enabled = false;
+            this.GroupProfessionComboBox.FormattingEnabled = true;
+            this.GroupProfessionComboBox.Location = new System.Drawing.Point(114, 70);
+            this.GroupProfessionComboBox.Name = "GroupProfessionComboBox";
+            this.GroupProfessionComboBox.Size = new System.Drawing.Size(121, 21);
+            this.GroupProfessionComboBox.TabIndex = 10;
             // 
             // LanguageLabel
             // 
@@ -99,14 +99,14 @@
             this.LanguageLabel.TabIndex = 11;
             this.LanguageLabel.Text = "Язык обучения";
             // 
-            // LanguageComboBox
+            // GroupLanguageComboBox
             // 
-            this.LanguageComboBox.Enabled = false;
-            this.LanguageComboBox.FormattingEnabled = true;
-            this.LanguageComboBox.Location = new System.Drawing.Point(114, 42);
-            this.LanguageComboBox.Name = "LanguageComboBox";
-            this.LanguageComboBox.Size = new System.Drawing.Size(121, 21);
-            this.LanguageComboBox.TabIndex = 9;
+            this.GroupLanguageComboBox.Enabled = false;
+            this.GroupLanguageComboBox.FormattingEnabled = true;
+            this.GroupLanguageComboBox.Location = new System.Drawing.Point(114, 42);
+            this.GroupLanguageComboBox.Name = "GroupLanguageComboBox";
+            this.GroupLanguageComboBox.Size = new System.Drawing.Size(121, 21);
+            this.GroupLanguageComboBox.TabIndex = 9;
             // 
             // NameTextBox
             // 
@@ -246,12 +246,12 @@
             this.ClientSize = new System.Drawing.Size(947, 361);
             this.Controls.Add(this.DataGridViewStudents);
             this.Controls.Add(this.AddStudentButton);
-            this.Controls.Add(this.StudyPeriodComboBox);
+            this.Controls.Add(this.GroupStudyPeriodComboBox);
             this.Controls.Add(this.StudyPeriodLabel);
             this.Controls.Add(this.ProfessionLabel);
-            this.Controls.Add(this.ProfessionComboBox);
+            this.Controls.Add(this.GroupProfessionComboBox);
             this.Controls.Add(this.LanguageLabel);
-            this.Controls.Add(this.LanguageComboBox);
+            this.Controls.Add(this.GroupLanguageComboBox);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.GroupNameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -266,12 +266,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox StudyPeriodComboBox;
+        private System.Windows.Forms.ComboBox GroupStudyPeriodComboBox;
         private System.Windows.Forms.Label StudyPeriodLabel;
         private System.Windows.Forms.Label ProfessionLabel;
-        private System.Windows.Forms.ComboBox ProfessionComboBox;
+        private System.Windows.Forms.ComboBox GroupProfessionComboBox;
         private System.Windows.Forms.Label LanguageLabel;
-        private System.Windows.Forms.ComboBox LanguageComboBox;
+        private System.Windows.Forms.ComboBox GroupLanguageComboBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label GroupNameLabel;
         private System.Windows.Forms.Button AddStudentButton;
