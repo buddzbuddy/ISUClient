@@ -16,7 +16,7 @@ namespace UI
         string _objName = "";
         string _objNameRu = "";
         FormMain _formMain = null;
-        string hostAddress = "http://192.168.55.5/";//"http://isu.kesip.kg:8080/";
+        string hostAddress = "http://isu.kesip.kg:8080/";//"http://192.168.55.5/";
         public SynchronizeForm(string objName, string objNameRu, FormMain formMain)
         {
             InitializeComponent();
