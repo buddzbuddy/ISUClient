@@ -19,7 +19,7 @@ namespace Logic
         {
             context.UpdateSource(doc);
         }
-        public T ParseTo<T>(XElement xObj, bool fromAttribute = false)
+        public T ParseTo<T>(XElement xObj, bool fromAttribute = false) where T : class
         {
             T obj = (T)Activator.CreateInstance(typeof(T));
 
@@ -32,6 +32,11 @@ namespace Logic
             var isDeletedAttribute = xObj.Attribute(DBConfigInfo.IsDeleted);
             if (isDeletedAttribute != null)
                 Boolean.TryParse(isDeletedAttribute.Value, out isDeleted);
+
+            bool isModified = false;
+            var isModifiedAttribute = xObj.Attribute(DBConfigInfo.IsModified);
+            if (isModifiedAttribute != null)
+                Boolean.TryParse(isModifiedAttribute.Value, out isModified);
 
             foreach (var property in obj.GetType().GetProperties())
             {
@@ -78,6 +83,10 @@ namespace Logic
                         else if (property.Name == DBConfigInfo.IsDeleted)
                         {
                             property.SetValue(obj, isDeleted, null);
+                        }
+                        else if (property.Name == DBConfigInfo.IsModified)
+                        {
+                            property.SetValue(obj, isModified, null);
                         }
                         else
                         {
@@ -127,14 +136,14 @@ namespace Logic
             return obj;
         }
 
-        public IEnumerable<T> ParseList<T>(IEnumerable<XElement> xList, bool fromAttribute = false)
+        public IEnumerable<T> ParseList<T>(IEnumerable<XElement> xList, bool fromAttribute = false) where T : class
         {
             return from xObj in xList
                    where (xObj.Attribute(DBConfigInfo.IsDeleted) != null ? (!bool.Parse(xObj.Attribute(DBConfigInfo.IsDeleted).Value)) : true)
                    select ParseTo<T>(xObj, fromAttribute);
         }
 
-        public XElement WrapFrom<T>(T obj)
+        public XElement WrapFrom<T>(T obj) where T : class
         {
             var xObj = new XElement(typeof(T).Name);
             foreach (var property in obj.GetType().GetProperties())
@@ -143,7 +152,8 @@ namespace Logic
                 if (property.IsDefined(typeof(SkipAttribute), false)) continue;
 
                 if ((property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsNew)
-                    || (property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsDeleted))
+                    || (property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsDeleted)
+                    || (property.PropertyType == typeof(bool) && property.Name == DBConfigInfo.IsModified))
                 {
                     xObj.SetAttributeValue(property.Name, property.GetValue(obj, null));
                 }
@@ -160,7 +170,7 @@ namespace Logic
         }
 
 
-        public T Get<T>(Guid Id)
+        public T Get<T>(Guid Id) where T : class
         {
             var xObj = context.GetElements(typeof(T).Name + "s").FirstOrDefault(x => Guid.Parse(x.Element("Id").Value) == Id);
             if (xObj != null)
@@ -168,7 +178,7 @@ namespace Logic
             return default(T);
         }
 
-        public IEnumerable<T> GetAll<T>()
+        public IEnumerable<T> GetAll<T>() where T : class
         {
             var xList = context.GetElements(typeof(T).Name + "s");
             if (xList != null && xList.Count() > 0)
@@ -176,12 +186,14 @@ namespace Logic
             return null;
         }
 
-        public void Save<T>(T obj, bool isUpdated = false)
+        public void Save<T>(T obj, bool isUpdated = false) where T : class
         {
             if (!isUpdated)
                 context.AddElement(WrapFrom(obj), typeof(T).Name + "s");
             else
+            {
                 context.UpdateElement(WrapFrom(obj), typeof(T).Name + "s");
+            }
         }
 
         public void Delete<T>(Guid Id) where T : class

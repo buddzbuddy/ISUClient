@@ -10,9 +10,9 @@ namespace Domain.Entities.MTB
     public class Building:LocalEntity
     {
         [EnumMember("BuildingPurpose")]
-        public Guid BuildingPurpose { get; set; }
+        public Guid? BuildingPurpose { get; set; }
         [EnumMember("BuildingType")]
-        public Guid BuildingType { get; set; }
+        public Guid? BuildingType { get; set; }
 
         public int? BuildYear { get; set; }
         public int? ExploitationYear { get; set; }

@@ -70,6 +70,7 @@
     <Compile Include="StaticReferences\DBConfigInfo.cs" />
     <Compile Include="StaticReferences\Enums.cs" />
     <Compile Include="StaticReferences\OrgStructures.cs" />
+    <Compile Include="StaticReferences\PropertiesEqual.cs" />
     <Compile Include="XEnumContext.cs" />
     <Compile Include="XContext.cs" />
   </ItemGroup>

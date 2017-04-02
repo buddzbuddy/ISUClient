@@ -16,5 +16,6 @@ namespace Domain.StaticReferences
         public static string Id = "Id";
         public static string IsNew = "IsNew";
         public static string IsDeleted = "IsDeleted";
+        public static string IsModified = "IsModified";
     }
 }

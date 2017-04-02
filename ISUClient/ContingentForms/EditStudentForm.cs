@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Contingent;
+using Domain.StaticReferences;
 using Logic.Repositories;
 using System;
 using System.Collections.Generic;
@@ -91,14 +92,22 @@ namespace UI.ContingentForms
         {
             var _docRepo = new DocRepository();
             errorMessage = "";
-
             //TODO: Write to progress bar
 
             //Save changes to xml-db
             try
             {
-                _docRepo.Save(_obj, true);
-                _docRepo.Save(_obj.PersonObj, true);
+                if (!PropertiesHelper.PublicInstancePropertiesEqual(_obj.PersonObj, _docRepo.Get<Person>(_obj.Person)))
+                {
+                    _obj.PersonObj.IsModified = true;
+                    _docRepo.Save(_obj.PersonObj, true);
+                }
+
+                if (!PropertiesHelper.PublicInstancePropertiesEqual(_obj, _docRepo.Get<Student>(_obj.Id)))
+                {
+                    _obj.IsModified = true;
+                    _docRepo.Save(_obj, true);
+                }
             }
             catch (Exception e)
             {

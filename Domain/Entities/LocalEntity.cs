@@ -10,5 +10,7 @@ namespace Domain.Entities
         public bool IsNew { get; set; }
         
         public bool IsDeleted { get; set; }
+        private bool _IsModified = false;
+        public bool IsModified { get { return _IsModified; } set { _IsModified = value; } }
     }
 }

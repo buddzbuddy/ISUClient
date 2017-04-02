@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,12 +45,34 @@ namespace UI
                 this.SyncInfoTextBox.Text += text;
             }
         }
+        string GetDomain(string src)
+        {
+            Regex ipRegex = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
+            MatchCollection ipResult = ipRegex.Matches(src);
+            if (ipResult.Count > 0)
+            {
+                src = ipResult[0].Value;
+            }
+            if (!src.Contains(Uri.SchemeDelimiter))
+            {
+                src = string.Concat(Uri.UriSchemeHttp, Uri.SchemeDelimiter, src);
+            }
+            Uri uri = new Uri(src);
+            return uri.AbsoluteUri;//.Host;
+        }
 
         async void Start(EventArgs e)
         {
+                if (HostAddressTextBox.Text != "")
+                {
+                    string inHost = GetDomain(hostAddress.Trim());
+                    string outHost = GetDomain(HostAddressTextBox.Text.Trim());
+                    if (inHost != outHost)
+                        hostAddress = outHost;
+                }
             await Task.Factory.StartNew(() =>
             {
-                //SetInfo(string.Format(Environment.NewLine + "Начинаю выгрузку из центральной базы данных {0}", hostAddress));
+                SetInfo(string.Format(Environment.NewLine + "Начинаю выгрузку из центральной базы данных {0}...", hostAddress));
 
                 var syncRepo = new SyncRepository(hostAddress);
                 string result = "";

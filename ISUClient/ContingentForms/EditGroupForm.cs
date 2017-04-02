@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Contingent;
+using Domain.StaticReferences;
 using Logic.Repositories;
 using System;
 using System.Linq;
@@ -76,7 +77,11 @@ namespace UI.ContingentForms
             //Save changes to xml-db
             try
             {
-                _docRepo.Save(_obj, true);
+                if (!PropertiesHelper.PublicInstancePropertiesEqual(_obj, _docRepo.Get<Group>(_obj.Id)))
+                {
+                    _obj.IsModified = true;
+                    _docRepo.Save(_obj, true);
+                }
             }
             catch (Exception e)
             {

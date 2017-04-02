@@ -70,6 +70,10 @@ namespace Domain
                     {
                         xProperty.SetValue(xObj.Element(xProperty.Name).Value);
                     }
+                    foreach (var xAttribute in xOldObj.Attributes())
+                    {
+                        xAttribute.SetValue(xObj.Attribute(xAttribute.Name).Value);
+                    }
                 }
                 else
                     throw new ApplicationException("Старая запись для редактирования не найдена! Ключ-айди записи: " + xObj.Element("Id").Value);
