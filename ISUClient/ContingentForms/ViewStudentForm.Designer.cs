@@ -123,7 +123,6 @@
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
-            this.DefPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // EditButton
@@ -927,15 +926,6 @@
             this.LastNameLabel.TabIndex = 160;
             this.LastNameLabel.Text = "Фамилия";
             // 
-            // DefPanel
-            // 
-            this.DefPanel.AutoScroll = true;
-            this.DefPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DefPanel.Location = new System.Drawing.Point(0, 0);
-            this.DefPanel.Name = "DefPanel";
-            this.DefPanel.Size = new System.Drawing.Size(1048, 752);
-            this.DefPanel.TabIndex = 253;
-            // 
             // ViewStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1035,7 +1025,6 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.EditButton);
-            this.Controls.Add(this.DefPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1141,6 +1130,5 @@
         private System.Windows.Forms.Label MiddleNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.Label LastNameLabel;
-        private System.Windows.Forms.Panel DefPanel;
     }
 }
