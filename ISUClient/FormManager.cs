@@ -186,9 +186,10 @@ namespace UI
             foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute), false) || x.IsDefined(typeof(DocMemberAttribute), false)))
             {
                 var controlName = parentObjName + obj.GetType().Name + property.Name + "ComboBox";
-                if (form.Controls.ContainsKey(controlName))
+                var panel = form.Controls["DefPanel"] as Panel;
+                if (panel.Controls.ContainsKey(controlName))
                 {
-                    var control = form.Controls[controlName];
+                    var control = panel.Controls[controlName];
                     if (control is ComboBox)
                     {
                         var cb = (ComboBox)control;

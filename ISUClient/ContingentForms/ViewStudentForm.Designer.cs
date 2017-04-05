@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewStudentForm));
-            this.EditButton = new System.Windows.Forms.Button();
+            this.DefPanel = new System.Windows.Forms.Panel();
             this.StudentPayTypeComboBox = new System.Windows.Forms.ComboBox();
             this.LearningDetailsLabel = new System.Windows.Forms.Label();
             this.EnrollmentDetailsLabel = new System.Windows.Forms.Label();
@@ -123,920 +123,933 @@
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.DefPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // EditButton
+            // DefPanel
             // 
-            this.EditButton.Location = new System.Drawing.Point(379, 710);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(75, 23);
-            this.EditButton.TabIndex = 159;
-            this.EditButton.Text = "Изменить";
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.DefPanel.AutoScroll = true;
+            this.DefPanel.Controls.Add(this.StudentPayTypeComboBox);
+            this.DefPanel.Controls.Add(this.LearningDetailsLabel);
+            this.DefPanel.Controls.Add(this.EnrollmentDetailsLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationEndTypeComboBox);
+            this.DefPanel.Controls.Add(this.NationalityLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationDirectionComboBox);
+            this.DefPanel.Controls.Add(this.CurrentEducationDetailsLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationEndTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationTypeComboBox);
+            this.DefPanel.Controls.Add(this.StudentStudyModeComboBox);
+            this.DefPanel.Controls.Add(this.StudentIsDisabilityCheckBox);
+            this.DefPanel.Controls.Add(this.StudentEducationDirectionLabel);
+            this.DefPanel.Controls.Add(this.StudentSchoolTypeComboBox);
+            this.DefPanel.Controls.Add(this.StudentProfessionComboBox);
+            this.DefPanel.Controls.Add(this.StudentIsDisabilityLabel);
+            this.DefPanel.Controls.Add(this.StudentStudyModeLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentStatusComboBox);
+            this.DefPanel.Controls.Add(this.StudentSectorComboBox);
+            this.DefPanel.Controls.Add(this.StudentHasCriminalRecordCheckBox);
+            this.DefPanel.Controls.Add(this.StudentProfessionLabel);
+            this.DefPanel.Controls.Add(this.StudentSchoolTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentStudyPeriodComboBox);
+            this.DefPanel.Controls.Add(this.StudentHasCriminalRecordLabel);
+            this.DefPanel.Controls.Add(this.StudentSectorLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentTypeComboBox);
+            this.DefPanel.Controls.Add(this.StudentStudyPeriodLabel);
+            this.DefPanel.Controls.Add(this.StudentPassedResultExamComboBox);
+            this.DefPanel.Controls.Add(this.StudentPassedQualifExamComboBox);
+            this.DefPanel.Controls.Add(this.StudentAdmittedToResultExamComboBox);
+            this.DefPanel.Controls.Add(this.StudentPassedResultExamLabel);
+            this.DefPanel.Controls.Add(this.StudentAdmittedToQualifExamComboBox);
+            this.DefPanel.Controls.Add(this.StudentPassedQualifExamLabel);
+            this.DefPanel.Controls.Add(this.StudentEmailTextBox);
+            this.DefPanel.Controls.Add(this.StudentAdmittedToResultExamLabel);
+            this.DefPanel.Controls.Add(this.StudentReceiptTypeComboBox);
+            this.DefPanel.Controls.Add(this.StudentAdmittedToQualifExamLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentStatusLabel);
+            this.DefPanel.Controls.Add(this.StudentReceiptTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentPayTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentEmailLabel);
+            this.DefPanel.Controls.Add(this.StudentYearTextBox);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentYearLabel);
+            this.DefPanel.Controls.Add(this.StudentMobilePhoneTextBox);
+            this.DefPanel.Controls.Add(this.StudentEducationTypeLabel);
+            this.DefPanel.Controls.Add(this.StudentSecondaryEducationYearTextBox);
+            this.DefPanel.Controls.Add(this.StudentMobilePhoneLabel);
+            this.DefPanel.Controls.Add(this.StudentSecondaryEducationYearLabel);
+            this.DefPanel.Controls.Add(this.StudentHomePhoneTextBox);
+            this.DefPanel.Controls.Add(this.StudentSchoolNameTextBox);
+            this.DefPanel.Controls.Add(this.StudentHomePhoneLabel);
+            this.DefPanel.Controls.Add(this.StudentSchoolNameLabel);
+            this.DefPanel.Controls.Add(this.ContactsLabel);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentNoTextBox);
+            this.DefPanel.Controls.Add(this.StudentIsNeedHostelCheckBox);
+            this.DefPanel.Controls.Add(this.StudentEducationDocumentNoLabel);
+            this.DefPanel.Controls.Add(this.StudentIsNeedHostelLabel);
+            this.DefPanel.Controls.Add(this.StudentAddressTextBox);
+            this.DefPanel.Controls.Add(this.StudentAddressLabel);
+            this.DefPanel.Controls.Add(this.AboutStudentLabel);
+            this.DefPanel.Controls.Add(this.StudentMilitaryStatusComboBox);
+            this.DefPanel.Controls.Add(this.StudentSocialStatusComboBox);
+            this.DefPanel.Controls.Add(this.StudentMilitaryStatusLabel);
+            this.DefPanel.Controls.Add(this.StudentSocialStatusLabel);
+            this.DefPanel.Controls.Add(this.StudentDistrictComboBox);
+            this.DefPanel.Controls.Add(this.StudentDistrictLabel);
+            this.DefPanel.Controls.Add(this.StudentAreaComboBox);
+            this.DefPanel.Controls.Add(this.StudentAreaLabel);
+            this.DefPanel.Controls.Add(this.AddressRegLabel);
+            this.DefPanel.Controls.Add(this.StudentCitizenshipComboBox);
+            this.DefPanel.Controls.Add(this.StudentCitizenshipLabel);
+            this.DefPanel.Controls.Add(this.StudentPersonalDocumentTypeComboBox);
+            this.DefPanel.Controls.Add(this.PersonalDocumentTypeLabel);
+            this.DefPanel.Controls.Add(this.PersonalDocumentLabel);
+            this.DefPanel.Controls.Add(this.StudentPassportNoTextBox);
+            this.DefPanel.Controls.Add(this.PassportNoLabel);
+            this.DefPanel.Controls.Add(this.StudentPassportSeriesTextBox);
+            this.DefPanel.Controls.Add(this.PassportSeriesLabel);
+            this.DefPanel.Controls.Add(this.StudentPersonPINTextBox);
+            this.DefPanel.Controls.Add(this.PINLabel);
+            this.DefPanel.Controls.Add(this.StudentPersonNationalityComboBox);
+            this.DefPanel.Controls.Add(this.StudentPersonGenderComboBox);
+            this.DefPanel.Controls.Add(this.GenderLabel);
+            this.DefPanel.Controls.Add(this.GroupLabel);
+            this.DefPanel.Controls.Add(this.StudentGroupComboBox);
+            this.DefPanel.Controls.Add(this.StudentPersonBirthDateDateTimePicker);
+            this.DefPanel.Controls.Add(this.BirthDateLabel);
+            this.DefPanel.Controls.Add(this.StudentPersonMiddleNameTextBox);
+            this.DefPanel.Controls.Add(this.StudentPersonFirstNameTextBox);
+            this.DefPanel.Controls.Add(this.StudentPersonLastNameTextBox);
+            this.DefPanel.Controls.Add(this.MiddleNameLabel);
+            this.DefPanel.Controls.Add(this.FirstNameLabel);
+            this.DefPanel.Controls.Add(this.LastNameLabel);
+            this.DefPanel.Controls.Add(this.EditButton);
+            this.DefPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DefPanel.Location = new System.Drawing.Point(0, 0);
+            this.DefPanel.Name = "DefPanel";
+            this.DefPanel.Size = new System.Drawing.Size(1135, 821);
+            this.DefPanel.TabIndex = 253;
             // 
             // StudentPayTypeComboBox
             // 
             this.StudentPayTypeComboBox.FormattingEnabled = true;
-            this.StudentPayTypeComboBox.Location = new System.Drawing.Point(207, 579);
+            this.StudentPayTypeComboBox.Location = new System.Drawing.Point(241, 618);
             this.StudentPayTypeComboBox.Name = "StudentPayTypeComboBox";
             this.StudentPayTypeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentPayTypeComboBox.TabIndex = 185;
+            this.StudentPayTypeComboBox.TabIndex = 279;
             // 
             // LearningDetailsLabel
             // 
             this.LearningDetailsLabel.AutoSize = true;
             this.LearningDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LearningDetailsLabel.Location = new System.Drawing.Point(535, 385);
+            this.LearningDetailsLabel.Location = new System.Drawing.Point(569, 424);
             this.LearningDetailsLabel.Name = "LearningDetailsLabel";
             this.LearningDetailsLabel.Size = new System.Drawing.Size(194, 13);
-            this.LearningDetailsLabel.TabIndex = 234;
+            this.LearningDetailsLabel.TabIndex = 328;
             this.LearningDetailsLabel.Text = "ИНФОРМАЦИЯ ОБ ОБУЧЕНИИ";
             // 
             // EnrollmentDetailsLabel
             // 
             this.EnrollmentDetailsLabel.AutoSize = true;
             this.EnrollmentDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnrollmentDetailsLabel.Location = new System.Drawing.Point(128, 385);
+            this.EnrollmentDetailsLabel.Location = new System.Drawing.Point(162, 424);
             this.EnrollmentDetailsLabel.Name = "EnrollmentDetailsLabel";
             this.EnrollmentDetailsLabel.Size = new System.Drawing.Size(212, 13);
-            this.EnrollmentDetailsLabel.TabIndex = 235;
+            this.EnrollmentDetailsLabel.TabIndex = 329;
             this.EnrollmentDetailsLabel.Text = "ИНФОРМАЦИЯ О ПОСТУПЛЕНИИ";
             // 
             // StudentEducationEndTypeComboBox
             // 
             this.StudentEducationEndTypeComboBox.FormattingEnabled = true;
-            this.StudentEducationEndTypeComboBox.Location = new System.Drawing.Point(207, 641);
+            this.StudentEducationEndTypeComboBox.Location = new System.Drawing.Point(241, 680);
             this.StudentEducationEndTypeComboBox.Name = "StudentEducationEndTypeComboBox";
             this.StudentEducationEndTypeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentEducationEndTypeComboBox.TabIndex = 193;
+            this.StudentEducationEndTypeComboBox.TabIndex = 287;
             // 
             // NationalityLabel
             // 
             this.NationalityLabel.AutoSize = true;
-            this.NationalityLabel.Location = new System.Drawing.Point(33, 200);
+            this.NationalityLabel.Location = new System.Drawing.Point(67, 239);
             this.NationalityLabel.Name = "NationalityLabel";
             this.NationalityLabel.Size = new System.Drawing.Size(92, 13);
-            this.NationalityLabel.TabIndex = 213;
+            this.NationalityLabel.TabIndex = 307;
             this.NationalityLabel.Text = "Национальность";
             // 
             // StudentEducationDirectionComboBox
             // 
             this.StudentEducationDirectionComboBox.FormattingEnabled = true;
-            this.StudentEducationDirectionComboBox.Location = new System.Drawing.Point(207, 606);
+            this.StudentEducationDirectionComboBox.Location = new System.Drawing.Point(241, 645);
             this.StudentEducationDirectionComboBox.Name = "StudentEducationDirectionComboBox";
             this.StudentEducationDirectionComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentEducationDirectionComboBox.TabIndex = 192;
+            this.StudentEducationDirectionComboBox.TabIndex = 286;
             // 
             // CurrentEducationDetailsLabel
             // 
             this.CurrentEducationDetailsLabel.AutoSize = true;
             this.CurrentEducationDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CurrentEducationDetailsLabel.Location = new System.Drawing.Point(729, 12);
+            this.CurrentEducationDetailsLabel.Location = new System.Drawing.Point(763, 51);
             this.CurrentEducationDetailsLabel.Name = "CurrentEducationDetailsLabel";
             this.CurrentEducationDetailsLabel.Size = new System.Drawing.Size(304, 13);
-            this.CurrentEducationDetailsLabel.TabIndex = 233;
+            this.CurrentEducationDetailsLabel.TabIndex = 327;
             this.CurrentEducationDetailsLabel.Text = "ИНФОРМАЦИЯ ОБ ИМЕЮЩЕМСЯ ОБРАЗОВАНИИ";
             // 
             // StudentEducationEndTypeLabel
             // 
             this.StudentEducationEndTypeLabel.AutoSize = true;
-            this.StudentEducationEndTypeLabel.Location = new System.Drawing.Point(78, 636);
+            this.StudentEducationEndTypeLabel.Location = new System.Drawing.Point(112, 675);
             this.StudentEducationEndTypeLabel.Name = "StudentEducationEndTypeLabel";
             this.StudentEducationEndTypeLabel.Size = new System.Drawing.Size(123, 26);
-            this.StudentEducationEndTypeLabel.TabIndex = 201;
+            this.StudentEducationEndTypeLabel.TabIndex = 295;
             this.StudentEducationEndTypeLabel.Text = "Без предост.\r\nсреднего образования";
             // 
             // StudentEducationTypeComboBox
             // 
             this.StudentEducationTypeComboBox.FormattingEnabled = true;
-            this.StudentEducationTypeComboBox.Location = new System.Drawing.Point(843, 38);
+            this.StudentEducationTypeComboBox.Location = new System.Drawing.Point(877, 77);
             this.StudentEducationTypeComboBox.Name = "StudentEducationTypeComboBox";
             this.StudentEducationTypeComboBox.Size = new System.Drawing.Size(147, 21);
-            this.StudentEducationTypeComboBox.TabIndex = 237;
+            this.StudentEducationTypeComboBox.TabIndex = 331;
             // 
             // StudentStudyModeComboBox
             // 
             this.StudentStudyModeComboBox.FormattingEnabled = true;
-            this.StudentStudyModeComboBox.Location = new System.Drawing.Point(207, 552);
+            this.StudentStudyModeComboBox.Location = new System.Drawing.Point(241, 591);
             this.StudentStudyModeComboBox.Name = "StudentStudyModeComboBox";
             this.StudentStudyModeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentStudyModeComboBox.TabIndex = 187;
+            this.StudentStudyModeComboBox.TabIndex = 281;
             // 
             // StudentIsDisabilityCheckBox
             // 
             this.StudentIsDisabilityCheckBox.AutoSize = true;
-            this.StudentIsDisabilityCheckBox.Location = new System.Drawing.Point(439, 335);
+            this.StudentIsDisabilityCheckBox.Location = new System.Drawing.Point(473, 374);
             this.StudentIsDisabilityCheckBox.Name = "StudentIsDisabilityCheckBox";
             this.StudentIsDisabilityCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.StudentIsDisabilityCheckBox.TabIndex = 252;
+            this.StudentIsDisabilityCheckBox.TabIndex = 346;
             this.StudentIsDisabilityCheckBox.UseVisualStyleBackColor = true;
             // 
             // StudentEducationDirectionLabel
             // 
             this.StudentEducationDirectionLabel.AutoSize = true;
-            this.StudentEducationDirectionLabel.Location = new System.Drawing.Point(78, 614);
+            this.StudentEducationDirectionLabel.Location = new System.Drawing.Point(112, 653);
             this.StudentEducationDirectionLabel.Name = "StudentEducationDirectionLabel";
             this.StudentEducationDirectionLabel.Size = new System.Drawing.Size(123, 13);
-            this.StudentEducationDirectionLabel.TabIndex = 197;
+            this.StudentEducationDirectionLabel.TabIndex = 291;
             this.StudentEducationDirectionLabel.Text = "Специальное обучение";
             // 
             // StudentSchoolTypeComboBox
             // 
             this.StudentSchoolTypeComboBox.FormattingEnabled = true;
-            this.StudentSchoolTypeComboBox.Location = new System.Drawing.Point(842, 210);
+            this.StudentSchoolTypeComboBox.Location = new System.Drawing.Point(876, 249);
             this.StudentSchoolTypeComboBox.Name = "StudentSchoolTypeComboBox";
             this.StudentSchoolTypeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentSchoolTypeComboBox.TabIndex = 189;
+            this.StudentSchoolTypeComboBox.TabIndex = 283;
             // 
             // StudentProfessionComboBox
             // 
             this.StudentProfessionComboBox.FormattingEnabled = true;
-            this.StudentProfessionComboBox.Location = new System.Drawing.Point(207, 525);
+            this.StudentProfessionComboBox.Location = new System.Drawing.Point(241, 564);
             this.StudentProfessionComboBox.Name = "StudentProfessionComboBox";
             this.StudentProfessionComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentProfessionComboBox.TabIndex = 190;
+            this.StudentProfessionComboBox.TabIndex = 284;
             // 
             // StudentIsDisabilityLabel
             // 
             this.StudentIsDisabilityLabel.AutoSize = true;
-            this.StudentIsDisabilityLabel.Location = new System.Drawing.Point(344, 336);
+            this.StudentIsDisabilityLabel.Location = new System.Drawing.Point(378, 375);
             this.StudentIsDisabilityLabel.Name = "StudentIsDisabilityLabel";
             this.StudentIsDisabilityLabel.Size = new System.Drawing.Size(89, 13);
-            this.StudentIsDisabilityLabel.TabIndex = 251;
+            this.StudentIsDisabilityLabel.TabIndex = 345;
             this.StudentIsDisabilityLabel.Text = "Является ЛОВЗ";
             // 
             // StudentStudyModeLabel
             // 
             this.StudentStudyModeLabel.AutoSize = true;
-            this.StudentStudyModeLabel.Location = new System.Drawing.Point(108, 560);
+            this.StudentStudyModeLabel.Location = new System.Drawing.Point(142, 599);
             this.StudentStudyModeLabel.Name = "StudentStudyModeLabel";
             this.StudentStudyModeLabel.Size = new System.Drawing.Size(93, 13);
-            this.StudentStudyModeLabel.TabIndex = 199;
+            this.StudentStudyModeLabel.TabIndex = 293;
             this.StudentStudyModeLabel.Text = "Форма обучения";
             // 
             // StudentEducationDocumentStatusComboBox
             // 
             this.StudentEducationDocumentStatusComboBox.FormattingEnabled = true;
-            this.StudentEducationDocumentStatusComboBox.Location = new System.Drawing.Point(842, 119);
+            this.StudentEducationDocumentStatusComboBox.Location = new System.Drawing.Point(876, 158);
             this.StudentEducationDocumentStatusComboBox.Name = "StudentEducationDocumentStatusComboBox";
             this.StudentEducationDocumentStatusComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentEducationDocumentStatusComboBox.TabIndex = 191;
+            this.StudentEducationDocumentStatusComboBox.TabIndex = 285;
             // 
             // StudentSectorComboBox
             // 
             this.StudentSectorComboBox.FormattingEnabled = true;
-            this.StudentSectorComboBox.Location = new System.Drawing.Point(207, 498);
+            this.StudentSectorComboBox.Location = new System.Drawing.Point(241, 537);
             this.StudentSectorComboBox.Name = "StudentSectorComboBox";
             this.StudentSectorComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentSectorComboBox.TabIndex = 194;
+            this.StudentSectorComboBox.TabIndex = 288;
             // 
             // StudentHasCriminalRecordCheckBox
             // 
             this.StudentHasCriminalRecordCheckBox.AutoSize = true;
-            this.StudentHasCriminalRecordCheckBox.Location = new System.Drawing.Point(562, 336);
+            this.StudentHasCriminalRecordCheckBox.Location = new System.Drawing.Point(596, 375);
             this.StudentHasCriminalRecordCheckBox.Name = "StudentHasCriminalRecordCheckBox";
             this.StudentHasCriminalRecordCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.StudentHasCriminalRecordCheckBox.TabIndex = 250;
+            this.StudentHasCriminalRecordCheckBox.TabIndex = 344;
             this.StudentHasCriminalRecordCheckBox.UseVisualStyleBackColor = true;
             // 
             // StudentProfessionLabel
             // 
             this.StudentProfessionLabel.AutoSize = true;
-            this.StudentProfessionLabel.Location = new System.Drawing.Point(116, 533);
+            this.StudentProfessionLabel.Location = new System.Drawing.Point(150, 572);
             this.StudentProfessionLabel.Name = "StudentProfessionLabel";
             this.StudentProfessionLabel.Size = new System.Drawing.Size(85, 13);
-            this.StudentProfessionLabel.TabIndex = 202;
+            this.StudentProfessionLabel.TabIndex = 296;
             this.StudentProfessionLabel.Text = "Специальность";
             // 
             // StudentSchoolTypeLabel
             // 
             this.StudentSchoolTypeLabel.AutoSize = true;
-            this.StudentSchoolTypeLabel.Location = new System.Drawing.Point(762, 205);
+            this.StudentSchoolTypeLabel.Location = new System.Drawing.Point(796, 244);
             this.StudentSchoolTypeLabel.Name = "StudentSchoolTypeLabel";
             this.StudentSchoolTypeLabel.Size = new System.Drawing.Size(74, 26);
-            this.StudentSchoolTypeLabel.TabIndex = 207;
+            this.StudentSchoolTypeLabel.TabIndex = 301;
             this.StudentSchoolTypeLabel.Text = "Тип учебного\r\nзаведения";
             // 
             // StudentStudyPeriodComboBox
             // 
             this.StudentStudyPeriodComboBox.FormattingEnabled = true;
-            this.StudentStudyPeriodComboBox.Location = new System.Drawing.Point(207, 471);
+            this.StudentStudyPeriodComboBox.Location = new System.Drawing.Point(241, 510);
             this.StudentStudyPeriodComboBox.Name = "StudentStudyPeriodComboBox";
             this.StudentStudyPeriodComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentStudyPeriodComboBox.TabIndex = 188;
+            this.StudentStudyPeriodComboBox.TabIndex = 282;
             // 
             // StudentHasCriminalRecordLabel
             // 
             this.StudentHasCriminalRecordLabel.AutoSize = true;
-            this.StudentHasCriminalRecordLabel.Location = new System.Drawing.Point(490, 337);
+            this.StudentHasCriminalRecordLabel.Location = new System.Drawing.Point(524, 376);
             this.StudentHasCriminalRecordLabel.Name = "StudentHasCriminalRecordLabel";
             this.StudentHasCriminalRecordLabel.Size = new System.Drawing.Size(62, 13);
-            this.StudentHasCriminalRecordLabel.TabIndex = 249;
+            this.StudentHasCriminalRecordLabel.TabIndex = 343;
             this.StudentHasCriminalRecordLabel.Text = "Судимость";
             // 
             // StudentSectorLabel
             // 
             this.StudentSectorLabel.AutoSize = true;
-            this.StudentSectorLabel.Location = new System.Drawing.Point(151, 506);
+            this.StudentSectorLabel.Location = new System.Drawing.Point(185, 545);
             this.StudentSectorLabel.Name = "StudentSectorLabel";
             this.StudentSectorLabel.Size = new System.Drawing.Size(50, 13);
-            this.StudentSectorLabel.TabIndex = 206;
+            this.StudentSectorLabel.TabIndex = 300;
             this.StudentSectorLabel.Text = "Отрасль";
             // 
             // StudentEducationDocumentTypeComboBox
             // 
             this.StudentEducationDocumentTypeComboBox.FormattingEnabled = true;
-            this.StudentEducationDocumentTypeComboBox.Location = new System.Drawing.Point(842, 66);
+            this.StudentEducationDocumentTypeComboBox.Location = new System.Drawing.Point(876, 105);
             this.StudentEducationDocumentTypeComboBox.Name = "StudentEducationDocumentTypeComboBox";
             this.StudentEducationDocumentTypeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentEducationDocumentTypeComboBox.TabIndex = 186;
+            this.StudentEducationDocumentTypeComboBox.TabIndex = 280;
             // 
             // StudentStudyPeriodLabel
             // 
             this.StudentStudyPeriodLabel.AutoSize = true;
-            this.StudentStudyPeriodLabel.Location = new System.Drawing.Point(138, 479);
+            this.StudentStudyPeriodLabel.Location = new System.Drawing.Point(172, 518);
             this.StudentStudyPeriodLabel.Name = "StudentStudyPeriodLabel";
             this.StudentStudyPeriodLabel.Size = new System.Drawing.Size(63, 13);
-            this.StudentStudyPeriodLabel.TabIndex = 196;
+            this.StudentStudyPeriodLabel.TabIndex = 290;
             this.StudentStudyPeriodLabel.Text = "Подлинник";
             // 
             // StudentPassedResultExamComboBox
             // 
             this.StudentPassedResultExamComboBox.FormattingEnabled = true;
-            this.StudentPassedResultExamComboBox.Location = new System.Drawing.Point(617, 526);
+            this.StudentPassedResultExamComboBox.Location = new System.Drawing.Point(651, 565);
             this.StudentPassedResultExamComboBox.Name = "StudentPassedResultExamComboBox";
             this.StudentPassedResultExamComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentPassedResultExamComboBox.TabIndex = 184;
+            this.StudentPassedResultExamComboBox.TabIndex = 278;
             // 
             // StudentPassedQualifExamComboBox
             // 
             this.StudentPassedQualifExamComboBox.FormattingEnabled = true;
-            this.StudentPassedQualifExamComboBox.Location = new System.Drawing.Point(617, 499);
+            this.StudentPassedQualifExamComboBox.Location = new System.Drawing.Point(651, 538);
             this.StudentPassedQualifExamComboBox.Name = "StudentPassedQualifExamComboBox";
             this.StudentPassedQualifExamComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentPassedQualifExamComboBox.TabIndex = 181;
+            this.StudentPassedQualifExamComboBox.TabIndex = 275;
             // 
             // StudentAdmittedToResultExamComboBox
             // 
             this.StudentAdmittedToResultExamComboBox.FormattingEnabled = true;
-            this.StudentAdmittedToResultExamComboBox.Location = new System.Drawing.Point(617, 472);
+            this.StudentAdmittedToResultExamComboBox.Location = new System.Drawing.Point(651, 511);
             this.StudentAdmittedToResultExamComboBox.Name = "StudentAdmittedToResultExamComboBox";
             this.StudentAdmittedToResultExamComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentAdmittedToResultExamComboBox.TabIndex = 178;
+            this.StudentAdmittedToResultExamComboBox.TabIndex = 272;
             // 
             // StudentPassedResultExamLabel
             // 
             this.StudentPassedResultExamLabel.AutoSize = true;
-            this.StudentPassedResultExamLabel.Location = new System.Drawing.Point(504, 534);
+            this.StudentPassedResultExamLabel.Location = new System.Drawing.Point(538, 573);
             this.StudentPassedResultExamLabel.Name = "StudentPassedResultExamLabel";
             this.StudentPassedResultExamLabel.Size = new System.Drawing.Size(107, 13);
-            this.StudentPassedResultExamLabel.TabIndex = 211;
+            this.StudentPassedResultExamLabel.TabIndex = 305;
             this.StudentPassedResultExamLabel.Text = "Сдал итог. экзамен";
             // 
             // StudentAdmittedToQualifExamComboBox
             // 
             this.StudentAdmittedToQualifExamComboBox.FormattingEnabled = true;
-            this.StudentAdmittedToQualifExamComboBox.Location = new System.Drawing.Point(617, 445);
+            this.StudentAdmittedToQualifExamComboBox.Location = new System.Drawing.Point(651, 484);
             this.StudentAdmittedToQualifExamComboBox.Name = "StudentAdmittedToQualifExamComboBox";
             this.StudentAdmittedToQualifExamComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentAdmittedToQualifExamComboBox.TabIndex = 179;
+            this.StudentAdmittedToQualifExamComboBox.TabIndex = 273;
             // 
             // StudentPassedQualifExamLabel
             // 
             this.StudentPassedQualifExamLabel.AutoSize = true;
-            this.StudentPassedQualifExamLabel.Location = new System.Drawing.Point(502, 507);
+            this.StudentPassedQualifExamLabel.Location = new System.Drawing.Point(536, 546);
             this.StudentPassedQualifExamLabel.Name = "StudentPassedQualifExamLabel";
             this.StudentPassedQualifExamLabel.Size = new System.Drawing.Size(109, 13);
-            this.StudentPassedQualifExamLabel.TabIndex = 210;
+            this.StudentPassedQualifExamLabel.TabIndex = 304;
             this.StudentPassedQualifExamLabel.Text = "Сдал квал. экзамен";
             // 
             // StudentEmailTextBox
             // 
-            this.StudentEmailTextBox.Location = new System.Drawing.Point(108, 299);
+            this.StudentEmailTextBox.Location = new System.Drawing.Point(142, 338);
             this.StudentEmailTextBox.Name = "StudentEmailTextBox";
             this.StudentEmailTextBox.Size = new System.Drawing.Size(171, 20);
-            this.StudentEmailTextBox.TabIndex = 248;
+            this.StudentEmailTextBox.TabIndex = 342;
             // 
             // StudentAdmittedToResultExamLabel
             // 
             this.StudentAdmittedToResultExamLabel.AutoSize = true;
-            this.StudentAdmittedToResultExamLabel.Location = new System.Drawing.Point(468, 480);
+            this.StudentAdmittedToResultExamLabel.Location = new System.Drawing.Point(502, 519);
             this.StudentAdmittedToResultExamLabel.Name = "StudentAdmittedToResultExamLabel";
             this.StudentAdmittedToResultExamLabel.Size = new System.Drawing.Size(143, 13);
-            this.StudentAdmittedToResultExamLabel.TabIndex = 209;
+            this.StudentAdmittedToResultExamLabel.TabIndex = 303;
             this.StudentAdmittedToResultExamLabel.Text = "Допущен к итог. экзамену";
             // 
             // StudentReceiptTypeComboBox
             // 
             this.StudentReceiptTypeComboBox.FormattingEnabled = true;
-            this.StudentReceiptTypeComboBox.Location = new System.Drawing.Point(207, 418);
+            this.StudentReceiptTypeComboBox.Location = new System.Drawing.Point(241, 457);
             this.StudentReceiptTypeComboBox.Name = "StudentReceiptTypeComboBox";
             this.StudentReceiptTypeComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentReceiptTypeComboBox.TabIndex = 183;
+            this.StudentReceiptTypeComboBox.TabIndex = 277;
             // 
             // StudentAdmittedToQualifExamLabel
             // 
             this.StudentAdmittedToQualifExamLabel.AutoSize = true;
-            this.StudentAdmittedToQualifExamLabel.Location = new System.Drawing.Point(466, 453);
+            this.StudentAdmittedToQualifExamLabel.Location = new System.Drawing.Point(500, 492);
             this.StudentAdmittedToQualifExamLabel.Name = "StudentAdmittedToQualifExamLabel";
             this.StudentAdmittedToQualifExamLabel.Size = new System.Drawing.Size(145, 13);
-            this.StudentAdmittedToQualifExamLabel.TabIndex = 205;
+            this.StudentAdmittedToQualifExamLabel.TabIndex = 299;
             this.StudentAdmittedToQualifExamLabel.Text = "Допущен к квал. экзамену";
             // 
             // StudentEducationDocumentStatusLabel
             // 
             this.StudentEducationDocumentStatusLabel.AutoSize = true;
-            this.StudentEducationDocumentStatusLabel.Location = new System.Drawing.Point(773, 127);
+            this.StudentEducationDocumentStatusLabel.Location = new System.Drawing.Point(807, 166);
             this.StudentEducationDocumentStatusLabel.Name = "StudentEducationDocumentStatusLabel";
             this.StudentEducationDocumentStatusLabel.Size = new System.Drawing.Size(63, 13);
-            this.StudentEducationDocumentStatusLabel.TabIndex = 204;
+            this.StudentEducationDocumentStatusLabel.TabIndex = 298;
             this.StudentEducationDocumentStatusLabel.Text = "Подлинник";
             // 
             // StudentReceiptTypeLabel
             // 
             this.StudentReceiptTypeLabel.AutoSize = true;
-            this.StudentReceiptTypeLabel.Location = new System.Drawing.Point(128, 426);
+            this.StudentReceiptTypeLabel.Location = new System.Drawing.Point(162, 465);
             this.StudentReceiptTypeLabel.Name = "StudentReceiptTypeLabel";
             this.StudentReceiptTypeLabel.Size = new System.Drawing.Size(73, 13);
-            this.StudentReceiptTypeLabel.TabIndex = 203;
+            this.StudentReceiptTypeLabel.TabIndex = 297;
             this.StudentReceiptTypeLabel.Text = "Поступление";
             // 
             // StudentPayTypeLabel
             // 
             this.StudentPayTypeLabel.AutoSize = true;
-            this.StudentPayTypeLabel.Location = new System.Drawing.Point(53, 587);
+            this.StudentPayTypeLabel.Location = new System.Drawing.Point(87, 626);
             this.StudentPayTypeLabel.Name = "StudentPayTypeLabel";
             this.StudentPayTypeLabel.Size = new System.Drawing.Size(148, 13);
-            this.StudentPayTypeLabel.TabIndex = 161;
+            this.StudentPayTypeLabel.TabIndex = 255;
             this.StudentPayTypeLabel.Text = "Форма оплаты за обучение";
             // 
             // StudentEmailLabel
             // 
             this.StudentEmailLabel.AutoSize = true;
-            this.StudentEmailLabel.Location = new System.Drawing.Point(42, 306);
+            this.StudentEmailLabel.Location = new System.Drawing.Point(76, 345);
             this.StudentEmailLabel.Name = "StudentEmailLabel";
             this.StudentEmailLabel.Size = new System.Drawing.Size(32, 13);
-            this.StudentEmailLabel.TabIndex = 244;
+            this.StudentEmailLabel.TabIndex = 338;
             this.StudentEmailLabel.Text = "Email";
             // 
             // StudentYearTextBox
             // 
-            this.StudentYearTextBox.Location = new System.Drawing.Point(207, 445);
+            this.StudentYearTextBox.Location = new System.Drawing.Point(241, 484);
             this.StudentYearTextBox.Name = "StudentYearTextBox";
             this.StudentYearTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentYearTextBox.TabIndex = 172;
+            this.StudentYearTextBox.TabIndex = 266;
             // 
             // StudentEducationDocumentTypeLabel
             // 
             this.StudentEducationDocumentTypeLabel.AutoSize = true;
-            this.StudentEducationDocumentTypeLabel.Location = new System.Drawing.Point(778, 74);
+            this.StudentEducationDocumentTypeLabel.Location = new System.Drawing.Point(812, 113);
             this.StudentEducationDocumentTypeLabel.Name = "StudentEducationDocumentTypeLabel";
             this.StudentEducationDocumentTypeLabel.Size = new System.Drawing.Size(58, 13);
-            this.StudentEducationDocumentTypeLabel.TabIndex = 208;
+            this.StudentEducationDocumentTypeLabel.TabIndex = 302;
             this.StudentEducationDocumentTypeLabel.Text = "Документ";
             // 
             // StudentYearLabel
             // 
             this.StudentYearLabel.AutoSize = true;
-            this.StudentYearLabel.Location = new System.Drawing.Point(75, 452);
+            this.StudentYearLabel.Location = new System.Drawing.Point(109, 491);
             this.StudentYearLabel.Name = "StudentYearLabel";
             this.StudentYearLabel.Size = new System.Drawing.Size(126, 13);
-            this.StudentYearLabel.TabIndex = 162;
+            this.StudentYearLabel.TabIndex = 256;
             this.StudentYearLabel.Text = "Год подачи документов";
             // 
             // StudentMobilePhoneTextBox
             // 
-            this.StudentMobilePhoneTextBox.Location = new System.Drawing.Point(108, 273);
+            this.StudentMobilePhoneTextBox.Location = new System.Drawing.Point(142, 312);
             this.StudentMobilePhoneTextBox.Name = "StudentMobilePhoneTextBox";
             this.StudentMobilePhoneTextBox.Size = new System.Drawing.Size(171, 20);
-            this.StudentMobilePhoneTextBox.TabIndex = 247;
+            this.StudentMobilePhoneTextBox.TabIndex = 341;
             // 
             // StudentEducationTypeLabel
             // 
             this.StudentEducationTypeLabel.AutoSize = true;
-            this.StudentEducationTypeLabel.Location = new System.Drawing.Point(741, 47);
+            this.StudentEducationTypeLabel.Location = new System.Drawing.Point(775, 86);
             this.StudentEducationTypeLabel.Name = "StudentEducationTypeLabel";
             this.StudentEducationTypeLabel.Size = new System.Drawing.Size(95, 13);
-            this.StudentEducationTypeLabel.TabIndex = 200;
+            this.StudentEducationTypeLabel.TabIndex = 294;
             this.StudentEducationTypeLabel.Text = "Вид образования";
             // 
             // StudentSecondaryEducationYearTextBox
             // 
-            this.StudentSecondaryEducationYearTextBox.Location = new System.Drawing.Point(842, 170);
+            this.StudentSecondaryEducationYearTextBox.Location = new System.Drawing.Point(876, 209);
             this.StudentSecondaryEducationYearTextBox.Name = "StudentSecondaryEducationYearTextBox";
             this.StudentSecondaryEducationYearTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentSecondaryEducationYearTextBox.TabIndex = 170;
+            this.StudentSecondaryEducationYearTextBox.TabIndex = 264;
             // 
             // StudentMobilePhoneLabel
             // 
             this.StudentMobilePhoneLabel.AutoSize = true;
-            this.StudentMobilePhoneLabel.Location = new System.Drawing.Point(42, 280);
+            this.StudentMobilePhoneLabel.Location = new System.Drawing.Point(76, 319);
             this.StudentMobilePhoneLabel.Name = "StudentMobilePhoneLabel";
             this.StudentMobilePhoneLabel.Size = new System.Drawing.Size(54, 13);
-            this.StudentMobilePhoneLabel.TabIndex = 245;
+            this.StudentMobilePhoneLabel.TabIndex = 339;
             this.StudentMobilePhoneLabel.Text = "Моб. тел.";
             // 
             // StudentSecondaryEducationYearLabel
             // 
             this.StudentSecondaryEducationYearLabel.AutoSize = true;
-            this.StudentSecondaryEducationYearLabel.Location = new System.Drawing.Point(756, 151);
+            this.StudentSecondaryEducationYearLabel.Location = new System.Drawing.Point(790, 190);
             this.StudentSecondaryEducationYearLabel.Name = "StudentSecondaryEducationYearLabel";
             this.StudentSecondaryEducationYearLabel.Size = new System.Drawing.Size(80, 39);
-            this.StudentSecondaryEducationYearLabel.TabIndex = 163;
+            this.StudentSecondaryEducationYearLabel.TabIndex = 257;
             this.StudentSecondaryEducationYearLabel.Text = "Год получения\r\nсреднего\r\nобразования";
             // 
             // StudentHomePhoneTextBox
             // 
-            this.StudentHomePhoneTextBox.Location = new System.Drawing.Point(108, 247);
+            this.StudentHomePhoneTextBox.Location = new System.Drawing.Point(142, 286);
             this.StudentHomePhoneTextBox.Name = "StudentHomePhoneTextBox";
             this.StudentHomePhoneTextBox.Size = new System.Drawing.Size(171, 20);
-            this.StudentHomePhoneTextBox.TabIndex = 246;
+            this.StudentHomePhoneTextBox.TabIndex = 340;
             // 
             // StudentSchoolNameTextBox
             // 
-            this.StudentSchoolNameTextBox.Location = new System.Drawing.Point(842, 252);
+            this.StudentSchoolNameTextBox.Location = new System.Drawing.Point(876, 291);
             this.StudentSchoolNameTextBox.Name = "StudentSchoolNameTextBox";
             this.StudentSchoolNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentSchoolNameTextBox.TabIndex = 169;
+            this.StudentSchoolNameTextBox.TabIndex = 263;
             // 
             // StudentHomePhoneLabel
             // 
             this.StudentHomePhoneLabel.AutoSize = true;
-            this.StudentHomePhoneLabel.Location = new System.Drawing.Point(42, 254);
+            this.StudentHomePhoneLabel.Location = new System.Drawing.Point(76, 293);
             this.StudentHomePhoneLabel.Name = "StudentHomePhoneLabel";
             this.StudentHomePhoneLabel.Size = new System.Drawing.Size(56, 13);
-            this.StudentHomePhoneLabel.TabIndex = 243;
+            this.StudentHomePhoneLabel.TabIndex = 337;
             this.StudentHomePhoneLabel.Text = "Дом. тел.";
             // 
             // StudentSchoolNameLabel
             // 
             this.StudentSchoolNameLabel.AutoSize = true;
-            this.StudentSchoolNameLabel.Location = new System.Drawing.Point(741, 246);
+            this.StudentSchoolNameLabel.Location = new System.Drawing.Point(775, 285);
             this.StudentSchoolNameLabel.Name = "StudentSchoolNameLabel";
             this.StudentSchoolNameLabel.Size = new System.Drawing.Size(95, 26);
-            this.StudentSchoolNameLabel.TabIndex = 166;
+            this.StudentSchoolNameLabel.TabIndex = 260;
             this.StudentSchoolNameLabel.Text = "Название\r\nУЗ (предыдущее)";
             // 
             // ContactsLabel
             // 
             this.ContactsLabel.AutoSize = true;
             this.ContactsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ContactsLabel.Location = new System.Drawing.Point(39, 225);
+            this.ContactsLabel.Location = new System.Drawing.Point(73, 264);
             this.ContactsLabel.Name = "ContactsLabel";
             this.ContactsLabel.Size = new System.Drawing.Size(136, 13);
-            this.ContactsLabel.TabIndex = 242;
+            this.ContactsLabel.TabIndex = 336;
             this.ContactsLabel.Text = "Контактная информация:";
             // 
             // StudentEducationDocumentNoTextBox
             // 
-            this.StudentEducationDocumentNoTextBox.Location = new System.Drawing.Point(842, 93);
+            this.StudentEducationDocumentNoTextBox.Location = new System.Drawing.Point(876, 132);
             this.StudentEducationDocumentNoTextBox.Name = "StudentEducationDocumentNoTextBox";
             this.StudentEducationDocumentNoTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentEducationDocumentNoTextBox.TabIndex = 168;
+            this.StudentEducationDocumentNoTextBox.TabIndex = 262;
             // 
             // StudentIsNeedHostelCheckBox
             // 
             this.StudentIsNeedHostelCheckBox.AutoSize = true;
-            this.StudentIsNeedHostelCheckBox.Location = new System.Drawing.Point(501, 306);
+            this.StudentIsNeedHostelCheckBox.Location = new System.Drawing.Point(535, 345);
             this.StudentIsNeedHostelCheckBox.Name = "StudentIsNeedHostelCheckBox";
             this.StudentIsNeedHostelCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.StudentIsNeedHostelCheckBox.TabIndex = 241;
+            this.StudentIsNeedHostelCheckBox.TabIndex = 335;
             this.StudentIsNeedHostelCheckBox.UseVisualStyleBackColor = true;
             // 
             // StudentEducationDocumentNoLabel
             // 
             this.StudentEducationDocumentNoLabel.AutoSize = true;
-            this.StudentEducationDocumentNoLabel.Location = new System.Drawing.Point(738, 100);
+            this.StudentEducationDocumentNoLabel.Location = new System.Drawing.Point(772, 139);
             this.StudentEducationDocumentNoLabel.Name = "StudentEducationDocumentNoLabel";
             this.StudentEducationDocumentNoLabel.Size = new System.Drawing.Size(98, 13);
-            this.StudentEducationDocumentNoLabel.TabIndex = 164;
+            this.StudentEducationDocumentNoLabel.TabIndex = 258;
             this.StudentEducationDocumentNoLabel.Text = "Номер документа";
             // 
             // StudentIsNeedHostelLabel
             // 
             this.StudentIsNeedHostelLabel.AutoSize = true;
-            this.StudentIsNeedHostelLabel.Location = new System.Drawing.Point(341, 306);
+            this.StudentIsNeedHostelLabel.Location = new System.Drawing.Point(375, 345);
             this.StudentIsNeedHostelLabel.Name = "StudentIsNeedHostelLabel";
             this.StudentIsNeedHostelLabel.Size = new System.Drawing.Size(148, 13);
-            this.StudentIsNeedHostelLabel.TabIndex = 240;
+            this.StudentIsNeedHostelLabel.TabIndex = 334;
             this.StudentIsNeedHostelLabel.Text = "Необходимость общежития";
             // 
             // StudentAddressTextBox
             // 
-            this.StudentAddressTextBox.Location = new System.Drawing.Point(414, 222);
+            this.StudentAddressTextBox.Location = new System.Drawing.Point(448, 261);
             this.StudentAddressTextBox.Multiline = true;
             this.StudentAddressTextBox.Name = "StudentAddressTextBox";
             this.StudentAddressTextBox.Size = new System.Drawing.Size(160, 32);
-            this.StudentAddressTextBox.TabIndex = 239;
+            this.StudentAddressTextBox.TabIndex = 333;
             // 
             // StudentAddressLabel
             // 
             this.StudentAddressLabel.AutoSize = true;
-            this.StudentAddressLabel.Location = new System.Drawing.Point(338, 219);
+            this.StudentAddressLabel.Location = new System.Drawing.Point(372, 258);
             this.StudentAddressLabel.Name = "StudentAddressLabel";
             this.StudentAddressLabel.Size = new System.Drawing.Size(57, 39);
-            this.StudentAddressLabel.TabIndex = 238;
+            this.StudentAddressLabel.TabIndex = 332;
             this.StudentAddressLabel.Text = "Адрес\r\n(село, ул.,\r\n дом, кв.)";
             // 
             // AboutStudentLabel
             // 
             this.AboutStudentLabel.AutoSize = true;
             this.AboutStudentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AboutStudentLabel.Location = new System.Drawing.Point(219, 9);
+            this.AboutStudentLabel.Location = new System.Drawing.Point(253, 48);
             this.AboutStudentLabel.Name = "AboutStudentLabel";
             this.AboutStudentLabel.Size = new System.Drawing.Size(196, 13);
-            this.AboutStudentLabel.TabIndex = 236;
+            this.AboutStudentLabel.TabIndex = 330;
             this.AboutStudentLabel.Text = "ИНФОРМАЦИЯ ОБ УЧАЩЕМСЯ";
             // 
             // StudentMilitaryStatusComboBox
             // 
             this.StudentMilitaryStatusComboBox.FormattingEnabled = true;
-            this.StudentMilitaryStatusComboBox.Location = new System.Drawing.Point(135, 329);
+            this.StudentMilitaryStatusComboBox.Location = new System.Drawing.Point(169, 368);
             this.StudentMilitaryStatusComboBox.Name = "StudentMilitaryStatusComboBox";
             this.StudentMilitaryStatusComboBox.Size = new System.Drawing.Size(144, 21);
-            this.StudentMilitaryStatusComboBox.TabIndex = 232;
+            this.StudentMilitaryStatusComboBox.TabIndex = 326;
             // 
             // StudentSocialStatusComboBox
             // 
             this.StudentSocialStatusComboBox.FormattingEnabled = true;
-            this.StudentSocialStatusComboBox.Location = new System.Drawing.Point(446, 260);
+            this.StudentSocialStatusComboBox.Location = new System.Drawing.Point(480, 299);
             this.StudentSocialStatusComboBox.Name = "StudentSocialStatusComboBox";
             this.StudentSocialStatusComboBox.Size = new System.Drawing.Size(128, 21);
-            this.StudentSocialStatusComboBox.TabIndex = 231;
+            this.StudentSocialStatusComboBox.TabIndex = 325;
             // 
             // StudentMilitaryStatusLabel
             // 
             this.StudentMilitaryStatusLabel.AutoSize = true;
-            this.StudentMilitaryStatusLabel.Location = new System.Drawing.Point(40, 324);
+            this.StudentMilitaryStatusLabel.Location = new System.Drawing.Point(74, 363);
             this.StudentMilitaryStatusLabel.Name = "StudentMilitaryStatusLabel";
             this.StudentMilitaryStatusLabel.Size = new System.Drawing.Size(89, 26);
-            this.StudentMilitaryStatusLabel.TabIndex = 229;
+            this.StudentMilitaryStatusLabel.TabIndex = 323;
             this.StudentMilitaryStatusLabel.Text = "Отношение к\r\nвоенной службе";
             // 
             // StudentSocialStatusLabel
             // 
             this.StudentSocialStatusLabel.AutoSize = true;
-            this.StudentSocialStatusLabel.Location = new System.Drawing.Point(334, 269);
+            this.StudentSocialStatusLabel.Location = new System.Drawing.Point(368, 308);
             this.StudentSocialStatusLabel.Name = "StudentSocialStatusLabel";
             this.StudentSocialStatusLabel.Size = new System.Drawing.Size(106, 13);
-            this.StudentSocialStatusLabel.TabIndex = 228;
+            this.StudentSocialStatusLabel.TabIndex = 322;
             this.StudentSocialStatusLabel.Text = "Социальный статус";
             // 
             // StudentDistrictComboBox
             // 
             this.StudentDistrictComboBox.FormattingEnabled = true;
-            this.StudentDistrictComboBox.Location = new System.Drawing.Point(414, 186);
+            this.StudentDistrictComboBox.Location = new System.Drawing.Point(448, 225);
             this.StudentDistrictComboBox.Name = "StudentDistrictComboBox";
             this.StudentDistrictComboBox.Size = new System.Drawing.Size(161, 21);
-            this.StudentDistrictComboBox.TabIndex = 230;
+            this.StudentDistrictComboBox.TabIndex = 324;
             // 
             // StudentDistrictLabel
             // 
             this.StudentDistrictLabel.AutoSize = true;
-            this.StudentDistrictLabel.Location = new System.Drawing.Point(335, 194);
+            this.StudentDistrictLabel.Location = new System.Drawing.Point(369, 233);
             this.StudentDistrictLabel.Name = "StudentDistrictLabel";
             this.StudentDistrictLabel.Size = new System.Drawing.Size(73, 13);
-            this.StudentDistrictLabel.TabIndex = 227;
+            this.StudentDistrictLabel.TabIndex = 321;
             this.StudentDistrictLabel.Text = "Район/Город";
             // 
             // StudentAreaComboBox
             // 
             this.StudentAreaComboBox.FormattingEnabled = true;
-            this.StudentAreaComboBox.Location = new System.Drawing.Point(394, 159);
+            this.StudentAreaComboBox.Location = new System.Drawing.Point(428, 198);
             this.StudentAreaComboBox.Name = "StudentAreaComboBox";
             this.StudentAreaComboBox.Size = new System.Drawing.Size(181, 21);
-            this.StudentAreaComboBox.TabIndex = 226;
+            this.StudentAreaComboBox.TabIndex = 320;
             // 
             // StudentAreaLabel
             // 
             this.StudentAreaLabel.AutoSize = true;
-            this.StudentAreaLabel.Location = new System.Drawing.Point(338, 167);
+            this.StudentAreaLabel.Location = new System.Drawing.Point(372, 206);
             this.StudentAreaLabel.Name = "StudentAreaLabel";
             this.StudentAreaLabel.Size = new System.Drawing.Size(50, 13);
-            this.StudentAreaLabel.TabIndex = 225;
+            this.StudentAreaLabel.TabIndex = 319;
             this.StudentAreaLabel.Text = "Область";
             // 
             // AddressRegLabel
             // 
             this.AddressRegLabel.AutoSize = true;
             this.AddressRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddressRegLabel.Location = new System.Drawing.Point(338, 141);
+            this.AddressRegLabel.Location = new System.Drawing.Point(372, 180);
             this.AddressRegLabel.Name = "AddressRegLabel";
             this.AddressRegLabel.Size = new System.Drawing.Size(107, 13);
-            this.AddressRegLabel.TabIndex = 224;
+            this.AddressRegLabel.TabIndex = 318;
             this.AddressRegLabel.Text = "Адрес по прописке:";
             // 
             // StudentCitizenshipComboBox
             // 
             this.StudentCitizenshipComboBox.FormattingEnabled = true;
-            this.StudentCitizenshipComboBox.Location = new System.Drawing.Point(421, 107);
+            this.StudentCitizenshipComboBox.Location = new System.Drawing.Point(455, 146);
             this.StudentCitizenshipComboBox.Name = "StudentCitizenshipComboBox";
             this.StudentCitizenshipComboBox.Size = new System.Drawing.Size(154, 21);
-            this.StudentCitizenshipComboBox.TabIndex = 223;
+            this.StudentCitizenshipComboBox.TabIndex = 317;
             // 
             // StudentCitizenshipLabel
             // 
             this.StudentCitizenshipLabel.AutoSize = true;
-            this.StudentCitizenshipLabel.Location = new System.Drawing.Point(341, 115);
+            this.StudentCitizenshipLabel.Location = new System.Drawing.Point(375, 154);
             this.StudentCitizenshipLabel.Name = "StudentCitizenshipLabel";
             this.StudentCitizenshipLabel.Size = new System.Drawing.Size(74, 13);
-            this.StudentCitizenshipLabel.TabIndex = 222;
+            this.StudentCitizenshipLabel.TabIndex = 316;
             this.StudentCitizenshipLabel.Text = "Гражданство";
             // 
             // StudentPersonalDocumentTypeComboBox
             // 
             this.StudentPersonalDocumentTypeComboBox.FormattingEnabled = true;
-            this.StudentPersonalDocumentTypeComboBox.Location = new System.Drawing.Point(376, 54);
+            this.StudentPersonalDocumentTypeComboBox.Location = new System.Drawing.Point(410, 93);
             this.StudentPersonalDocumentTypeComboBox.Name = "StudentPersonalDocumentTypeComboBox";
             this.StudentPersonalDocumentTypeComboBox.Size = new System.Drawing.Size(199, 21);
-            this.StudentPersonalDocumentTypeComboBox.TabIndex = 221;
+            this.StudentPersonalDocumentTypeComboBox.TabIndex = 315;
             // 
             // PersonalDocumentTypeLabel
             // 
             this.PersonalDocumentTypeLabel.AutoSize = true;
-            this.PersonalDocumentTypeLabel.Location = new System.Drawing.Point(338, 54);
+            this.PersonalDocumentTypeLabel.Location = new System.Drawing.Point(372, 93);
             this.PersonalDocumentTypeLabel.Name = "PersonalDocumentTypeLabel";
             this.PersonalDocumentTypeLabel.Size = new System.Drawing.Size(29, 13);
-            this.PersonalDocumentTypeLabel.TabIndex = 220;
+            this.PersonalDocumentTypeLabel.TabIndex = 314;
             this.PersonalDocumentTypeLabel.Text = "Вид:";
             // 
             // PersonalDocumentLabel
             // 
             this.PersonalDocumentLabel.AutoSize = true;
             this.PersonalDocumentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PersonalDocumentLabel.Location = new System.Drawing.Point(335, 37);
+            this.PersonalDocumentLabel.Location = new System.Drawing.Point(369, 76);
             this.PersonalDocumentLabel.Name = "PersonalDocumentLabel";
             this.PersonalDocumentLabel.Size = new System.Drawing.Size(203, 13);
-            this.PersonalDocumentLabel.TabIndex = 219;
+            this.PersonalDocumentLabel.TabIndex = 313;
             this.PersonalDocumentLabel.Text = "Документ, удостоверяющий личность:";
             // 
             // StudentPassportNoTextBox
             // 
-            this.StudentPassportNoTextBox.Location = new System.Drawing.Point(475, 81);
+            this.StudentPassportNoTextBox.Location = new System.Drawing.Point(509, 120);
             this.StudentPassportNoTextBox.Name = "StudentPassportNoTextBox";
             this.StudentPassportNoTextBox.Size = new System.Drawing.Size(100, 20);
-            this.StudentPassportNoTextBox.TabIndex = 218;
+            this.StudentPassportNoTextBox.TabIndex = 312;
             // 
             // PassportNoLabel
             // 
             this.PassportNoLabel.AutoSize = true;
-            this.PassportNoLabel.Location = new System.Drawing.Point(428, 88);
+            this.PassportNoLabel.Location = new System.Drawing.Point(462, 127);
             this.PassportNoLabel.Name = "PassportNoLabel";
             this.PassportNoLabel.Size = new System.Drawing.Size(41, 13);
-            this.PassportNoLabel.TabIndex = 217;
+            this.PassportNoLabel.TabIndex = 311;
             this.PassportNoLabel.Text = "Номер";
             // 
             // StudentPassportSeriesTextBox
             // 
-            this.StudentPassportSeriesTextBox.Location = new System.Drawing.Point(385, 81);
+            this.StudentPassportSeriesTextBox.Location = new System.Drawing.Point(419, 120);
             this.StudentPassportSeriesTextBox.Name = "StudentPassportSeriesTextBox";
             this.StudentPassportSeriesTextBox.Size = new System.Drawing.Size(37, 20);
-            this.StudentPassportSeriesTextBox.TabIndex = 216;
+            this.StudentPassportSeriesTextBox.TabIndex = 310;
             // 
             // PassportSeriesLabel
             // 
             this.PassportSeriesLabel.AutoSize = true;
-            this.PassportSeriesLabel.Location = new System.Drawing.Point(341, 88);
+            this.PassportSeriesLabel.Location = new System.Drawing.Point(375, 127);
             this.PassportSeriesLabel.Name = "PassportSeriesLabel";
             this.PassportSeriesLabel.Size = new System.Drawing.Size(38, 13);
-            this.PassportSeriesLabel.TabIndex = 215;
+            this.PassportSeriesLabel.TabIndex = 309;
             this.PassportSeriesLabel.Text = "Серия";
             // 
             // StudentPersonPINTextBox
             // 
-            this.StudentPersonPINTextBox.Location = new System.Drawing.Point(131, 34);
+            this.StudentPersonPINTextBox.Location = new System.Drawing.Point(165, 73);
             this.StudentPersonPINTextBox.Name = "StudentPersonPINTextBox";
             this.StudentPersonPINTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentPersonPINTextBox.TabIndex = 165;
+            this.StudentPersonPINTextBox.TabIndex = 259;
             // 
             // PINLabel
             // 
             this.PINLabel.AutoSize = true;
-            this.PINLabel.Location = new System.Drawing.Point(61, 41);
+            this.PINLabel.Location = new System.Drawing.Point(95, 80);
             this.PINLabel.Name = "PINLabel";
             this.PINLabel.Size = new System.Drawing.Size(64, 13);
-            this.PINLabel.TabIndex = 214;
+            this.PINLabel.TabIndex = 308;
             this.PINLabel.Text = "ПИН (ИНН)";
             // 
             // StudentPersonNationalityComboBox
             // 
             this.StudentPersonNationalityComboBox.FormattingEnabled = true;
-            this.StudentPersonNationalityComboBox.Location = new System.Drawing.Point(131, 192);
+            this.StudentPersonNationalityComboBox.Location = new System.Drawing.Point(165, 231);
             this.StudentPersonNationalityComboBox.Name = "StudentPersonNationalityComboBox";
             this.StudentPersonNationalityComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentPersonNationalityComboBox.TabIndex = 195;
+            this.StudentPersonNationalityComboBox.TabIndex = 289;
             // 
             // StudentPersonGenderComboBox
             // 
             this.StudentPersonGenderComboBox.FormattingEnabled = true;
-            this.StudentPersonGenderComboBox.Location = new System.Drawing.Point(131, 164);
+            this.StudentPersonGenderComboBox.Location = new System.Drawing.Point(165, 203);
             this.StudentPersonGenderComboBox.Name = "StudentPersonGenderComboBox";
             this.StudentPersonGenderComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentPersonGenderComboBox.TabIndex = 182;
+            this.StudentPersonGenderComboBox.TabIndex = 276;
             // 
             // GenderLabel
             // 
             this.GenderLabel.AutoSize = true;
-            this.GenderLabel.Location = new System.Drawing.Point(96, 172);
+            this.GenderLabel.Location = new System.Drawing.Point(130, 211);
             this.GenderLabel.Name = "GenderLabel";
             this.GenderLabel.Size = new System.Drawing.Size(27, 13);
-            this.GenderLabel.TabIndex = 198;
+            this.GenderLabel.TabIndex = 292;
             this.GenderLabel.Text = "Пол";
             // 
             // GroupLabel
             // 
             this.GroupLabel.AutoSize = true;
-            this.GroupLabel.Location = new System.Drawing.Point(569, 426);
+            this.GroupLabel.Location = new System.Drawing.Point(603, 465);
             this.GroupLabel.Name = "GroupLabel";
             this.GroupLabel.Size = new System.Drawing.Size(42, 13);
-            this.GroupLabel.TabIndex = 180;
+            this.GroupLabel.TabIndex = 274;
             this.GroupLabel.Text = "Группа";
             // 
             // StudentGroupComboBox
             // 
             this.StudentGroupComboBox.FormattingEnabled = true;
-            this.StudentGroupComboBox.Location = new System.Drawing.Point(617, 418);
+            this.StudentGroupComboBox.Location = new System.Drawing.Point(651, 457);
             this.StudentGroupComboBox.Name = "StudentGroupComboBox";
             this.StudentGroupComboBox.Size = new System.Drawing.Size(148, 21);
-            this.StudentGroupComboBox.TabIndex = 212;
+            this.StudentGroupComboBox.TabIndex = 306;
             // 
             // StudentPersonBirthDateDateTimePicker
             // 
             this.StudentPersonBirthDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.StudentPersonBirthDateDateTimePicker.Location = new System.Drawing.Point(131, 138);
+            this.StudentPersonBirthDateDateTimePicker.Location = new System.Drawing.Point(165, 177);
             this.StudentPersonBirthDateDateTimePicker.Name = "StudentPersonBirthDateDateTimePicker";
             this.StudentPersonBirthDateDateTimePicker.Size = new System.Drawing.Size(148, 20);
-            this.StudentPersonBirthDateDateTimePicker.TabIndex = 177;
+            this.StudentPersonBirthDateDateTimePicker.TabIndex = 271;
             // 
             // BirthDateLabel
             // 
             this.BirthDateLabel.AutoSize = true;
-            this.BirthDateLabel.Location = new System.Drawing.Point(39, 144);
+            this.BirthDateLabel.Location = new System.Drawing.Point(73, 183);
             this.BirthDateLabel.Name = "BirthDateLabel";
             this.BirthDateLabel.Size = new System.Drawing.Size(86, 13);
-            this.BirthDateLabel.TabIndex = 175;
+            this.BirthDateLabel.TabIndex = 269;
             this.BirthDateLabel.Text = "Дата рождения";
             // 
             // StudentPersonMiddleNameTextBox
             // 
-            this.StudentPersonMiddleNameTextBox.Location = new System.Drawing.Point(131, 112);
+            this.StudentPersonMiddleNameTextBox.Location = new System.Drawing.Point(165, 151);
             this.StudentPersonMiddleNameTextBox.Name = "StudentPersonMiddleNameTextBox";
             this.StudentPersonMiddleNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentPersonMiddleNameTextBox.TabIndex = 176;
+            this.StudentPersonMiddleNameTextBox.TabIndex = 270;
             // 
             // StudentPersonFirstNameTextBox
             // 
-            this.StudentPersonFirstNameTextBox.Location = new System.Drawing.Point(131, 86);
+            this.StudentPersonFirstNameTextBox.Location = new System.Drawing.Point(165, 125);
             this.StudentPersonFirstNameTextBox.Name = "StudentPersonFirstNameTextBox";
             this.StudentPersonFirstNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentPersonFirstNameTextBox.TabIndex = 173;
+            this.StudentPersonFirstNameTextBox.TabIndex = 267;
             // 
             // StudentPersonLastNameTextBox
             // 
-            this.StudentPersonLastNameTextBox.Location = new System.Drawing.Point(131, 60);
+            this.StudentPersonLastNameTextBox.Location = new System.Drawing.Point(165, 99);
             this.StudentPersonLastNameTextBox.Name = "StudentPersonLastNameTextBox";
             this.StudentPersonLastNameTextBox.Size = new System.Drawing.Size(148, 20);
-            this.StudentPersonLastNameTextBox.TabIndex = 171;
+            this.StudentPersonLastNameTextBox.TabIndex = 265;
             // 
             // MiddleNameLabel
             // 
             this.MiddleNameLabel.AutoSize = true;
-            this.MiddleNameLabel.Location = new System.Drawing.Point(71, 119);
+            this.MiddleNameLabel.Location = new System.Drawing.Point(105, 158);
             this.MiddleNameLabel.Name = "MiddleNameLabel";
             this.MiddleNameLabel.Size = new System.Drawing.Size(54, 13);
-            this.MiddleNameLabel.TabIndex = 174;
+            this.MiddleNameLabel.TabIndex = 268;
             this.MiddleNameLabel.Text = "Отчество";
             // 
             // FirstNameLabel
             // 
             this.FirstNameLabel.AutoSize = true;
-            this.FirstNameLabel.Location = new System.Drawing.Point(96, 93);
+            this.FirstNameLabel.Location = new System.Drawing.Point(130, 132);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(29, 13);
-            this.FirstNameLabel.TabIndex = 167;
+            this.FirstNameLabel.TabIndex = 261;
             this.FirstNameLabel.Text = "Имя";
             // 
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
-            this.LastNameLabel.Location = new System.Drawing.Point(69, 67);
+            this.LastNameLabel.Location = new System.Drawing.Point(103, 106);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(56, 13);
-            this.LastNameLabel.TabIndex = 160;
+            this.LastNameLabel.TabIndex = 254;
             this.LastNameLabel.Text = "Фамилия";
+            // 
+            // EditButton
+            // 
+            this.EditButton.Location = new System.Drawing.Point(413, 749);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 253;
+            this.EditButton.Text = "Изменить";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // ViewStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 752);
-            this.Controls.Add(this.StudentPayTypeComboBox);
-            this.Controls.Add(this.LearningDetailsLabel);
-            this.Controls.Add(this.EnrollmentDetailsLabel);
-            this.Controls.Add(this.StudentEducationEndTypeComboBox);
-            this.Controls.Add(this.NationalityLabel);
-            this.Controls.Add(this.StudentEducationDirectionComboBox);
-            this.Controls.Add(this.CurrentEducationDetailsLabel);
-            this.Controls.Add(this.StudentEducationEndTypeLabel);
-            this.Controls.Add(this.StudentEducationTypeComboBox);
-            this.Controls.Add(this.StudentStudyModeComboBox);
-            this.Controls.Add(this.StudentIsDisabilityCheckBox);
-            this.Controls.Add(this.StudentEducationDirectionLabel);
-            this.Controls.Add(this.StudentSchoolTypeComboBox);
-            this.Controls.Add(this.StudentProfessionComboBox);
-            this.Controls.Add(this.StudentIsDisabilityLabel);
-            this.Controls.Add(this.StudentStudyModeLabel);
-            this.Controls.Add(this.StudentEducationDocumentStatusComboBox);
-            this.Controls.Add(this.StudentSectorComboBox);
-            this.Controls.Add(this.StudentHasCriminalRecordCheckBox);
-            this.Controls.Add(this.StudentProfessionLabel);
-            this.Controls.Add(this.StudentSchoolTypeLabel);
-            this.Controls.Add(this.StudentStudyPeriodComboBox);
-            this.Controls.Add(this.StudentHasCriminalRecordLabel);
-            this.Controls.Add(this.StudentSectorLabel);
-            this.Controls.Add(this.StudentEducationDocumentTypeComboBox);
-            this.Controls.Add(this.StudentStudyPeriodLabel);
-            this.Controls.Add(this.StudentPassedResultExamComboBox);
-            this.Controls.Add(this.StudentPassedQualifExamComboBox);
-            this.Controls.Add(this.StudentAdmittedToResultExamComboBox);
-            this.Controls.Add(this.StudentPassedResultExamLabel);
-            this.Controls.Add(this.StudentAdmittedToQualifExamComboBox);
-            this.Controls.Add(this.StudentPassedQualifExamLabel);
-            this.Controls.Add(this.StudentEmailTextBox);
-            this.Controls.Add(this.StudentAdmittedToResultExamLabel);
-            this.Controls.Add(this.StudentReceiptTypeComboBox);
-            this.Controls.Add(this.StudentAdmittedToQualifExamLabel);
-            this.Controls.Add(this.StudentEducationDocumentStatusLabel);
-            this.Controls.Add(this.StudentReceiptTypeLabel);
-            this.Controls.Add(this.StudentPayTypeLabel);
-            this.Controls.Add(this.StudentEmailLabel);
-            this.Controls.Add(this.StudentYearTextBox);
-            this.Controls.Add(this.StudentEducationDocumentTypeLabel);
-            this.Controls.Add(this.StudentYearLabel);
-            this.Controls.Add(this.StudentMobilePhoneTextBox);
-            this.Controls.Add(this.StudentEducationTypeLabel);
-            this.Controls.Add(this.StudentSecondaryEducationYearTextBox);
-            this.Controls.Add(this.StudentMobilePhoneLabel);
-            this.Controls.Add(this.StudentSecondaryEducationYearLabel);
-            this.Controls.Add(this.StudentHomePhoneTextBox);
-            this.Controls.Add(this.StudentSchoolNameTextBox);
-            this.Controls.Add(this.StudentHomePhoneLabel);
-            this.Controls.Add(this.StudentSchoolNameLabel);
-            this.Controls.Add(this.ContactsLabel);
-            this.Controls.Add(this.StudentEducationDocumentNoTextBox);
-            this.Controls.Add(this.StudentIsNeedHostelCheckBox);
-            this.Controls.Add(this.StudentEducationDocumentNoLabel);
-            this.Controls.Add(this.StudentIsNeedHostelLabel);
-            this.Controls.Add(this.StudentAddressTextBox);
-            this.Controls.Add(this.StudentAddressLabel);
-            this.Controls.Add(this.AboutStudentLabel);
-            this.Controls.Add(this.StudentMilitaryStatusComboBox);
-            this.Controls.Add(this.StudentSocialStatusComboBox);
-            this.Controls.Add(this.StudentMilitaryStatusLabel);
-            this.Controls.Add(this.StudentSocialStatusLabel);
-            this.Controls.Add(this.StudentDistrictComboBox);
-            this.Controls.Add(this.StudentDistrictLabel);
-            this.Controls.Add(this.StudentAreaComboBox);
-            this.Controls.Add(this.StudentAreaLabel);
-            this.Controls.Add(this.AddressRegLabel);
-            this.Controls.Add(this.StudentCitizenshipComboBox);
-            this.Controls.Add(this.StudentCitizenshipLabel);
-            this.Controls.Add(this.StudentPersonalDocumentTypeComboBox);
-            this.Controls.Add(this.PersonalDocumentTypeLabel);
-            this.Controls.Add(this.PersonalDocumentLabel);
-            this.Controls.Add(this.StudentPassportNoTextBox);
-            this.Controls.Add(this.PassportNoLabel);
-            this.Controls.Add(this.StudentPassportSeriesTextBox);
-            this.Controls.Add(this.PassportSeriesLabel);
-            this.Controls.Add(this.StudentPersonPINTextBox);
-            this.Controls.Add(this.PINLabel);
-            this.Controls.Add(this.StudentPersonNationalityComboBox);
-            this.Controls.Add(this.StudentPersonGenderComboBox);
-            this.Controls.Add(this.GenderLabel);
-            this.Controls.Add(this.GroupLabel);
-            this.Controls.Add(this.StudentGroupComboBox);
-            this.Controls.Add(this.StudentPersonBirthDateDateTimePicker);
-            this.Controls.Add(this.BirthDateLabel);
-            this.Controls.Add(this.StudentPersonMiddleNameTextBox);
-            this.Controls.Add(this.StudentPersonFirstNameTextBox);
-            this.Controls.Add(this.StudentPersonLastNameTextBox);
-            this.Controls.Add(this.MiddleNameLabel);
-            this.Controls.Add(this.FirstNameLabel);
-            this.Controls.Add(this.LastNameLabel);
-            this.Controls.Add(this.EditButton);
+            this.ClientSize = new System.Drawing.Size(1135, 821);
+            this.Controls.Add(this.DefPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр учащегося";
+            this.DefPanel.ResumeLayout(false);
+            this.DefPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Panel DefPanel;
         private System.Windows.Forms.ComboBox StudentPayTypeComboBox;
         private System.Windows.Forms.Label LearningDetailsLabel;
         private System.Windows.Forms.Label EnrollmentDetailsLabel;
@@ -1130,5 +1143,6 @@
         private System.Windows.Forms.Label MiddleNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Button EditButton;
     }
 }
