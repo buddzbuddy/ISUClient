@@ -24,6 +24,7 @@ namespace UI.ContingentForms
             StudentPassportNoTextBox.Text = obj.PassportNo;
 
             FormManager.InitializeComboBoxes(this, obj);
+
         }
 
         private void EditButton_Click(object sender, EventArgs e)

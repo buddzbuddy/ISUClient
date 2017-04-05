@@ -23,7 +23,9 @@ namespace UI.ContingentForms
         public EditStudentForm(ContingentForm contingentForm, Student obj)
         {
             InitializeComponent();
-
+            this.AutoScroll = true;
+            this.HScroll = true;
+            this.VScroll = true;
             _contingentForm = contingentForm;
             _obj = obj;
 
@@ -117,5 +119,17 @@ namespace UI.ContingentForms
             }
             return true;
         }
+
+        /*private void EditStudentForm_Load(object sender, EventArgs e)
+        {
+            Panel my_panel = new Panel();
+            VScrollBar vScroller = new VScrollBar();
+            vScroller.Dock = DockStyle.Right;
+            vScroller.Width = 30;
+            vScroller.Height = 200;
+            vScroller.Name = "VScrollBar1";
+            my_panel.Controls.Add(vScroller);
+            
+        }*/
     }
 }

@@ -59,7 +59,7 @@ namespace UI.AccountForms
                 {
                     positionName = OrgStructures.GetPositionName(positionId);
 
-                    if (positionId == OrgStructures.StudentEntryPositionId)
+                    /*if (positionId == OrgStructures.StudentEntryPositionId)
                     {
                         _formMain.EnableContingent();
                     }
@@ -74,7 +74,8 @@ namespace UI.AccountForms
                     else if (positionId == OrgStructures.AllEntryPositionId)
                     {
                         _formMain.EnableAll();
-                    }
+                    }*/
+                    _formMain.EnableAll();
                 }
 
 

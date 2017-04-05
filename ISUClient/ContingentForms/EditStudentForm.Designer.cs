@@ -124,6 +124,7 @@
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
+            this.DefPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // CancelButton
@@ -937,11 +938,23 @@
             this.LastNameLabel.TabIndex = 130;
             this.LastNameLabel.Text = "Фамилия";
             // 
+            // DefPanel
+            // 
+            this.DefPanel.AutoScroll = true;
+            this.DefPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DefPanel.Location = new System.Drawing.Point(0, 0);
+            this.DefPanel.Name = "DefPanel";
+            this.DefPanel.Size = new System.Drawing.Size(1082, 772);
+            this.DefPanel.TabIndex = 223;
+            // 
             // EditStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 809);
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(15, 10);
+            this.AutoScrollMinSize = new System.Drawing.Size(10, 10);
+            this.ClientSize = new System.Drawing.Size(1082, 772);
             this.Controls.Add(this.StudentPayTypeComboBox);
             this.Controls.Add(this.LearningDetailsLabel);
             this.Controls.Add(this.EnrollmentDetailsLabel);
@@ -1037,6 +1050,7 @@
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.DefPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1143,5 +1157,6 @@
         private System.Windows.Forms.Label MiddleNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Panel DefPanel;
     }
 }
