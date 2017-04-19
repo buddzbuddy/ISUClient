@@ -35,6 +35,7 @@ namespace Domain.StaticReferences
         private static Guid RoofTypeEnumDefId = new Guid("{5EB9BF6A-1809-4245-8C05-E203CBEC4733}");
         private static Guid StateEnumDefId = new Guid("{CD2BE2E0-80DB-43E0-9014-7283FF9EA521}");
         private static Guid HeatingSystemEnumDefId = new Guid("{D96E7075-192E-4C2C-99D1-C7F820EBE4D4}");
+        private static Guid EquipmentCategoryEnumDefId = new Guid("{14B78641-5ADD-42F9-B422-F4E3BFDFCCC3}");
         private static Dictionary<string, Guid> EnumDefIds = new Dictionary<string, Guid>
         {
             {"Language", LanguageEnumDefId},
@@ -62,7 +63,8 @@ namespace Domain.StaticReferences
             {"BuildingPurpose", BuildingPurposeEnumDefId},
             {"RoofType", RoofTypeEnumDefId},
             {"State", StateEnumDefId},
-            {"HeatingSystem", HeatingSystemEnumDefId}
+            {"HeatingSystem", HeatingSystemEnumDefId},
+            {"EquipmentCategory", EquipmentCategoryEnumDefId}
         };
 
         public static List<EnumDef> EnumDefs = new List<EnumDef>();

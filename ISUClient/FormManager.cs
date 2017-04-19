@@ -97,7 +97,7 @@ namespace UI
                 else if (objType.Name.Equals(typeof(Profession).Name))
                 {
                     if (_docRepo.GetAll<Profession>() != null)
-                    dataSource = _docRepo.GetAll<Profession>().ToList();
+                        dataSource = _docRepo.GetAll<Profession>().ToList();
                 }
                 else if (objType.Name.Equals(typeof(Group).Name))
                 {
@@ -136,7 +136,7 @@ namespace UI
         public static void LoadToDataGridView<T>(DataGridView dataGridView, IEnumerable<T> entries)
         {
             dataGridView.Rows.Clear();
-            if (entries == null) return;
+            if (entries == null || entries.Count() == 0) return;
             foreach (var obj in entries)
             {
                 var newIndex = dataGridView.Rows.Add();
@@ -186,10 +186,16 @@ namespace UI
             foreach (var property in obj.GetType().GetProperties().Where(x => x.IsDefined(typeof(EnumMemberAttribute), false) || x.IsDefined(typeof(DocMemberAttribute), false)))
             {
                 var controlName = parentObjName + obj.GetType().Name + property.Name + "ComboBox";
-                var panel = form.Controls["DefPanel"] as Panel;
-                if (panel.Controls.ContainsKey(controlName))
+                var panelName = "DefPanel";
+                var controls = form.Controls;
+                if (controls.ContainsKey(panelName))
                 {
-                    var control = panel.Controls[controlName];
+                    var panel = form.Controls[panelName] as Panel;
+                    controls = panel.Controls;
+                }
+                if (controls.ContainsKey(controlName))
+                {
+                    var control = controls[controlName];
                     if (control is ComboBox)
                     {
                         var cb = (ComboBox)control;

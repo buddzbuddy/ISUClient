@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.StaticReferences;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,6 @@ namespace Logic.Repositories
         public string UploadLocalDB(out string resval, string u, string p)
         {
             string html = "";
-            string h = "";
             using (var client = new CookieAwareWebClient())
             {
                 var values = new NameValueCollection
@@ -74,7 +74,7 @@ namespace Logic.Repositories
                 
                 client.DownloadString(HostAddress + "/Home/RunProcess/fc760b10-5f5a-4bad-a4a3-de3792ca9fdb?menuId=5461a579-c1a2-4196-ae74-4973ac4f4a58");
                 
-                html = UploadFileEx("D:\\distr\\LocalDB.xml", HostAddress + "/Form/Upload/", "attachments", "text/xml", values, client.CookieContainer);
+                html = UploadFileEx(DBConfigInfo.LocalDBFileName, HostAddress + "/Form/Upload/", "attachments", "text/xml", values, client.CookieContainer);
                 
                 client.DownloadString(HostAddress + "/Form/UserAction/b268d7b7-f3d6-4c2d-a863-97a1f0887222");//finish process
             }

@@ -24,16 +24,17 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://isuoffline.kesip.kg/</InstallUrl>
+    <UpdateUrl>http://isuoffline.kesip.kg/</UpdateUrl>
     <SupportUrl>http://isu.kesip.kg:8080/Home/About</SupportUrl>
     <ErrorReportUrl>http://isu.kesip.kg:8080/Home/About</ErrorReportUrl>
     <TargetCulture>ru-KG</TargetCulture>
     <ProductName>ИСУ-оффлайн</ProductName>
     <PublisherName>АНСПО</PublisherName>
     <SuiteName>Автономный клиент</SuiteName>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>13</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -205,11 +206,23 @@
     <Compile Include="MTBForms\AddBuildingForm.Designer.cs">
       <DependentUpon>AddBuildingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MTBForms\AddEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\AddEquipment.Designer.cs">
+      <DependentUpon>AddEquipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="MTBForms\EditBuildingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MTBForms\EditBuildingForm.Designer.cs">
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MTBForms\EditEquipmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MTBForms\EditEquipmentForm.Designer.cs">
+      <DependentUpon>EditEquipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MTBForms\MTBForm.cs">
       <SubType>Form</SubType>
@@ -303,8 +316,14 @@
     <EmbeddedResource Include="MTBForms\AddBuildingForm.resx">
       <DependentUpon>AddBuildingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\AddEquipment.resx">
+      <DependentUpon>AddEquipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MTBForms\EditBuildingForm.resx">
       <DependentUpon>EditBuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MTBForms\EditEquipmentForm.resx">
+      <DependentUpon>EditEquipmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MTBForms\MTBForm.resx">
       <DependentUpon>MTBForm.cs</DependentUpon>

@@ -19,6 +19,7 @@ namespace UI.MTBForms
             InitializeComponent();
             var _docRepo = new DocRepository();
             FormManager.LoadToDataGridView(DataGridViewBuildings, _docRepo.GetAll<Building>());
+            FormManager.LoadToDataGridView(DataGridViewEquipments, _docRepo.GetAll<Equipment>());
         }
 
         private void DataGridViewBuildings_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,6 +97,65 @@ namespace UI.MTBForms
         {
             var _addBuildingForm = new AddBuildingForm(this);
             DialogResult dialog = _addBuildingForm.ShowDialog();
+        }
+
+        private void AddEquipmentButton_Click(object sender, EventArgs e)
+        {
+            var _addEquipmentForm = new AddEquipmentForm(this);
+            DialogResult dialog = _addEquipmentForm.ShowDialog();
+        }
+
+        private void DataGridViewEquipments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = DataGridViewEquipments.Rows[e.RowIndex];
+                var cell = row.Cells[e.ColumnIndex];
+                var EquipmentId = (Guid)row.Cells["EquipmentId"].Value;
+                if (cell.Equals(row.Cells["EditEquipmentLink"]))//Edit button clicked
+                {
+                    EditEquipment(EquipmentId);
+                }
+                else if (cell.Equals(row.Cells["DeleteEquipmentLink"]))//Delete button clicked
+                {
+                    //DeleteEquipment(EquipmentId);
+                }
+                else if (cell.Equals(row.Cells["ShowEquipmentLink"]))//Show button clicked
+                {
+                    //ShowEquipment(EquipmentId);
+                }
+            }
+        }
+
+        public void EditEquipment(Guid EquipmentId)
+        {
+            var _docRepo = new DocRepository();
+            var obj = _docRepo.Get<Equipment>(EquipmentId);
+            var _editEquipmentForm = new EditEquipmentForm(this, obj);
+            DialogResult dialog = _editEquipmentForm.ShowDialog();
+        }
+        private void DeleteEquipment(Guid EquipmentId)
+        {
+            var _docRepo = new DocRepository();
+
+            var obj = _docRepo.Get<Equipment>(EquipmentId);
+
+            var confirmResult = MessageBox.Show("Вы уверены что хотите удалить оборудование?",
+                             "Подтверждение",
+                             MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                try
+                {
+                    _docRepo.Delete<Equipment>(EquipmentId);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Ошибка произошла при попытке удалить оборудование, текст ошибки: " + e.Message);
+                    return;
+                }
+                FormManager.LoadToDataGridView(DataGridViewEquipments, _docRepo.GetAll<Equipment>());
+            }
         }
     }
 }

@@ -79,12 +79,12 @@ namespace UI
                 string resval = "";
                 try
                 {
+                    SetInfo(Environment.NewLine + "Начинаю загрузку...");
+                    SetInfo(Environment.NewLine + "Загрузка завершена. Результат:" + Environment.NewLine + syncRepo.UploadLocalDB(out resval, _formMain._u, _formMain._p));
                     SetInfo(Environment.NewLine + "Отправка запроса...");
                     result = syncRepo.GetLocalDB(out resval, _formMain._u, _formMain._p);
                     SetInfo(Environment.NewLine + "Данные получены");
                     SetInfo(Environment.NewLine + "Выгрузка успешно завершена.");
-                    //SetInfo(Environment.NewLine + "Начинаю загрузку...");
-                    //SetInfo(Environment.NewLine + "Загрузка завершена. Результат:" + Environment.NewLine + syncRepo.UploadLocalDB(out resval, _formMain._u, _formMain._p));
                 }
                 catch (Exception ex)
                 {

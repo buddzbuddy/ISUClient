@@ -1053,6 +1053,7 @@
             this.Name = "AddStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить учащегося";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.DefPanel.ResumeLayout(false);
             this.DefPanel.PerformLayout();
             this.ResumeLayout(false);
